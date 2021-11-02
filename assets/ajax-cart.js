@@ -361,7 +361,7 @@ function openAjaxCart(cart) {
   
         output += `
         <div class="ajaxcart__product">
-            <div class="ajaxcart__row" data-line="1">
+            <div class="ajaxcart__row" data-line="${i + 1}">
                 <div class="grid">
                     <div class="grid__item one-quarter">
                         <a href="${item.url}" class="ajaxcart__product-image">
