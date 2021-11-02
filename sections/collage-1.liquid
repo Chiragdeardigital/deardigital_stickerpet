@@ -1,0 +1,171 @@
+<section class="gallery">
+  <div class="row {% if section.settings.reverse_columns %} row-reverse{% endif %}">
+    <div class="column-50 self-center no-m">
+      <div class="text-block">
+        <h2 class="h3 headings">{{ section.settings.header_text }}</h2>
+        <p class="para">
+         {{ section.settings.para_text }}
+        </p>
+
+        <div class="flex">
+          {%- for block in section.blocks -%}
+          {% case block.type %}
+          {%- when 'buttons' -%}
+          <a href="{{ block.settings.btn_url }}" class="button">
+           {{ block.settings.btn_text }}
+          </a>
+          {%- endcase -%}
+          {%- endfor -%}
+
+        </div>
+      </div>
+    </div>
+    
+    <div class="column-50 self-center no-d mobile-100">
+      <div class="text-block">
+        <h2 class="h3 headings">{{ section.settings.mobile_header_text }}</h2>
+        <p class="para">
+         {{ section.settings.mobile_para_text }}
+        </p>
+
+        <div class="flex">
+          {%- for block in section.blocks -%}
+          {% case block.type %}
+          {%- when 'mobilebuttons' -%}
+          <a href="{{ block.settings.mobile_btn_url }}" class="button">
+           {{ block.settings.mobile_btn_text }}
+          </a>
+          {%- endcase -%}
+          {%- endfor -%}
+
+        </div>
+      </div>
+    </div>
+    
+    <div class="column-50 mobile-100">
+      <div class="v-center">
+        <div class="row">
+          {%- for block in section.blocks -%}
+          	{% case block.type %}
+          		{%- when 'collage_image' -%}
+          			<div class="column-50">
+                      {% if block.settings.collage_image != blank %}
+                      <img srcset="{% if  block.settings.collage_image.width >= 288 %}{{  block.settings.collage_image | img_url: '288x' }} 288w,{% endif %}
+                                   {% if  block.settings.collage_image.width >= 576 %}{{  block.settings.collage_image | img_url: '576x' }} 576w,{% endif %}
+                                   {% if  block.settings.collage_image.width >= 550 %}{{  block.settings.collage_image | img_url: '550x' }} 550w,{% endif %}
+                                   {% if  block.settings.collage_image.width >= 1100 %}{{  block.settings.collage_image | img_url: '1100x' }} 1100w{% endif %}"
+                           src="{{ block.settings.collage_image | img_url: '533x' }}" 
+                           alt="{{ block.settings.collage_image.alt }}" 
+                           loading="lazy">
+                      {% else %}
+                      {{ 'lifestyle-2' | placeholder_svg_tag }}
+                      {% endif %}
+          			</div>
+          	{%- endcase -%}
+          {%- endfor -%}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+    "name": "Image collage with text",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "reverse_columns",
+            "default": true,
+            "label": "Swap image-block and text-block"
+        },
+        {
+            "id": "header_text",
+            "type": "text",
+            "label": "Heading",
+            "default": "Stick & share with friends"
+        },
+        {
+            "id": "para_text",
+            "type": "html",
+            "label": "Text",
+            "default": " With a pack of 21 stickers, you can have a lot of stickering fun. We recommend sticking your pet’s faces on smooth and clean surfaces like:<br><br><span class='list-icon'>💻 📱 🎸 🛹</span> <br>Yeah, you got it, almost everywhere!<br><br>Oh psst, you can also share them with your friends and make your pet the rock star on Instagram."
+        },
+        {
+            "id": "mobile_header_text",
+            "type": "html",
+            "label": "Mobile Heading",
+            "default": "Share them.<br>Gift them."
+        },
+        {
+            "id": "mobile_para_text",
+            "type": "html",
+            "label": "Mobile Text",
+            "default": "These stickers are meant to be shared with your friends and family.<br><br>It is even easier to gift the stickers with a reusable pouch. There is no better gift than a personal one."
+        }
+    ],
+    "blocks": [
+        {
+            "type": "collage_image",
+            "name": "Image",
+            "limit": 4,
+            "settings": [
+                {
+                    "id": "collage_image",
+                    "type": "image_picker",
+                    "label": "Add image"
+                }
+            ]
+        },
+        {
+            "type": "buttons",
+            "name": "Button",
+            "limit": 3,
+            "settings": [
+                {
+                    "id": "btn_text",
+                    "type": "text",
+                    "label": "Button text",
+                    "default": "NEW"
+                },
+                {
+                    "id": "btn_url",
+                    "type": "url",
+                    "label": "Button url"
+                }
+            ]
+        },
+        {
+            "type": "mobilebuttons",
+            "name": "Mobile Button",
+            "limit": 1,
+            "settings": [
+                {
+                    "id": "mobile_btn_text",
+                    "type": "text",
+                    "label": "Mobile Button text",
+                    "default": "Gift them"
+                },
+                {
+                    "id": "mobile_btn_url",
+                    "type": "url",
+                    "label": "Mobile Button url"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Image collage with text",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

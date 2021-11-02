@@ -1,0 +1,203 @@
+{{ 'cart-template.css' | asset_url | stylesheet_tag }}
+<div id="NavDrawer" class="drawer drawer--left no-d">
+    {% include 'drawer-menu' %}
+</div>
+<div class="header-container">
+
+  <div class="announcement-bar">
+    <ul class="topbar-usp-list" data-slide-speed="4000">
+
+      {%- for block in section.blocks -%}
+      {% case block.type %}
+      {%- when 'announcement' -%}
+      <li class="topbar-usp-item {% if forloop.index == 1  %}is-visible{% endif %}">
+        <p class="announcement-bar__message">{{ block.settings.announcement_text }}</p>
+      </li>
+      {%- endcase -%}
+      {%- endfor -%}
+
+    </ul>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="flex">
+        <div id="menu-btn" class="menu-btn no-d js-drawer-open-button-left" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="logo-wrapper">
+          <div class="logo">
+            <a href="/" class="site-header-logo-image">
+              {% if section.settings.brand_img != blank %}
+
+              <img src="{{ section.settings.brand_img | img_url: "533x" }}"
+                   srcset="{{ section.settings.brand_img | img_url: "533x" }} 1x, {{ section.settings.brand_img | img_url: "533x" }} 2x"
+                   alt="StickerPet" itemprop="logo" loading="lazy">
+              {% else %}
+              {{ 'product-3' | placeholder_svg_tag }}
+              {% endif %}
+            </a>
+          </div>
+        </div>
+        <nav class="nav-wrapper">
+          <ul class="nav-items site-nav site-nav--init" id="AccessibleNav">
+            {%- for block in section.blocks -%}
+            {% case block.type %}
+            {%- when 'Menu' -%}
+            {%- for link in linklists[block.settings.header_menu].links -%}
+            <li class="nav-item  {% if link.links != blank %}display-menu{% endif %}">
+              <a href="{{ link.url }}" class="nav-link" id="{%- if link.links != blank -%}dropdownMenuHover{%- endif -%}">
+               {% if link.links != blank %}{% include "icon-chevron" %}{% endif %}
+                {{ link.title }}
+              </a>
+            </li>
+            {%- endfor -%}
+             {%- endcase -%}
+            {%- endfor -%}
+
+            <li class="nav-item lang">
+              <div class="nav-link">
+                {% include "icon-flag" %}
+                EN
+                {% include "icon-chevron" %}
+              </div>
+            </li>
+            <li class="nav-item currency">
+              <button class="site-nav__link site-nav__link--icon nav-link currency-changer">
+                <span class="currency-icon">
+                  <span class="front">€</span>
+                  <span class="back">£</span>
+                </span>
+              </button>
+
+            </li>
+            <li id="cartBtn" class="nav-item cart" aria-controls="CartDrawer" aria-expanded="true">
+             
+              <div class="nav-link site-nav__link site-nav__link--icon cart-link js-drawer-open-button-right" >
+                {% if cart.item_count > 0 %}
+                <img id="cartLogo" src="{{"fullcart-bowl-thicker-100px-01.png" | asset_url}}" alt="full cart bowl" srcset="">
+                {% else %}
+                <img id="cartLogo" src="{{"cart-bowl-thicker-100px-01.png" | asset_url}}" alt="cart bowl" srcset="">
+                {% endif %}
+              </div>
+            </li>
+
+          </ul>
+
+          <!-- ---------------------------DROPDOWN MENU-------------- -->
+          {%- for block in section.blocks -%}
+          {%- case block.type -%}
+          {%- when 'Menu' -%}
+          {%- for link in linklists[block.settings.header_menu].links -%}
+          {%- if link.links != blank -%}
+          <div class="dropdown-menu announcement-bar" aria-labelledby="dropdownMenuButton"
+               id="dropdown-menu">
+            <span class="hover-assist"></span>
+            <div id="dropdownMenuButton" class="container">
+              <div class="row flex">
+                {%- for child_link in link.links -%} 
+                {%- assign product = child_link.object -%}
+                
+                <div class="dropdown-item column-30">
+                  <div class="row">
+                    <div class="column-30 self-center">
+                      {% if product.images.size > 0 %}
+                      {% if product.images.size > 1 %}
+                      {% assign product_image = product.images[1] %}
+                      {% else %}
+                      {% assign product_image = product.featured_image %}
+                      {% endif %}
+                      <img 
+                           srcset="{% if product_image.width >= 288 %}{{ product_image | img_url: '288x' }} 288w,{% endif %}
+                                   {% if product_image.width >= 576 %}{{ product_image | img_url: '576x' }} 576w,{% endif %}
+                                   {% if product_image.width >= 550 %}{{ product_image | img_url: '550x' }} 550w,{% endif %}
+                                   {% if product_image.width >= 1100 %}{{ product_image | img_url: '1100x' }} 1100w{% endif %}"
+                           src="{{ product_image | img_url: '1024x' }}" 
+                           alt="{{ product.title }}" 
+                           class="" 
+                           loading="lazy">
+                      
+                      {% else %}
+                      {{ 'product-1' | placeholder_svg_tag }}
+                      {% endif %}
+                    </div>
+                    <div class="column-60">
+                      <h4 class="caps">{{ product.metafields.my_fields.header_for_dropdown }}</h4>
+                      <p class="nav-bar-items">{{ product.metafields.my_fields.description_for_dropdown }}</p>
+                      <a href="{{ product.url }}" class="button border-button">UPLOAD YOUR PET</a>
+                    </div>
+                  </div>
+                </div>
+                {%- endfor -%}
+
+              </div>
+            </div>
+          </div>
+          {%- endif -%}
+          {%- endfor -%}
+          {%- endcase -%}
+          {%- endfor -%}
+        </nav>
+      </div>
+    </div>
+  </header>
+</div>
+
+{% schema %}
+{
+    "name": "Header",
+    "settings": [
+        {
+            "id": "brand_img",
+            "type": "image_picker",
+            "label": "Header Brand Image"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "Menu",
+            "name": "Header Menu",
+			"limit":1,
+            "settings": [
+                {
+                    "id": "header_menu",
+                    "type": "link_list",
+                    "label": "Menu"
+                }
+            ]
+        },
+        {
+            "type": "mobile_menu",
+            "name": "Mobile menu",
+			"limit":1,
+            "settings": [
+                {
+                    "id": "mobile_menu",
+                    "type": "link_list",
+                    "label": "Mobile menu"
+                }
+            ]
+        },
+        {
+            "type": "announcement",
+            "name": "Announcement Text",
+            "settings": [
+                {
+                    "id": "announcement_text",
+                    "type": "text",
+                    "label": "Text",
+                    "default": "🌴 Some text 🌴"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

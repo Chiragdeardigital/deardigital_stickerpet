@@ -1,0 +1,147 @@
+
+<section class="image-with-text _2 _3">
+  <div class="container">
+    <div class="flex {% if section.settings.reverse_columns %} row-reverse{% endif %} {% if section.settings.change_bg %} gray_bg{% endif %}">
+      <div class="column-30 self-center">
+        <div class="text-block">
+
+          <h2 class="headings">{{ section.settings.header_text }}</h2>
+          <p class="para">{{ section.settings.para_text }}</p>
+          {%- for block in section.blocks -%}
+          {% case block.type %}
+          {%- when 'text_list' -%}
+
+          <div class="row spacing">
+            {% if block.settings.icon_text != blank %}
+            <div class="column-20">
+              <p class="text-center list-icon">{{ block.settings.icon_text }}</p>
+            </div>
+            {% endif %}
+            <div class="column-80">
+              <p class="para">{{ block.settings.list_text }}</p>
+            </div>
+          </div>
+          {%- endcase -%}
+          {%- endfor -%}
+          {% if section.settings.btn_text != blank %}
+          <a href="{{ section.settings.btn_url }}" class="button">
+            {{ section.settings.btn_text }}
+          </a>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="column-60">
+        <div class="v-center">
+          {% if section.settings.video_checkbox %}
+
+          {{ section.settings.video_script }}
+
+          {% else %}
+
+          {% if section.settings.desktop_image != blank %}
+          <img 
+               width="auto"
+           height="auto"
+               src="{{ section.settings.desktop_image | img_url: '533x' }}" alt="{{ section.settings.desktop_image.alt }}" class="full-image" loading="lazy">
+          {% else %}
+          {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg'  }}
+          {% endif %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+{
+    "name": "Image with text 60-40",
+    "settings": [
+        {
+            "id": "header_text",
+            "type": "text",
+            "label": "Heading",
+            "default": "Stickers that will last for years."
+        },
+        {
+            "id": "para_text",
+            "type": "html",
+            "label": "Description text"
+        },
+        {
+            "type": "checkbox",
+            "id": "video_checkbox",
+            "default": false,
+            "label": "Include video instead of an image",
+            "info": "Tick this checkbox to show a video rather than an image and enter your script in the video script box. Desktop image is not needed in this case. Note: For mobile devices video will be hidden. Upload image for mobile devices as an alternative"
+        },
+        {
+            "id": "video_script",
+            "type": "html",
+            "label": "Video script(optional)",
+            "info": "This is a html text box so you can enter your script directly from fast.wistia.com"
+        },
+        {
+            "type": "image_picker",
+            "id": "desktop_image",
+            "label": "Image"
+        },
+        {
+            "type": "checkbox",
+            "id": "reverse_columns",
+            "default": false,
+            "label": "Swap image-block and text-block"
+        },
+        {
+            "type": "checkbox",
+            "id": "change_bg",
+            "default": false,
+            "label": "Change background color"
+        },
+        {
+            "id": "btn_text",
+            "type": "text",
+            "label": "Button Text"
+        },
+        {
+            "id": "btn_url",
+            "type": "url",
+            "label": "Button Url"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "text_list",
+            "name": "Text list",
+            "limit": 3,
+            "settings": [
+                {
+                    "id": "icon_text",
+                    "type": "text",
+                    "label": "Icon Text",
+                    "default": "🔫"
+                },
+                {
+                    "id": "list_text",
+                    "type": "text",
+                    "label": "Text"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Image with text 60-40",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

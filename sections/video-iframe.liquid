@@ -1,0 +1,41 @@
+
+<section class="video-iframe">
+   <div class="container">
+  <h2 class="iframe-heading">{{ section.settings.header_text }}</h2>
+ {{ section.settings.iframe_url }}
+     </div>
+</section>
+
+
+{% schema %}
+{
+    "name": "Video iframe",
+    "settings": [
+        {
+            "id": "header_text",
+            "type": "text",
+            "label": "Heading",
+            "default": "Dog mom Amélie’s story"
+        },
+        {
+            "id": "iframe_url",
+            "type": "html",
+            "label": "Iframe url",
+            "info": "Directly embed the iframe tag"
+        }
+    ],
+    "blocks": [],
+    "presets": [
+        {
+            "name": "Video iframe",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

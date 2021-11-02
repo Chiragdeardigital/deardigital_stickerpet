@@ -1,0 +1,131 @@
+<div class="drawer__inner drawer-left__inner">
+  <ul class="mobile-nav">
+   
+
+    {%- for block in section.blocks -%}
+    {%- case block.type -%}
+    {%- when 'mobile_menu' -%}
+    {%- for link in linklists[block.settings.mobile_menu].links -%}
+    <li class="mobile-nav__item">
+      {%- if link.links != blank -%}
+      <div class="mobile-nav__has-sublist">
+        <div class="mobile-nav__toggle">
+          <div class="mobile-shop">
+            {%- endif -%}
+            <a href="{{ link.url }}" class="{% if link.links != blank %}mobile-shp{% endif %} mobile-nav__link"
+               id="Label-{{ forloop.index }}"> {{ link.title }}</a>
+            {%- if link.links != blank -%}
+            <button type="button" class="mobile-shop-btn mobile-nav__toggle-btn icon-fallback-text"
+                    aria-controls="Linklist-0" aria-expanded="false" data-list-id="Linklist-{{ forloop.index }}">
+              <div class="plus-icon-wrap">
+                <div class="toggle open"></div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+      <ul class="mobile-nav__sublist content-list" id="Linklist-{{ forloop.index }}" role="navigation">
+        {%- for child_link in link.links -%} 
+        {%- assign product = child_link.object -%}
+
+        <li class="mobile-nav__item">
+          <a href="{{ product.url }}" class="mobile-nav__link">Custom {{ product.title }}
+            {%- if product.images.size > 0 -%}
+            {%- if product.images.size > 1 -%}
+            {%- assign product_image = product.images[1] -%}
+            {%- else -%}
+            {%- assign product_image = product.featured_image -%}
+            {%- endif -%}
+            <img srcset="{%- if product_image.width >= 60 -%}{{ product_image | img_url: '60x' }} 60w,{%- endif -%}"
+                 src="{{ product_image | img_url: '60x' }}" 
+                 alt="{{ product.title }}" 
+                 width="auto"
+                 height="auto"
+                 style="width: 60px; margin-top: -10px;"
+                 loading="lazy"
+                 />
+
+            {%- else -%}
+            {{ 'product-1' | placeholder_svg_tag }}
+            {%- endif -%}
+          </a>
+        </li>
+        {%- endfor -%}
+      </ul>
+      {%- endif -%}
+    </li>
+    {%- endfor -%}
+    {%- endcase -%}
+    {%- endfor -%}
+
+<!--     <li class="mobile-nav__item">
+      <a href="/pages/about-us" class="mobile-nav__link"> About </a>
+    </li>
+
+    <li class="mobile-nav__item">
+      <a href="/pages/reviews" class="mobile-nav__link"> Reviews </a>
+    </li>
+
+    <li class="mobile-nav__item">
+      <a href="/pages/our-partner" class="mobile-nav__link">
+        Edgard &amp; Cooper
+      </a>
+    </li>
+
+    <li class="mobile-nav__item">
+      <a href="/pages/gift" class="mobile-nav__link"> Gift </a>
+    </li> -->
+
+    <li class="mobile-nav__item">
+      <div class="mobile-nav__has-sublist">
+        <div class="mobile-nav__toggle">
+          <div class="mobile-shop">
+            <a href="/" class="mobile-shp mobile-nav__link" id="Lang-0">
+              <img 
+                   class="lang-imgs"
+                   src="{{ "English-flag-new.png" | asset_img_url:"60x" }}"
+                   width="auto"
+                   height="auto"
+                   style="margin-right: 3px" alt="UK" loading="lazy"/>
+
+              EN</a>
+            <button type="button" class="mobile-shop-btn mobile-nav__toggle-btn icon-fallback-text"
+                    aria-controls="Langlist-0" aria-expanded="false" data-list-id="Langlist-0">
+              <div class="plus-icon-wrap">
+                <div class="toggle _1 open"></div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+      <ul class="mobile-nav__sublist" id="Langlist-0" role="navigation">
+        <li class="mobile-nav__item">
+          <a href="https://nl.stickerpet.com/" data-wg-notranslate=""
+             class="weglot-link weglot-link-nl">
+            <img class="lang-imgs"
+                 src="{{ "French-flag.png" | asset_img_url:"60x" }}"
+                 style="transform: rotate(90deg)" 
+                 width="auto"
+                 height="auto"
+                 alt="netherlands" 
+                 loading="lazy"/>NL</a>
+        </li>
+
+        <li class="mobile-nav__item">
+          <a href="https://fr.stickerpet.com/" data-wg-notranslate=""
+             class="weglot-link weglot-link-fr">
+            <img 
+                 class="lang-imgs"
+                 src="{{ "French-flag.png" | asset_img_url:"60x" }}" 
+                 alt="france" 
+                 width="auto"
+                 height="auto"
+                 loading="lazy"/>FR</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="mobile-nav__spacer"></li>
+  </ul>
+  <!-- //mobile-nav -->
+</div>

@@ -1,0 +1,168 @@
+<footer>
+  <div class="container">
+    <div class="row flex">
+      <div class="column-40">
+        <div class="section-subheading">
+          {{ section.settings.top_header_text }}
+        </div>
+        {% form 'customer', class: 'contact-form' %}
+        <!-- <label for="Email" class="newsletter__label hidden-label">Sign up to our mailing list</label> -->
+        <div class="newsletter--form">
+          <div class="input-group">
+            <input type="email" value="" placeholder="Email" id="Email"  name="contact[email]"
+                   class="footer-newsletter-input" autocorrect="off" autocapitalize="off" />
+            <span class="footer-newsletter-input-btn">
+              <button id="Subscribe" type="submit" class="newsletter__submit"
+                      aria-label="Sign Up">
+                <span>Sign Up</span>
+              </button>
+            </span>
+          </div>
+          {%- if form.posted_successfully? -%}
+          <div class="note form-success">Thanks for subscribing</div>
+          {%- endif -%}
+        </div>
+        {% endform %}
+      </div>
+      <div class="column-25">
+        <div class="v-center">
+          <a class="charity_logo" href="#">
+            <img 
+                 class=""
+                 data-src=""
+                 alt="Charity logo"
+                 width="auto"
+                 height="auto"
+                 src="{{ section.settings.footer_image | img_url: '533x' }}"
+                 loading="lazy" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="left-nav">
+        <ul class="no-bullets site-footer__linklist">
+
+          {%- for block in section.blocks -%}
+          {% case block.type %}
+          {%- when 'social_links' -%}
+          <li>
+            <a href="{{ block.settings.link_url }}">
+              {{ block.settings.link_text }}
+            </a>
+          </li>
+          {%- endcase -%}
+          {%- endfor -%}
+          <!--           <li><a href="#">Instagram</a></li>
+
+<li><a href="#">Email Us</a></li>
+
+<li><a href="#">FAQ</a></li>
+
+<li>
+<a href="#" class="no-bullets site-footer__linklist">JOBS<sup><span class="dot"><span>1</span></span></sup>
+</a>
+</li> -->
+        </ul>
+      </div>
+
+      <div class="right-nav">
+        <ul class="no-bullets site-footer__linklist">
+          <li><a href="/policies/privacy-policy">Cookies</a></li>
+
+          <li><a href="/policies/privacy-policy">Privacy</a></li>
+
+          <li>
+            <a href="/policies/terms-of-service">Terms &amp; Conditions</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <hr class="full-length-ruler">
+    <p class="copyright text-center all-caps no-mobile">
+      {{ section.settings.bottom_header_text }}
+      <span class="footer-payment-strip">
+        {%- for block in section.blocks -%}
+        {% case block.type %}
+        {%- when 'payments' -%}
+        <img src="{{ block.settings.payment_image | img_url: '533x' }}" alt=""  loading="lazy">
+        {%- endcase -%}
+        {%- endfor -%}
+
+      </span>
+    </p>
+
+  </div>
+</footer>
+{% include "currency-script" %}
+
+
+{% schema %}
+{
+    "name": "Footer",
+    "settings": [
+        {
+            "id": "top_header_text",
+            "type": "text",
+            "label": "Top Header",
+            "default": "Receive our latest updates and pet love ❤️"
+        },
+        {
+            "id": "bottom_header_text",
+            "type": "text",
+            "label": "Bottom Header",
+            "default": "Shipped from Belgium 🇧🇪 straight to your mailbox © Sticker Life BV"
+        },
+        {
+            "id": "footer_image",
+            "type": "image_picker",
+            "label": "Add image"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "payments",
+            "name": "Payment image",
+            "settings": [
+                {
+                    "id": "payment_image",
+                    "type": "image_picker",
+                    "label": "Add image"
+                }
+            ]
+        },
+        {
+            "type": "social_links",
+            "name": "Social link",
+            "settings": [
+                {
+                    "id": "link_text",
+                    "type": "html",
+                    "label": "Link text",
+                    "default": "NEW"
+                },
+                {
+                    "id": "link_url",
+                    "type": "url",
+                    "label": "Link url"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Footer",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

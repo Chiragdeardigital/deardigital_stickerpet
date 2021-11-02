@@ -1,0 +1,62 @@
+{{ 'reviews-hero.css' | asset_url | stylesheet_tag }}
+
+<section class="hero-image-reviews">
+  <div class="review-text-wrapper">
+    <h1 class="review-heading no-m">{{ section.settings.desktop_header_text }}</h1>
+    <h1 class="review-heading no-d">{{ section.settings.mobile_header_text }}</h1>
+    <div class="review-sub-heading">
+      <div class="review-sub-heading-1">
+        <p class="hero-sub-text no-m"><b>4.9 score</b></p>
+        <p class="hero-stars">
+          <span class="stars">
+            <span class="star">{% include "icon-star" %}</span>
+            <span class="star">{% include "icon-star" %}</span>
+            <span class="star">{% include "icon-star" %}</span>
+            <span class="star">{% include "icon-star" %}</span>
+            <span class="star">{% include "icon-star" %}</span>
+          </span>
+        </p>
+      </div>
+      <div class="review-sub-heading-2">
+        {{ section.settings.featured_on }}
+      
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+    "name": "Reviews hero section",
+    "settings": [
+        {
+            "id": "desktop_header_text",
+            "type": "html",
+            "label": "Desktop header"
+        },
+        {
+            "id": "mobile_header_text",
+            "type": "html",
+            "label": "Mobile header"
+        },
+        {
+            "id": "featured_on",
+            "type": "html",
+            "label": "Enter Link or script"
+        }
+    ],
+    "blocks": [],
+    "presets": [
+        {
+            "name": "Reviews hero section",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,154 @@
+<section class="image-with-text _2">
+  <!--   <div class="container"> -->
+  <div class="row {% if section.settings.reverse_columns %} row-reverse{% endif %} {% if section.settings.change_bg %} gray_bg{% endif %}">
+    <div class="column-50 self-center">
+      <div class="text-block">
+
+        <h2 class="headings">{{ section.settings.header_text }}</h2>
+        <p class="para">{{ section.settings.para_text }}</p>
+
+        {% if section.settings.btn_text != blank %}
+        <a href="{{ section.settings.btn_url }}" class="button">
+          {{ section.settings.btn_text }}
+        </a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="m-product-imgs no-d">
+      <div class="v-center">
+        <div class="row">
+          <div class="column-50 ">
+            {% if section.settings.mobile_image_1 != blank %}
+            <img srcset="{%- if section.settings.mobile_image_1.width >= 165 -%}{{ section.settings.mobile_image_1 | img_url: '165x' }} 165w,{%- endif -%}
+                         {%- if section.settings.mobile_image_1.width >= 360 -%}{{ section.settings.mobile_image_1 | img_url: '360x' }} 360w,{%- endif -%}
+                         {%- if section.settings.mobile_image_1.width >= 535 -%}{{ section.settings.mobile_image_1 | img_url: '535x' }} 535w,{%- endif -%}
+                         {%- if section.settings.mobile_image_1.width >= 720 -%}{{ section.settings.mobile_image_1 | img_url: '720x' }} 720w,{%- endif -%}
+                         {%- if section.settings.mobile_image_1.width >= 940 -%}{{ section.settings.mobile_image_1 | img_url: '940x' }} 940w,{%- endif -%}
+                         {%- if section.settings.mobile_image_1.width >= 1070 -%}{{ section.settings.mobile_image_1 | img_url: '1070x' }} 1070w{%- endif -%}"
+                 src="{{ section.settings.mobile_image_1 | img_url: '533x' }}" 
+                 alt="{{ section.settings.mobile_image_1.alt }}" 
+                 class="full-image" 
+                 width="auto"
+           height="auto"
+                 loading="lazy">
+            {% else %}
+            {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg'  }}
+            {% endif %}
+          </div>
+          <div class="column-50 ">
+            {% if section.settings.mobile_image_2 != blank %}
+            <img srcset="{%- if section.settings.mobile_image_2.width >= 165 -%}{{ section.settings.mobile_image_2 | img_url: '165x' }} 165w,{%- endif -%}
+                         {%- if section.settings.mobile_image_2.width >= 360 -%}{{ section.settings.mobile_image_2 | img_url: '360x' }} 360w,{%- endif -%}
+                         {%- if section.settings.mobile_image_2.width >= 535 -%}{{ section.settings.mobile_image_2 | img_url: '535x' }} 535w,{%- endif -%}
+                         {%- if section.settings.mobile_image_2.width >= 720 -%}{{ section.settings.mobile_image_2 | img_url: '720x' }} 720w,{%- endif -%}
+                         {%- if section.settings.mobile_image_2.width >= 940 -%}{{ section.settings.mobile_image_2 | img_url: '940x' }} 940w,{%- endif -%}
+                         {%- if section.settings.mobile_image_2.width >= 1070 -%}{{ section.settings.mobile_image_2 | img_url: '1070x' }} 1070w{%- endif -%}"
+                 src="{{ section.settings.mobile_image_2 | img_url: '533x' }}" 
+                 alt="{{ section.settings.mobile_image_2.alt }}" 
+                 width="auto"
+           height="auto"
+                 class="full-image" 
+                 loading="lazy">
+            {% else %}
+            {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg'  }}
+            {% endif %}
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="column-50 no-m">
+      <div class="v-center">
+        {% if section.settings.desktop_image != blank %}
+        <img srcset="{%- if section.settings.desktop_image.width >= 165 -%}{{ section.settings.desktop_image | img_url: '165x' }} 165w,{%- endif -%}
+                     {%- if section.settings.desktop_image.width >= 360 -%}{{ section.settings.desktop_image | img_url: '360x' }} 360w,{%- endif -%}
+                     {%- if section.settings.desktop_image.width >= 535 -%}{{ section.settings.desktop_image | img_url: '535x' }} 535w,{%- endif -%}
+                     {%- if section.settings.desktop_image.width >= 720 -%}{{ section.settings.desktop_image | img_url: '720x' }} 720w,{%- endif -%}
+                     {%- if section.settings.desktop_image.width >= 940 -%}{{ section.settings.desktop_image | img_url: '940x' }} 940w,{%- endif -%}
+                     {%- if section.settings.desktop_image.width >= 1070 -%}{{ section.settings.desktop_image | img_url: '1070x' }} 1070w{%- endif -%}"
+             src="{{ section.settings.desktop_image | img_url: '533x' }}" 
+             alt="{{ section.settings.desktop_image.alt }}" 
+             width="auto"
+           height="auto"
+             class="full-image" 
+             loading="lazy">
+        {% else %}
+        {{ 'lifestyle-2' | placeholder_svg_tag }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <!--      </div> -->
+</section>
+
+
+{% schema %}
+{
+    "name": "Image with text 2",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "desktop_image",
+            "label": "Desktop image"
+        },
+        {
+            "type": "image_picker",
+            "id": "mobile_image_1",
+            "label": "Mobile image 1"
+        },
+		{
+            "type": "image_picker",
+            "id": "mobile_image_2",
+            "label": "Mobile image 2"
+        },
+        {
+            "type": "checkbox",
+            "id": "reverse_columns",
+            "default": false,
+            "label": "Swap image-block and text-block"
+        },
+        {
+            "type": "checkbox",
+            "id": "change_bg",
+            "default": false,
+            "label": "Change background color"
+        },
+        {
+            "id": "header_text",
+            "type": "text",
+            "label": "Heading",
+            "default": "Stickers that will last for years."
+        },
+ 		{
+            "id": "para_text",
+            "type": "html",
+            "label": "Description text"
+        },
+        {
+            "id": "btn_text",
+            "type": "text",
+            "label": "Button Text"
+        },
+        {
+            "id": "btn_url",
+            "type": "url",
+            "label": "Button Url"
+        }
+    ],
+    "blocks": [
+        
+    ],
+    "presets": [
+        {
+            "name": "Image with text 2",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,59 @@
+<style>
+  .modal {
+    position: fixed;
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    background-color: #fff;
+    justify-content: center;
+    transition: 0.4s ease;
+    right: 100%;
+  }
+  .modal-img {
+    width: 100%;
+    max-width: 1500px;
+    padding: 0 10px;
+    align-self: center;
+    object-fit: contain;
+  }
+  .come-in {
+    right: 0 !important;
+  }
+  .close-modal {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding-top: 7px;
+    top: 10%;
+    font-weight: 700;
+  }
+  .modal-show {
+  	text-decoration: underline;
+  }
+  .modal-show, .close-modal {
+    cursor: pointer;
+  }
+  .size-popup {
+    font-style: italic;
+    font-size: 16px;
+    text-decoration: none;
+  }
+</style>
+<div class="modal">
+  <span class="close-modal">X</span>
+  <img class="modal-img" alt="t-shirt sizes" src="{{ "size-guide-stickerpet-01.png" | asset_url }}" loading="lazy">
+</div>
+<script>
+  $(".modal-show").click(function(){
+    $(".modal").addClass("come-in");
+  });
+  $(".close-modal").click(function(){
+    $(".modal").removeClass("come-in");
+  });
+</script>

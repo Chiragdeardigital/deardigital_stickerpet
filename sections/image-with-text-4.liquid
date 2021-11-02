@@ -1,0 +1,77 @@
+<section class="image-with-text-4 {% if section.settings.change_bg %} gray_bg{% endif %}">
+  <div class="container">
+    <div class="flex {% if section.settings.reverse_columns %} row-reverse{% endif %} ">
+      <div class="column-30">
+        <div class="v-center logo-jobs">
+          {% if section.settings.image != blank %}
+              	<img 
+                     width="auto"
+           height="auto"
+                     src="{{ section.settings.image | img_url: '533x' }}" alt="{{ section.settings.image.alt }}" class="" loading="lazy">
+              {% else %}
+              	{{ 'lifestyle-2' | placeholder_svg_tag }}
+            {% endif %}
+        </div>
+      </div>
+
+      <div class="column-40">
+        <h2 class="headings">{{ section.settings.header_text }}</h2>
+        <p class="para">
+         {{ section.settings.para_text }}
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+{
+    "name": "Image with text 4",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "id": "header_text",
+            "type": "text",
+            "label": "Heading",
+            "default": "Stickers that will last for years."
+        },
+        {
+            "id": "para_text",
+            "type": "html",
+            "label": "Description text"
+        },
+        {
+            "type": "checkbox",
+            "id": "reverse_columns",
+            "default": false,
+            "label": "Swap image-block and text-block"
+        },
+ 		{
+            "type": "checkbox",
+            "id": "change_bg",
+            "default": false,
+            "label": "Change background color in mobile screen"
+        }
+    ],
+    "blocks": [],
+    "presets": [
+        {
+            "name": "Image with text 4",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,110 @@
+{{ 'image-banner1.css' | asset_url | stylesheet_tag }}
+
+<section class="gift-image-with-banner">
+  {%- if section.settings.image_2 != blank -%}
+  <img srcset="{%- if section.settings.image_2.width >= 375 -%}{{ section.settings.image_2 | img_url: '375x' }} 375w,{%- endif -%}
+               {%- if section.settings.image_2.width >= 750 -%}{{ section.settings.image_2 | img_url: '750x' }} 750w,{%- endif -%}
+               {%- if section.settings.image_2.width >= 1100 -%}{{ section.settings.image_2 | img_url: '1100x' }} 1100w,{%- endif -%}
+               {%- if section.settings.image_2.width >= 1500 -%}{{ section.settings.image_2 | img_url: '1500x' }} 1500w,{%- endif -%}
+               {%- if section.settings.image_2.width >= 1780 -%}{{ section.settings.image_2 | img_url: '1780x' }} 1780w,{%- endif -%}
+               {%- if section.settings.image_2.width >= 2000 -%}{{ section.settings.image_2 | img_url: '2000x' }} 2000w,{%- endif -%}
+               {%- if section.settings.image_2.width >= 2800 -%}{{ section.settings.image_2 | img_url: '2800x' }} 2800w{%- endif -%}"
+       src="{{ section.settings.image_2 | img_url: '750x' }}"
+       class="banner-bg-image" 
+       alt="{{ section.settings.image_2.alt | escape }}"
+       loading="lazy"
+       width="{{ section.settings.image_2.width }}"
+       height="{{ section.settings.image_2.width | divided_by: section.settings.image_2.aspect_ratio }}"
+       >
+  {%- endif -%}
+  <div class="container v-center">
+    <div class="row">
+      <div class="fg-img">
+        <div class="v-center">
+          {%- if section.settings.image != blank -%}
+          <img srcset="{%- if section.settings.image.width >= 375 -%}{{ section.settings.image | img_url: '375x' }} 375w,{%- endif -%}
+                       {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | img_url: '750x' }} 750w,{%- endif -%}
+                       {%- if section.settings.image.width >= 1100 -%}{{ section.settings.image | img_url: '1100x' }} 1100w,{%- endif -%}
+                       {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | img_url: '1500x' }} 1500w,{%- endif -%}
+                       {%- if section.settings.image.width >= 1780 -%}{{ section.settings.image | img_url: '1780x' }} 1780w,{%- endif -%}
+                       {%- if section.settings.image.width >= 2000 -%}{{ section.settings.image | img_url: '2000x' }} 2000w,{%- endif -%}
+                       {%- if section.settings.image.width >= 2800 -%}{{ section.settings.image | img_url: '2800x' }} 2800w{%- endif -%}"
+               src="{{ section.settings.image | img_url: '750x' }}" 
+               alt="{{ section.settings.image.alt | escape }}"
+               class="image-animate-x" 
+               loading="lazy"
+               width="{{ section.settings.image.width }}"
+               height="{{ section.settings.image.width | divided_by: section.settings.image.aspect_ratio }}"
+               >
+          {%- endif -%}
+        </div>
+      </div>
+      <div class="gift-description self-center">
+        <h1 class=" headings">
+          {{ section.settings.heading  }}
+        </h1>
+        {%- if section.settings.button_label_1 != blank -%}
+        <a href="{{ section.settings.button_link_1 }}" class="button{% if section.settings.border_button != blank %}  border-button {% endif %}">
+          {{ section.settings.button_label_1 }}
+        </a>
+        {%- endif -%}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+    "name": "Custom image with banner",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Front image"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_2",
+            "label": "Background image"
+        },
+        {
+            "type": "html",
+            "id": "heading",
+            "default": "Send stickers<br> with extra love ❤️",
+            "label": "Heading"
+        },
+        {
+            "type": "text",
+            "id": "button_label_1",
+            "default": "Button label",
+            "label": "Button label",
+            "info": "Leave the label blank to hide the button."
+        },
+        {
+            "type": "url",
+            "id": "button_link_1",
+            "label": "Button link"
+        },
+        {
+            "type": "checkbox",
+            "id": "border_button",
+            "default": true,
+            "label": "Use outline button style"
+        }
+    ],
+    "blocks": [],
+    "presets": [
+        {
+            "name": "Custom image with banner",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

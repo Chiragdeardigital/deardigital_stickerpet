@@ -1,0 +1,70 @@
+{{ 'product-perks.css' | asset_url | stylesheet_tag }}
+
+<section class="product-perks">
+  <div class="container">
+    <div class="row flex">
+      {%- for block in section.blocks -%}
+      {% case block.type %}
+      {%- when 'perk' -%}
+      <div class="perk">
+        <div class="feature-of">
+          {% if block.settings.perk_image != blank %}
+          <img srcset="{%- if block.settings.perk_image.width >= 100 -%}{{ block.settings.perk_image | img_url: '100x' }} 100w,{%- endif -%}"
+               class="full-image" data-src="" alt="{{ block.settings.perk_image.alt }}" 
+               src="{{ block.settings.perk_image | img_url: '800x' }}"
+               width="100"
+               height="100"
+               loading="lazy">
+          {% else %}
+          {{ 'collection-6' | placeholder_svg_tag }}
+          {% endif %}
+          <p>{{ block.settings.perk_text }}</p>
+        </div>
+      </div>
+      {%- endcase -%}
+      {%- endfor -%}
+
+
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+{
+    "name": "Product perks",
+    "settings": [],
+    "blocks": [
+        {
+            "type": "perk",
+            "name": "Perk",
+ 			"limit": 4,
+            "settings": [
+                {
+                    "id": "perk_image",
+                    "type": "image_picker",
+                    "label": "Add image"
+                },
+                {
+                    "id": "perk_text",
+                    "type": "text",
+                    "label": "Text",
+                    "default": "Some text"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Product perks",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

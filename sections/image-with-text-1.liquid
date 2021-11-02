@@ -1,0 +1,170 @@
+<section class="image-with-text">
+  <div class="row {% if section.settings.reverse_columns %} row-reverse{% endif %} {% if section.settings.change_bg %} gray_bg{% endif %}">
+    <div class="column-50 self-center">
+      <div class="text-block">
+
+        <h2 class="headings">{{ section.settings.header_text }}</h2>
+
+        {%- for block in section.blocks -%}
+        {% case block.type %}
+        {%- when 'text_list' -%}
+        
+        <div class="row spacing">
+          {% if block.settings.icon_text != blank %}
+          <div class="column-20">
+            <p class="text-center list-icon">{{ block.settings.icon_text }}</p>
+          </div>
+           {% endif %}
+          <div class="column-80">
+            <p class="para">{{ block.settings.list_text }}</p>
+          </div>
+        </div>
+        {%- endcase -%}
+        {%- endfor -%}
+
+
+        {% if section.settings.btn_text != blank %}
+        <a href="{{ section.settings.btn_url }}" class="button">
+          {{ section.settings.btn_text }}
+        </a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="m-product-imgs no-d">
+      <div class="v-center">
+
+        {% if section.settings.mobile_image != blank %}
+        <img srcset="{%- if section.settings.mobile_image.width >= 165 -%}{{ section.settings.mobile_image | img_url: '165x' }} 165w,{%- endif -%}
+                     {%- if section.settings.mobile_image.width >= 360 -%}{{ section.settings.mobile_image | img_url: '360x' }} 360w,{%- endif -%}
+                     {%- if section.settings.mobile_image.width >= 535 -%}{{ section.settings.mobile_image | img_url: '535x' }} 535w,{%- endif -%}
+                     {%- if section.settings.mobile_image.width >= 720 -%}{{ section.settings.mobile_image | img_url: '720x' }} 720w,{%- endif -%}
+                     {%- if section.settings.mobile_image.width >= 940 -%}{{ section.settings.mobile_image | img_url: '940x' }} 940w,{%- endif -%}
+                     {%- if section.settings.mobile_image.width >= 1070 -%}{{ section.settings.mobile_image | img_url: '1070x' }} 1070w{%- endif -%}"
+             src="{{ section.settings.mobile_image | img_url: '533x' }}" 
+             alt="{{ section.settings.mobile_image.alt }}" 
+             class="full-image" 
+             loading="lazy">
+        {% else %}
+        {{ 'lifestyle-2' | placeholder_svg_tag }}
+        {% endif %}
+
+      </div>
+    </div>
+    <div class="column-50 no-m">
+      <div class="v-center">
+        
+        {% if section.settings.video_checkbox %}
+              <video class="full-image" muted="" loop="" playsinline="" autoplay="">
+                <source src="{{ section.settings.video_url }}" type="video/webm">
+                <source src="{{ section.settings.video_url }}" type="video/mp4">
+              </video>
+            {% else %}
+              {% if section.settings.desktop_image != blank %}
+        <img srcset="{%- if section.settings.desktop_image.width >= 165 -%}{{ section.settings.desktop_image | img_url: '165x' }} 165w,{%- endif -%}
+                     {%- if section.settings.desktop_image.width >= 360 -%}{{ section.settings.desktop_image | img_url: '360x' }} 360w,{%- endif -%}
+                     {%- if section.settings.desktop_image.width >= 535 -%}{{ section.settings.desktop_image | img_url: '535x' }} 535w,{%- endif -%}
+                     {%- if section.settings.desktop_image.width >= 720 -%}{{ section.settings.desktop_image | img_url: '720x' }} 720w,{%- endif -%}"
+             src="{{ section.settings.desktop_image | img_url: '533x' }}" 
+             alt="{{ section.settings.desktop_image.alt }}" 
+             class="full-image" 
+             loading="lazy">
+              {% else %}
+              	{{ 'lifestyle-2' | placeholder_svg_tag }}
+            {% endif %}
+        {% endif %}
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+{
+    "name": "Image with text section",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "video_checkbox",
+            "default": false,
+            "label": "Include video instead of an image",
+            "info": "Tick this checkbox to show a video rather than an image. Desktop image is not needed in this case. Note: For mobile devices video will be hidden. Upload image for mobile devices as an alternative"
+        },
+        {
+            "id": "video_url",
+            "type": "url",
+            "label": "Video url"
+        },
+        {
+            "type": "image_picker",
+            "id": "desktop_image",
+            "label": "Desktop image"
+        },
+        {
+            "type": "image_picker",
+            "id": "mobile_image",
+            "label": "Mobile image"
+        },
+        {
+            "type": "checkbox",
+            "id": "reverse_columns",
+            "default": false,
+            "label": "Swap image-block and text-block"
+        },
+        {
+            "type": "checkbox",
+            "id": "change_bg",
+            "default": false,
+            "label": "Change background color in mobile screen"
+        },
+        {
+            "id": "header_text",
+            "type": "text",
+            "label": "Heading",
+            "default": "Stickers that will last for years."
+        },
+        {
+            "id": "btn_text",
+            "type": "text",
+            "label": "Button Text"
+        },
+        {
+            "id": "btn_url",
+            "type": "url",
+            "label": "Button Url"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "text_list",
+            "name": "Text list",
+            "limit": 3,
+            "settings": [
+                {
+                    "id": "icon_text",
+                    "type": "text",
+                    "label": "Icon Text",
+                    "default": "🔫"
+                },
+                {
+                    "id": "list_text",
+                    "type": "text",
+                    "label": "Text"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Image with text",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

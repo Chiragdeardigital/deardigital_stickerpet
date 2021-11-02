@@ -1,0 +1,47 @@
+<div class="announcement-bar">
+  <ul class="topbar-usp-list" data-slide-speed="4000">
+
+    {%- for block in section.blocks -%}
+    {% case block.type %}
+    {%- when 'announcement' -%}
+    <li class="topbar-usp-item {% if forloop.index == 1  %}is-visible{% endif %}">
+      <p class="announcement-bar__message">{{ block.settings.announcement_text }}</p>
+    </li>
+    {%- endcase -%}
+    {%- endfor -%}
+
+  </ul>
+</div>
+
+{% schema %}
+{
+    "name": "Announcement Bar",
+    "settings": [],
+    "blocks": [
+        {
+            "type": "announcement",
+            "name": "Announcement Text",
+            "settings": [
+                {
+                    "id": "announcement_text",
+                    "type": "text",
+                    "label": "Text",
+                    "default": "🌴 Some text 🌴"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Announcement Bar",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

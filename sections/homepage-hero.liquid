@@ -1,0 +1,88 @@
+<section class="homepage-hero">
+  <div class="container">
+    <h1 class="hero-title">{{ section.settings.text_1 }}<br>
+      <span>
+        <span class="typewrite" data-period="1000" 
+              data-type="[{%- for block in section.blocks -%}{%- case block.type -%}{%- when 'typed_text' -%}{{ block.settings.typed_text }}{%- endcase -%}{%- endfor -%}]">
+          <span class="wrap">fish</span>
+        </span>
+      </span>
+     {{ section.settings.text_2 }}
+    </h1>
+    <div class="flex homepage-products">
+      {% assign product_handle = section.settings.feature_collection %}
+      {% for product in collections[product_handle].products limit:3%}
+      <div class="hero-products">
+        {% if product.images.size > 0 %}
+        <img 
+             srcset="{% if product.featured_image.width >= 288 %}{{ product.featured_image | img_url: '288x' }} 288w,{% endif %}
+                     {% if product.featured_image.width >= 576 %}{{ product.featured_image | img_url: '576x' }} 576w,{% endif %}
+                     {% if product.featured_image.width >= 550 %}{{ product.featured_image | img_url: '550x' }} 550w,{% endif %}
+                     {% if product.featured_image.width >= 1100 %}{{ product.featured_image | img_url: '1100x' }} 1100w{% endif %}"
+             src="{{ product.images | img_url: '1024x' }}" 
+             alt="{{ product.title }}" 
+             class="image-animate-x" 
+             loading="lazy">
+        {% else %}
+        {{ 'product-1' | placeholder_svg_tag }}
+        {% endif %}
+        <a href="{{ product.url }}" class="button border-button">
+          {{ product.title }}
+        </a>
+      </div>
+      {%- endfor -%}
+
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+{
+    "name": "Homepage Hero Section",
+    "settings": [
+        {
+            "type": "collection",
+            "id": "feature_collection",
+            "label": "Featured collection"
+        },
+        {
+            "id": "text_1",
+            "type": "text",
+            "label": "Text before typed text"
+        },
+        {
+            "id": "text_2",
+            "type": "text",
+            "label": "Text after typed text"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "typed_text",
+            "name": "Typed text",
+			"limit":1,
+            "settings": [
+                {
+                    "id": "typed_text",
+                    "type": "text",
+                    "label": "Text",
+					"info": "Enter the words for typing effect separated with comma(,) and in single inverted commas eg. 'text1','text2'"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Hero Section",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

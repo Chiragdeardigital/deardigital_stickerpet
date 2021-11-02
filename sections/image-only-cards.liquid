@@ -1,0 +1,110 @@
+{{ 'cutouts.css' | asset_url | stylesheet_tag }}
+
+
+
+<div class="container marg-bot-xl marg-top-xl">
+  <h2 class="text-center marg-bot-xl">{{ section.settings.title }}</h2>
+
+  <div class="flex-box justify-around flex-wrap cutout-container no-mobile">
+    {%- for block in section.blocks -%}
+    {% case block.type %}
+    {%- when 'cutout_image' -%}
+    <div class="img-div marg-top marg-bot">
+      <div class="original-img">
+        
+        {% if block.settings.original_image != blank %}
+        	<img src="{{ block.settings.original_image | img_url: '533x' }}" alt="{{ block.settings.image.alt }}" loading="lazy">
+        {% else %}
+        	{{ 'collection-2' | placeholder_svg_tag }}
+        {% endif %}
+        
+      </div>
+      <div class="cutout-img no-disp">
+        
+        {% if block.settings.hover_image != blank %}
+        	<img src="{{ block.settings.hover_image | img_url: '533x' }}" alt="{{ block.settings.image.alt }}" loading="lazy">
+        {% else %}
+        	{{ 'collection-2' | placeholder_svg_tag }}
+        {% endif %}
+        
+      </div>
+    </div>
+    {%- endcase -%}
+    {%- endfor -%}
+
+
+  </div>
+
+  <div class="flex-box justify-around flex-wrap cutout-container no-desktop">
+    {%- for block in section.blocks -%}
+    {% case block.type %}
+    {%- when 'cutout_image' -%}
+    <div class="img-container marg-top marg-bot">
+      <div class="original-img">
+         {% if block.settings.original_image != blank %}
+        	<img src="{{ block.settings.original_image | img_url: '533x' }}" alt="{{ block.settings.original_image.alt }}" loading="lazy">
+        {% else %}
+        	{{ 'collection-2' | placeholder_svg_tag }}
+        {% endif %}
+      </div>
+      <div class="cutout-img no-disp">
+        {% if block.settings.hover_image != blank %}
+        	<img src="{{ block.settings.hover_image | img_url: '533x' }}" alt="{{ block.settings.hover_image.alt }}" loading="lazy">
+        {% else %}
+        	{{ 'collection-2' | placeholder_svg_tag }}
+        {% endif %}
+      </div>
+    </div>
+    {%- endcase -%}
+    {%- endfor -%}
+
+
+  </div>
+
+</div>
+
+
+{% schema %}
+{
+    "name": "Cutout images",
+    "settings": [
+        {
+            "id": "title",
+            "type": "html",
+            "label": "Title"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "cutout_image",
+            "name": "Block",
+            "settings": [
+                {
+                    "id": "original_image",
+                    "type": "image_picker",
+                    "label": "Original image",
+                    "info": "This image will be shown by default."
+                },
+                {
+                    "id": "hover_image",
+                    "type": "image_picker",
+                    "label": "Hover image",
+                    "info": "This image will be shown on hover."
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Cutout images",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,90 @@
+
+<section class="insta-feed">
+  <h2 class="">
+    {{ section.settings.social_media_header }}
+  </h2>
+  <a href="{{ section.settings.social_media_link }}" class="button">
+   {{ section.settings.social_media_link_text }}
+  </a>
+  <div class="insta-feed-images">
+     	{%- for block in section.blocks -%}
+          {% case block.type %}
+            {%- when 'feed' -%}
+            <a href="{{ block.settings.link_url }}">
+              <div class="instafeed-container">
+                {% if block.settings.social_feed_image != blank %}
+                <img srcset="{% if  block.settings.social_feed_image.width >= 288 %}{{  block.settings.social_feed_image | img_url: '288x' }} 288w,{% endif %}"
+                     src="{{ block.settings.social_feed_image | img_url: '533x' }}" 
+                     alt="{{ block.settings.social_feed_image.alt }}" 
+                     width="auto"
+                 height="auto"
+                     loading="lazy">
+                {% else %}
+                	{{ 'collection-3' | placeholder_svg_tag }}
+                {% endif %}
+                <div class="instafeed-overlay "></div>
+              </div>
+            </a>
+          {%- endcase -%}
+        {%- endfor -%}
+    
+    
+  </div>
+</section>
+
+{% schema %}
+{
+    "name": "Social media feed",
+    "settings": [
+        {
+            "id": "social_media_header",
+            "type": "text",
+            "label": "Header text",
+            "default": "Follow your favourite pet account on Instagram"
+        },
+        {
+            "id": "social_media_link_text",
+            "type": "text",
+            "label": "Button text",
+            "default": " @STICKERPET"
+        },
+        {
+            "id": "social_media_link",
+            "type": "url",
+            "label": "Button link"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "feed",
+            "name": "Social Feed",
+            "limit": 6,
+            "settings": [
+                {
+                    "id": "social_feed_image",
+                    "type": "image_picker",
+                    "label": "Add feed image"
+                },
+                {
+                    "id": "link_url",
+                    "type": "url",
+                    "label": "Link url",
+                    "info": "Add a link to redirect the user to a page/post"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Social media feed",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

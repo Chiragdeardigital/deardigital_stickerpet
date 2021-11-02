@@ -1,0 +1,72 @@
+
+<section class="product-quality">
+  <div class="container">
+    <div class="flex">
+      {%- for block in section.blocks -%}
+      {%- case block.type -%}
+      {%- when 'quality_block' -%}
+      <div class="quality-block {% if block.settings.hide_block %}no-m{% endif %}">
+        <h2 class="headings">{{ block.settings.heading }}</h2>
+      </div>
+      {%- endcase -%}
+      {%- endfor -%}
+      
+      {%- if section.settings.show_rating_block -%}
+      <div class="quality-block no-m">
+        <h2 class="headings">4.9&nbsp;&nbsp;<span class="star">{% include "icon-star" %}</span><br>rating</h2>
+      </div>
+      {%- endif -%}
+
+    </div>
+  </div>
+</section>
+
+
+
+{% schema %}
+{
+    "name": "Product quality bar",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "show_rating_block",
+            "default": true,
+            "label": "Add rating block"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "quality_block",
+            "name": "Block",
+            "limit": 3,
+            "settings": [
+                {
+                    "type": "html",
+                    "id": "heading",
+                    "default": "🔫 water<br> proof",
+                    "label": "Text"
+                },
+         		{
+                    "type": "checkbox",
+                    "id": "hide_block",
+                    "default": false,
+                    "label": "Hide block in mobile screen"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Product quality bar",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,66 @@
+<section class="faq-section">
+  <div class="container">
+    <div class="faq-wrapper">
+      {% if section.settings.title_text != blank %}
+      <h2 class="headings">{{  section.settings.title_text }}</h2>
+      {% endif %}
+      <div id="faq">
+        {%- for block in section.blocks -%}
+        {% case block.type %}
+        {%- when 'faq_list' -%}
+        <h5 class="accordion"><strong>{{ block.settings.header_text }}</strong></h5>
+        <div class="panel">
+          <p>
+            {{ block.settings.para_text }}
+          </p>
+        </div>
+        {%- endcase -%}
+        {%- endfor -%}
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+    "name": "Faq or plain header/text",
+    "settings": [
+        {
+            "id": "title_text",
+            "type": "html",
+            "label": "Title(optional)"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "faq_list",
+            "name": "Text",
+            "settings": [
+                {
+                    "id": "header_text",
+                    "type": "html",
+                    "label": "Header/Question"
+                },
+                {
+                    "id": "para_text",
+                    "type": "html",
+                    "label": "Text/Answer"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Faq or plain header/text",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

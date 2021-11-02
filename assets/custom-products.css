@@ -1,0 +1,14 @@
+.custom-product-3 .slider-nav{
+max-width:420px;
+}
+
+
+
+@media (max-width: 768px) {
+
+
+  .grid.custom-product-3 {
+    flex-direction: column;
+    align-items: center;
+  }
+}

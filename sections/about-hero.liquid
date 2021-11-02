@@ -1,0 +1,55 @@
+{{ 'about-hero.css' | asset_url | stylesheet_tag }}
+
+<style>
+.hero-image-about {
+  background-image: url("{{ section.settings.about_bg_img |  img_url: 'master' }}");
+}
+  @media (max-width: 768px){
+    .hero-image-about::after {
+      background-image: url("{{ section.settings.about_bg_img_mobile |  img_url: 'master' }}");
+    }
+    .hero-image-about {
+    background-image: none;
+  }
+</style>
+
+<div class="hero-image-about">
+  <div class="hero-text">
+    <h1 class="h1 heading1">{{ section.settings.about_head_text }}</h1>
+  </div>
+</div>
+
+{% schema %}
+{
+    "name": "About Hero",
+    "settings": [
+        {
+            "id": "about_bg_img",
+            "type": "image_picker",
+            "label": "Desktop background image"
+        },
+		{
+            "id": "about_bg_img_mobile",
+            "type": "image_picker",
+            "label": "Mobile background image"
+        },
+        {
+            "id": "about_head_text",
+            "type": "text",
+            "label": "Text",
+            "default": "About Us"
+        }
+    ],
+    "presets": [
+        {
+            "name": "About Hero",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}
+
+
+
+{% javascript %}
+{% endjavascript %}

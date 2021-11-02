@@ -1,0 +1,1543 @@
+<!-- {{ 'component-product-without-variants.css' | asset_url | stylesheet_tag }} -->
+<div class="blue-background">
+<!-- /templates/product.liquid -->
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+{%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
+
+<script>
+  variants_json = {}
+  variant_colors = []
+  variant_framesizes = []
+  variant_frametype = []
+
+  {% for variant in product.variants %}
+	{% if variant.available %}
+      var title = "{{ variant.title }}"
+      title = title.replace(/ /g, "");
+      variants_json[title] = "{{ variant.id }}"
+      var color = title.split("/")[0];
+  	  var framesize = title.split("/")[1];
+  	  var frametype = title.split("/")[2];
+  	  if(!variant_colors.includes(color)) {
+        variant_colors.push(color)
+      }
+  	  if(!variant_framesizes.includes(framesize)) {
+        variant_framesizes.push(framesize)
+      }
+  	  if(!variant_frametype.includes(frametype)) {
+  	    variant_frametype.push(frametype)
+      }
+    {% endif %}
+  {% endfor %}
+
+</script>
+
+<div class="wrapper padd-bot-xl min-height-element" itemscope itemtype="http://schema.org/Product" id="ProductSection--{{ section.id }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="product-template"
+  data-image-zoom-type="{{ section.settings.enable_image_zoom }}"
+  data-enable-history-state="true"
+  data-stacked-layout="{% if section.settings.media_layout == "stacked" %}true{% else %}false{% endif %}"
+  {% if first_3d_model %}data-has-model="true"{% endif %}>
+
+    <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+    <meta itemprop="image" content="{{ product.featured_media | img_url: 'grande' }}">
+
+    {% assign current_variant = product.selected_or_first_available_variant %}
+    {% assign featured_media = current_variant.featured_media | default: product.featured_media %}
+
+    {% assign stacked = false %}
+    {% if section.settings.media_layout == "stacked" %}{% assign stacked = true %}{% endif %}
+    {%- assign first_media = true -%}
+
+    <div class="product grid product-single custom-product-3">
+     
+      
+      {% comment %}
+      	Place custom product images here
+      {% endcomment %}
+      <div class="grid__item large--seven-twelfths text-center">
+        <div class="product-title text-center no-desktop">
+          
+          <div class="product-description product-single__description text-center">{{ product.description }}</div>
+          <p class=" no-d"> </p>
+          <p class="product-single__description examples-text no-desktop">
+            {{ product.metafields.my_fields.mobile_description}}
+            <br>
+            <br>
+            See some examples 
+            <a href="/pages/cutouts" target="_blank">right here</a>. 👈</p>
+          
+          <a class="no-desktop" href="#reviews">
+            <span class="fa fa-star star font-20"></span><span class="fa fa-star star font-20"></span><span class="fa fa-star star font-20"></span><span class="fa fa-star star font-20"></span><span class="fa fa-star star font-20"></span>
+            <span style="display: block;font-size: 14px;font-weight: 100;font-family: Lato,sans-serif;letter-spacing: .5px;margin-bottom: 16px;">135 reviews{% for product in collections.reviews.products %}{% if product.id == 6748620488903 %}{{ product.metafields.stamped.reviews_count }}135 reviews{% endif %}{% endfor %}</span>
+          </a>
+          
+          <p class="product-single__price euro no-desktop">
+            {{ current_variant.price | money | replace:",","."  }}<br><span class="smaller-font">incl. VAT</span>
+          </p>
+          
+          <p class="product-single__price no-desktop pound no-disp">
+             {{ current_variant.price | money | replace:",","."  }}<br><span class="smaller-font">incl. VAT</span>
+          </p>
+         
+          
+        </div>
+        
+  		<div class="slider-forx sub-marg-bottom">
+          {% for image in product.images %}
+          {% assign looplen = forloop.length | minus: 1 %}
+          <img srcset="{%- if image.width >= 165 -%}{{ image | img_url: '165x' }} 165w,{%- endif -%}
+                       {%- if image.width >= 360 -%}{{ image | img_url: '360x' }} 360w,{%- endif -%}
+                       {%- if image.width >= 535 -%}{{ image | img_url: '535x' }} 535w,{%- endif -%}
+                       {%- if image.width >= 720 -%}{{ image | img_url: '720x' }} 720w,{%- endif -%}
+                       {%- if image.width >= 940 -%}{{ image | img_url: '940x' }} 940w,{%- endif -%}
+                       {%- if image.width >= 1070 -%}{{ image | img_url: '1070x' }} 1070w{%- endif -%}"
+               src="{{ image.src | img_url: 'master' }}" 
+               alt="{{ image.alt | escape }}" 
+               loading="lazy">
+          {% endfor %}
+        </div>
+        <style>
+          .slider-for .slick-dots li, .slider-for .slick-dots li button, .slider-for .slick-dots li button:before {
+            width: {{ 100 | divided_by: looplen }}px;
+          }
+          .slider-for .slick-dots {
+          	bottom: 8px;
+          }
+        </style>
+        <div class="slider-navx no-mobile">
+          {% for image in product.images %}
+          <img srcset="{%- if image.width >= 165 -%}{{ image | img_url: '165x' }} 165w,{%- endif -%}
+                       {%- if image.width >= 360 -%}{{ image | img_url: '360x' }} 360w,{%- endif -%}
+                       {%- if image.width >= 535 -%}{{ image | img_url: '535x' }} 535w,{%- endif -%}
+                       {%- if image.width >= 720 -%}{{ image | img_url: '720x' }} 720w,{%- endif -%}
+                       {%- if image.width >= 940 -%}{{ image | img_url: '940x' }} 940w,{%- endif -%}
+                       {%- if image.width >= 1070 -%}{{ image | img_url: '1070x' }} 1070w{%- endif -%}"
+               src="{{ image.src | img_url: '200x' }}" 
+               alt="{{ image.alt | escape }}" 
+               width="auto"
+                 height="auto"
+               loading="lazy">
+          {% endfor %}
+        </div>
+        
+      </div>
+    
+
+      <div class="grid__item product-single__meta--wrapper large--five-twelfths">
+        <div class="product-single__meta">
+          {% if section.settings.product_vendor_enable %}
+            <h2 class="product-single__vendor" itemprop="brand">{{ product.vendor }}</h2>
+          {% endif %}
+
+          <h1 class="product-single__title text-left center-it no-mobile" itemprop="name" style="max-width: 420px;">
+            {%- if product.metafields.my_fields.product_page_title !=blank -%}
+            {{ product.metafields.my_fields.product_page_title }}
+            {%- else -%}
+            {{ product.title }}
+            {%- endif -%}
+          </h1>
+          
+          <div class="center-it" style="max-width: 420px;">
+            
+            <div class="no-mobile">
+            {% include 'product-price', variant: current_variant %}
+            </div>
+            
+            <div class="product-description product-single__description rte no-mobile" itemprop="description">
+              {{product.metafields.my_fields.description}}
+            </div>
+            
+            <p class="product-single__description examples-text no-mobile">See some examples <a href="/pages/cutouts" target="_blank">right here</a>. 👈</p>
+            
+            <div class="steps-box no-mobile">
+              <p>steps</p>
+                <span class="steps-swatch step-selected">1</span>
+                <span class="steps-swatch">2</span>
+                <span class="steps-swatch">3</span>
+                <span class="steps-swatch">4</span>
+                <span class="steps-swatch">5</span>
+            </div>
+
+            <div itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating" itemscope>
+              <meta itemprop="reviewCount" content="35" />
+              <meta itemprop="ratingValue" content="4.9" />
+            </div>
+
+            {% capture "form_classes" %}
+              product-single__form{% if product.has_only_default_variant %} product-single__form--no-variants{% endif %}
+            {%- endcapture %}
+
+            {% capture "form_id" %}AddToCartForm--product-custom-template-2{%- endcapture -%}
+
+            {% form 'product', product, class:form_classes, id:form_id, data-product-form: '' %}
+              {% unless product.has_only_default_variant %}
+                {% for option in product.options_with_values %}
+            		<div class="radio-wrapper js product-form__item no-desktop no-mobile ">
+                      <label class="single-option-radio__label product-single__description"
+                        for="ProductSelect-option-{{ forloop.index0 }}">
+                        {{ option.name | escape }}
+                      </label>
+                    
+                      {% if section.settings.product_selector == 'radio' %}
+                        <fieldset class="color-div colors-text single-option-radio"
+                          id="ProductSelect-option-{{ forloop.index0 }}">
+                          {% assign option_index = forloop.index %}
+                          {% for value in option.values %}
+                            {% assign variant_label_state = true %}
+                            {% if product.options.size == 1 %}
+                              {% unless product.variants[forloop.index0].available  %}
+                                {% assign variant_label_state = false %}
+                              {% endunless %}
+                            {% endif %}
+                            <input type="radio"
+                              {% unless variant_label_state %} disabled="disabled"{% endunless %}
+                              value="{{ value | escape }}"
+                              data-value="{{ value | escape | remove: " " }}"
+                              data-index="option{{ option_index }}"
+                              name="option{{ option.position }}"
+                              class="single-option-selector__radio{% unless variant_label_state %} disabled{% endunless %}"
+                              id="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape | remove: " " }}">
+                            <label for="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}"{% unless variant_label_state %} class="disabled"{% endunless %}>{{ value | escape }}</label>
+                          {% endfor %}
+                        </fieldset>
+                      {% else %}
+                        <select class="single-option-selector__radio single-option-selector-{{ section.id }} product-form__input" id="SingleOptionSelector-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
+                          {% for value in option.values %}
+                            <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value | escape }}</option>
+                          {% endfor %}
+                        </select>
+                      {% endif %}
+                  	</div>
+            
+            		{% if option.name == 'Title' %}
+            		<div class="first-step steps">
+            			<div class="color-option">
+                          <label class="color-option single-option-radio__label product-single__description flex-box align-center"
+                            for="ProductSelect-option-{{ forloop.index0 }}">
+                            1. One or two pets? <span class="flex-box info-icon">{% include "info-icon" %}<div class="info-box first">You can choose to have one or two pets on your portrait.</div></span>
+                          </label>
+                          <div class="flex-box text-center justify-between">
+                            <div class="flex-box flex-column">
+                              <img src="{{ "mila-kader-1.png" | asset_img_url:"250x"}}" alt="dog" class="type-One One" id="ProductSelect-option-title-One-manual" loading="lazy">
+                              <p>One (+ €0)</p>
+                            </div>
+                            <div class="flex-box flex-column">
+                              <img src="{{ "double-pets-3-01.png" | asset_img_url:"250x" }}" alt="two dogs" class="type-Two Two" id="ProductSelect-option-title-Two-manual" loading="lazy">
+                              <p>Two (+ €10)</p>
+                            </div>
+                          </div>
+            		  	</div>
+            		</div>
+            		
+            		{% elsif option.name == 'Color' %}
+            		<div class="second-step steps no-disp">
+            		  <div class="color-option">
+                        <label class="color-option single-option-radio__label product-single__description flex-box align-center"
+                          for="ProductSelect-option-{{ forloop.index0 }}">
+                          2. Frame background color <span class="flex-box info-icon">{% include "info-icon" %}<div class="info-box second">Background colour of your portrait.</div></span>
+                        </label>
+                        <div class="color-div flex-box justify-between">
+                          {% for frame in option.values %}
+                            <span class="frame-swatch" data-index="option{{ option_index }}" name="option{{ option.position }}"
+                              id="ProductSelect-option-{{ option.name | handleize }}-{{ frame | escape | remove: " " }}-manual">
+                              <span class="frame-color" style="background-color: {% if frame == "Light beige" %}#FBF6EE{% elsif frame == "Prussian blue" %}#0B3954{% elsif frame == "Tumbleweed" %}#DEAA88{% endif %};"></span>
+                              <span class="colors-text">{{frame}}</span>
+                            </span>
+                          {% endfor %}
+                        </div>
+            		  </div>
+            		</div>
+            
+            		{% elsif option.name == 'Size' %}
+            		<div class="third-step steps no-disp">
+            			<div class="color-option">
+                          <label class="color-option single-option-radio__label product-single__description flex-box align-center"
+                            for="ProductSelect-option-{{ forloop.index0 }}">
+                            3. Size of canvas (in cm)? <span class="flex-box info-icon">{% include "info-icon" %}<div class="info-box third">Three sizes. Two pets are in landscape mode.</div></span>
+                          </label>
+                          <div class="color-div flex-box justify-between">
+                            {% for value in option.values %}
+                            <span class="frame-swatch {{ value | escape }}" data-index="option{{ option_index }}" name="option{{ option.position }}"
+                              id="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape | remove: " " }}-manual">
+                              <span class="frame-size">{{value}}</span>
+                              <p>+ €{% if value == "17 x 13" %}0{% elsif value == "28 x 21" %}15{% elsif value == "46 x 35" %}35{% endif %}</p>
+                            </span>
+                            
+                            {% endfor %}
+                          </div>
+            		  	</div>
+            		</div>
+                  	
+            	{% endif %}
+                {% endfor %}
+              {% endunless %}
+
+              <select name="id" id="ProductSelect--product-custom-template-2" class="product-single__variants no-js">
+                {% for variant in product.variants %}                  
+                    <option {% if variant == product.selected_or_first_available_variant %}
+                       {% endif %}
+                      data-sku="{{ variant.sku }}"
+                      data-variant-price="{{ variant.price | money | replace:",","."   }}"
+					  data-avaliable="{% if variant.available %}yes{% else %}no{% endif %}"
+                      value="{{ variant.id }}">
+                      {{ variant.title }} - {{ variant.price | money_with_currency }}
+                    </option>
+                {% endfor %}
+              </select>
+            
+            <div class="fourth-step steps no-disp">
+            <label class="flex-box">4. Upload your pet(s) below: <span class="flex-box info-icon">{% include "info-icon" %}<div class="info-box fourth">Upload a clear pictture. Write "EMPTY" when you don't want text written.</div></span></label>
+              
+                <div class="flex-box justify-between align-center pet1 sub-marg-top sub-marg-bottom">
+                  <div class="line-item-property__field pet-imgbox has-advanced-upload">
+                  <div class="box__input">              
+<!--                     <input type="hidden" name="properties[Image we will desgin ]" value="No"> -->
+                    <input id="pet1" required  type="file" class="box__file required" data-multiple-caption="Error {count} files selected" accept="image/*" name="properties[Image we will design 🎨]" value="Yes" enctype="multipart/form-data" />
+<!--                     <label for="pet1"><strong>UPLOAD</strong><span class="box__dragndrop"></span></label> -->
+                    <button type="submit" class="box__button">Upload</button>
+                    <label for="pet1"><span class="box__icon svg-inline--fa"></span></label>
+                  </div>
+                  <div class="box__uploading">
+                    Uploading&hellip;
+                  </div>
+                  <div class="box__success">
+                    Done!
+                  </div>
+                  <div class="box__error">
+                    Error! <span></span>.
+                  </div>
+                  </div>
+                  <p class="line-item-property__field flex-box flex-column">
+                    <label for="Petname1">Pet name</label>
+                    <input type="text" class="" id="Petname1" name="properties[_Petname]">
+                  </p>
+                </div>
+              
+                <div class="flex-box justify-between align-center pet2 sub-marg-bottom no-disp">
+                  <div class="line-item-property__field pet-imgbox has-advanced-upload">
+                  <div class="box__input">              
+<!--                     <input type="hidden" name="properties[Image we will design ]" value="No"> -->
+                    <input id="pet2" type="file" class="box__file" data-multiple-caption="Error {count} files selected" accept="image/*" name="properties[_Second Image we will design 🎨]" value="Yes" enctype="multipart/form-data" />
+    <!--                 <label for="image"><strong>UPLOAD</strong><span class="box__dragndrop"></span></label> -->
+                    <button type="submit" class="box__button">Upload</button>
+                    <label for="pet2"><span class="box__icon svg-inline--fa"></span></label>
+                  </div>
+                  <div class="box__uploading">
+                    Uploading&hellip;
+                  </div>
+                  <div class="box__success">
+                    Done!
+                  </div>
+                  <div class="box__error">
+                    Error! <span></span>.
+                  </div>
+                  </div>
+                <p class="line-item-property__field flex-box flex-column">
+                  <label for="Petname2">Pet name</label>
+                  <input type="text" class="" id="Petname2" name="properties[_Petname2]">
+                </p>
+              </div>
+            </div>
+            
+            <div class="fifth-step steps no-disp">
+              <label class="flex-box">5. Do you need a hanging system? <span class="flex-box info-icon">{% include "info-icon" %}<div class="info-box fifth">You can stick your portrait on a wall or screw it in the wall.</div></span></label>
+              <div class="flex-box hanging-div sub-marg-top">
+                  <div class="flex-box flex-column hanging-products" data-variant="40014311522503" data-price="€0,00">
+                      <img src="{{ "no-system-01.png"  | asset_url }}" alt="{{ image.alt | escape }}" loading="lazy">
+                      <p class="text-center">+ €0,00</p>
+                  </div>
+                {% assign selected_product =  section.settings.product_handle %}
+                {% for variant in selected_product.variants %}
+                  <div class="flex-box flex-column hanging-products" data-variant="{{ variant.id }}" data-price="{{ variant.price | money_without_currency | replace: ",", "." }}">
+                      <img src="{{ variant.image.src | image_url }}" alt="{{ variant.image.alt | escape }}" loading="lazy">
+                      <p class="text-center">+ {{ variant.price | money | replace: ",", "." }}</p>
+                  </div>
+                   {% endfor%}
+                 
+<!--                   <div class="flex-box flex-column hanging-products" data-variant="40014311588039" data-price="€7,95">
+                      <img src="{{ "hanging-system-01.png" | asset_url }}" alt="{{ image.alt | escape }}">
+                      <p class="text-center">+ €7,95</p>
+                  </div> -->
+              </div>
+            </div>
+            
+
+              {% if section.settings.quantity_enabled %}
+              <div class="product-single__quantity">
+                <label for="Quantity" class="product-single__quantity-label js-quantity-selector">{{ 'products.product.quantity' | t }}</label>
+                <input type="number" hidden="hidden" id="Quantity" name="quantity" value="1" min="1" class="js-quantity-selector">
+              </div>
+              {% endif %}
+                      
+            
+			  <div class="flex-box justify-center align-center">
+                <a class="back-link no-mobile">BACK</a>
+                <div class="product-single__add-to-cart{% if section.settings.add_to_cart_button_size == 'large' %} product-single__add-to-cart--full-width{% endif %}">
+                  <button type="button" name="add" id="Steps-button" disabled="true" class="this-is-cart-btn btn upload-btn-xl spacing border-button btn--add-to-cart no-mobile">
+                    Step 2
+                  </button>
+                </div>
+
+                <div class="product-single__add-to-cart{% if section.settings.add_to_cart_button_size == 'large' %} product-single__add-to-cart--full-width{% endif %}">
+                  <button type="submit" name="add" id="AddToCart--product-custom-template-2" disabled="true" class="this-is-cart-btn btn upload-btn-xl spacing border-button btn--add-to-cart no-disp"  style="width: 240px;">
+                    <span class="btn__text">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            
+            {% endform %}
+
+          </div>
+
+        </div>
+      </div>                  
+      
+      <div class="sticky-prices no-mobile no-desktop">
+        <label for="image"><p class="mobile-cart-submit">Upload a picture</p></label>
+      </div>
+      
+    </div>
+</div></div>
+{% unless product == empty %}
+  <script type="application/json" id="ProductJson-{{ section.id }}">
+    {{ product | json }}
+  </script>
+  <script type="application/json" id="ModelJson-{{ section.id }}">
+    {{ product.media | where: 'media_type', 'model' | json }}
+  </script>
+{% endunless %}
+
+{{ 'slick.css' | asset_url | stylesheet_tag }}
+<script src="{{ "slick.js" | asset_url }}"></script>
+
+<script>
+ 
+
+  function AfterBodyResize() {
+    var curr = $(".step-selected").text();
+//     $(".steps").addClass("no-disp");
+
+    switch (curr) {
+
+      case "1": $(".steps").addClass("no-disp");$(".first-step").removeClass("no-disp");$("#Steps-button").text("Step 2");if($(".type-selected").length <= 0){$("#Steps-button").attr("disabled",true)};$("#AddToCart--product-custom-template-2").addClass("no-disp");break;
+
+      case "2": $(".steps").addClass("no-disp");$(".second-step").removeClass("no-disp");$("#Steps-button").text("Step 3");if($(".selected-frame").length <= 0){$("#Steps-button").attr("disabled",true)};$("#AddToCart--product-custom-template-2").addClass("no-disp");break;
+
+      case "3": $(".steps").addClass("no-disp");$(".third-step").removeClass("no-disp");$("#Steps-button").text("Step 4");if($(".selected-frame-size").length <= 0){$("#Steps-button").attr("disabled",true)};$("#AddToCart--product-custom-template-2").addClass("no-disp");break;
+
+      case "4": $(".steps").addClass("no-disp");$(".fourth-step").removeClass("no-disp");$("#Steps-button").text("Step 5");$("#Steps-button").attr("disabled",true);$("#AddToCart--product-custom-template-2").addClass("no-disp");break;
+
+      case "5": $(".steps").addClass("no-disp");$(".fifth-step").removeClass("no-disp");$("#Steps-button").addClass("no-disp");$("#AddToCart--product-custom-template-2").removeClass("no-disp");if($(".hanging-product-selected").length <= 0){$("#AddToCart--product-custom-template-2").attr("disabled",true)};break;
+
+      default: $(".steps").addClass("no-disp");$(".first-step").removeClass("no-disp");$("#Steps-button").text("Step 2");if($(".type-selected").length <= 0){$("#Steps-button").attr("disabled",true)};break;
+    }
+  }
+  
+  $(window).resize(function(){
+    if(window.outerWidth < 768) {
+    	$(".steps").removeClass("no-disp")
+        $("#AddToCart--product-custom-template-2").removeClass("no-disp");
+    }
+    else {
+        AfterBodyResize();
+    }
+  });
+  
+  if(window.outerWidth < 768) {
+    	$(".steps").removeClass("no-disp");
+        $("#AddToCart--product-custom-template-2").removeClass("no-disp");
+  }
+  else {
+        AfterBodyResize();
+  }
+  
+//   function afterResize() {
+//     var curr = $(".step-selected").text();
+//     $(".steps").addClass("no-disp");
+    
+//     switch (curr) {
+
+//       case "1": $(".steps").addClass("no-disp");$(".first-step").removeClass("no-disp");$("#Steps-button").text("Step 2");if($(".type-selected").length <= 0){$("#Steps-button").attr("disabled",true)};break;
+
+//       case "2": $(".steps").addClass("no-disp");$(".second-step").removeClass("no-disp");$("#Steps-button").text("Step 3");if($(".selected-frame").length <= 0){$("#Steps-button").attr("disabled",true)};break;
+
+//       case "3": $(".steps").addClass("no-disp");$(".third-step").removeClass("no-disp");$("#Steps-button").text("Step 4");if($(".selected-frame-size").length <= 0){$("#Steps-button").attr("disabled",true)};break;
+
+//       case "4": $(".steps").addClass("no-disp");$(".fourth-step").removeClass("no-disp");$("#Steps-button").text("Step 5");$("#Steps-button").attr("disabled",true);break;
+
+//       case "5": $(".steps").addClass("no-disp");$(".fifth-step").removeClass("no-disp");$("#Steps-button").addClass("no-disp");$("#AddToCart--product-custom-template-2").removeClass("no-disp");$("#AddToCart--product-custom-template-2").attr("disabled",true);break;
+        
+//       default: console.log("default");$(".steps").addClass("no-disp");$(".first-step").removeClass("no-disp");$("#Steps-button").text("Step 2");if($(".type-selected").length <= 0){$("#Steps-button").attr("disabled",true)};break;
+//     }
+//   }
+  
+  $(".first-step img").click(function() {
+    $(".first-step img").removeClass("type-selected");
+    $(this).addClass("type-selected");
+    $("#Steps-button").attr("disabled",false);
+    
+    if($(this).hasClass("type-Two")) {
+      $(".pet2").removeClass("no-disp");
+    }
+    else {
+      $(".pet2").addClass("no-disp");
+    }
+    
+    var type = $(this).attr('id');
+    var typeSelected = type.substring(0,type.lastIndexOf('-'));
+    console.log(typeSelected);
+    document.getElementById(typeSelected).checked = true;
+    
+  });
+  
+  $(".second-step .frame-swatch").click(function() {
+    $(".second-step .frame-swatch").removeClass("selected-frame");
+    $(this).addClass("selected-frame");
+    $("#Steps-button").attr("disabled",false);
+    
+    var frameColor = $(this).attr('id');
+    var frameColorSelected = frameColor.substring(0,frameColor.lastIndexOf('-'));
+//     console.log(frameColorSelected);
+    document.getElementById(frameColorSelected).checked = true;
+    
+  });
+  
+  $(".third-step .frame-swatch").click(function() {
+    $(".third-step .frame-swatch").removeClass("selected-frame-size");
+    $(this).addClass("selected-frame-size");
+    $("#Steps-button").attr("disabled",false);
+    
+    var frameSize = $(this).attr('id');
+    var frameSizeSelected = frameSize.substring(0,frameSize.lastIndexOf('-'));
+//     console.log(frameSizeSelected);
+    document.getElementById(frameSizeSelected).checked = true;
+    
+  });
+  
+  setInterval(function() {
+    if($(".step-selected").text() == 4) {
+      if($('.pet2').hasClass("no-disp")) {
+        if($('#pet1').val() == "") {
+            $('#Steps-button').attr('disabled', true);
+        }
+        else {
+            $('#Steps-button').text('Step 5');
+            $('#Steps-button').attr('disabled', false);
+        }
+      }
+      else {
+        if($('#pet1').val() == "" || $('#pet2').val() == "") {
+            $('#Steps-button').attr('disabled', true);
+        }
+        else {
+            $('#Steps-button').text('Step 5');
+            $('#Steps-button').attr('disabled', false);
+        }
+      }
+    }
+  }, 500);
+  
+  $(".fifth-step .hanging-products").click(function() {
+    $(".fifth-step .hanging-products").removeClass("hanging-product-selected");
+    $(this).addClass("hanging-product-selected");
+    $("#AddToCart--product-custom-template-2").attr("disabled",false);
+  });
+  
+  $(".back-link").click(function() {
+    var prevStep = parseInt($(".step-selected").text())-1;
+//     console.log(prevStep);
+    $(".steps-swatch").each(function() {
+      if(prevStep != "0") {
+        $(this).removeClass("step-selected");
+        if($(this).text() == prevStep) {
+            $(this).addClass("step-selected");
+        }
+      }
+    });
+    
+    switch (prevStep) {
+          
+          case 0: $(".steps").addClass("no-disp");$(".first-step").removeClass("no-disp");$("#Steps-button").text("Step 2");$("#Steps-button").attr("disabled",false);break;
+
+          case 1: $(".steps").addClass("no-disp");$(".first-step").removeClass("no-disp");$("#Steps-button").text("Step 2");$("#Steps-button").attr("disabled",false);break;
+          
+          case 2: $(".steps").addClass("no-disp");$(".second-step").removeClass("no-disp");$("#Steps-button").text("Step 3");$("#Steps-button").attr("disabled",false);break;
+          
+          case 3: $(".steps").addClass("no-disp");$(".third-step").removeClass("no-disp");$("#Steps-button").text("Step 4");$("#Steps-button").attr("disabled",false);break;
+          
+          case 4: $(".steps").addClass("no-disp");$(".fourth-step").removeClass("no-disp");$("#Steps-button").text("Step 5");$("#Steps-button").attr("disabled",false);
+        		  $("#Steps-button").removeClass("no-disp");$("#AddToCart--product-custom-template-2").addClass("no-disp");
+        		  if($(".type-selected") && $(".type-selected").hasClass("type-Two")){$(".pet2").removeClass("no-disp");}else {$(".pet2").addClass("no-disp");}break;
+          
+//           case 5: $(".steps").addClass("no-disp");$(".fifth-step").removeClass("no-disp");$("#AddToCart-CustomFrame").attr("disabled",true);break;
+		
+      	  default:  $(".steps").addClass("no-disp");$(".first-step").removeClass("no-disp");$("#Steps-button").text("Step 2");$("#Steps-button").attr("disabled",false);break;
+    }
+  });
+  
+  function switchstep() {
+    var step = parseInt($(".step-selected").text())+1;
+    $(".steps-swatch").each(function() {
+      $(this).removeClass("step-selected");
+      if($(this).text() == step) {
+          $(this).addClass("step-selected");
+      }
+    });
+  }
+  
+  $("#Steps-button").click(function() {
+    var step = parseInt($(".step-selected").text())
+      switch (step) {
+
+          case 1: switchstep();$("#Steps-button").text("Step 3");if($(".selected-frame").length <= 0){$("#Steps-button").attr("disabled",true)};$(".steps").addClass("no-disp");$(".second-step").removeClass("no-disp");break;
+          
+          case 2: switchstep();$("#Steps-button").text("Step 4");if($(".selected-frame-size").length <= 0){$("#Steps-button").attr("disabled",true)};$(".steps").addClass("no-disp");$(".third-step").removeClass("no-disp");break;
+          
+          case 3: switchstep();$("#Steps-button").text("Step 5");$("#Steps-button").attr("disabled",true);$(".steps").addClass("no-disp");$(".fourth-step").removeClass("no-disp");
+          			if($(".type-selected") && $(".type-selected").hasClass("type-Two")) {
+                      $(".pet2").removeClass("no-disp");
+                    }
+                    else {
+                      $(".pet2").addClass("no-disp");
+                    }break;
+          
+          case 4: switchstep();$("#Steps-button").addClass("no-disp");$("#AddToCart--product-custom-template-2").removeClass("no-disp");if($(".hanging-product-selected").length <= 0){$("#AddToCart--product-custom-template-2").attr("disabled",true)};$(".steps").addClass("no-disp");$(".fifth-step").removeClass("no-disp");break;
+          
+          case 5: addToCartNew();break;
+
+      }
+  });
+  
+  function petImagesUploadmobile() {
+      if($('.pet2').hasClass("no-disp")) {
+        if($('#pet1').val() == "") {return false;}
+        else {return true;}
+      }
+      else {
+        if($('#pet1').val() == "" || $('#pet2').val() == "") {return false;}
+        else {return true;}
+      }
+  }
+  
+  setInterval(function(){
+    if(window.outerWidth < 768) {
+		if($(".type-selected").length > 0 && $(".selected-frame").length > 0 && $(".selected-frame").length > 0 && petImagesUploadmobile() && $(".hanging-product-selected").length > 0) {
+          $("#AddToCart--product-custom-template-2").attr("disabled",false);
+        }
+        else {
+          $("#AddToCart--product-custom-template-2").attr("disabled",true);
+        }
+    }
+  }, 500);
+  
+  
+  $("#AddToCartForm--product-custom-template-2").submit(function(e){
+      e.preventDefault();
+  });
+  $("#AddToCart--product-custom-template-2").click(function(event) {
+     $(this).addClass('special-loader');
+    $(this).html('Loading<span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>');
+//       event.preventDefault();
+      addToCartNew();
+  });
+  
+  function addToCartNew() {
+    
+    var frame = $(".selected-frame").attr("id").substring(0,$(".selected-frame").attr("id").lastIndexOf("-"));
+    var frameSize = $(".selected-frame-size").attr("id").substring(0,$(".selected-frame-size").attr("id").lastIndexOf("-")).replaceAll(" ","");
+
+    frame = frame.substring(frame.lastIndexOf("-")+1);
+    frameSize = frameSize.substring(frameSize.lastIndexOf("-")+1);
+    
+    var type;
+    if($(".type-selected").hasClass("One")) {
+    	type = "One";
+    }
+    else {
+    	type = "Two";
+    }
+    
+    var variantName = type+"/"+frame+"/"+frameSize;
+  	var productId = variants_json[variantName];
+    console.log(variantName);
+    console.log(productId);
+    
+    $("#ProductSelect--product-custom-template-2 option").each(function() {
+      $(this).prop('selected', false)
+      if($(this).attr("value") === productId) {
+          $(this).prop('selected', true);
+        
+          $("#ProductPrice").text($(this).data("variant-price"));
+      }
+    });
+    
+    
+    
+    
+    if($(".hanging-product-selected") && $(".hanging-product-selected").data("variant") != 40014311522503) {
+      var formData_1 = {
+          'items': [{
+            'id': $(".hanging-product-selected").data("variant"),
+            'quantity': 1
+          }]
+        };
+      
+      console.log(formData);
+      $.ajax({
+        url: "/cart/add.js",
+        method: "POST",
+        dataType: "json",
+        data: formData_1,
+      })
+      .done(function( data ) {
+        console.log(data);
+//         ajaxCart.load();
+      })
+      .fail(function(error) {
+        console.log( error );
+      });
+    }
+    
+
+    var formData;
+    var formArray = document.getElementById("AddToCartForm--product-custom-template-2");
+    //     console.log(formArray)
+    formData = new FormData(formArray)
+    console.log(formData)
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      return response.json();
+
+
+    })
+    .then(result => {
+      console.log(result);
+      jQuery.getJSON('/cart.js', function(cart) {
+        openAjaxCart(cart);
+        
+      });
+      $("#AddToCart--product-custom-template-2").removeClass('special-loader');
+      $("#AddToCart--product-custom-template-2").html('add to cart');
+      //     $(this).html('order now');
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+
+  }
+
+  console.log(variants_json)
+  console.log(variant_colors)
+  console.log(variant_framesizes)
+  console.log(variant_frametype)
+
+</script>
+
+<script type="text/javascript">
+  
+
+	'use strict';
+
+	;( function ( document, window, index )
+	{
+		// feature detection for drag&drop upload
+		var isAdvancedUpload = function()
+			{
+				var div = document.createElement( 'div' );
+				return ( ( 'draggable' in div ) || ( 'ondragstart' in div && 'ondrop' in div ) ) && 'FormData' in window && 'FileReader' in window;
+			}();
+
+
+		// applying the effect for every form
+		var forms = document.querySelectorAll( '.pet1 .pet-imgbox' );
+		Array.prototype.forEach.call( forms, function( form )
+		{
+			var input		 = form.querySelector( 'input[type="file"]' ),
+				label		 = form.querySelector( 'label' ),
+				errorMsg	 = form.querySelector( '.box__error span' ),
+				restart		 = form.querySelectorAll( '.box__restart' ),
+				droppedFiles = false,
+				showFiles	 = function( files )
+				{
+					label.style.visibility = "hidden"; //files.length > 1 ? ( input.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', files.length ) : files[ 0 ].name;
+				}
+
+
+
+			// drag&drop files if the feature is available
+			if( isAdvancedUpload )
+			{
+				form.classList.add( 'has-advanced-upload' ); // letting the CSS part to know drag&drop is supported by the browser
+
+				[ 'drag', 'dragstart', 'dragend', 'dragover', 'dragenter', 'dragleave', 'drop' ].forEach( function( event )
+				{
+					form.addEventListener( event, function( e )
+					{
+						// preventing the unwanted behaviours
+						e.preventDefault();
+						e.stopPropagation();
+					});
+				});
+				[ 'dragover', 'dragenter' ].forEach( function( event )
+				{
+					form.addEventListener( event, function()
+					{
+						form.classList.add( 'is-dragover' );
+					});
+				});
+				[ 'dragleave', 'dragend', 'drop' ].forEach( function( event )
+				{
+					form.addEventListener( event, function()
+					{
+						form.classList.remove( 'is-dragover' );
+					});
+				});
+				form.addEventListener( 'drop', function( e )
+				{
+                  droppedFiles = e.dataTransfer.files[0]; // the files that were dropped
+                  var fileTypeX = e.dataTransfer.files[0].type;
+                  var validImageTypesX = ["image/jpeg", "image/png"];                
+                  if ($.inArray(fileTypeX, validImageTypesX) < 0) {
+                    console.log('invalid file');
+                  } else {
+                    input.files = e.dataTransfer.files;
+                    showFiles( e.dataTransfer.files );
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                      //$('#blah').attr('src', e.target.result);                                        
+                      $(".pet1 .pet-imgbox").css("background-color", "transparent");                                        
+                      $(".pet1 .pet-imgbox").css("background-repeat", "no-repeat");                                     
+                      $(".pet1 .pet-imgbox").css("background-size", "contain");                                  
+                      $(".pet1 .pet-imgbox").css("background-position", "center");
+                      $(".pet1 .pet-imgbox").css("background-image", "url(" + e.target.result + ")");
+                      $(".pet1 .box__icon").css("visibility", "hidden");
+                      if ($(window).width() < 767) {
+                        $('#AddToCartForm--product-template').submit();
+                        $('.mobile-cart-submit').addClass('special-loader');
+                        $('.mobile-cart-submit').html('Loading<span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>');
+                      }
+                    }
+
+                    reader.readAsDataURL(e.dataTransfer.files[0]);
+                  } 
+
+					
+
+									});
+			}
+          $("#pet1").change(function() {            		
+                  var fileTypeX = this.files[0].type;
+                  var validImageTypesX = ["image/jpeg", "image/png"];
+                  if ($.inArray(fileTypeX, validImageTypesX) < 0) {
+                    console.log('invalid file');
+                  } else {
+                    //input.files = this.files;
+                    showFiles( this.files );
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                      //$('#blah').attr('src', e.target.result);                                        
+                      $(".pet1 .pet-imgbox").css("background-color", "transparent");                                        
+                      $(".pet1 .pet-imgbox").css("background-repeat", "no-repeat");                                    
+                      $(".pet1 .pet-imgbox").css("background-size", "contain");                                  
+                      $(".pet1 .pet-imgbox").css("background-position", "center");
+                      $(".pet1 .pet-imgbox").css("background-image", "url(" + e.target.result + ")");
+                      $(".pet1 .box__icon").css("visibility", "hidden");
+                      if ($(window).width() < 767) {
+                        if (!(window.location.href.indexOf("custom-t-shirt") > -1)) {
+                          $('#AddToCartForm--product-template').submit();
+                          $('.mobile-cart-submit').addClass('special-loader');
+                          $('.mobile-cart-submit').html('Loading<span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>');
+                        }
+                      }
+                    }
+
+                    reader.readAsDataURL(this.files[0]);
+                  }
+          });
+			// Firefox focus bug fix for file input
+			input.addEventListener( 'focus', function(){ input.classList.add( 'has-focus' ); });
+			input.addEventListener( 'blur', function(){ input.classList.remove( 'has-focus' ); });
+
+		});
+	}( document, window, 0 ));
+  
+
+</script>
+
+
+<script type="text/javascript">
+  
+
+	'use strict';
+
+	;( function ( document, window, index )
+	{
+		// feature detection for drag&drop upload
+		var isAdvancedUpload = function()
+			{
+				var div = document.createElement( 'div' );
+				return ( ( 'draggable' in div ) || ( 'ondragstart' in div && 'ondrop' in div ) ) && 'FormData' in window && 'FileReader' in window;
+			}();
+
+
+		// applying the effect for every form
+		var forms2 = document.querySelectorAll( '.pet2 .pet-imgbox' );
+		Array.prototype.forEach.call( forms2, function( form2 )
+		{
+			var input		 = form2.querySelector( 'input[type="file"]' ),
+				label		 = form2.querySelector( 'label' ),
+				errorMsg	 = form2.querySelector( '.box__error span' ),
+				restart		 = form2.querySelectorAll( '.box__restart' ),
+				droppedFiles = false,
+				showFiles	 = function( files )
+				{
+					label.style.visibility = "hidden"; //files.length > 1 ? ( input.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', files.length ) : files[ 0 ].name;
+				}
+
+
+
+			// drag&drop files if the feature is available
+			if( isAdvancedUpload )
+			{
+				form2.classList.add( 'has-advanced-upload' ); // letting the CSS part to know drag&drop is supported by the browser
+
+				[ 'drag', 'dragstart', 'dragend', 'dragover', 'dragenter', 'dragleave', 'drop' ].forEach( function( event )
+				{
+					form2.addEventListener( event, function( e )
+					{
+						// preventing the unwanted behaviours
+						e.preventDefault();
+						e.stopPropagation();
+					});
+				});
+				[ 'dragover', 'dragenter' ].forEach( function( event )
+				{
+					form2.addEventListener( event, function()
+					{
+						form2.classList.add( 'is-dragover' );
+					});
+				});
+				[ 'dragleave', 'dragend', 'drop' ].forEach( function( event )
+				{
+					form2.addEventListener( event, function()
+					{
+						form2.classList.remove( 'is-dragover' );
+					});
+				});
+				form2.addEventListener( 'drop', function( e )
+				{
+                  droppedFiles = e.dataTransfer.files[0]; // the files that were dropped
+                  var fileTypeX = e.dataTransfer.files[0].type;
+                  var validImageTypesX = ["image/jpeg", "image/png"];                
+                  if ($.inArray(fileTypeX, validImageTypesX) < 0) {
+                    console.log('invalid file');
+                  } else {
+                    input.files = e.dataTransfer.files;
+                    showFiles( e.dataTransfer.files );
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                      //$('#blah').attr('src', e.target.result);                                        
+                      $(".pet2 .pet-imgbox").css("background-color", "transparent");                                        
+                      $(".pet2 .pet-imgbox").css("background-repeat", "no-repeat");                                     
+                      $(".pet2 .pet-imgbox").css("background-size", "contain");                                  
+                      $(".pet2 .pet-imgbox").css("background-position", "center");
+                      $(".pet2 .pet-imgbox").css("background-image", "url(" + e.target.result + ")");
+                      $(".pet2 .box__icon").css("visibility", "hidden");
+                      if ($(window).width() < 767) {
+                        $('#AddToCartForm--product-template').submit();
+                        $('.mobile-cart-submit').addClass('special-loader');
+                        $('.mobile-cart-submit').html('Loading<span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>');
+                      }
+                    }
+
+                    reader.readAsDataURL(e.dataTransfer.files[0]);
+                  } 
+
+					
+
+									});
+			}
+          $("#pet2").change(function() {            		
+                  var fileTypeX = this.files[0].type;
+                  var validImageTypesX = ["image/jpeg", "image/png"];
+                  if ($.inArray(fileTypeX, validImageTypesX) < 0) {
+                    console.log('invalid file');
+                  } else {
+                    //input.files = this.files;
+                    showFiles( this.files );
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                      //$('#blah').attr('src', e.target.result);                                        
+                      $(".pet2 .pet-imgbox").css("background-color", "transparent");                                        
+                      $(".pet2 .pet-imgbox").css("background-repeat", "no-repeat");                                    
+                      $(".pet2 .pet-imgbox").css("background-size", "contain");                                  
+                      $(".pet2 .pet-imgbox").css("background-position", "center");
+                      $(".pet2 .pet-imgbox").css("background-image", "url(" + e.target.result + ")");
+                      $(".pet2 .box__icon").css("visibility", "hidden");
+                      if ($(window).width() < 767) {
+                        if (!(window.location.href.indexOf("custom-t-shirt") > -1)) {
+                          $('#AddToCartForm--product-template').submit();
+                          $('.mobile-cart-submit').addClass('special-loader');
+                          $('.mobile-cart-submit').html('Loading<span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>');
+                        }
+                      }
+                    }
+
+                    reader.readAsDataURL(this.files[0]);
+                  }
+          });
+			// Firefox focus bug fix for file input
+			input.addEventListener( 'focus', function(){ input.classList.add( 'has-focus' ); });
+			input.addEventListener( 'blur', function(){ input.classList.remove( 'has-focus' ); });
+
+		});
+	}( document, window, 0 ));
+  
+
+</script>
+
+<script src="{{ "owlcarousel.js" | asset_url }}"></script>
+<script>
+  $(document).ready(function(){
+    $('.owl-carousel').owlCarousel({
+      loop:false,
+      margin:1,
+      nav:true,
+      responsive:{
+        0:{
+          items:3,
+          nav:true,          
+          loop:false
+        }
+      }
+    })
+  });
+  
+</script>
+
+
+
+{% schema %}
+{
+  "name": {
+    "da": "Produktsider",
+    "de": "Produktseiten",
+    "en": "Product Custom Template 2",
+    "es": "Páginas de productos",
+    "fi": "Tuotesivut",
+    "fr": "Pages de produits",
+    "hi": "उत्पाद पेज",
+    "it": "Pagine di prodotto",
+    "ja": "商品ページ",
+    "ko": "제품 페이지",
+    "nb": "Produktsider",
+    "nl": "Productpagina's",
+    "pt-BR": "Páginas de produtos",
+    "pt-PT": "Páginas de produtos",
+    "sv": "Produktsidor",
+    "th": "หน้าสินค้า",
+    "zh-CN": "产品页面",
+    "zh-TW": "產品頁面"
+  },
+  "settings": [
+	{
+        "type": "product",
+        "id": "product_handle",
+        "label": "Product",
+        "info": "Select a product to add on step 5"
+	},	
+    {
+      "type": "checkbox",
+      "id": "product_vendor_enable",
+      "label": {
+        "da": "Vis produktleverandør",
+        "de": "Produktverkäufer anzeigen",
+        "en": "Show product vendor",
+        "es": "Mostrar proveedor del producto",
+        "fi": "Näytä tuotteen myyjä",
+        "fr": "Afficher le distributeur du produit",
+        "hi": "उत्पाद विक्रेता दिखाएं",
+        "it": "Indica fornitore prodotto",
+        "ja": "商品の販売元を表示する",
+        "ko": "제품 공급 업체 표시",
+        "nb": "Vis produktleverandør",
+        "nl": "Productleverancier weergeven",
+        "pt-BR": "Exiba o fornecedor do produto",
+        "pt-PT": "Mostrar o fornecedor do produto",
+        "sv": "Visa produktsäljare",
+        "th": "แสดงผู้ขายสินค้า",
+        "zh-CN": "显示产品厂商",
+        "zh-TW": "顯示產品廠商"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "social_sharing_products",
+      "label": {
+        "da": "Aktivér produktdeling",
+        "de": "Teilen von Produkten aktivieren",
+        "en": "Enable product sharing",
+        "es": "Habilitar compartir productos",
+        "fi": "Ota tuotejako käyttöön",
+        "fr": "Activer le partage de produits",
+        "hi": "उत्पाद साझाकरण सक्षम करें",
+        "it": "Permetti condivisione del prodotto",
+        "ja": "商品の共有を有効にする",
+        "ko": "제품 공유 활성화",
+        "nb": "Aktiver produktdeling",
+        "nl": "Schakel het delen van producten in",
+        "pt-BR": "Habilite o compartilhamento de produtos",
+        "pt-PT": "Ativar a partilha de produtos",
+        "sv": "Aktivera produktdelning",
+        "th": "เปิดใช้การแชร์สินค้า",
+        "zh-CN": "启用产品分享",
+        "zh-TW": "啟用產品分享"
+      },
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": {
+        "da": "Formular for produktmuligheder",
+        "de": "Produktoptionsformular",
+        "en": "Product options form",
+        "es": "Formulario de opciones de producto",
+        "fi": "Tuotevaihtoehtolomake",
+        "fr": "Formulaire d'options de produit",
+        "hi": "उत्पाद के विकल्प फ़ॉर्म",
+        "it": "Modulo delle opzioni di prodotto",
+        "ja": "商品オプションのフォーム",
+        "ko": "제품 옵션 양식",
+        "nb": "Skjema for produktalternativer",
+        "nl": "Formulier productopties",
+        "pt-BR": "Formulário de opções de produtos",
+        "pt-PT": "Formulário de opções de produtos",
+        "sv": "Produktalternativsformulär",
+        "th": "แบบฟอร์มตัวเลือกสินค้า",
+        "zh-CN": "产品选项表单",
+        "zh-TW": "產品選項表單"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "quantity_enabled",
+      "label": {
+        "da": "Vis antalsvælger",
+        "de": "Mengenauswahl anzeigen",
+        "en": "Show quantity picker",
+        "es": "Mostrar selector de cantidad",
+        "fi": "Näytä määrän valintatyökalu",
+        "fr": "Afficher le sélecteur de quantité",
+        "hi": "मात्रा पिकर दिखाएं",
+        "it": "Mostra selettore di quantità",
+        "ja": "数量ピッカーを表示する",
+        "ko": "수량 선택기 표시",
+        "nb": "Vis mengdevelger",
+        "nl": "Hoeveelheidskiezer weergeven",
+        "pt-BR": "Exibir seletor de quantidade",
+        "pt-PT": "Mostrar seletor de quantidade",
+        "sv": "Visa kvantitetsväljaren",
+        "th": "แสดงเครื่องมือเลือกจำนวน",
+        "zh-CN": "显示数量选择器",
+        "zh-TW": "顯示數量選擇器"
+      }
+    },
+    {
+      "type": "select",
+      "id": "product_selector",
+      "label": {
+        "da": "Vælgertype",
+        "de": "Auswahlart",
+        "en": "Picker type",
+        "es": "Tipo de selector",
+        "fi": "Valitsintyyppi",
+        "fr": "Type de sélecteur",
+        "hi": "पिकर के प्रकार",
+        "it": "Tipo di selettore",
+        "ja": "ピッカーの種類",
+        "ko": "선택기 유형",
+        "nb": "Velgertype",
+        "nl": "Soort kiezer",
+        "pt-BR": "Tipo de seletor",
+        "pt-PT": "Tipo de seletor",
+        "sv": "Väljartyp",
+        "th": "ประเภทของเครื่องมือเลือก",
+        "zh-CN": "选择器类型",
+        "zh-TW": "選擇器類型"
+      },
+      "options": [
+        {
+          "value": "radio",
+          "label": {
+            "da": "Knap",
+            "de": "Schaltfläche",
+            "en": "Button",
+            "es": "Botón",
+            "fi": "Painike",
+            "fr": "Bouton",
+            "hi": "बटन",
+            "it": "Pulsante",
+            "ja": "ボタン",
+            "ko": "버튼",
+            "nb": "Knapp",
+            "nl": "Knop",
+            "pt-BR": "Botão",
+            "pt-PT": "Botão",
+            "sv": "Knapp",
+            "th": "ปุ่ม",
+            "zh-CN": "按钮",
+            "zh-TW": "按鈕"
+          }
+        },
+        {
+          "value": "select",
+          "label": {
+            "da": "Rullemenu",
+            "de": "Dropdown",
+            "en": "Dropdown",
+            "es": "Desplegable",
+            "fi": "Alasvetovalikko",
+            "fr": "Menu déroulant",
+            "hi": "ड्रॉप डाउन",
+            "it": "Menu a tendina",
+            "ja": "ドロップダウン",
+            "ko": "드롭다운",
+            "nb": "Rullegardin",
+            "nl": "Vervolgkeuzemenu",
+            "pt-BR": "Menu suspenso",
+            "pt-PT": "Menu pendente",
+            "sv": "Rullgardinsmeny",
+            "th": "ดรอปดาวน์",
+            "zh-CN": "下拉菜单",
+            "zh-TW": "下拉式選單"
+          }
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": {
+        "da": "Knappen Læg i indkøbskurven",
+        "de": "Schaltfläche In den Warenkorb",
+        "en": "Add to cart button",
+        "es": "Añadir al carrito",
+        "fi": "Lisää ostoskoriin -painike",
+        "fr": "Bouton d'ajout au panier",
+        "hi": "कार्ट बटन में जोड़ें",
+        "it": "Pulsante \"Aggiungi al carrello\"",
+        "ja": "カートボタンに追加する",
+        "ko": "카트 버튼에 추가",
+        "nb": "Legg i handlekurv-knapp",
+        "nl": "Knop aan winkelwagen toevoegen",
+        "pt-BR": "Botão Adicionar ao carrinho",
+        "pt-PT": "Botão Adicionar ao carrinho",
+        "sv": "Lägg i varukorgen-knappen",
+        "th": "ปุ่มเพิ่มลงในตะกร้าสินค้า",
+        "zh-CN": "“添加到购物车”按钮",
+        "zh-TW": "加入購物車按鈕"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_payment_button",
+      "label": {
+        "da": "Vis dynamisk betalingsknap",
+        "de": "Dynamischen Checkout-Button anzeigen",
+        "en": "Show dynamic checkout button",
+        "es": "Mostrar botón de pago dinámico",
+        "fi": "Näytä dynaaminen kassapainike",
+        "fr": "Afficher le bouton de paiement dynamique",
+        "hi": "डायनेमिक चेकआउट बटन दिखाएं",
+        "it": "Mostra pulsante di check-out dinamico",
+        "ja": "動的チェックアウトボタンを表示する",
+        "ko": "동적 결제 버튼 표시",
+        "nb": "Vis dynamisk knapp for å gå til kassen",
+        "nl": "Dynamische betaalknop weergeven",
+        "pt-BR": "Exibir botão de checkout dinâmico",
+        "pt-PT": "Mostrar o botão dinâmico de finalização da compra",
+        "sv": "Visa dynamiska utcheckningsknappar",
+        "th": "แสดงปุ่มชำระเงินแบบไดนามิก",
+        "zh-CN": "显示动态结账按钮",
+        "zh-TW": "顯示動態結帳按鈕"
+      },
+      "info": {
+        "da": "Den enkelte kunde vil se sin foretrukne betalingsmetode blandt dem, der er tilgængelige i din butik, f.eks. PayPal eller Apple Pay. [Få mere at vide](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+        "de": "Jeder Kunde sieht seine bevorzugte Zahlungsmethode aus den in Ihrem Shop verfügbaren Zahlungsmethoden wie PayPal oder Apple Pay. [Mehr Informationen](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+        "en": "Each customer will see their preferred payment method from those available on your store, such as PayPal or Apple Pay. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+        "es": "Cada cliente verá su forma de pago preferida entre las disponibles en tu tienda, como PayPal o Apple Pay. [Más información](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+        "fi": "Kukin asiakas näkee ensisijaisen valintansa kauppasi tarjoamista maksutavoista, esim. PayPal tai Apple Pay. [Lisätietoja](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+        "fr": "Chaque client verra son moyen de paiement préféré parmi ceux qui sont proposés sur votre boutique, tels que PayPal ou Apple Pay. [En savoir plus](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+        "hi": "प्रत्येक ग्राहक आपके स्टोर पर उपलब्ध अपनी पसंदीदा भुगतान की विधि देखेंगे जैसे PayPal या Apple Pay. [अधिक जानें](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+        "it": "Ogni cliente vedrà il suo metodo di pagamento preferito tra quelli disponibili nel tuo negozio, come PayPal o Apple Pay. [Maggiori informazioni](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+        "ja": "PayPalやApple Payなど、ストアで利用可能な希望の決済方法がお客様に表示されます。[詳細情報](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+        "ko": "각 고객은 PayPal 또는 Apple Pay와 같이 스토어에서 사용 가능한 지불 방법을 확인할 수 있습니다. [자세히 알아보기](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+        "nb": "Hver enkelt kunde vil se sin foretrukne betalingsmåte blant de som er tilgjengelig i butikken din, som PayPal eller Apple Pay. [Finn ut mer](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+        "nl": "Elke klant ziet zijn of haar beschikbare voorkeursmethode om af te rekenen, zoals PayPal of Apple Pay. [Meer informatie](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+        "pt-BR": "Cada cliente verá a forma de pagamento preferencial dele dentre as disponíveis na loja, como PayPal ou Apple Pay. [Saiba mais](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+        "pt-PT": "Cada cliente irá ver o seu método de pagamento preferido entre os disponíveis na loja, como o PayPal ou Apple Pay. [Saiba mais](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+        "sv": "Varje kund kommer att se den föredragna betalningsmetoden från de som finns tillgängliga i din butik, till exempel PayPal eller Apple Pay. [Läs mer](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+        "th": "ลูกค้าแต่ละรายจะเห็นวิธีการชำระเงินที่ต้องการจากวิธีที่ใช้ได้ในร้านค้าของคุณ เช่น PayPal หรือ Apple Pay [เรียนรู้เพิ่มเติม](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+        "zh-CN": "每位客户都可在您商店提供的付款方式中看到他们的首选付款方式，例如 PayPal 或 Apple Pay。[了解详细信息](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+        "zh-TW": "每位顧客都可以在您商店內開放使用的付款方式中看見他們偏好使用的方式，如 PayPal、Apple Pay 等。[深入瞭解](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+      },
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "add_to_cart_button_size",
+      "label": {
+        "da": "Knapstørrelse",
+        "de": "Schaltflächengröße",
+        "en": "Button size",
+        "es": "Tamaño del botón",
+        "fi": "Painikkeen koko",
+        "fr": "Taille du bouton",
+        "hi": "बटन का आकार",
+        "it": "Dimensione pulsante",
+        "ja": "ボタンのサイズ",
+        "ko": "버튼 사이즈",
+        "nb": "Knappestørrelse",
+        "nl": "Afmeting knop",
+        "pt-BR": "Tamanho do botão",
+        "pt-PT": "Tamanho do botão",
+        "sv": "Knappstorlek",
+        "th": "ขนาดปุ่ม",
+        "zh-CN": "按钮大小",
+        "zh-TW": "按鈕尺寸"
+      },
+      "default": "small",
+      "options": [
+        {
+          "value": "small",
+          "label": {
+            "da": "Lille",
+            "de": "Klein",
+            "en": "Small",
+            "es": "Pequeña",
+            "fi": "Pieni",
+            "fr": "Petit",
+            "hi": "छोटा",
+            "it": "Piccolo",
+            "ja": "小",
+            "ko": "스몰",
+            "nb": "Liten",
+            "nl": "Klein",
+            "pt-BR": "Pequeno",
+            "pt-PT": "Pequeno",
+            "sv": "Liten",
+            "th": "เล็ก",
+            "zh-CN": "小",
+            "zh-TW": "小型"
+          }
+        },
+        {
+          "value": "large",
+          "label": {
+            "da": "Stor",
+            "de": "Groß",
+            "en": "Large",
+            "es": "grande",
+            "fi": "Suuri",
+            "fr": "Grand",
+            "hi": "बड़ा",
+            "it": "Grande",
+            "ja": "大",
+            "ko": "라지",
+            "nb": "Stor",
+            "nl": "Groot",
+            "pt-BR": "Grande",
+            "pt-PT": "Grande",
+            "sv": "Stor",
+            "th": "ใหญ่",
+            "zh-CN": "大",
+            "zh-TW": "大型"
+          }
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": {
+        "da": "Medie",
+        "de": "Medien",
+        "en": "Media",
+        "es": "Elementos multimedia",
+        "fi": "Media",
+        "fr": "Médias",
+        "hi": "मीडिया",
+        "it": "Media",
+        "ja": "メディア",
+        "ko": "미디어",
+        "nb": "Medier",
+        "nl": "Media",
+        "pt-BR": "Mídia",
+        "pt-PT": "Multimédia",
+        "sv": "Media",
+        "th": "สื่อ",
+        "zh-CN": "媒体",
+        "zh-TW": "媒體"
+      },
+      "info": {
+        "da": "Få mere at vide om [media types](https://help.shopify.com/manual/products/product-media)",
+        "de": "Mehr Informationen über [Medientypen ](https://help.shopify.com/manual/products/product-media)",
+        "en": "Learn more about [media types](https://help.shopify.com/manual/products/product-media)",
+        "es": "Más información sobre [tipos de archivos multimedia](https://help.shopify.com/manual/products/product-media)",
+        "fi": "Lue lisää [mediatyypeistä](https://help.shopify.com/manual/products/product-media)",
+        "fr": "En savoir plus sur les [types de supports multimédia](https://help.shopify.com/manual/products/product-media)",
+        "hi": "[मीडिया प्रकार](https://help.shopify.com/manual/products/product-media) के बारे में और जानें",
+        "it": "Scopri di più sulle [tipologie di file multimediali](https://help.shopify.com/manual/products/product-media)",
+        "ja": "[メディアのタイプ](https://help.shopify.com/manual/products/product-media) について詳しく知る",
+        "ko": "[미디어 유형](https://help.shopify.com/manual/products/product-media)에 대해 자세히 알아보기",
+        "nb": "Lær mer om [medietyper](https://help.shopify.com/manual/products/product-media)",
+        "nl": "Meer informatie over [mediatypen](https://help.shopify.com/manual/products/product-media)",
+        "pt-BR": "Saiba mais sobre [tipos de mídia](https://help.shopify.com/manual/products/product-media)",
+        "pt-PT": "Saiba mais sobre [media types](https://help.shopify.com/manual/products/product-media)",
+        "sv": "Läs mer om [mediatyper](https://help.shopify.com/manual/products/product-media)",
+        "th": "ดูข้อมูลเพิ่มเติมเกี่ยวกับ [ประเภทของสื่อ](https://help.shopify.com/manual/products/product-media)",
+        "zh-CN": "详细了解[媒体类型](https://help.shopify.com/manual/products/product-media)",
+        "zh-TW": "深入瞭解 [媒體類型](https://help.shopify.com/manual/products/product-media)"
+      }
+    },
+    {
+      "type": "select",
+      "id": "media_layout",
+      "label": {
+        "da": "Gallerilayout",
+        "de": "Galerie-Layout",
+        "en": "Gallery layout",
+        "es": "Diseño de la galería",
+        "fi": "Gallerian pohja",
+        "fr": "Mise en page de la galerie",
+        "hi": "गैलरी लेआउट",
+        "it": "Layout galleria",
+        "ja": "ギャラリーのレイアウト",
+        "ko": "갤러리 레이아웃",
+        "nb": "Gallerioppsett",
+        "nl": "Galerij-opmaak",
+        "pt-BR": "Layout da galeria",
+        "pt-PT": "Esquema da galeria",
+        "sv": "Galleri-layout",
+        "th": "เลย์เอาต์แกลเลอรี",
+        "zh-CN": "图库布局",
+        "zh-TW": "圖庫版面配置"
+      },
+      "default": "stacked",
+      "options": [
+        {
+          "value": "stacked",
+          "label": {
+            "da": "Stablet",
+            "de": "Gestapelt",
+            "en": "Stacked",
+            "es": "Stacked",
+            "fi": "Pinottu",
+            "fr": "Empiler",
+            "hi": "स्टैक्ड",
+            "it": "Elenco",
+            "ja": "スタックされました",
+            "ko": "누적",
+            "nb": "Stablet",
+            "nl": "Gestapeld",
+            "pt-BR": "Empilhado",
+            "pt-PT": "Empilhado",
+            "sv": "Staplade",
+            "th": "ซ้อน",
+            "zh-CN": "已堆叠",
+            "zh-TW": "已堆疊"
+          }
+        },
+        {
+          "value": "thumbnails",
+          "label": {
+            "da": "Miniaturer",
+            "de": "Vorschaubilder",
+            "en": "Thumbnails",
+            "es": "Miniaturas",
+            "fi": "Pikkukuvat",
+            "fr": "Vignettes",
+            "hi": "थंबनेल",
+            "it": "Miniature",
+            "ja": "サムネイル",
+            "ko": "썸네일",
+            "nb": "Miniatyrbilder",
+            "nl": "Miniatuurafbeeldingen",
+            "pt-BR": "Miniaturas",
+            "pt-PT": "Miniaturas",
+            "sv": "Förhandsbilder",
+            "th": "ขนาดย่อ",
+            "zh-CN": "缩略图",
+            "zh-TW": "縮圖"
+          }
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_image_zoom",
+      "label": {
+        "da": "Aktivér billedzoom",
+        "de": "Foto-Zoom zulassen",
+        "en": "Enable image zoom",
+        "es": "Habilitar zoom de imagen",
+        "fi": "Ota kuvan zoomaus käyttöön",
+        "fr": "Activer le zoom d'image",
+        "hi": "इमेज ज़ूम सक्षम करें",
+        "it": "Abilita lo zoom dell'immagine",
+        "ja": "画像ズームを有効にする",
+        "ko": "이미지 확대 사용",
+        "nb": "Aktiver bildezoom",
+        "nl": "Inzoomen op afbeelding inschakelen",
+        "pt-BR": "Habilitar o zoom da imagem",
+        "pt-PT": "Ativar o zoom da imagem",
+        "sv": "Aktivera bildzoom",
+        "th": "เปิดใช้การซูมภาพ",
+        "zh-CN": "启用图片缩放",
+        "zh-TW": "啟用圖片縮放"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_video_looping",
+      "label": {
+        "da": "Aktivér looping af videoer",
+        "de": "Videschleife aktivieren",
+        "en": "Enable video looping",
+        "es": "Habilitar la reproducción de video en bucle",
+        "fi": "Ota käyttöön videosilmukka",
+        "fr": "Activer le bouclage de la vidéo",
+        "hi": "वीडियो लूपिंग सक्षम करें",
+        "it": "Abilita la riproduzione in loop dei video",
+        "ja": "ビデオのループを有効にする",
+        "ko": "동영상 루프 활성화",
+        "nb": "Aktiver løkkeavspilling av video",
+        "nl": "Video-looping inschakelen",
+        "pt-BR": "Habilitar loop de vídeo",
+        "pt-PT": "Ativar ciclo de vídeo",
+        "sv": "Aktivera video-loopning",
+        "th": "เปิดใช้งานการวนซ้ำวิดีโอ",
+        "zh-CN": "启用视频循环",
+        "zh-TW": "啟用影片循環功能"
+      },
+      "default": false
+    }
+  ],
+
+    "presets": [
+        {
+            "name": "Product Custom Template 2",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}

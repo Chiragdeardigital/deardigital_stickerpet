@@ -1,0 +1,52 @@
+<section class="partner content-section">
+  <div class="container">
+    <div class="flex-center">
+      <p>{{ section.settings.text }}</p>
+      <img srcset="{%- if section.settings.partner_image.width >= 100 -%}{{ section.settings.partner_image | img_url: '100x' }} 100w,{%- endif -%}"
+           src="{{ section.settings.partner_image | img_url: '120x' }}" 
+           alt="{{ section.settings.image.alt }}" 
+           loading="lazy">
+      <a href="{{ section.settings.btn_url }}">{{ section.settings.btn_text }}</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+    "name": "Partner Section",
+    "settings": [
+        {
+            "id": "partner_image",
+            "type": "image_picker",
+            "label": "Add image"
+        },
+        {
+            "id": "text",
+            "type": "text",
+            "label": "Text"
+        },
+        {
+            "id": "btn_text",
+            "type": "text",
+            "label": "Button Text"
+        },
+        {
+            "id": "btn_url",
+            "type": "url",
+            "label": "Button Url"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Partner Section",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

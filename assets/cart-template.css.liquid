@@ -1,0 +1,615 @@
+label[for] {
+  cursor: pointer;
+}
+
+.drawer input[type=email], .drawer input[type=number], .drawer input[type=text], .drawer textarea {
+  border-color: #062322;
+  max-width: 100%;
+  padding: 8px 10px;
+}
+
+input.input-full, select.input-full, textarea.input-full {
+  width: 100%;
+}
+
+.hide-cart #add-gift{
+  display:none;
+}
+
+.js-drawer-open-right .drawer--right {
+  display: block;
+  -webkit-transform: translateX(-340px);
+  transform: translateX(-340px);
+}
+
+.js-drawer-open-right .header-container, .js-drawer-open-right .page-container {
+  -webkit-transform: translateX(-340px);
+  transform: translateX(-340px);
+}
+
+.drawer--right {
+  width: 340px;
+  right: -340px;
+}
+
+.drawer--right.drawer {
+  padding: 0 25px 25px;
+
+}
+
+.drawer__fixed-header {
+  position: absolute;
+  top: 0;
+  left: 30px;
+  right: 30px;
+  height: 68px;
+  overflow: visible;
+}
+
+.drawer__header {
+  display: table;
+  height: 68px;
+  width: 100%;
+  padding: 12px 0;
+  margin: 0;
+  border-bottom: 1px solid #062322;
+}
+
+.drawer__close-button{
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.drawer__close-button img {
+  width: 17px;
+}
+
+.drawer__close, .drawer__title {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.drawer__title {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 20px;
+  text-align: center;
+  font-family: Ubuntu, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+}
+
+.drawer--right .drawer__inner {
+  padding:15px 25px 0;
+  top:68px;
+}
+
+
+.shipping-text-empty {
+  text-align: center;
+  font-size: 12px;
+  padding: 0;
+  position: relative;
+  top: 0;
+}
+
+.UnprogressBar.unclicked {
+  width: 0%;
+}
+
+.UnprogressBar {
+  position: absolute;
+  margin: 0 0 0 10px;
+  top: 55px;
+  height: 10px;
+  width: 88%;
+  background-color: #a5dcde;
+  z-index: 100;
+  -webkit-transition: width 1s ease-in 1s;
+  transition: width 1s ease-in 1s;
+}
+
+.ProgressBar {
+  display: block;
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 8px;
+  margin: 17px 0px;
+}
+.shipping-text {
+  text-align: center !important;
+  font-size: 13px;
+  margin: 0 0 65px 0;
+  padding: 0;
+  position: relative;
+  top: 0;
+  word-spacing: 1px;
+}
+.ProgressBar__hide {
+  display: block;
+  position: absolute;
+  background-color: #fff;
+  width: 85%;
+  height: 10px;
+  top: 60px;
+  z-index: 0;
+  right: 25px;
+  left: 25px;
+}
+.ProgressBar__indicator {
+  position: absolute;
+  margin: 10px 0 10px 0;
+  top: 50px;
+  height: 10px;
+  width: 0%;
+  right: 25px;
+  left: 25px;
+/*   max-width:85%; */
+  background-color: #a5dcde;
+  z-index: 100;
+  -webkit-transition: width 1s ease-in 1s;
+  -moz-transition: width 1s ease-in 1s;
+  -o-transition: width 1s ease-in 1s;
+  transition: width 1s ease-in 1s;
+}
+/* .ProgressBar__indicator.less-than-5 {
+  width: 4.65%;
+}
+.ProgressBar__indicator.less-than-10 {
+  width: 9.3%;
+}
+.ProgressBar__indicator.less-than-15 {
+  width: 13.95%;
+}
+.ProgressBar__indicator.less-than-20 {
+  width: 18.6%;
+}
+.ProgressBar__indicator.quarter-clicked {
+  width: 23.25%;
+}
+.ProgressBar__indicator.less-than-30 {
+  width: 27.9%;
+}
+.ProgressBar__indicator.less-than-35 {
+  width: 32.55%;
+}
+.ProgressBar__indicator.less-than-40 {
+  width: 37.2%;
+}
+.ProgressBar__indicator.less-than-45 {
+  width: 41.85%;
+}
+.ProgressBar__indicator.half-clicked {
+  width: 46.5%;
+}
+.ProgressBar__indicator.less-than-55 {
+  width: 51.15%;
+}
+.ProgressBar__indicator.less-than-60 {
+  width: 55.8%;
+}
+.ProgressBar__indicator.less-than-65 {
+  width: 60.45%;
+}
+.ProgressBar__indicator.less-than-70 {
+  width: 65.1%;
+}
+.ProgressBar__indicator.three-quarters-clicked {
+  width: 69.75%;
+}
+.ProgressBar__indicator.less-than-80 {
+  width: 74.4%;
+}
+.ProgressBar__indicator.less-than-85 {
+  width: 79.05%;
+}
+.ProgressBar__indicator.less-than-90 {
+  width: 83.7%;
+}
+.ProgressBar__indicator.less-than-95 {
+  width: 88.35%;
+}
+.ProgressBar__indicator.clicked {
+  width: 93%;
+} */
+.ProgressBar {
+  display: block;
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 10px;
+  margin: 20px 0;
+}
+.UnprogressBar {
+  position: absolute;
+  top: 55px;
+  height: 10px;
+  width: 85%;
+  background-color: #a5dcde;
+  z-index: 100;
+  -webkit-transition: width 1s ease-in 1s;
+  -moz-transition: width 1s ease-in 1s;
+  -o-transition: width 1s ease-in 1s;
+  transition: width 1s ease-in 1s;
+}
+
+.UnprogressBar.unclicked {
+  width: 0%;
+}
+/* ====================================================== */
+
+.cart-body {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  height: calc(100vh - 520px);
+  overflow-y: auto;
+}
+
+.ajaxcart__product {
+  position: relative;
+  max-height: 500px;
+}
+
+.ajaxcart__product.is-removed {
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  backface-visibility: hidden;
+  transition: all 450ms cubic-bezier(0.57,.06,.05,.95);
+}
+
+.ajaxcart__row {
+  padding-bottom: 17px;
+  margin-bottom: 17px;
+  border-bottom: 1px solid #062322;
+}
+
+.grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.grid__item.one-quarter {
+  width: calc(25% - 15px);
+}
+
+.ajaxcart__product-image {
+  padding-top: 3px;
+  display: block;
+  overflow: hidden;
+}
+
+.ajaxcart__product-image img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.ajaxcart__product-name--wrapper {
+  margin-bottom: 8px;
+}
+
+.ajaxcart__product-name {
+  font-size: 15px;
+  line-height: 1.3;
+  display: block;
+  color: #062322;
+}
+
+.grid__item.three-quarters {
+  width: calc(75% - 15px);
+}
+
+.grid__item.one-half {
+  width: calc(50% - 10px);
+  /*   text-align: end; */
+}
+
+.ajaxcart__qty, .js-qty {
+  position: relative;
+  max-width: 75px;
+  min-width: 75px;
+  overflow: visible;
+}
+
+.ajaxcart__qty-adjust {
+  padding: 0 5px;
+  line-height: 1;
+  color: #062322;
+  z-index: 1;
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  top: 0;
+  bottom: 0;
+  border: 0 none;
+  background: 0 0;
+  text-align: center;
+  overflow: hidden;
+  user-select: none;
+  transition: all .2s ease-out;
+}
+
+.ajaxcart__qty--minus {
+  left: 0;
+  border-right: 1px solid #062322;
+}
+
+.ajaxcart__qty--plus {
+  right: 0;
+  border-left: 1px solid #062322;
+}
+
+.ajaxcart__qty-adjust .icon {
+  display: inline-block;
+  font-size: 8px;
+  vertical-align: middle;
+}
+
+.drawer .ajaxcart__qty-num[type=text] {
+  font-family: Lato, sans-serif;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 400;
+  display: block;
+  background: 0 0;
+  text-align: center;
+  width: 100%;
+  padding: 2px 20px;
+  border: 1px solid #062322;
+}
+.ajaxcart__qty-adjust:hover {
+  background-color: #062322;
+  color: #fff;
+}
+
+.ajaxcart__price, .cart__price, .cart__subtotal {
+  font-family: Lato, sans-serif;
+  font-style: normal;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: .88235em;
+  display: block;
+}
+
+.cart-foot {
+  display: block;
+  position: sticky;
+  top: 100%;
+  padding-top: 8px;
+  margin-top: 8px;
+  border-top: 1px solid #062322;
+}
+#add-gift {
+  cursor: pointer;
+}
+
+.one-third {
+  width: calc(33.333% - 20px);
+}
+
+.two-thirds {
+  width: calc(66.666% - 20px);
+  text-align: right;
+}
+
+.ajaxcart__subtotal {
+  font-family: Lato,sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: .5px;
+  text-transform: none;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.text-right .ajaxcart__ship, .text-right .ajaxcart__subtotal {
+  font-weight: 400;
+}
+.text-right {
+  text-align: right;
+}
+
+.ajaxcart__ship {
+  font-size: 12px;
+  font-family: Lato,sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: .5px;
+  text-transform: none;
+  margin-bottom: 5px;
+}
+.ajaxcart__product-meta, .ajaxcart__product-name {
+  display: block;
+}
+
+.ajaxcart__product-name+.ajaxcart__product-meta {
+  padding-top: 3px;
+}
+.display-non {
+  display: none!important;
+}
+
+.cart__checkout{
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.continue-shopping {
+  background-color: #fff;
+  color: #f9ae37;
+  border: 2px solid #f9ae37;
+}
+
+.ajaxcart__note {
+  font-weight: 400;
+}
+
+
+.ajaxcart__inner--has-fixed-footer::-webkit-scrollbar, .cart-body::-webkit-scrollbar, .drawer__inner::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width:1024px) {
+  .cart-body {
+    height: auto;
+  }
+}
+
+@media (max-width:992px) {}
+@media (min-width: 769px) {
+
+.ProgressBar__indicator.less-than-5 {
+  	width: 4.25%;
+}
+.ProgressBar__indicator.less-than-10 {
+  	width: 8.5%;
+}
+.ProgressBar__indicator.less-than-15 {
+  	width: 12.75%;
+}
+.ProgressBar__indicator.less-than-20 {
+  	width: 17%;
+}
+.ProgressBar__indicator.quarter-clicked {
+  	width: 21.25%;
+}
+.ProgressBar__indicator.less-than-30 {
+  	width: 25.5%;
+}
+.ProgressBar__indicator.less-than-35 {
+  	width: 29.75%;
+}
+.ProgressBar__indicator.less-than-40 {
+  	width: 34%;
+}
+.ProgressBar__indicator.less-than-45 {
+  	width: 38.25%;
+}
+.ProgressBar__indicator.half-clicked {
+  	width: 42.5%;
+}
+.ProgressBar__indicator.less-than-55 {
+  	width: 46.75%;
+}
+.ProgressBar__indicator.less-than-60 {
+  	width: 51%;
+}
+.ProgressBar__indicator.less-than-65 {
+  	width: 55.25%;
+}
+.ProgressBar__indicator.less-than-70 {
+  	width: 59.5%;
+}
+.ProgressBar__indicator.three-quarters-clicked {
+  	width: 63.75%;
+}
+.ProgressBar__indicator.less-than-80 {
+  	width: 68%;
+}
+.ProgressBar__indicator.less-than-85 {
+  	width: 72.25%;
+}
+.ProgressBar__indicator.less-than-90 {
+  	width: 76.5%;
+}
+.ProgressBar__indicator.less-than-95 {
+  	width: 80.75%;
+}
+.ProgressBar__indicator.clicked {
+  	width: 85%;
+}
+  
+}
+@media (max-width:768px) {
+  .drawer__fixed-header {
+    left: 15px;
+    right: 15px;
+  }
+  .ajaxcart__row {
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+  }
+  	.ProgressBar__indicator.less-than-5 {
+  		width: 4.65%;
+    }
+    .ProgressBar__indicator.less-than-10 {
+        width: 9.3%;
+    }
+    .ProgressBar__indicator.less-than-15 {
+        width: 13.95%;
+    }
+    .ProgressBar__indicator.less-than-20 {
+        width: 18.6%;
+    }
+    .ProgressBar__indicator.quarter-clicked {
+        width: 23.25%;
+    }
+    .ProgressBar__indicator.less-than-30 {
+        width: 27.9%;
+    }
+    .ProgressBar__indicator.less-than-35 {
+        width: 32.55%;
+    }
+    .ProgressBar__indicator.less-than-40 {
+        width: 37.2%;
+    }
+    .ProgressBar__indicator.less-than-45 {
+        width: 41.85%;
+    }
+    .ProgressBar__indicator.half-clicked {
+        width: 46.5%;
+    }
+    .ProgressBar__indicator.less-than-55 {
+        width: 51.15%;
+    }
+    .ProgressBar__indicator.less-than-60 {
+        width: 55.8%;
+    }
+    .ProgressBar__indicator.less-than-65 {
+        width: 60.45%;
+    }
+    .ProgressBar__indicator.less-than-70 {
+        width: 65.1%;
+    }
+    .ProgressBar__indicator.three-quarters-clicked {
+        width: 69.75%;
+    }
+    .ProgressBar__indicator.less-than-80 {
+        width: 74.4%;
+    }
+    .ProgressBar__indicator.less-than-85 {
+        width: 79.05%;
+    }
+    .ProgressBar__indicator.less-than-90 {
+        width: 83.7%;
+    }
+    .ProgressBar__indicator.less-than-95 {
+        width: 88.35%;
+    }
+  	.ProgressBar__indicator.clicked {
+        width: 93%;
+    }
+}
+
+@media (max-width: 590px) {
+  .drawer--right {
+    width: 425px;
+    right: -425px;
+  }
+  .js-drawer-open-right .drawer--right {
+    display: block;
+    -webkit-transform: translateX(-425px);
+    transform: translateX(-425px);
+  }
+}

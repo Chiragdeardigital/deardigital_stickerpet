@@ -1,0 +1,31 @@
+<section class="faq-hero">
+  <div class="hero-text">
+    <h1 class="headings">{{ section.settings.header_text }}</h1>
+  </div>
+</section>
+
+
+{% schema %}
+{
+    "name": "Plain hero with header",
+    "settings": [
+        {
+            "id": "header_text",
+            "type": "text",
+            "label": "Header"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Plain hero with header",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
