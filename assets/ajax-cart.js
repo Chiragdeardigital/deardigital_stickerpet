@@ -44,7 +44,6 @@ function addToCartNoVariant(){
     $(".box").css("background-image", "url()");
     $('.box__input label').css({"visibility": "visible"});
 	$("#image").val("");
-    //     $(this).html('order now');
   })
   .catch((error) => {
     console.error('Error:', error);
