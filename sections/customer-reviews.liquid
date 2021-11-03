@@ -4,9 +4,18 @@
       <div class="row">
         <div class="column-50 self-center">
           <h2 class="h3 headings">Real,<br>
-
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+            {%- when 'typed_text' -%}
+              {% assign textArray = block.settings.typed_text | split: "," %}
+            {%- endcase -%}
+          {%- endfor -%}
             <span id="review-typewriter" class="typewriter" data-period="6000"
-                  data-type="[{%- for block in section.blocks -%}{%- case block.type -%}{%- when 'typed_text' -%}{{ block.settings.typed_text }}{%- endcase -%}{%- endfor -%}]">
+                  data-type="[
+                    {%- for text in textArray -%}
+                      '{{ text }}'{%- unless forloop.last -%},{%- endunless -%}
+                    {%- endfor -%}
+                  ]">
               <span class="wrap">human</span></span>
 
             reviews.
@@ -80,13 +89,13 @@
         {
             "type": "typed_text",
             "name": "Typed text",
-			"limit": 1,
+			      "limit": 1,
             "settings": [
                 {
                     "id": "typed_text",
                     "type": "text",
                     "label": "Text",
-					"info": "Enter the words for typing effect separated with comma(,) and in single inverted commas eg. 'text1','text2'"
+                    "info": "Enter the words for typing effect separated with comma(,) eg. text1,text2"
                 }
             ]
         }

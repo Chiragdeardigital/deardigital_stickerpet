@@ -114,6 +114,7 @@
       }
     {% endstyle %}
     {% endcomment %}
+    {{ 'base.css' | asset_url | stylesheet_tag }}
     {% if template == 'product.product-custom-template-1' or template == 'product.product-custom-template-2' or template == 'product.product-custom-template-3' %} 
 
     {{ 'timber.scss.css' | asset_url | stylesheet_tag }}

@@ -1,3 +1,4 @@
+{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
 <footer>
   <div class="container">
     <div class="row flex">
@@ -9,8 +10,15 @@
         <!-- <label for="Email" class="newsletter__label hidden-label">Sign up to our mailing list</label> -->
         <div class="newsletter--form">
           <div class="input-group">
-            <input type="email" value="" placeholder="Email" id="Email"  name="contact[email]"
-                   class="footer-newsletter-input" autocorrect="off" autocapitalize="off" />
+            <input type="email" 
+              value="" 
+              placeholder="Email" 
+              id="Email"  
+              name="contact[email]"
+              class="footer-newsletter-input" 
+              autocorrect="off" 
+              autocapitalize="off" 
+            />
             <span class="footer-newsletter-input-btn">
               <button id="Subscribe" type="submit" class="newsletter__submit"
                       aria-label="Sign Up">
@@ -18,8 +26,11 @@
               </button>
             </span>
           </div>
+          {%- if form.errors -%}
+            <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</small>
+          {%- endif -%}
           {%- if form.posted_successfully? -%}
-          <div class="note form-success">Thanks for subscribing</div>
+            <div class="note form-success">{% render 'icon-success' %}Thanks for subscribing</div>
           {%- endif -%}
         </div>
         {% endform %}

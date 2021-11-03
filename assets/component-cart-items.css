@@ -82,10 +82,10 @@
 }
 
 @media screen and (min-width: 750px) and (max-width: 989px) {
-  .cart-item cart-remove-button {
+  /* .cart-item cart-remove-button {
     width: 4.5rem;
     height: 4.5rem;
-  }
+  } */
 }
 
 cart-remove-button .button {
@@ -93,9 +93,10 @@ cart-remove-button .button {
   min-height: 4.5rem;
   padding: 0;
   margin: 0 0.1rem 0.1rem 0;
+  display: flex;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 1024px) {
   cart-remove-button .button {
     min-width: 3.5rem;
     min-height: 3.5rem;
@@ -115,7 +116,7 @@ cart-remove-button .icon-remove {
   padding: 0;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 1025px) {
   .cart-item .loading-overlay {
     top: 0;
     padding-top: 5.5rem;
@@ -162,7 +163,7 @@ cart-remove-button .icon-remove {
   text-transform: uppercase;
 }
 
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 1024px) {
   .cart-items,
   .cart-items thead,
   .cart-items tbody {
@@ -211,7 +212,7 @@ cart-remove-button .icon-remove {
   }
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 1025px) {
   .cart-items {
     border-spacing: 0;
     border-collapse: separate;
@@ -254,7 +255,7 @@ cart-remove-button .icon-remove {
   }
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 1025px) {
   .cart-item .cart-item__quantity,
   .cart-items .cart-items__heading--wide {
     padding-left: 10rem;

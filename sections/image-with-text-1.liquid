@@ -1,12 +1,13 @@
 <section class="image-with-text">
-  <div class="row {% if section.settings.reverse_columns %} row-reverse{% endif %} {% if section.settings.change_bg %} gray_bg{% endif %}">
+  <div class="row {% if section.settings.layout == 'image_first' %} row-reverse{% endif %} {% if section.settings.change_bg %} gray_bg{% endif %}">
     <div class="column-50 self-center">
       <div class="text-block">
 
-        <h2 class="headings">{{ section.settings.header_text }}</h2>
-
         {%- for block in section.blocks -%}
         {% case block.type %}
+        {%- when 'heading' -%}
+        <h2 class="headings">{{ block.settings.heading | escape }}</h2>
+
         {%- when 'text_list' -%}
         
         <div class="row spacing">
@@ -19,15 +20,16 @@
             <p class="para">{{ block.settings.list_text }}</p>
           </div>
         </div>
+        {%- when 'button' -%}
+        {% if block.settings.button_label != blank %}
+        <a{% if block.settings.button_link != blank %} href="{{ block.settings.button_link }}"{% endif %} class="{% if block.settings.button_label == blank %} disp-no {% else %} button{% endif %}" {% if block.settings.button_link == blank %} aria-disabled="true"{% endif %} {{ block.shopify_attributes }} >
+          {{ block.settings.button_label | escape }}
+        </a>
+        {% endif %}
         {%- endcase -%}
         {%- endfor -%}
 
 
-        {% if section.settings.btn_text != blank %}
-        <a href="{{ section.settings.btn_url }}" class="button">
-          {{ section.settings.btn_text }}
-        </a>
-        {% endif %}
       </div>
     </div>
     <div class="m-product-imgs no-d">
@@ -106,32 +108,27 @@
             "label": "Mobile image"
         },
         {
-            "type": "checkbox",
-            "id": "reverse_columns",
-            "default": false,
-            "label": "Swap image-block and text-block"
+          "type": "select",
+          "id": "layout",
+          "options": [
+            {
+              "value": "image_first",
+              "label": "Image First"
+            },
+            {
+              "value": "text_first",
+              "label": "Text First"
+            }
+          ],
+          "default": "image_first",
+          "label": "Desktop Layout",
+          "info" : "Image first is the default mobile layout."
         },
         {
             "type": "checkbox",
             "id": "change_bg",
             "default": false,
             "label": "Change background color in mobile screen"
-        },
-        {
-            "id": "header_text",
-            "type": "text",
-            "label": "Heading",
-            "default": "Stickers that will last for years."
-        },
-        {
-            "id": "btn_text",
-            "type": "text",
-            "label": "Button Text"
-        },
-        {
-            "id": "btn_url",
-            "type": "url",
-            "label": "Button Url"
         }
     ],
     "blocks": [
@@ -152,6 +149,38 @@
                     "label": "Text"
                 }
             ]
+        },
+        {
+          "type": "heading",
+          "name": "Image with text",
+          "limit": 1,
+          "settings": [
+            {
+              "type": "text",
+              "id": "heading",
+              "default": "Stickers that will last for years.",
+              "label": "Heading"
+            }
+          ]
+        },
+        {
+          "type": "button",
+          "name": "Button",
+          "limit": 1,
+          "settings": [
+            {
+              "type": "text",
+              "id": "button_label",
+              "default": "Button label",
+              "label": "Button label",
+              "info": "Leave the label blank to hide the button."
+            },
+            {
+              "type": "url",
+              "id": "button_link",
+              "label": "Button link"
+            }
+          ]
         }
     ],
     "presets": [
