@@ -1,1 +1,146 @@
-{"sections":{"162791309145580b1f":{"type":"about-hero","settings":{"about_bg_img":"shopify:\/\/shop_images\/about-us-hero-01.jpg","about_bg_img_mobile":"shopify:\/\/shop_images\/stickerpet-about-01_767x_aebb98fd-1ead-45ad-ad0d-d77553648367.png","about_head_text":"About Us"}},"1627914162f262a055":{"type":"product-quality","blocks":{"ca6f2ec2-733f-4015-a6bd-722a2a892be8":{"type":"quality_block","settings":{"heading":"founded in<br>\n<span class=\"orange\">2019<\/span>"}},"21a5c6c6-228d-4660-b6b0-1659c12a5f21":{"type":"quality_block","settings":{"heading":"<span class=\"orange\">1%<\/span> to<br>\ncharity"}}},"block_order":["ca6f2ec2-733f-4015-a6bd-722a2a892be8","21a5c6c6-228d-4660-b6b0-1659c12a5f21"],"settings":{"show_rating_block":true}},"1627920281e19dd611":{"type":"image-with-text-sixty-forty","settings":{"header_text":"We simply love animals","para_text":"As kids we grew up with a love of pets and farm animals. In 2020 we founded Sticker Pet to be able to take that animal love everywhere we go.\n<br>\n<br>\nCreating a business together has always been a dream of ours. Although we’re not sure if our dog, Alaska, had quite the same dream as us.","video_checkbox":false,"video_script":"","desktop_image":"shopify:\/\/shop_images\/DSC_8709_850x_b7d97c40-ba12-4069-82d4-eef2f04b4365.png","reverse_columns":true,"change_bg":false,"btn_text":"","btn_url":""}},"162797037618c606d5":{"type":"image-with-text-sixty-forty","blocks":{"acc315e2-3506-4545-9694-1b595050aeb9":{"type":"text_list","settings":{"icon_text":"🕒","list_text":"Our stickers are durable, and last a dog's lifetime."}},"9c989ffe-1e4e-4e4a-b37c-64a442a5215e":{"type":"text_list","settings":{"icon_text":"🌱","list_text":"We print with an eco-solvent ink which has a smaller footprint."}},"eff8a6f8-852e-455f-a4bb-ef0e9e73b471":{"type":"text_list","settings":{"icon_text":"♻️","list_text":"Every order is packed in a bio- degradable wrapping."}}},"block_order":["acc315e2-3506-4545-9694-1b595050aeb9","9c989ffe-1e4e-4e4a-b37c-64a442a5215e","eff8a6f8-852e-455f-a4bb-ef0e9e73b471"],"settings":{"header_text":"Our footprint","para_text":"While all stickers are fun, most are still not 100% sustainable. Sticker Pet prints in the most ecological\/environmentally-friendly way possible.","video_checkbox":true,"video_script":"<script src=\"https:\/\/fast.wistia.com\/embed\/medias\/av4nr5xt7q.jsonp\" async=\"\"><\/script><script src=\"https:\/\/fast.wistia.com\/assets\/external\/E-v1.js\" async=\"\"><\/script><div class=\"wistia_responsive_padding\" style=\"padding:56.25% 0 0 0;position:relative;\"><div class=\"wistia_responsive_wrapper\" style=\"height:100%;left:0;position:absolute;top:0;width:100%;\"><div class=\"wistia_embed wistia_async_av4nr5xt7q videoFoam=true\" style=\"height:100%;position:relative;width:100%\"><div class=\"wistia_swatch\" style=\"height:100%;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity 200ms;width:100%;\"><img src=\"https:\/\/fast.wistia.com\/embed\/medias\/av4nr5xt7q\/swatch\" style=\"filter:blur(5px);height:100%;object-fit:contain;width:100%;\" alt=\"\" aria-hidden=\"true\" onload=\"this.parentNode.style.opacity=1;\"><\/div><\/div><\/div><\/div>","reverse_columns":false,"change_bg":false,"btn_text":"","btn_url":""}},"162792603184e1a6aa":{"type":"image-with-text-sixty-forty","settings":{"header_text":"1% of our turnover goes straight to charity","para_text":"We partnered with <a title=\"Hachiko\" href=\"https:\/\/www.hachiko.org\/\" class=\"text-link\">Hachiko<\/a>. They train and educate assistance dogs and donate them to people in need.","video_checkbox":false,"video_script":"","desktop_image":"shopify:\/\/shop_images\/Assistentiehond-Recht-op-toegang_bew_850x_ad83be75-d180-4aba-8e1c-baede4b3cb59.png","reverse_columns":true,"change_bg":false,"btn_text":"read more","btn_url":"#"}}},"order":["162791309145580b1f","1627914162f262a055","1627920281e19dd611","162797037618c606d5","162792603184e1a6aa"]}
+{
+  "sections": {
+    "162791309145580b1f": {
+      "type": "about-hero",
+      "settings": {
+        "about_bg_img": "shopify:\/\/shop_images\/about-us-hero-01.jpg",
+        "about_bg_img_mobile": "shopify:\/\/shop_images\/stickerpet-about-01_767x_aebb98fd-1ead-45ad-ad0d-d77553648367.png",
+        "about_head_text": "About Us"
+      }
+    },
+    "1627914162f262a055": {
+      "type": "product-quality",
+      "blocks": {
+        "ca6f2ec2-733f-4015-a6bd-722a2a892be8": {
+          "type": "quality_block",
+          "settings": {
+            "heading": "founded in<br>\n<span class=\"orange\">2019<\/span>",
+            "hide_block": false
+          }
+        },
+        "21a5c6c6-228d-4660-b6b0-1659c12a5f21": {
+          "type": "quality_block",
+          "settings": {
+            "heading": "<span class=\"orange\">1%<\/span> to<br>\ncharity",
+            "hide_block": false
+          }
+        }
+      },
+      "block_order": [
+        "ca6f2ec2-733f-4015-a6bd-722a2a892be8",
+        "21a5c6c6-228d-4660-b6b0-1659c12a5f21"
+      ],
+      "settings": {
+        "show_rating_block": true
+      }
+    },
+    "1627920281e19dd611": {
+      "type": "image-with-text-sixty-forty",
+      "blocks": {
+        "7dcb95ca-63bf-4bcb-ad24-6200e39a8a80": {
+          "type": "heading",
+          "settings": {
+            "heading": "We simply love animals"
+          }
+        },
+        "c2853f13-2839-492e-8784-2169d74e0e3b": {
+          "type": "text",
+          "settings": {
+            "text": "As kids we grew up with a love of pets and farm animals. In 2020 we founded Sticker Pet to be able to take that animal love everywhere we go.\n<br>\n<br>\nCreating a business together has always been a dream of ours. Although we’re not sure if our dog, Alaska, had quite the same dream as us."
+          }
+        }
+      },
+      "block_order": [
+        "7dcb95ca-63bf-4bcb-ad24-6200e39a8a80",
+        "c2853f13-2839-492e-8784-2169d74e0e3b"
+      ],
+      "settings": {
+        "video_checkbox": false,
+        "video_script": "",
+        "desktop_image": "shopify:\/\/shop_images\/DSC_8709_850x_b7d97c40-ba12-4069-82d4-eef2f04b4365.png",
+        "change_bg": false,
+        "layout": "image_first"
+      }
+    },
+    "162797037618c606d5": {
+      "type": "image-with-text-sixty-forty",
+      "blocks": {
+        "acc315e2-3506-4545-9694-1b595050aeb9": {
+          "type": "text_list",
+          "settings": {
+            "icon_text": "🕒",
+            "list_text": "Our stickers are durable, and last a dog's lifetime."
+          }
+        },
+        "9c989ffe-1e4e-4e4a-b37c-64a442a5215e": {
+          "type": "text_list",
+          "settings": {
+            "icon_text": "🌱",
+            "list_text": "We print with an eco-solvent ink which has a smaller footprint."
+          }
+        },
+        "eff8a6f8-852e-455f-a4bb-ef0e9e73b471": {
+          "type": "text_list",
+          "settings": {
+            "icon_text": "♻️",
+            "list_text": "Every order is packed in a bio- degradable wrapping."
+          }
+        }
+      },
+      "block_order": [
+        "acc315e2-3506-4545-9694-1b595050aeb9",
+        "9c989ffe-1e4e-4e4a-b37c-64a442a5215e",
+        "eff8a6f8-852e-455f-a4bb-ef0e9e73b471"
+      ],
+      "settings": {
+        "video_checkbox": true,
+        "video_script": "<script src=\"https:\/\/fast.wistia.com\/embed\/medias\/av4nr5xt7q.jsonp\" async=\"\"><\/script><script src=\"https:\/\/fast.wistia.com\/assets\/external\/E-v1.js\" async=\"\"><\/script><div class=\"wistia_responsive_padding\" style=\"padding:56.25% 0 0 0;position:relative;\"><div class=\"wistia_responsive_wrapper\" style=\"height:100%;left:0;position:absolute;top:0;width:100%;\"><div class=\"wistia_embed wistia_async_av4nr5xt7q videoFoam=true\" style=\"height:100%;position:relative;width:100%\"><div class=\"wistia_swatch\" style=\"height:100%;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity 200ms;width:100%;\"><img src=\"https:\/\/fast.wistia.com\/embed\/medias\/av4nr5xt7q\/swatch\" style=\"filter:blur(5px);height:100%;object-fit:contain;width:100%;\" alt=\"\" aria-hidden=\"true\" onload=\"this.parentNode.style.opacity=1;\"><\/div><\/div><\/div><\/div>",
+        "change_bg": false,
+        "layout": "text_first"
+      }
+    },
+    "162792603184e1a6aa": {
+      "type": "image-with-text-sixty-forty",
+      "blocks": {
+        "16e1e4e5-090c-4ff0-8aec-0157e63d8aa9": {
+          "type": "heading",
+          "settings": {
+            "heading": "1% of our turnover goes straight to charity"
+          }
+        },
+        "da41a785-afd5-43b0-8594-a78a01576929": {
+          "type": "text",
+          "settings": {
+            "text": "We partnered with <a title=\"Hachiko\" href=\"https:\/\/www.hachiko.org\/\" class=\"text-link\">Hachiko<\/a>. They train and educate assistance dogs and donate them to people in need."
+          }
+        },
+        "7418d49d-a23e-406a-b420-a953f6a838c7": {
+          "type": "button",
+          "settings": {
+            "button_label": "Read More",
+            "button_link": "shopify:\/\/pages\/about-us"
+          }
+        }
+      },
+      "block_order": [
+        "16e1e4e5-090c-4ff0-8aec-0157e63d8aa9",
+        "da41a785-afd5-43b0-8594-a78a01576929",
+        "7418d49d-a23e-406a-b420-a953f6a838c7"
+      ],
+      "settings": {
+        "video_checkbox": false,
+        "video_script": "",
+        "desktop_image": "shopify:\/\/shop_images\/Assistentiehond-Recht-op-toegang_bew_850x_ad83be75-d180-4aba-8e1c-baede4b3cb59.png",
+        "change_bg": false,
+        "layout": "image_first"
+      }
+    }
+  },
+  "order": [
+    "162791309145580b1f",
+    "1627914162f262a055",
+    "1627920281e19dd611",
+    "162797037618c606d5",
+    "162792603184e1a6aa"
+  ]
+}

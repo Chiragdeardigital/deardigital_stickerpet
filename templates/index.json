@@ -6,7 +6,7 @@
         "6062bad8-24b8-46c3-b5e1-b51f755bdf99": {
           "type": "typed_text",
           "settings": {
-            "typed_text": "'cat','dog','fish','llama'"
+            "typed_text": "cat,dog,fish,llama"
           }
         }
       },
@@ -111,6 +111,7 @@
         "video_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0268\/5580\/0887\/files\/custom-pet-sticker-from-sticker-pet.mp4?v=1606812993",
         "desktop_image": "shopify:\/\/shop_images\/portrait-fireplace-2_x395_c7f4ff9c-8013-436c-b67e-d9450fad5113.jpg",
         "mobile_image": "shopify:\/\/shop_images\/dog-stickers.png",
+        "height": "adapt",
         "layout": "text_first",
         "change_bg": false
       }
@@ -165,6 +166,7 @@
         "video_url": "",
         "desktop_image": "shopify:\/\/shop_images\/custom-printed-t-shirts-block.jpg",
         "mobile_image": "shopify:\/\/shop_images\/mila-shadows-01_95b97056-76c2-40e2-9996-8aacbccf0250.png",
+        "height": "adapt",
         "layout": "image_first",
         "change_bg": true
       }
@@ -219,6 +221,7 @@
         "video_url": "",
         "desktop_image": "shopify:\/\/shop_images\/portrait-fireplace-2_x395_c7f4ff9c-8013-436c-b67e-d9450fad5113.jpg",
         "mobile_image": "shopify:\/\/shop_images\/t-shirt-with-shadow-01.png",
+        "height": "adapt",
         "layout": "text_first",
         "change_bg": false
       }
@@ -264,7 +267,7 @@
         "c1eea724-4b56-4de2-b2e1-d6acf0fc3181": {
           "type": "typed_text",
           "settings": {
-            "typed_text": "'human','pet'"
+            "typed_text": "human,pet"
           }
         }
       },
