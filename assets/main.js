@@ -409,6 +409,7 @@ $('.slider-single').slick({
   adaptiveHeight: true,
   infinite: true,
   useTransform: true,
+  asNavFor: '.slider-nav',
   speed: 400,
   cssEase: 'cubic-bezier(0.77, 0, 0.18, 1)',
   responsive: [
@@ -432,6 +433,7 @@ $('.slider-nav')
   slidesToShow: 2,
   slidesToScroll: 2,
   arrows: true,
+  asNavFor: '.slider-single',
   dots: false,
   focusOnSelect: false,
   centerMode: true,

@@ -257,6 +257,16 @@ input.input-full, select.input-full, textarea.input-full {
   flex-direction: column;
 } */
 
+.block-cursor *{
+  pointer-events:none;
+  opacity: 0.8;
+  transition: opacity 300ms ease;
+}
+
+.block-cursor {
+  cursor:not-allowed;
+}
+
 .cart-body {
   display: block;
   margin: 0 auto;

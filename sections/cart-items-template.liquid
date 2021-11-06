@@ -1,0 +1,328 @@
+{% assign selected_product = settings.upsell_product %}
+{% assign upsellProduct = all_products[selected_product] %}
+{% assign upsellProductHandle = upsellProduct.handle %}
+{% for item in cart.items %}
+{% if item.product.handle == upsellProductHandle %}
+{% assign upsell_present = true %}
+{% endif %}
+{% endfor %}
+
+<div id="CartDrawer" class="drawer drawer--right drawer--has-fixed-footer ">
+  <div class="drawer__fixed-header">
+    <div class="drawer__header">
+      <div class="drawer__close">
+        <button id="closeCart" type="button" class="drawer__close-button js-drawer-close">
+          <img id="icon-x" src="{{"icon-plus.svg" | asset_url}}" alt="" srcset="" loading="lazy"
+               width="auto"
+           height="auto"
+               >
+        </button>
+      </div>
+      <div class="drawer__title">Your cart</div>
+    </div>
+  </div>
+  <div class="drawer__inner">
+    <div id="CartContainer" class="drawer__cart CartContainer" data-handle="{{ upsellProductHandle }}" data-value="{{ upsellProduct.first_available_variant.id }}">
+
+
+      <div id="cart-form" class="cart-form {% if upsell_present %} hide-cart{% endif %}">
+        <div class="ajaxcart__inner ajaxcart__inner--has-fixed-footer">
+          <div class="shipping-text">
+            You're €45 away from free shipping
+          </div>
+          <div class="ProgressBar__hide"></div>
+          <div class="ProgressBar__indicator"></div>
+          {% if cart.item_count > 0 %}
+          <div class="cart-body">
+            {% for item in cart.items %}
+            {% assign lineItem = forloop.index %}
+
+            <div class="ajaxcart__product">
+              <div class="ajaxcart__row" data-line="{{ lineItem }}">
+                <div class="grid">
+                  <div class="grid__item one-quarter">
+                   
+                    <a href="{{ item.url }}" class="ajaxcart__product-image">
+                      {%- assign prop = item.properties | size -%}
+                      {%- if prop > 0   -%}
+                          {%- for property in item.properties limit:1 -%}
+                      <img srcset=""
+                           src="{{ property.last }}" 
+                           alt="pet stickers" 
+                           width="auto"
+                           height="auto"
+                           loading="lazy"/>
+                          {%- endfor -%}
+                      {%- else -%}
+                      <img srcset="{%- if item.image.width >= 100 -%}{{ item.image | img_url: '100x' }} 100w,{%- endif -%}"
+                           src="{{ item.image | img_url: '100x' }}" 
+                           alt="pet stickers" 
+                           loading="lazy"/>
+                      {%- endif -%}
+                    </a>
+                  </div>
+                  <div class="grid__item three-quarters">
+                    <div class="ajaxcart__product-name--wrapper">
+                      <a href="{{ item.url }}" class="ajaxcart__product-name">
+                        {% if prop > 0  %}
+                        	{% for property in item.properties limit:1 %}
+                        		{{ property.first }}
+                        	{% endfor %}
+                        {% else %}
+                        		{{ item.product.title }}
+                        {% endif %}
+                         
+                      </a>
+                      {% if item.variant and item.variant.title != "Default Title"  %}
+                        <span class="ajaxcart__product-meta">{{item.variant.title }}</span>
+                        {% endif %}
+                    </div>
+
+                    <div class="grid">
+                      <div class="grid__item one-half">
+                        <div class="ajaxcart__qty">
+                          <button type="button"
+                                  class="ajaxcart__qty-adjust ajaxcart__qty--minus icon-fallback-text "
+                                  data-id="{{ item.key }}"
+                                  data-qty="{{ item.quantity | minus: 1   }}" 
+                                  data-line="{{ lineItem }}"
+                                  aria-label="Reduce item quantity by one">
+                            <span class="icon icon-minus" aria-hidden="true"></span>
+                            <span class="fallback-text" aria-hidden="true">−</span>
+                          </button>
+                          <input type="text" name="updates[]" class="ajaxcart__qty-num"
+                                 value="{{ item.quantity }}" min="0"
+                                 data-id="{{ item.key }}"
+                                 data-line="{{ lineItem }}" aria-label="quantity" pattern="[0-9]*" />
+                          <button type="button"
+                                  class="ajaxcart__qty-adjust ajaxcart__qty--plus icon-fallback-text"
+                                  data-id="{{ item.key }}"
+                                  data-line="{{ lineItem }}" 
+                                  data-qty="{{ item.quantity | plus: 1   }}"
+                                  aria-label="Increase item quantity by one">
+                            <span class="icon icon-plus" aria-hidden="true"></span>
+                            <span class="fallback-text" aria-hidden="true">+</span>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="grid__item one-half text-right">
+                        <span class="ajaxcart__price euro">{{ item.line_price | money }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            
+          </div>
+
+
+          <div class="cart-foot">
+          
+            <div id="add-gift" data-handle="{{ upsellProductHandle }}" class = "ajaxcart__product" data-value="{{ upsellProduct.first_available_variant.id }}" style="padding: 0 0 10px;">
+              <div class="" data-line=""
+                   style="padding: 0 20px;background-color: #a5dcde;border-radius: 5px;">
+                <div class="grid">
+                  <div class="grid__item one-third">
+                    <label class="ajaxcart__product-image">
+                      <img srcset="{%- if upsellProduct.featured_image.width >= 40 -%}{{ upsellProduct.featured_image | img_url: '50x' }} 50w,{%- endif -%}"
+                           src="{{ upsellProduct.featured_image | img_url: '50x' }}"
+                           alt="gift bag"
+                           style="width: 59px;height: 59px;margin: 10px auto;object-fit: contain;"
+                           loading="lazy"
+                           >
+                    </label>
+                  </div>
+                  <div class="grid__item two-thirds">
+                    <div class="ajaxcart__product-name--wrapper ajax-padder">
+                      <label class="ajaxcart__product-name text-left"
+                             style="padding-top: 15px;padding-bottom: 15px;">
+                        {{ upsellProduct.metafields.my_fields.title_for_upsell }}
+                      </label>
+
+
+                      <label class="ajaxcart__product-name text-right euro">+ {{ upsellProduct.price | money }}</label>
+                      <!--                       <label class="ajaxcart__product-name text-right pound display-non">+
+£2.00</label> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="grid">
+              <div class="grid__item one-third">
+                <p class="ajaxcart__subtotal">Subtotal</p>
+              </div>
+              <div class="grid__item two-thirds text-right">
+                <p class="ajaxcart__subtotal euro">{{ cart.total_price | money }} INCL. VAT</p>
+                <!--                 <p class="ajaxcart__subtotal pound display-non">£23.70 INCL. VAT</p> -->
+              </div>
+            </div>
+            <div class="grid">
+
+              <div class="grid__item one-half">
+                <p class="ajaxcart__ship">Shipping</p>
+              </div>
+              <div class="grid__item one-half text-right">
+                <p class="ajaxcart__ship">Calc. at next step</p>
+              </div>
+            </div>
+
+            <p></p>
+            <a href="/checkout" class="button cart__checkout btn upload-btn-xl euro"
+                    name="checkout" >
+              Checkout
+            </a>
+            <a href="/checkout" id="poundcheckout" class="btn upload-btn-xl pound display-non"
+               style="color: #fff;width: 100%;border-radius: 5px;">
+              Checkout
+            </a>
+            <p></p>
+
+            <a href="/" class="continue-shopping button euro"
+               style="width: 100%;border-radius: 5px;">
+              Continue Shopping
+            </a>
+            <p></p>
+
+
+            <!--             <div id="add-another" class="ajaxcart__product ajaxcart__product-name--wrapper no-disp">
+<div class="" data-line="1"
+style="padding: 0 20px;background-color: #a5dcde;border-radius: 5px;">
+<div class="grid">
+<div class="grid__item one-third">
+<label for="image" class="ajaxcart__product-image"><img
+src="//cdn.shopify.com/s/files/1/0268/5580/0887/t/15/assets/upload_6.png?v=4897508998010868741"
+alt="more pets upload" style="padding: 10px;"></label>
+</div>
+<div class="grid__item two-thirds">
+<div class="ajax-padder">
+<label for="image" class="ajaxcart__product-name text-left euro"
+style="padding: 20px 0;">Upload a pet for a custom pet
+sticker.</label>
+<label for="image"
+class="ajaxcart__product-name text-left pound display-non"
+style="padding: 20px 0;">Upload a pet for a custom pet
+sticker.</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+-->
+            <!--             <div id="classic-upload" class="ajaxcart__product ajaxcart__product-name--wrapper no-disp">
+<div class="" data-line="1"
+style="padding: 0 20px;background-color: #a5dcde;border-radius: 5px;">
+<div class="grid">
+<div class="grid__item one-third">
+<label for="image" class="ajaxcart__product-image"><img
+src="//cdn.shopify.com/s/files/1/0268/5580/0887/t/15/assets/Leftovers.png?v=16655450064709790815"
+alt="more classic stickers upload" style="padding: 10px;"></label>
+</div>
+<div class="grid__item two-thirds">
+<div class="ajax-padder">
+<label for="image" class="ajaxcart__product-name text-left euro"
+style="padding: 20px 0px;">Or, add more classic stickers.</label>
+<label for="image"
+class="ajaxcart__product-name text-left pound display-non"
+style="padding: 20px 0px;">Or, add more classic stickers.</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+-->
+
+
+            <p style="padding-top: 15px;border-bottom: 1px solid;margin: 0 0 12px 0;"></p>
+
+            <div>
+              <label for="CartSpecialInstructions" class="ajaxcart__note">woof, anything special we
+                can do for you?</label>
+              <textarea name="note" class="input-full" id="CartSpecialInstructions"
+                        style="border-radius: 5px;min-height: 40px;"></textarea>
+            </div>
+
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+<script>
+ 
+  let cartDiscountAmt = 45;
+  let cart_total_price = {{ cart.total_price }};
+  if ((cart_total_price / 100) < cartDiscountAmt) {
+
+        var total_price = cart_total_price / 100;
+        $('.ProgressBar__indicator').ready(function () {
+
+            if (total_price > 0 && total_price <= (cartDiscountAmt * 0.10)) {
+                $('.ProgressBar__indicator').toggleClass('less-than-10');
+            }
+            if (total_price > (cartDiscountAmt * 0.10) && total_price <= (cartDiscountAmt * 0.20)) {
+                $('.ProgressBar__indicator').toggleClass('less-than-20');
+            }
+            if (total_price > (cartDiscountAmt * 0.20) && total_price <= (cartDiscountAmt * 0.25)) {
+                $('.ProgressBar__indicator').toggleClass('quarter-clicked');
+            }
+
+            if (total_price > (cartDiscountAmt * 0.25) && total_price <= (cartDiscountAmt * 0.30)) {
+                $('.ProgressBar__indicator').toggleClass('less-than-30');
+            }
+            if (total_price > (cartDiscountAmt * 0.30) && total_price <= (cartDiscountAmt * 0.40)) {
+                $('.ProgressBar__indicator').toggleClass('less-than-40');
+            }
+            if (total_price > (cartDiscountAmt * 0.40) && total_price <= (cartDiscountAmt * 0.50)) {
+                $('.ProgressBar__indicator').toggleClass('half-clicked');
+            }
+            if (total_price > (cartDiscountAmt * 0.50) && total_price <= (cartDiscountAmt * 0.60)) {
+                $('.ProgressBar__indicator').toggleClass('less-than-60');
+            }
+            if (total_price > (cartDiscountAmt * 0.60) && total_price <= (cartDiscountAmt * 0.70)) {
+                $('.ProgressBar__indicator').toggleClass('less-than-70');
+            }
+            if (total_price > (cartDiscountAmt * 0.70) && total_price <= (cartDiscountAmt * 0.75)) {
+                $('.ProgressBar__indicator').toggleClass('three-quarters-clicked');
+            }
+            if (total_price > (cartDiscountAmt * 0.75) && total_price <= (cartDiscountAmt * 0.80)) {
+                $('.ProgressBar__indicator').toggleClass('less-than-80');
+            }
+            if (total_price > (cartDiscountAmt * 0.80) && total_price <= (cartDiscountAmt * 0.90)) {
+                $('.ProgressBar__indicator').toggleClass('less-than-90');
+            }
+            if (total_price > (cartDiscountAmt * 0.90) && total_price < (cartDiscountAmt * 0.95)) {
+                $('.ProgressBar__indicator').toggleClass('less-than-95');
+            }
+            if (total_price > (cartDiscountAmt * 0.95) && total_price < (cartDiscountAmt)) {
+                $('.ProgressBar__indicator').toggleClass('less-than-95');
+            }
+
+        });
+    }
+
+    if (cart_total_price / 100 >= cartDiscountAmt) {
+        // console.log("Discount Applied : " + data.cartDiscountsApplied);
+        console.log("Cart Total : " + cart_total_price / 100);
+        $(".shipping-text").text("Congrats! You get free shipping.");
+
+        $('.ProgressBar__indicator').ready(function () {
+            $('.ProgressBar__indicator').toggleClass('clicked');
+        });
+    }
+    else {
+        console.log("Cart Total : " + cart_total_price / 100);
+        var remainingAmt = cartDiscountAmt - (cart_total_price / 100);
+      $(".shipping-text").text(`You're  €${(remainingAmt).toFixed(2)} away from free shipping`);
+    }
+  
+  </script>
