@@ -1,4 +1,4 @@
-<section class="image-with-text _2">
+<section class="image-with-text _2 color-{{ section.settings.image_with_text_bg }}">
   <!--   <div class="container"> -->
   <div class="row {% if section.settings.layout == 'image_first' %} row-reverse{% endif %} {% if section.settings.change_bg %} gray_bg{% endif %}">
     <div class="column-50 self-center">
@@ -128,10 +128,21 @@
           "info" : "Image first is the default mobile layout."
         },
         {
-            "type": "checkbox",
-            "id": "change_bg",
-            "default": false,
-            "label": "Change background color"
+          "type": "select",
+          "id": "image_with_text_bg",
+          "label": "color scheme",
+          "default": "solid-button-labels",
+          "info" : "choose a background",
+            "options": [
+            {
+            "label": "Background 1",
+            "value": "background-color-2"
+            },
+            {
+            "label": "Background 2",
+            "value": "solid-button-labels"
+            }
+          ]
         }
     ],
     "blocks": [
