@@ -93,7 +93,8 @@
                           <input type="text" name="updates[]" class="ajaxcart__qty-num"
                                  value="{{ item.quantity }}" min="0"
                                  data-id="{{ item.key }}"
-                                 data-line="{{ lineItem }}" aria-label="quantity" pattern="[0-9]*" />
+                                 data-line="{{ lineItem }}" aria-label="quantity" pattern="[0-9]*" 
+                                 />
                           <button type="button"
                                   class="ajaxcart__qty-adjust ajaxcart__qty--plus icon-fallback-text"
                                   data-id="{{ item.key }}"
@@ -119,8 +120,15 @@
 
 
           <div class="cart-foot">
-          
-            <div id="add-gift" data-handle="{{ upsellProductHandle }}" class = "ajaxcart__product" data-value="{{ upsellProduct.first_available_variant.id }}" style="padding: 0 0 10px;">
+          <!--       ----------------- UPSELL ITEM ------------------------- -->
+          {% if upsellProduct != blank %}
+          <div id="add-gift" 
+            data-handle="{{ upsellProductHandle }}" 
+            data-value="{{ upsellProduct.first_available_variant.id }}" 
+            data-variant-id = "{{upsellProduct.first_available_variant.id }}"
+            data-quantity = "1"
+            class="AddToCart ajaxcart__product" 
+            style="padding: 0 0 10px;">
               <div class="" data-line=""
                    style="padding: 0 20px;background-color: #a5dcde;border-radius: 5px;">
                 <div class="grid">
@@ -150,7 +158,9 @@
                 </div>
               </div>
             </div>
-
+          {% endif %}
+            <!--     /  ----------------- UPSELL ITEM ------------------------- -->
+      
 
             <div class="grid">
               <div class="grid__item one-third">
@@ -243,7 +253,7 @@ style="padding: 20px 0px;">Or, add more classic stickers.</label>
               <label for="CartSpecialInstructions" class="ajaxcart__note">woof, anything special we
                 can do for you?</label>
               <textarea name="note" class="input-full" id="CartSpecialInstructions"
-                        style="border-radius: 5px;min-height: 40px;"></textarea>
+                        style="border-radius: 5px;min-height: 40px;">{{ cart.note }}</textarea>
             </div>
 
           </div>
