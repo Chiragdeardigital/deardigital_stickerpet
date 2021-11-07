@@ -1,1 +1,149 @@
-{"sections":{"1627798891438b8078":{"type":"image-banner1","settings":{"image":"shopify:\/\/shop_images\/Gift_bag_x342_332d3e84-1854-4d8c-b818-01857f7eba02.png","image_2":"shopify:\/\/shop_images\/custom-right-sm.png","heading":"Send stickers<br> with extra love ❤️","button_label_1":"gift pack","button_link_1":"","border_button":true}},"16277437539db10743":{"type":"product-quality","blocks":{"61838161-9095-4b8c-9205-f25cf7703086":{"type":"quality_block","settings":{"heading":"personal<br>\nmessage 💌"}},"94a15f01-1428-4519-b3c1-8fbc412ea7a8":{"type":"quality_block","settings":{"heading":"eco &amp; reusable<br>\ngift bag 💝"}}},"block_order":["61838161-9095-4b8c-9205-f25cf7703086","94a15f01-1428-4519-b3c1-8fbc412ea7a8"],"settings":{"show_rating_block":true}},"16278030249c3fd9e9":{"type":"image-with-text-2","settings":{"desktop_image":"shopify:\/\/shop_images\/gift_790x_f53010b4-9114-48dc-a21d-b7892e3b7d43.png","mobile_image_1":"shopify:\/\/shop_images\/zakje24_x383_328ced28-1c96-4790-899a-2a2aaac337bf.png","mobile_image_2":"shopify:\/\/shop_images\/example3_x383_83db62bc-4eac-4b32-a42b-983bb4e1fe2c.png","reverse_columns":false,"change_bg":false,"header_text":"There is no better gift, than a personalised one.","para_text":"Complete your sticker gift with a high quality gift bag, made from eco-cotton and fully reusable for sunglasses, phones, jewellery, …<br><br>\n          Add a personalised note that we will handwrite and include within the package.","btn_text":"order now","btn_url":"shopify:\/\/products\/stickers"}},"1627819628339a3175":{"type":"customer-reviews","blocks":{"ed9d2c30-920f-444f-bb96-7d3ea0ea2e15":{"type":"typed_text","settings":{"typed_text":"'human','pet'"}},"0f071843-4751-4065-811b-16b00a5a0f9d":{"type":"review","settings":{"review_image":"shopify:\/\/shop_images\/Stella_1_x200_fd30bce7-5157-4ccf-bc8c-b28c858d1589.png","review_text":"<i>“Can't stop wagging my tail when I see my face on those stickers <\/i>🐶”<br><i>- Stella, dog<\/i>"}},"c0b49e9b-244f-414f-83af-46cf16649f10":{"type":"review","settings":{"review_image":"shopify:\/\/shop_images\/Anne_x200_37eacb54-d57c-4b49-a334-8701dabc7c16.png","review_text":"<i>“Smooth, friendly order &amp; service. Nice job! Now handing out the stickers and ordering more. Already hooked! <\/i>”<br><i>- Anne, human<\/i>"}},"669b5aa6-d56b-4bc9-958a-ce0fdf0c0b6f":{"type":"review","settings":{"review_image":"shopify:\/\/shop_images\/Maurice_1_x200_a3fd90e9-0ea4-44f2-90ab-a75490ba8106.png","review_text":"<i>“Those stickers are AMAZING pussy magnets bro <\/i> 🤙”<br><i>- Maurice, cat<\/i>"}},"38a462f8-58a5-4b96-aaf8-43eb966e6778":{"type":"review","settings":{"review_image":"shopify:\/\/shop_images\/Lene_x200_ebbe589b-bc2b-4026-9ad9-fbdcb3be61ac.png","review_text":"<i>“Lovely gift! Really nice quality. Instant happiness when you see the envelope. Thanks Sticker Pet, wish you all the best!”<br><i>- Lene, human<\/i><\/i>"}},"34ea422a-96df-47c7-8040-7cc9553de2c7":{"type":"review","settings":{"review_image":"shopify:\/\/shop_images\/Dolly_1_x200_f6799be8-db76-4cf9-8273-f4f06da74f5c.png","review_text":"<i>“Meeeh, could have been better, my hair wasn’t right on the pic<\/i> 🤷”<br><i>- Dolly, sheep<\/i>"}}},"block_order":["ed9d2c30-920f-444f-bb96-7d3ea0ea2e15","0f071843-4751-4065-811b-16b00a5a0f9d","c0b49e9b-244f-414f-83af-46cf16649f10","669b5aa6-d56b-4bc9-958a-ce0fdf0c0b6f","38a462f8-58a5-4b96-aaf8-43eb966e6778","34ea422a-96df-47c7-8040-7cc9553de2c7"],"settings":{}},"1627822118441f8612":{"type":"image-with-text-2","settings":{"desktop_image":"shopify:\/\/shop_images\/example9_x790_1228392f-b586-471f-926f-07a7fbebb456.png","mobile_image_1":"shopify:\/\/shop_images\/example9_x790_1228392f-b586-471f-926f-07a7fbebb456.png","mobile_image_2":"shopify:\/\/shop_images\/zakje24_x383_328ced28-1c96-4790-899a-2a2aaac337bf.png","reverse_columns":true,"change_bg":false,"header_text":"Or personalise your own gifts with your pet stickers.","para_text":"Nothing better than a gift that is personalised with a sticker of your, his or her pet.\n<br>\n<br>\nPro tip! Pimp your wine-bottle gifts with your Chateaux-chat sticker.","btn_text":"order now","btn_url":"shopify:\/\/products\/stickers"}}},"order":["1627798891438b8078","16277437539db10743","16278030249c3fd9e9","1627819628339a3175","1627822118441f8612"]}
+{
+  "sections": {
+    "1627798891438b8078": {
+      "type": "image-banner1",
+      "blocks": {
+        "9eaef082-ab9d-4366-b840-2229dfded2b3": {
+          "type": "heading",
+          "settings": {
+            "heading": "Send stickers with extra love ❤️"
+          }
+        },
+        "21106868-2830-4fa7-a011-f4457119e90f": {
+          "type": "button",
+          "settings": {
+            "button_label": "gift pack",
+            "border_button": true,
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "9eaef082-ab9d-4366-b840-2229dfded2b3",
+        "21106868-2830-4fa7-a011-f4457119e90f"
+      ],
+      "settings": {
+        "color_scheme": "banner-background-1",
+        "image": "shopify:\/\/shop_images\/Gift_bag_x342_332d3e84-1854-4d8c-b818-01857f7eba02.png",
+        "image_2": "shopify:\/\/shop_images\/custom-right-sm.png"
+      }
+    },
+    "16277437539db10743": {
+      "type": "product-quality",
+      "blocks": {
+        "61838161-9095-4b8c-9205-f25cf7703086": {
+          "type": "quality_block",
+          "settings": {
+            "heading": "personal<br>\nmessage 💌",
+            "hide_block": false
+          }
+        },
+        "94a15f01-1428-4519-b3c1-8fbc412ea7a8": {
+          "type": "quality_block",
+          "settings": {
+            "heading": "eco &amp; reusable<br>\ngift bag 💝",
+            "hide_block": false
+          }
+        }
+      },
+      "block_order": [
+        "61838161-9095-4b8c-9205-f25cf7703086",
+        "94a15f01-1428-4519-b3c1-8fbc412ea7a8"
+      ],
+      "settings": {
+        "show_rating_block": true
+      }
+    },
+    "16278030249c3fd9e9": {
+      "type": "image-with-text-2",
+      "settings": {
+        "desktop_image": "shopify:\/\/shop_images\/gift_790x_f53010b4-9114-48dc-a21d-b7892e3b7d43.png",
+        "mobile_image_1": "shopify:\/\/shop_images\/zakje24_x383_328ced28-1c96-4790-899a-2a2aaac337bf.png",
+        "mobile_image_2": "shopify:\/\/shop_images\/example3_x383_83db62bc-4eac-4b32-a42b-983bb4e1fe2c.png",
+        "reverse_columns": false,
+        "change_bg": false,
+        "header_text": "There is no better gift, than a personalised one.",
+        "para_text": "Complete your sticker gift with a high quality gift bag, made from eco-cotton and fully reusable for sunglasses, phones, jewellery, …<br><br>\n          Add a personalised note that we will handwrite and include within the package.",
+        "btn_text": "order now",
+        "btn_url": "shopify:\/\/products\/stickers"
+      }
+    },
+    "1627819628339a3175": {
+      "type": "customer-reviews",
+      "blocks": {
+        "ed9d2c30-920f-444f-bb96-7d3ea0ea2e15": {
+          "type": "typed_text",
+          "settings": {
+            "typed_text": "'human','pet'"
+          }
+        },
+        "0f071843-4751-4065-811b-16b00a5a0f9d": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify:\/\/shop_images\/Stella_1_x200_fd30bce7-5157-4ccf-bc8c-b28c858d1589.png",
+            "review_text": "<i>“Can't stop wagging my tail when I see my face on those stickers <\/i>🐶”<br><i>- Stella, dog<\/i>"
+          }
+        },
+        "c0b49e9b-244f-414f-83af-46cf16649f10": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify:\/\/shop_images\/Anne_x200_37eacb54-d57c-4b49-a334-8701dabc7c16.png",
+            "review_text": "<i>“Smooth, friendly order &amp; service. Nice job! Now handing out the stickers and ordering more. Already hooked! <\/i>”<br><i>- Anne, human<\/i>"
+          }
+        },
+        "669b5aa6-d56b-4bc9-958a-ce0fdf0c0b6f": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify:\/\/shop_images\/Maurice_1_x200_a3fd90e9-0ea4-44f2-90ab-a75490ba8106.png",
+            "review_text": "<i>“Those stickers are AMAZING pussy magnets bro <\/i> 🤙”<br><i>- Maurice, cat<\/i>"
+          }
+        },
+        "38a462f8-58a5-4b96-aaf8-43eb966e6778": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify:\/\/shop_images\/Lene_x200_ebbe589b-bc2b-4026-9ad9-fbdcb3be61ac.png",
+            "review_text": "<i>“Lovely gift! Really nice quality. Instant happiness when you see the envelope. Thanks Sticker Pet, wish you all the best!”<br><i>- Lene, human<\/i><\/i>"
+          }
+        },
+        "34ea422a-96df-47c7-8040-7cc9553de2c7": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify:\/\/shop_images\/Dolly_1_x200_f6799be8-db76-4cf9-8273-f4f06da74f5c.png",
+            "review_text": "<i>“Meeeh, could have been better, my hair wasn’t right on the pic<\/i> 🤷”<br><i>- Dolly, sheep<\/i>"
+          }
+        }
+      },
+      "block_order": [
+        "ed9d2c30-920f-444f-bb96-7d3ea0ea2e15",
+        "0f071843-4751-4065-811b-16b00a5a0f9d",
+        "c0b49e9b-244f-414f-83af-46cf16649f10",
+        "669b5aa6-d56b-4bc9-958a-ce0fdf0c0b6f",
+        "38a462f8-58a5-4b96-aaf8-43eb966e6778",
+        "34ea422a-96df-47c7-8040-7cc9553de2c7"
+      ],
+      "settings": {
+      }
+    },
+    "1627822118441f8612": {
+      "type": "image-with-text-2",
+      "settings": {
+        "desktop_image": "shopify:\/\/shop_images\/example9_x790_1228392f-b586-471f-926f-07a7fbebb456.png",
+        "mobile_image_1": "shopify:\/\/shop_images\/example9_x790_1228392f-b586-471f-926f-07a7fbebb456.png",
+        "mobile_image_2": "shopify:\/\/shop_images\/zakje24_x383_328ced28-1c96-4790-899a-2a2aaac337bf.png",
+        "reverse_columns": true,
+        "change_bg": false,
+        "header_text": "Or personalise your own gifts with your pet stickers.",
+        "para_text": "Nothing better than a gift that is personalised with a sticker of your, his or her pet.\n<br>\n<br>\nPro tip! Pimp your wine-bottle gifts with your Chateaux-chat sticker.",
+        "btn_text": "order now",
+        "btn_url": "shopify:\/\/products\/stickers"
+      }
+    }
+  },
+  "order": [
+    "1627798891438b8078",
+    "16277437539db10743",
+    "16278030249c3fd9e9",
+    "1627819628339a3175",
+    "1627822118441f8612"
+  ]
+}

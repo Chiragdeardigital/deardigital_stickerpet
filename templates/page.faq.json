@@ -1,1 +1,90 @@
-{"sections":{"16279961146b70b337":{"type":"plain-hero-with-header","settings":{"header_text":"Frequently Answered Questions"}},"162798674137610167":{"type":"faq","blocks":{"8024ca8a-1d50-494e-a8cc-f3c33f2fed00":{"type":"faq_list","settings":{"header_text":"Do I just upload any picture?","para_text":"Yes, any kind of picture where we can see a full face of your pet.\n            <br>\n            Our designers will cutout the face carefully from your picture."}},"8b673dfa-aec8-4fc3-b772-d4d6491b4c79":{"type":"faq_list","settings":{"header_text":"What is your return policy?","para_text":"Because your order is specific to your pet, we do not accept returns or issue refunds.\n            <br>\n            If you are not satisfied with your order, please message us so we can resolve the issue."}},"0214861d-a87b-4280-9706-8496e53fd8f3":{"type":"faq_list","settings":{"header_text":"When will my order arrive?","para_text":"Since we design your stickers specifically for your pet, we will need at least 3 workingdays\n            to produce and ship your order. Your pack arrives in an envelope, no need to stay home for\n            the delivery. Awesome right?\n            <br>\n            🚨 due to severe delays, it can sometimes take up to 10 working days for the post company to\n            deliver.. this during Covid19 and Xmas."}},"96644afb-cb20-410c-99f2-32decddbd0c3":{"type":"faq_list","settings":{"header_text":"How big are the stickers?","para_text":"The stickers sizes can be seen on our product page, depending on the shape of your pets\n            face.\n            <br>\n            Click <a href=\"\/products\/stickerpack-30-custom-stickers\" class=\"text-link\">here<\/a> for a\n            size preview."}},"75690368-d55e-4ee6-80c3-a100c47ea36e":{"type":"faq_list","settings":{"header_text":"Can I see a preview before printing?","para_text":"No you can’t, but don’t worry, they always look really good, as it’s a professional designer\n            making the cutouts."}},"818cfcc2-d111-4f33-934e-138b51d171ca":{"type":"faq_list","settings":{"header_text":"Can I upload other things than pets?","para_text":"Yes sure, everything that has a face you can send along!"}},"55060fbe-c48a-4627-b059-a55141e7f95a":{"type":"faq_list","settings":{"header_text":"To which countries do you ship?","para_text":"We ship across the EU + UK. Your order arrives in your mailbox. Don’t forget to check now\n            and then to see if the stickers arrived!"}},"509f698b-1597-4c77-82f7-ef2a1e6a10dc":{"type":"faq_list","settings":{"header_text":"What if I have more than one pet?","para_text":"Bigger hearts have more pets, and that’s something we love as well. Unfortunately we can’t\n            split packs in 2 or 3. Therefore you automatically get 10% discount and free shipping when\n            ordering more than 1 pet."}}},"block_order":["8024ca8a-1d50-494e-a8cc-f3c33f2fed00","8b673dfa-aec8-4fc3-b772-d4d6491b4c79","0214861d-a87b-4280-9706-8496e53fd8f3","96644afb-cb20-410c-99f2-32decddbd0c3","75690368-d55e-4ee6-80c3-a100c47ea36e","818cfcc2-d111-4f33-934e-138b51d171ca","55060fbe-c48a-4627-b059-a55141e7f95a","509f698b-1597-4c77-82f7-ef2a1e6a10dc"],"settings":{}}},"order":["16279961146b70b337","162798674137610167"]}
+{
+  "sections": {
+    "16279961146b70b337": {
+      "type": "plain-hero-with-header",
+      "settings": {
+        "color_scheme": "gradient-background",
+        "hero_text_color": "text-accent-2",
+        "header_text": "Frequently Answered Questions"
+      }
+    },
+    "162798674137610167": {
+      "type": "faq",
+      "blocks": {
+        "8024ca8a-1d50-494e-a8cc-f3c33f2fed00": {
+          "type": "faq_list",
+          "settings": {
+            "header_text": "Do I just upload any picture?",
+            "para_text": "Yes, any kind of picture where we can see a full face of your pet.\n            <br>\n            Our designers will cutout the face carefully from your picture."
+          }
+        },
+        "8b673dfa-aec8-4fc3-b772-d4d6491b4c79": {
+          "type": "faq_list",
+          "settings": {
+            "header_text": "What is your return policy?",
+            "para_text": "Because your order is specific to your pet, we do not accept returns or issue refunds.\n            <br>\n            If you are not satisfied with your order, please message us so we can resolve the issue."
+          }
+        },
+        "0214861d-a87b-4280-9706-8496e53fd8f3": {
+          "type": "faq_list",
+          "settings": {
+            "header_text": "When will my order arrive?",
+            "para_text": "Since we design your stickers specifically for your pet, we will need at least 3 workingdays\n            to produce and ship your order. Your pack arrives in an envelope, no need to stay home for\n            the delivery. Awesome right?\n            <br>\n            🚨 due to severe delays, it can sometimes take up to 10 working days for the post company to\n            deliver.. this during Covid19 and Xmas."
+          }
+        },
+        "96644afb-cb20-410c-99f2-32decddbd0c3": {
+          "type": "faq_list",
+          "settings": {
+            "header_text": "How big are the stickers?",
+            "para_text": "The stickers sizes can be seen on our product page, depending on the shape of your pets\n            face.\n            <br>\n            Click <a href=\"\/products\/stickerpack-30-custom-stickers\" class=\"text-link\">here<\/a> for a\n            size preview."
+          }
+        },
+        "75690368-d55e-4ee6-80c3-a100c47ea36e": {
+          "type": "faq_list",
+          "settings": {
+            "header_text": "Can I see a preview before printing?",
+            "para_text": "No you can’t, but don’t worry, they always look really good, as it’s a professional designer\n            making the cutouts."
+          }
+        },
+        "818cfcc2-d111-4f33-934e-138b51d171ca": {
+          "type": "faq_list",
+          "settings": {
+            "header_text": "Can I upload other things than pets?",
+            "para_text": "Yes sure, everything that has a face you can send along!"
+          }
+        },
+        "55060fbe-c48a-4627-b059-a55141e7f95a": {
+          "type": "faq_list",
+          "settings": {
+            "header_text": "To which countries do you ship?",
+            "para_text": "We ship across the EU + UK. Your order arrives in your mailbox. Don’t forget to check now\n            and then to see if the stickers arrived!"
+          }
+        },
+        "509f698b-1597-4c77-82f7-ef2a1e6a10dc": {
+          "type": "faq_list",
+          "settings": {
+            "header_text": "What if I have more than one pet?",
+            "para_text": "Bigger hearts have more pets, and that’s something we love as well. Unfortunately we can’t\n            split packs in 2 or 3. Therefore you automatically get 10% discount and free shipping when\n            ordering more than 1 pet."
+          }
+        }
+      },
+      "block_order": [
+        "8024ca8a-1d50-494e-a8cc-f3c33f2fed00",
+        "8b673dfa-aec8-4fc3-b772-d4d6491b4c79",
+        "0214861d-a87b-4280-9706-8496e53fd8f3",
+        "96644afb-cb20-410c-99f2-32decddbd0c3",
+        "75690368-d55e-4ee6-80c3-a100c47ea36e",
+        "818cfcc2-d111-4f33-934e-138b51d171ca",
+        "55060fbe-c48a-4627-b059-a55141e7f95a",
+        "509f698b-1597-4c77-82f7-ef2a1e6a10dc"
+      ],
+      "settings": {
+        "title_text": ""
+      }
+    }
+  },
+  "order": [
+    "16279961146b70b337",
+    "162798674137610167"
+  ]
+}
