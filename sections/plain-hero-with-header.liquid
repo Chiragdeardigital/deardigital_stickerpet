@@ -1,5 +1,5 @@
-<section class="faq-hero">
-  <div class="hero-text">
+<section class="faq-hero color-{{ section.settings.color_scheme }}">
+  <div class="hero-text color-{{ section.settings.hero_text_color}}">
     <h1 class="headings">{{ section.settings.header_text }}</h1>
   </div>
 </section>
@@ -9,6 +9,44 @@
 {
     "name": "Plain hero with header",
     "settings": [
+            {
+            "type": "select",
+            "id": "color_scheme",
+            "label": "Color Scheme",
+            "default": "gradient-background",
+            "info" : "choose a background",
+            "options": [
+            {
+                "label": "Background 1",
+                "value": "gradient-background"
+                },
+                {
+                "label": "Background 2",
+                "value": "gradient-background-1"
+                },
+                {
+                "label": "Background 3",
+                "value": "gradient-background-2"
+                }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "hero_text_color",
+            "label": "Color",
+            "default": "text-accent-2",
+            "info" : "choose a color",
+            "options": [
+            {
+            "label": "accent 1",
+            "value": "text-accent-1"
+            },
+            {
+            "label": "accent 2",
+            "value": "text-accent-2"
+            }
+            ]
+        },
         {
             "id": "header_text",
             "type": "text",

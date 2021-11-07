@@ -1,9 +1,9 @@
 {{ 'reviews-hero.css' | asset_url | stylesheet_tag }}
 
-<section class="hero-image-reviews">
+<section class="hero-image-reviews color-{{ section.settings.review_bg }}">
   <div class="review-text-wrapper">
-    <h1 class="review-heading no-m">{{ section.settings.desktop_header_text }}</h1>
-    <h1 class="review-heading no-d">{{ section.settings.mobile_header_text }}</h1>
+    <h1 class="review-heading no-m color-{{ section.settings.review_text_color }}">{{ section.settings.desktop_header_text }}</h1>
+    <h1 class="review-heading no-d color-{{ section.settings.review_text_color }}">{{ section.settings.mobile_header_text }}</h1>
     <div class="review-sub-heading">
       <div class="review-sub-heading-1">
         <p class="hero-sub-text no-m"><b>4.9 score</b></p>
@@ -30,6 +30,48 @@
     "name": "Reviews hero section",
     "settings": [
         {
+            "type": "header",
+            "content": "color scheme"
+        },
+        {
+          "type": "select",
+          "id": "review_bg",
+          "label": "Background",
+          "default": "background-color-1",
+          "info" : "choose a background",
+            "options": [
+            {
+            "label": "Background 1",
+            "value": "background-color-1"
+            },
+            {
+            "label": "Gradient Background 1",
+            "value": "gradient-background-2"
+            },
+            {
+            "label": "Gradient Background 2",
+            "value": "gradient-background"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "review_text_color",
+          "label": "Heading color",
+          "default": "text-accent-2",
+          "info" : "choose a color",
+            "options": [
+            {
+              "label": "accent 1",
+              "value": "text-accent-1"
+              },
+              {
+              "label": "accent 2",
+              "value": "text-accent-2"
+              }
+          ]
+        },
+        {
             "id": "desktop_header_text",
             "type": "html",
             "label": "Desktop header"
@@ -44,6 +86,7 @@
             "type": "html",
             "label": "Enter Link or script"
         }
+        
     ],
     "blocks": [],
     "presets": [

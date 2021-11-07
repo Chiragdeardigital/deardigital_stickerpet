@@ -1,4 +1,4 @@
-<section class="products">
+<section class="products color-{{ section.settings.cards_section_background }}">
   <div class="container">
     <div class="flex card-items">
       {%- for block in section.blocks -%}
@@ -33,7 +33,25 @@
 {% schema %}
 {
     "name": "Home page cards",
-    "settings": [],
+    "settings": [
+        {
+          "type": "select",
+          "id": "cards_section_background",
+          "label": "color scheme",
+          "default": "background-color-3",
+          "info" : "choose a background",
+          "options": [
+          {
+          "label": "Background 1",
+          "value": "background-color-2"
+          },
+          {
+          "label": "Background 2",
+          "value": "background-color-3"
+          }
+        ]
+      }
+    ],
     "blocks": [
         {
             "type": "cards",

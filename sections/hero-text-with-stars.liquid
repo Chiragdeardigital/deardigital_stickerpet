@@ -1,7 +1,7 @@
 {{ 'cutouts.css' | asset_url | stylesheet_tag }}
 
 
-<div class="hero-image-reviews">
+<div class="hero-image-reviews color-{{ section.settings.color_scheme }}">
     <div class="flex-box flex-column justify-center align-center text-center" style="height: 100%;">
       <p class="hero-stars">
         <span class="stars">
@@ -12,7 +12,7 @@
               <span class="star">{% include "icon-star" %}</span>
             </span>
       </p>
-      <h1 class="h1 heading1">{{ section.settings.title }}</h1>
+      <h1 class="h1 heading1 color-{{ section.settings.color_scheme }}">{{ section.settings.title }}</h1>
     </div>
 </div>
 
@@ -22,6 +22,27 @@
 {
     "name": "Hero with text",
     "settings": [
+        {
+            "type": "select",
+            "id": "color_scheme",
+            "label": "Color Scheme",
+            "default": "banner-background-1",
+            "info" : "choose a background",
+                "options": [
+                {
+                "label": "Background 1",
+                "value": "banner-background-1"
+                },
+                {
+                "label": "Background 2",
+                "value": "banner-background-2"
+                },
+                {
+                "label": "Background 3",
+                "value": "banner-background-3"
+                }
+            ]
+        },
         {
             "id": "title",
             "type": "html",

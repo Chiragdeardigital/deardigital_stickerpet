@@ -37,16 +37,11 @@
       <div class="column-60">
         <div class="v-center">
           {% if section.settings.video_checkbox %}
-
           {{ section.settings.video_script }}
-
           {% else %}
-
           {% if section.settings.desktop_image != blank %}
-          <img 
-               width="auto"
-           height="auto"
-               src="{{ section.settings.desktop_image | img_url: '533x' }}" alt="{{ section.settings.desktop_image.alt }}" class="full-image" loading="lazy">
+          <img width="auto" height="auto"
+            src="{{ section.settings.desktop_image | img_url: '533x' }}" alt="{{ section.settings.desktop_image.alt }}" class="full-image" loading="lazy">
           {% else %}
           {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg'  }}
           {% endif %}

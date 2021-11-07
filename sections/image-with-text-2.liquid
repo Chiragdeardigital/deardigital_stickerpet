@@ -1,17 +1,26 @@
 <section class="image-with-text _2">
   <!--   <div class="container"> -->
-  <div class="row {% if section.settings.reverse_columns %} row-reverse{% endif %} {% if section.settings.change_bg %} gray_bg{% endif %}">
+  <div class="row {% if section.settings.layout == 'image_first' %} row-reverse{% endif %} {% if section.settings.change_bg %} gray_bg{% endif %}">
     <div class="column-50 self-center">
       <div class="text-block">
 
-        <h2 class="headings">{{ section.settings.header_text }}</h2>
-        <p class="para">{{ section.settings.para_text }}</p>
+      {%- for block in section.blocks -%}
+      {% case block.type %}
+      {%- when 'heading' -%}
+      
+      <h2 class="headings">{{ block.settings.heading | escape }}</h2>
 
-        {% if section.settings.btn_text != blank %}
-        <a href="{{ section.settings.btn_url }}" class="button">
-          {{ section.settings.btn_text }}
-        </a>
-        {% endif %}
+      {%- when 'para' -%}
+      <p class="para">{{ block.settings.para_text }}</p>
+
+      {%- when 'button' -%}
+      {% if block.settings.button_label != blank %}
+      <a {% if block.settings.button_link != blank %} href="{{ block.settings.button_link }}"{% endif %} class="button">
+        {{ block.settings.button_label | escape }}
+      </a>
+      {% endif %}
+      {%- endcase -%}
+      {%- endfor -%}
       </div>
     </div>
     <div class="m-product-imgs no-d">
@@ -96,47 +105,83 @@
             "id": "mobile_image_1",
             "label": "Mobile image 1"
         },
-		{
+		    {
             "type": "image_picker",
             "id": "mobile_image_2",
             "label": "Mobile image 2"
         },
         {
-            "type": "checkbox",
-            "id": "reverse_columns",
-            "default": false,
-            "label": "Swap image-block and text-block"
+          "type": "select",
+          "id": "layout",
+          "options": [
+            {
+              "value": "image_first",
+              "label": "Image First"
+            },
+            {
+              "value": "text_first",
+              "label": "Text First"
+            }
+          ],
+          "default": "image_first",
+          "label": "Desktop Layout",
+          "info" : "Image first is the default mobile layout."
         },
         {
             "type": "checkbox",
             "id": "change_bg",
             "default": false,
             "label": "Change background color"
-        },
-        {
-            "id": "header_text",
-            "type": "text",
-            "label": "Heading",
-            "default": "Stickers that will last for years."
-        },
- 		{
-            "id": "para_text",
-            "type": "html",
-            "label": "Description text"
-        },
-        {
-            "id": "btn_text",
-            "type": "text",
-            "label": "Button Text"
-        },
-        {
-            "id": "btn_url",
-            "type": "url",
-            "label": "Button Url"
         }
     ],
     "blocks": [
-        
+          {
+            "type": "heading",
+            "name": "Image with text",
+            "limit": 1,
+            "settings": [
+              {
+                "type": "text",
+                "id": "heading",
+                "default": "There is no better gift, than a personalised one.",
+                "label": "Heading"
+              }
+            ]
+          },
+          {
+            "type": "para",
+            "name": "paragraph",
+            "limit": 1,
+            "settings": [
+              {
+                "type": "html",
+                "id": "para_text",
+                "default": "Complete your sticker gift with a high quality gift bag, made from eco-cotton and fully reusable for sunglasses, phones, jewellery, …<br><br>
+                            Add a personalised note that we will handwrite and include within the package.",
+                "label": "paragraph"
+              }
+            ]
+          },
+          {
+            "type": "button",
+            "name": "Button",
+            "limit": 1,
+            "settings": [
+              {
+                "type": "text",
+                "id": "button_label",
+                "default": "Button label",
+                "label": "Button label",
+                "info": "Leave the label blank to hide the button."
+              },
+              {
+                "type": "url",
+                "id": "button_link",
+                "label": "Button link"
+              }
+            ]
+          }
+
     ],
     "presets": [
         {

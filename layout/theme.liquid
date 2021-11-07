@@ -42,16 +42,16 @@
     :root {
       --solid-button-labels: {{ settings.colors_solid_button_labels }};
       --background-color-1: {{ settings.colors_accent_2 }};
-      --gradient-background-1: {{ settings.gradient_background_1 }};
-      --gradient-background-2:  {{ settings.gradient_background_2 }};
-      --gradient-background: var(--gradient-background-1), var(--gradient-background-2);
       --background-color-2: {{ settings.colors_background_2 }};
       --background-color-3: {{ settings.colors_background_3 }};
+      --gradient-background: var(--gradient-background-1), var(--gradient-background-2);
+      --gradient-background-1: {{ settings.gradient_background_1 }};
+      --gradient-background-2:  {{ settings.gradient_background_2 }};
       --solid-button-bg-color: {{ settings.colors_accent_1 }};
-      --font-family-headers: {{ settings.type_header_font.family }}, sans-serif;
-      --font-family-body: {{ settings.type_body_font.family }}, sans-serif;
       --text-color:{{ settings.colors_text }};
       --nav-link-color:{{ settings.colors_link_labels }};
+      --font-family-headers: {{ settings.type_header_font.family }}, sans-serif;
+      --font-family-body: {{ settings.type_body_font.family }}, sans-serif;
     }
     {% endstyle %}
     {% comment %}
@@ -195,7 +195,7 @@
 
       {% section 'footer-1' %}
     </div>
-     {% section "cart-items-template" %}
+     {% include "cart-template" %}
     {% comment %}
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>

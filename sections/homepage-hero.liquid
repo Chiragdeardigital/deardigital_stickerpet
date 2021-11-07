@@ -1,6 +1,6 @@
-<section class="homepage-hero">
+<section class="homepage-hero color-{{ section.settings.color_scheme }}">
   <div class="container">
-    <h1 class="hero-title">{{ section.settings.text_1 }}<br>
+    <h1 class="hero-title  {% if section.settings.type_text == 'left' %} left {% elsif section.settings.type_text == 'right' %} right {% else %} {% endif %} {% for block in section.blocks %}{% if block.type == "typed_text" %}  color-{{ block.settings.type_text_color}} {% endif %}{% endfor %}" >{{ section.settings.text_1 }}<br>
       <span>
         {%- for block in section.blocks -%}
           {%- case block.type -%}
@@ -66,7 +66,49 @@
             "id": "text_2",
             "type": "text",
             "label": "Text after typed text"
-        }
+        },
+        {
+          "type": "select",
+          "id": "type_text",
+          "options": [
+            {
+              "value": "left",
+              "label": "left"
+            },
+            {
+              "value": "center",
+              "label": "center"
+            },
+            {
+              "value": "right",
+              "label": "right"
+            }
+          ],
+          "default": "center",
+          "label": "Type Text allignment",
+          "info" : "select any one to align the type text. By default it will be in center."
+        },
+        {
+           "type": "select",
+           "id": "color_scheme",
+           "label": "Color Scheme",
+           "default": "gradient-background",
+           "info" : "choose a background",
+           "options": [
+           {
+            "label": "Background 1",
+            "value": "gradient-background"
+            },
+            {
+            "label": "Background 2",
+            "value": "gradient-background-1"
+            },
+            {
+            "label": "Background 3",
+            "value": "gradient-background-2"
+            }
+         ]
+       }
     ],
     "blocks": [
         {
@@ -79,7 +121,24 @@
                     "type": "text",
                     "label": "Text",
 					          "info": "Enter the words for typing effect separated with comma(,) eg. text1,text2"
-                }
+                },
+                {
+                  "type": "select",
+                  "id": "type_text_color",
+                  "label": "Color",
+                  "default": "text-accent-2",
+                  "info" : "choose a color",
+                  "options": [
+                  {
+                   "label": "accent 1",
+                   "value": "text-accent-1"
+                   },
+                   {
+                   "label": "accent 2",
+                   "value": "text-accent-2"
+                   }
+                ]
+              }
             ]
         }
     ],

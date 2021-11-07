@@ -1,5 +1,5 @@
-<section class="gallery">
-  <div class="row {% if section.settings.reverse_columns %} row-reverse{% endif %}">
+<section class="gallery color-{{ section.settings.collage_bg }}">
+  <div class="row {% if section.settings.layout == 'image_first' %} row-reverse{% endif %}">
     <div class="column-50 self-center no-m">
       <div class="text-block">
         <h2 class="h3 headings">{{ section.settings.header_text }}</h2>
@@ -75,10 +75,38 @@
     "name": "Image collage with text",
     "settings": [
         {
-            "type": "checkbox",
-            "id": "reverse_columns",
-            "default": true,
-            "label": "Swap image-block and text-block"
+          "type": "select",
+          "id": "layout",
+          "options": [
+            {
+              "value": "image_first",
+              "label": "Image First"
+            },
+            {
+              "value": "text_first",
+              "label": "Text First"
+            }
+          ],
+          "default": "image_first",
+          "label": "Desktop Layout",
+          "info" : "Image first is the default mobile layout."
+        },
+        {
+          "type": "select",
+          "id": "collage_bg",
+          "label": "color scheme",
+          "default": "solid-button-labels",
+          "info" : "choose a background",
+          "options": [
+          {
+          "label": "Background 1",
+          "value": "background-color-2"
+          },
+          {
+          "label": "Background 2",
+          "value": "solid-button-labels"
+          }
+        ]
         },
         {
             "id": "header_text",
