@@ -116,7 +116,7 @@ $(document).ready(function(){
     slidesToShow: 3,
     slidesToScroll: 1,
     asNavFor: '.slider-for',
-    centerMode: true,
+    centerMode: false,
     arrows: true,
     infinite: false,
     vertical: false,
@@ -154,7 +154,7 @@ $(document).ready(function(){
     slidesToShow: 3,
     asNavFor: '.slider-forx',
     arrows: true,
-    centerMode: true,
+    centerMode: false,
     focusOnSelect: true
   });
   

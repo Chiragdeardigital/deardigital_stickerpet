@@ -407,7 +407,7 @@ $('.slider-single').slick({
   arrows: false,
   fade: true,
   adaptiveHeight: true,
-  infinite: true,
+  infinite: false,
   useTransform: true,
   asNavFor: '.slider-nav',
   speed: 400,
@@ -430,14 +430,14 @@ $('.slider-nav')
   $('.slider-nav .slick-slide.slick-current').addClass('is-active');
 })
 .slick({
-  slidesToShow: 2,
-  slidesToScroll: 2,
+  slidesToShow: 3,
+  slidesToScroll: 1,
   arrows: true,
   asNavFor: '.slider-single',
   dots: false,
   focusOnSelect: false,
-  centerMode: true,
-  infinite: true,
+  centerMode: false,
+  infinite: false,
   responsive: [
 
     {

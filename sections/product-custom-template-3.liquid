@@ -1,7 +1,9 @@
 {{ 'component-product-without-variants.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
 {% assign current_variant = product.selected_or_first_available_variant %}
 {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
 
+{% include "colors-snippet" %}
 <div class="blue-background">
 <!-- /templates/product.liquid -->
 {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
@@ -232,6 +234,9 @@
             {% endcomment %}
             
             <div class="no-mobile">
+              <div class="no-js-hidden" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
+                {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
+              </div>
             {% include 'product-price', variant: current_variant %}
             </div>
             
@@ -258,7 +263,73 @@
 
             {% form 'product', product, class:form_classes, id:form_id, data-product-form: '' %}
             {% unless product.has_only_default_variant %}
-                {% for option in product.options_with_values %}
+            <variant-radios class="no-js-hidden" data-section="{{ section.id }}" data-url="{{ product.url }}" {{ block.shopify_attributes }}>
+              {%- for option in product.options_with_values -%}
+                  <fieldset class="js product-form__input">
+                    {% if option.name == 'Size' %}
+                    <div class="color-option">
+                      <label class="form__label color-option single-option-radio__label product-single__description">
+                        {{ option.name }}<span class="size-popup modal-show">(what's my size?)</span>
+                      </label>
+                      {%- for value in option.values -%}
+                        <input 
+                              type="radio"
+                              class="display-non" 
+                              id="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
+                              name="{{ option.name }}"
+                              value="{{ value | escape }}"
+                              form="product-form-{{ section.id }}"
+                              {% if option.selected_value == value %}checked{% endif %}
+                        >
+                        <label class="size-circle" for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}">
+                          {{ value }}
+                        </label>
+                      {%- endfor -%}
+                      </div>
+                    {% elsif option.name == 'Color' %}
+                    <div class="color-option">
+                        <label class="form__label color-option single-option-radio__label product-single__description">
+                          {{ option.name }}
+                        </label>
+                        <div class="color-div">
+                        {%- for value in option.values -%}
+                          <input 
+                                type="radio"
+                                class="display-non" 
+                                id="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
+                                name="{{ option.name }}"
+                                value="{{ value | escape }}"
+                                form="product-form-{{ section.id }}"
+                                {% if option.selected_value == value %}checked{% endif %}
+                          >
+                          <label class="colors-swatch" for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}">
+                            {% assign colorsSch = colorScheme | strip_newlines | split: "," %}
+                            {% for colors in colorsSch %}
+                              {% assign color = colors | split: ":" %}
+                            {% assign downcase1 = color[0] | downcase %}
+                            {% assign downcase2 = value | downcase %}
+                              {% if downcase2 == downcase1 %}
+                                {% assign variantColorCode = color[1] %}
+                                {% break %}
+                              {% endif %}
+                            {% endfor %} 
+                            {% if variantColorCode == blank %}
+                {% assign variantColorCode = "url(//cdn.shopify.com/s/files/1/0594/3604/0367/files/none.png?v=1634556355)" %}
+                {% endif %}
+                            <span class="{{ value | replace: " " }} colors-color" style="background: {{ variantColorCode }};"></span>
+                            <span class="colors-text">{{ value }}</span>
+                          </label>
+                          {%- endfor -%}
+                          </div>
+                      </div>
+                      {%- endif -%}
+                  </fieldset>
+              {%- endfor -%}
+              <script id="product-json" type="application/json">
+                {{ product.variants | json }}
+              </script>
+            </variant-radios>
+                {% comment %} {% for option in product.options_with_values %}
             		<div class="radio-wrapper js product-form__item no-desktop no-mobile ">
                       <label class="single-option-radio__label product-single__description"
                         for="ProductSelect-option-{{ forloop.index0 }}">
@@ -346,7 +417,7 @@
                     </div>
                   </div>
             {% endif %}
-            {% endfor %}
+            {% endfor %} {% endcomment %}
             {% endunless %}
 
               <select name="id" id="ProductSelect--product-custom-template" class="product-single__variants no-js">
@@ -397,12 +468,12 @@
             
 
               <div class="product-single__add-to-cart{% if section.settings.add_to_cart_button_size == 'large' %} product-single__add-to-cart--full-width{% endif %}">
-                <button type="submit" disabled="true" name="add" id="AddToCart--{{ section.id }}" class="this-is-cart-btn btn button border-button btn--add-to-cart">
+                <button type="submit" name="add" id="AddToCart--{{ section.id }}" class="this-is-cart-btn btn button border-button btn--add-to-cart">
                   <span class="btn__text">
-                      {% if current_variant.inventory_quantity > 0 %}
+                      {% if current_variant.inventory_quantity < 1 %}
                       Order Now
                     {% else %}
-                      {{ 'products.product.sold_out' | t }}
+                      Sold out
                     {% endif %}
                   </span>
                 </button>
@@ -433,6 +504,53 @@
 {% endunless %}
 
 <script type="text/javascript">
+    $( document ).ready(function() {
+      $('.product-form__input input[type=radio]').change(function() {
+        changeImage();
+      });
+
+      function changeImage() {
+        if($('#product-json').length > 0) {
+          var string = "";
+          var hardcode_img = "";
+          $(".product-form__input").each(function(index){
+            if(index == 0) {
+              hardcode_img = $(this).find("input:checked").data("img");
+            // console.log(hardcode_img);
+              string += $(this).find("input:checked").val();
+            } else {
+              string += " / " + $(this).find("input:checked").val();
+            }
+
+          });
+          var x = JSON.parse($('#product-json').html());
+		// console.log(x);
+          var w = x.find(item => {
+            return item.public_title === string;
+          });
+          console.log(w);
+          $(".slider-nav img").each(function(index) {
+            // console.log($(this).attr('src') + hardcode_img );
+            if(w.featured_image == null && hardcode_img != "" && hardcode_img != null) {
+              if(hardcode_img.indexOf($(this).attr('src')) > -1) {
+                console.log("got it");
+                $('.slider-nav').slick('slickGoTo', index);
+              }
+            }
+            if($(this).attr('src') != null && w.featured_image != null) {
+              if(w.featured_image.src.indexOf($(this).attr('src')) > -1) {
+
+                // console.log($(this).attr('src') + w.featured_image.src );
+                // console.log($(this).attr('data-index') );
+                $('.slider-nav').slick('slickGoTo', index);
+              }
+            }
+          });
+        }
+      }
+      changeImage();
+    });
+  console.log(`{{colorScheme}}`);
   function addgiftbox() {
     console.log('clicked');
     setTimeout(function(){
@@ -665,134 +783,134 @@
 
 <script>
   
-$(document).ready(function() {
-     $('#AddToCart--product-custom-template').attr('disabled', true);
+// $(document).ready(function() {
+//      $('#AddToCart--product-custom-template').attr('disabled', true);
        
-});
+// });
   
   $size = 0;
   $color = 0;
   
-    $( ".colors-swatch" ).click(function() {
-      var colorSelected = $(this).attr('id');
-      $(this).addClass("selected-color");
-      var inputColor = colorSelected.substring(0,colorSelected.lastIndexOf('-')).replaceAll(" ","");
-      console.log("Input Color: "+inputColor);
-      document.getElementById(inputColor).checked = true;
-      if(inputColor.substring(inputColor.lastIndexOf('-')+1) == "Blue") {
-        $color = 1;
-        $(".product-single__thumbnail").each(function(){
-          var newMediaId = "product-custom-template-15794993299655";
-          if($(this).data("media-id") == newMediaId) {
-            $( this ).trigger( "click" );
-          }
-          $('.product-single__media-group.slick-initialized').slick("slickGoTo", 1);
-        });
-      }
-      else if (inputColor.substring(inputColor.lastIndexOf('-')+1) == "Green") {
-      	$color = 2;
-        $(".product-single__thumbnail").each(function(){
-          var newMediaId = "product-custom-template-15794993234119";
-          if($(this).data("media-id") == newMediaId) {
-            $( this ).trigger( "click" );
-          }
-          $('.product-single__media-group.slick-initialized').slick("slickGoTo", 2);
-        });
-      }
-      else if (inputColor.substring(inputColor.lastIndexOf('-')+1) == "LightBlue") {
-      	$color = 3;
-        $(".product-single__thumbnail").each(function(){
-          var newMediaId = "product-custom-template-21992432795847";
-          if($(this).data("media-id") == newMediaId) {
-            $( this ).trigger( "click" );
-          }
-          $('.product-single__media-group.slick-initialized').slick("slickGoTo", 4);
-        });
-      }
-      else if (inputColor.substring(inputColor.lastIndexOf('-')+1) == "Purple") {
-      	$color = 4;
-        $(".product-single__thumbnail").each(function(){
-          var newMediaId = "product-custom-template-21992312045767";
-          if($(this).data("media-id") == newMediaId) {
-            $( this ).trigger( "click" );
-          }
-          $('.product-single__media-group.slick-initialized').slick("slickGoTo", 3);
-        });
-      }
+//     $( ".colors-swatch" ).click(function() {
+//       var colorSelected = $(this).attr('id');
+//       $(this).addClass("selected-color");
+//       var inputColor = colorSelected.substring(0,colorSelected.lastIndexOf('-')).replaceAll(" ","");
+//       console.log("Input Color: "+inputColor);
+//       document.getElementById(inputColor).checked = true;
+//       if(inputColor.substring(inputColor.lastIndexOf('-')+1) == "Blue") {
+//         $color = 1;
+//         $(".product-single__thumbnail").each(function(){
+//           var newMediaId = "product-custom-template-15794993299655";
+//           if($(this).data("media-id") == newMediaId) {
+//             $( this ).trigger( "click" );
+//           }
+//           $('.product-single__media-group.slick-initialized').slick("slickGoTo", 1);
+//         });
+//       }
+//       else if (inputColor.substring(inputColor.lastIndexOf('-')+1) == "Green") {
+//       	$color = 2;
+//         $(".product-single__thumbnail").each(function(){
+//           var newMediaId = "product-custom-template-15794993234119";
+//           if($(this).data("media-id") == newMediaId) {
+//             $( this ).trigger( "click" );
+//           }
+//           $('.product-single__media-group.slick-initialized').slick("slickGoTo", 2);
+//         });
+//       }
+//       else if (inputColor.substring(inputColor.lastIndexOf('-')+1) == "LightBlue") {
+//       	$color = 3;
+//         $(".product-single__thumbnail").each(function(){
+//           var newMediaId = "product-custom-template-21992432795847";
+//           if($(this).data("media-id") == newMediaId) {
+//             $( this ).trigger( "click" );
+//           }
+//           $('.product-single__media-group.slick-initialized').slick("slickGoTo", 4);
+//         });
+//       }
+//       else if (inputColor.substring(inputColor.lastIndexOf('-')+1) == "Purple") {
+//       	$color = 4;
+//         $(".product-single__thumbnail").each(function(){
+//           var newMediaId = "product-custom-template-21992312045767";
+//           if($(this).data("media-id") == newMediaId) {
+//             $( this ).trigger( "click" );
+//           }
+//           $('.product-single__media-group.slick-initialized').slick("slickGoTo", 3);
+//         });
+//       }
       
-      $( ".colors-swatch" ).each(function( index ) {
-        if($(this).attr('id')!=colorSelected) {
-          $(this).removeClass("selected-color"); 
-          var removedColor = $(this).attr('id');
-//           console.log("Removed Color: "+removedColor.substring(0,removedColor.lastIndexOf('-')));
-          document.getElementById(removedColor.substring(0,removedColor.lastIndexOf('-'))).checked = false;
-        }
-      });
+//       $( ".colors-swatch" ).each(function( index ) {
+//         if($(this).attr('id')!=colorSelected) {
+//           $(this).removeClass("selected-color"); 
+//           var removedColor = $(this).attr('id');
+// //           console.log("Removed Color: "+removedColor.substring(0,removedColor.lastIndexOf('-')));
+//           document.getElementById(removedColor.substring(0,removedColor.lastIndexOf('-'))).checked = false;
+//         }
+//       });
       
-      var color = inputColor.substring(inputColor.lastIndexOf('-')+1);
-//       console.log("Color: "+color);
-      $size = 0;
-      $(".size-circle").removeClass("selected-size");
-      $(".size-circle").removeClass("not-available");
-      $("#ProductSelect--product-custom-template option").each(function() {
-        var variantName = $(this).attr("variant-name").replaceAll(" ","");
-        var sizeVariant = variantName.replaceAll(" ","").substring(variantName.lastIndexOf("/")+1);
-        variantName = variantName.substring(0,variantName.lastIndexOf("/"));
-//         console.log(variantName);
-        if(variantName == color) {
-          if($(this).data("avaliable") == "no") {
-//             console.log("Not Available Size : "+sizeVariant);
-            $(".size-circle."+sizeVariant).addClass("not-available");
-          }
-          else {
-//             console.log("Available Size : "+sizeVariant);
-          	$(".size-circle."+sizeVariant).removeClass("not-available");
-          }
-        }
-      });
+//       var color = inputColor.substring(inputColor.lastIndexOf('-')+1);
+// //       console.log("Color: "+color);
+//       $size = 0;
+//       $(".size-circle").removeClass("selected-size");
+//       $(".size-circle").removeClass("not-available");
+//       $("#ProductSelect--product-custom-template option").each(function() {
+//         var variantName = $(this).attr("variant-name").replaceAll(" ","");
+//         var sizeVariant = variantName.replaceAll(" ","").substring(variantName.lastIndexOf("/")+1);
+//         variantName = variantName.substring(0,variantName.lastIndexOf("/"));
+// //         console.log(variantName);
+// //         if(variantName == color) {
+// //           if($(this).data("avaliable") == "no") {
+// // //             console.log("Not Available Size : "+sizeVariant);
+// //             $(".size-circle."+sizeVariant).addClass("not-available");
+// //           }
+// //           else {
+// // //             console.log("Available Size : "+sizeVariant);
+// //           	$(".size-circle."+sizeVariant).removeClass("not-available");
+// //           }
+// //         }
+//       });
       
-    });
+//     });
   
-  	$( ".size-circle" ).click(function() {
-      if($(this).hasClass("not-available")) {
-        console.log("Size not available for selected Color");
-      }
-      else {
-      	var sizeSelected = $(this).attr('id');
-        $(this).addClass("selected-size"); 
-        var inputsize = sizeSelected.substring(0,sizeSelected.lastIndexOf('-'));
-  //       console.log("Input Size: "+inputsize);
-        document.getElementById(inputsize).checked = true;
-        if(inputsize.substring(inputsize.lastIndexOf('-')+1) == "XS") {
-          $size=1;
-        }
-        else if (inputsize.substring(inputsize.lastIndexOf('-')+1) == "S") {
-          $size=2;
-        }
-        else if (inputsize.substring(inputsize.lastIndexOf('-')+1) == "M") {
-          $size=3;
-        }
-        else if (inputsize.substring(inputsize.lastIndexOf('-')+1) == "L") {
-          $size=4;
-        }
-        else if (inputsize.substring(inputsize.lastIndexOf('-')+1) == "XL") {
-          $size=5;
-        }
-        else if (inputsize.substring(inputsize.lastIndexOf('-')+1) == "XXL") {
-          $size=6;
-        }
+  // 	$( ".size-circle" ).click(function() {
+  //     if($(this).hasClass("not-available")) {
+  //       console.log("Size not available for selected Color");
+  //     }
+  //     else {
+  //     	var sizeSelected = $(this).attr('id');
+  //       $(this).addClass("selected-size"); 
+  //       var inputsize = sizeSelected.substring(0,sizeSelected.lastIndexOf('-'));
+  // //       console.log("Input Size: "+inputsize);
+  //       document.getElementById(inputsize).checked = true;
+  //       if(inputsize.substring(inputsize.lastIndexOf('-')+1) == "XS") {
+  //         $size=1;
+  //       }
+  //       else if (inputsize.substring(inputsize.lastIndexOf('-')+1) == "S") {
+  //         $size=2;
+  //       }
+  //       else if (inputsize.substring(inputsize.lastIndexOf('-')+1) == "M") {
+  //         $size=3;
+  //       }
+  //       else if (inputsize.substring(inputsize.lastIndexOf('-')+1) == "L") {
+  //         $size=4;
+  //       }
+  //       else if (inputsize.substring(inputsize.lastIndexOf('-')+1) == "XL") {
+  //         $size=5;
+  //       }
+  //       else if (inputsize.substring(inputsize.lastIndexOf('-')+1) == "XXL") {
+  //         $size=6;
+  //       }
 
-        $( ".size-circle" ).each(function( index ) {
-          if($(this).attr('id')!=sizeSelected) {
-            $(this).removeClass("selected-size");
-            var removedsize = $(this).attr('id');
-  //           console.log("Removed Size: "+removedsize.substring(0,removedsize.lastIndexOf('-')));
-            document.getElementById(removedsize.substring(0,removedsize.lastIndexOf('-'))).checked = false;
-          }
-        });
-      }
+  //       $( ".size-circle" ).each(function( index ) {
+  //         if($(this).attr('id')!=sizeSelected) {
+  //           $(this).removeClass("selected-size");
+  //           var removedsize = $(this).attr('id');
+  // //           console.log("Removed Size: "+removedsize.substring(0,removedsize.lastIndexOf('-')));
+  //           document.getElementById(removedsize.substring(0,removedsize.lastIndexOf('-'))).checked = false;
+  //         }
+  //       });
+  //     }
       
-    });
+  //   });
   
 //   setInterval(function() {
     
@@ -872,10 +990,10 @@ $(document).ready(function() {
   
   
   
-    $( ".colors-swatch" ).click(function() {
-      let slideNo = $(this).data("slide");
-       $('.slider-single.slick-initialized').slick("slickGoTo", slideNo);
-    });
+    // $( ".colors-swatch" ).click(function() {
+    //   let slideNo = $(this).data("slide");
+    //    $('.slider-single.slick-initialized').slick("slickGoTo", slideNo);
+    // });
   
   
   
@@ -883,12 +1001,12 @@ $(document).ready(function() {
   $("#AddToCartForm--product-custom-template").submit(function(e){
     e.preventDefault();
   });
-  setInterval(function() {
-    if($(".colors-swatch.selected-color").data("title") && $(".size-circle.selected-size").data("title") && $("#image").val() != ""){
-      $(".btn--add-to-cart").removeAttr("disabled");
+  // setInterval(function() {
+  //   if($(".colors-swatch.selected-color").data("title") && $(".size-circle.selected-size").data("title") && $("#image").val() != ""){
+  //     $(".btn--add-to-cart").removeAttr("disabled");
 
-    }
-  }, 1000);
+  //   }
+  // }, 1000);
   
   $(".btn--add-to-cart").click(function(event) {
     event.preventDefault();

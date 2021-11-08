@@ -1,4 +1,5 @@
 <!-- {{ 'component-product-without-variants.css' | asset_url | stylesheet_tag }} -->
+{% render "colors-snippet" %}
 <div class="blue-background">
 <!-- /templates/product.liquid -->
 {% assign current_variant = product.selected_or_first_available_variant %}

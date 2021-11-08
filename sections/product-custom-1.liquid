@@ -1,5 +1,6 @@
 <!-- /templates/product.liquid -->
 {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
+{% render "colors-snippet" %}
 
 <div class="wrapper padd-bot-xl min-height-element" itemscope itemtype="http://schema.org/Product" id="ProductSection--{{ section.id }}"
   data-section-id="{{ section.id }}"
@@ -153,8 +154,11 @@
           <div class="center-it" style="max-width: 380px;">
             {% comment %}
               Optionally show the 'compare at' or original price of the product.
+              {% include 'product-price', variant: current_variant %}
             {% endcomment %}
-            {% include 'product-price', variant: current_variant %}
+            <div class="no-js-hidden" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
+              {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
+            </div>
 
             <div class="product-single__description rte" itemprop="description">
               {{ product.description }}

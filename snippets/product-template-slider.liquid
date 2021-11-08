@@ -29,7 +29,8 @@
                    {%- if image.width >= 1070 -%}{{ image | img_url: '1070x' }} 1070w{%- endif -%}"
            width="auto"
            height="auto"
-           src="{{ image.src | img_url: '200x' }}" 
+           src="{{ image.src | img_url: 'master' }}"
+           data-index="{{ forloop.index0 }}" 
            alt="{{ image.alt | escape }}" 
            loading="lazy">
     </div>
