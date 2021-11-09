@@ -1,6 +1,6 @@
 
 
-$('#AddToCart--product-template').click(function (e) {
+$('.AddToCart').click(function (e) {
   e.preventDefault();
   if ($("#image").val() === "") {
     let ele = $(this);
@@ -11,21 +11,22 @@ $('#AddToCart--product-template').click(function (e) {
       ele.html('order now');
     }, 2000);
   } else {
-    addToCartNoVariant();
+    $(this).addClass('special-loader');
+    $(this).html('Loading <span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>');
+
+    addToCartVariant();
   }
 });
 
 
 
-function addToCartNoVariant() {
+function addToCartVariant() {
 
-
-  $("#AddToCart--product-template").html('adding to cart...');
   let addToCartForm = document.querySelector('form[action="/cart/add"]');
   let formData = new FormData(addToCartForm);
-  console.log(formData.sections);
+  let renderedHtml;
   $('.mobile-cart-submit').addClass('special-loader');
-  $('.mobile-cart-submit').html('Loading<span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>');
+  $('.mobile-cart-submit').html('Loading <span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>');
   fetch('/cart/add.js', {
     method: 'POST',
     body: formData
@@ -33,13 +34,16 @@ function addToCartNoVariant() {
     .then(response => {
       return response.json();
     })
-    .then(result => {
-      console.log(result.sections);
+    .then(data => {
+      renderedHtml = getSectionInnerHTML(data.sections["cart-items-template"], "#CartContainer");
+      $("#CartContainer").html(renderedHtml);
       jQuery.getJSON('/cart.js', function (cart) {
-        openAjaxCart(cart);
+        shippingCalculator(cart);
+        openCart();
       });
-      $('.mobile-cart-submit').removeClass('special-loader');
+      $('.mobile-cart-submit, .AddToCart').removeClass('special-loader');
       $('.mobile-cart-submit').html('Upload a picture');
+      $(".AddToCart").html('order now');
       $(".box").css("background-image", "url()");
       $('.box__input label').css({ "visibility": "visible" });
       $("#image").val("");
@@ -52,9 +56,9 @@ function addToCartNoVariant() {
 
 
 //upsellcart
-$("body").on('click', '.AddToCart', function () {
+$("body").on('click', '.UpsellAddToCart', function () {
   let variant_id = parseInt(this.getAttribute("data-variant-id"));
-  let variant_quantity = $(this).data('quantity') != "" ? $(this).data('quantity') : $(".product-qty .qty").data("qty");
+  let variant_quantity = $(this).data('quantity') != "" ? $(this).data('quantity') : 1;
   // console.log(parseInt(variant_quantity));
   let renderedHtml;
   var formData = {
@@ -91,9 +95,12 @@ $("body").on('click', '.AddToCart', function () {
 
 
 $("body").on('change', '#CartSpecialInstructions', function () {
+  $("#CartContainer").addClass("block-cursor");
+  let renderedHtml;
   let text_val = $(this).val();
   var formData = {
-    note: `${text_val}`
+    note: `${text_val}`,
+    sections: "cart-live-region-text,cart-items-template"
   };
 
   $.ajax({
@@ -103,7 +110,10 @@ $("body").on('change', '#CartSpecialInstructions', function () {
     data: formData,
   })
     .done(function (data) {
-      openAjaxCart(data);
+      renderedHtml = getSectionInnerHTML(data.sections["cart-items-template"], "#CartContainer");
+      $("#CartContainer").html(renderedHtml);
+      shippingCalculator(data);
+      $("#CartContainer").removeClass("block-cursor");
     })
     .fail(function (error) {
       console.log(error);

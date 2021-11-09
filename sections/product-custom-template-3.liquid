@@ -1,5 +1,6 @@
 {{ 'component-product-without-variants.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-badge.css' | asset_url | stylesheet_tag }}
 {% assign current_variant = product.selected_or_first_available_variant %}
 {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
 
@@ -235,9 +236,8 @@
             
             <div class="no-mobile">
               <div class="no-js-hidden" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
-                {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
+                {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large product-single__price' -%}
               </div>
-            {% include 'product-price', variant: current_variant %}
             </div>
             
             <div class="product-single__description rte no-mobile" itemprop="description">
@@ -256,12 +256,14 @@
             </div>
 
             {% capture "form_classes" %}
-              product-single__form{% if product.has_only_default_variant %} product-single__form--no-variants{% endif %}
+              product-single__form installment caption-large{% if product.has_only_default_variant %} product-single__form--no-variants{% endif %}
             {%- endcapture %}
 
             {% capture "form_id" %}AddToCartForm--product-custom-template{%- endcapture -%}
 
             {% form 'product', product, class:form_classes, id:form_id, data-product-form: '' %}
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            <input type="hidden" name="sections" value="cart-items-template">
             {% unless product.has_only_default_variant %}
             <variant-radios class="no-js-hidden" data-section="{{ section.id }}" data-url="{{ product.url }}" {{ block.shopify_attributes }}>
               {%- for option in product.options_with_values -%}
@@ -420,7 +422,7 @@
             {% endfor %} {% endcomment %}
             {% endunless %}
 
-              <select name="id" id="ProductSelect--product-custom-template" class="product-single__variants no-js">
+              <select name="" id="ProductSelect--product-custom-template" class="product-single__variants no-js">
                 {% for variant in product.variants %}                  
                     <option {% if variant == product.selected_or_first_available_variant %}
                       selected="selected" {% endif %}
@@ -468,13 +470,9 @@
             
 
               <div class="product-single__add-to-cart{% if section.settings.add_to_cart_button_size == 'large' %} product-single__add-to-cart--full-width{% endif %}">
-                <button type="submit" name="add" id="AddToCart--{{ section.id }}" class="this-is-cart-btn btn button border-button btn--add-to-cart">
+                <button name="add" id="AddToCart--{{ section.id }}" class="AddToCart this-is-cart-btn btn button border-button btn--add-to-cart">
                   <span class="btn__text">
-                      {% if current_variant.inventory_quantity < 1 %}
                       Order Now
-                    {% else %}
-                      Sold out
-                    {% endif %}
                   </span>
                 </button>
               </div>            
@@ -550,7 +548,7 @@
       }
       changeImage();
     });
-  console.log(`{{colorScheme}}`);
+  
   function addgiftbox() {
     console.log('clicked');
     setTimeout(function(){
@@ -761,25 +759,7 @@
 //   });
 
 </script>
-<!-- 
-<script src="{{ "owlcarousel.js" | asset_url }}"></script>
-<script>
-  $(document).ready(function(){
-    $('.owl-carousel').owlCarousel({
-      loop:false,
-      margin:1,
-      nav:true,
-      responsive:{
-        0:{
-          items:3,
-          nav:true,          
-          loop:false
-        }
-      }
-    })
-  });
-  
-</script> -->
+
 
 <script>
   
@@ -998,9 +978,9 @@
   
   
 
-  $("#AddToCartForm--product-custom-template").submit(function(e){
-    e.preventDefault();
-  });
+  // $('form[action="/cart/add"]').submit(function(e){
+  //   e.preventDefault();
+  // });
   // setInterval(function() {
   //   if($(".colors-swatch.selected-color").data("title") && $(".size-circle.selected-size").data("title") && $("#image").val() != ""){
   //     $(".btn--add-to-cart").removeAttr("disabled");
@@ -1008,75 +988,85 @@
   //   }
   // }, 1000);
   
-  $(".btn--add-to-cart").click(function(event) {
-    event.preventDefault();
-    $(".btn--add-to-cart").addClass('special-loader');
-    $(".btn--add-to-cart").html('Loading<span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>');
+  // $(".AddToCart").click(function(event) {
+  //   event.preventDefault();
+  //   if ($("#image").val() === "") {
+  //   let ele = $(this);
+  //   ele.addClass("required-file");
+  //   ele.html('No File Selected !!');
+  //   setTimeout(function () {
+  //     ele.removeClass("required-file");
+  //     ele.html('order now');
+  //   }, 2000);
+  // } else {
+  //   $(this).addClass('special-loader');
+  //   $(this).html('Loading<span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>');
 
-    addToCartNew();
-  });
-  function addToCartNew() {
+  //   addToCartNew();
+  // }
+  // });
+//   function addToCartNew() {
 
-//     var frame = $(".selected-frame").attr("id").substring(0,$(".selected-frame").attr("id").lastIndexOf("-"));
-//     var frameSize = $(".selected-frame-size").attr("id").substring(0,$(".selected-frame-size").attr("id").lastIndexOf("-")).replaceAll(" ","");
+// //     var frame = $(".selected-frame").attr("id").substring(0,$(".selected-frame").attr("id").lastIndexOf("-"));
+// //     var frameSize = $(".selected-frame-size").attr("id").substring(0,$(".selected-frame-size").attr("id").lastIndexOf("-")).replaceAll(" ","");
 
-//     frame = frame.substring(frame.lastIndexOf("-")+1);
-//     frameSize = frameSize.substring(frameSize.lastIndexOf("-")+1);
+// //     frame = frame.substring(frame.lastIndexOf("-")+1);
+// //     frameSize = frameSize.substring(frameSize.lastIndexOf("-")+1);
     
-//     var type;
-//     if($(".type-selected").hasClass("One")) {
-//     	type = "One";
-//     }
-//     else {
-//     	type = "Two";
-//     }
-      var colorname = $(".colors-swatch.selected-color").data("title");
-    console.log(colorname);
-    var sizename = $(".size-circle.selected-size").data("title");
-    console.log(sizename);
+// //     var type;
+// //     if($(".type-selected").hasClass("One")) {
+// //     	type = "One";
+// //     }
+// //     else {
+// //     	type = "Two";
+// //     }
+//       var colorname = $(".colors-swatch.selected-color").data("title");
+//     console.log(colorname);
+//     var sizename = $(".size-circle.selected-size").data("title");
+//     console.log(sizename);
     
-    var variantName = colorname+"/"+sizename;
-  	var productId = tshirt_variants_json[variantName];
-    console.log(variantName);
-    console.log(productId);
+//     var variantName = colorname+"/"+sizename;
+//   	var productId = tshirt_variants_json[variantName];
+//     console.log(variantName);
+//     console.log(productId);
     
-    $("#ProductSelect--product-custom-template option").each(function() {
-      $(this).prop('selected', false)
-      if($(this).attr("value") === productId) {
-          $(this).prop('selected', true)
-      }
-    });
+//     $("#ProductSelect--product-custom-template option").each(function() {
+//       $(this).prop('selected', false)
+//       if($(this).attr("value") === productId) {
+//           $(this).prop('selected', true)
+//       }
+//     });
   
   
-     var formData;
-    var formArray = document.getElementById("AddToCartForm--product-custom-template");
+//      var formData;
+//     var formArray = document.getElementById("AddToCartForm--product-custom-template");
 //     console.log(formArray)
-    formData = new FormData(formArray)
-    console.log(formData)
+//     formData = new FormData(formArray)
+//     console.log(formData)
     
-    fetch('/cart/add.js', {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => {
-      return response.json();
+//     fetch('/cart/add.js', {
+//       method: 'POST',
+//       body: formData
+//     })
+//     .then(response => {
+//       return response.json();
 
 
-    })
-    .then(result => {
-      console.log(result);
-      jQuery.getJSON('/cart.js', function(cart) {
-        openAjaxCart(cart);
-      });
-      $(".btn--add-to-cart").removeClass('special-loader');
-      $(".btn--add-to-cart").html('order now');
-      //     $(this).html('order now');
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
+//     })
+//     .then(result => {
+//       console.log(result);
+//       jQuery.getJSON('/cart.js', function(cart) {
+//         openAjaxCart(cart);
+//       });
+//       $(".btn--add-to-cart").removeClass('special-loader');
+//       $(".btn--add-to-cart").html('order now');
+//       //     $(this).html('order now');
+//     })
+//     .catch((error) => {
+//       console.error('Error:', error);
+//     });
 
-  }
+//   }
 
   
   

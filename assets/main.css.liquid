@@ -324,31 +324,50 @@ svg.flag-icon-css-gb {
 }
 
 .currency-icon {
-  height: 24px;
+  line-height: 1;
   border: 1px solid transparent;
   padding: 0 0 0 20px;
   font-size: 20px;
   transition: .6s;
   transform-style: preserve-3d;
   position: relative;
+  transform: rotateY(0); 
 }
 
+.currency-changer.toggle .currency-icon {
+  transform: rotateY(180deg); 
+}
+
+
 .back, .front {
-  display: flex;
-  padding: 2px 5px;
-  bottom: 0;
-  transition: .6s;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform: rotateY(0deg);
+  -moz-transition: 0.6s;
+  -moz-transform-style: preserve-3d;
+  -moz-transform: rotateY(0deg);
+  -o-transition: 0.6s;
+  -o-transform-style: preserve-3d;
+  -o-transform: rotateY(0deg);
+  -ms-transition: 0.6s;
+  -ms-transform-style: preserve-3d;
+  -ms-transform: rotateY(0deg);
+  transition: 0.6s;
   transform-style: preserve-3d;
-  transform: rotateY(0);
+  transform: rotateY(0deg);
   position: absolute;
   border: 2px solid;
   border-radius: 50%;
-  height: 100%;
+  padding: 2px 5px;
   font-size: 16px;
-  margin-top: -2px;
-  align-items: center;
-  justify-content: center;
+  margin-top: -2px; 
 }
+
+
 
 .front {
   transform: rotateY(0);
@@ -357,8 +376,26 @@ svg.flag-icon-css-gb {
 }
 
 .back {
-  transform: rotateY(0);
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
   left: calc(50% - 18px);
+}
+.currency-changer.toggle .front {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.currency-changer.toggle .back {
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  transform: rotateY(0deg); 
 }
 
 .cart {
