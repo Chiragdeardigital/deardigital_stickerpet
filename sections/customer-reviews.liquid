@@ -4,12 +4,7 @@
       <div class="row">
         <div class="column-50 self-center">
           <h2 class="h3 headings">Real,<br>
-          {%- for block in section.blocks -%}
-            {%- case block.type -%}
-            {%- when 'typed_text' -%}
-              {% assign textArray = block.settings.typed_text | split: "," %}
-            {%- endcase -%}
-          {%- endfor -%}
+          {% assign textArray = section.settings.typed_text | split: "," %}
             <span id="review-typewriter" class="typewriter" data-period="6000"
                   data-type="[
                     {%- for text in textArray -%}
@@ -66,7 +61,14 @@
 {% schema %}
 {
     "name": "Customer Reviews",
-    "settings": [],
+    "settings": [
+    {
+      "id": "typed_text",
+      "type": "text",
+      "label": "Text",
+      "info": "Enter the words for typing effect separated with comma(,) eg. text1,text2"
+    }
+    ],
     "blocks": [
         {
             "type": "review",
@@ -85,20 +87,8 @@
                     "info": "Change the text only and don't remove the tags i.e., '<i>,<br>', if you don't know what they are."
                 }
             ]
-        },
-        {
-            "type": "typed_text",
-            "name": "Typed text",
-			      "limit": 1,
-            "settings": [
-                {
-                    "id": "typed_text",
-                    "type": "text",
-                    "label": "Text",
-                    "info": "Enter the words for typing effect separated with comma(,) eg. text1,text2"
-                }
-            ]
         }
+        
     ],
     "presets": [
         {
