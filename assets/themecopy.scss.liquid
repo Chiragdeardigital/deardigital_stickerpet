@@ -1411,8 +1411,8 @@ fieldset.product-form__input{
   scrollbar-width: none;
 } */
 
-.type-One {
-	width: 150px;
+.option-title-label-img {
+	width: 100%;
   	height: 150px;
  	border: 3px solid transparent;
 }
@@ -1425,7 +1425,7 @@ fieldset.product-form__input{
 .first-step .type-One:hover, .first-step .type-Two:hover {
 	border: 3px solid orange;
 }
-.type-selected {
+fieldset input:checked+label .option-title-label-img{
 	border: 3px solid orange;
 }
 .frame-swatch {
@@ -1447,7 +1447,7 @@ fieldset.product-form__input{
 .second-step .frame-swatch:hover .frame-color {
     border: 3px solid orange;
 }
-.selected-frame .frame-color {
+fieldset input:checked+label .frame-color {
     border: 3px solid orange;
 }
 .frame-size {
@@ -1464,7 +1464,7 @@ fieldset.product-form__input{
 .third-step .frame-swatch:hover .frame-size {
     border: 3px solid orange;
 }
-.selected-frame-size .frame-size {
+fieldset input:checked+label .frame-size {
     border: 3px solid orange;
 }
 

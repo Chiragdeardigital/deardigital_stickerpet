@@ -1,5 +1,7 @@
 <!-- {{ 'component-product-without-variants.css' | asset_url | stylesheet_tag }} -->
-{% render "colors-snippet" %}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-badge.css' | asset_url | stylesheet_tag }}
+{% include "colors-snippet" %}
 <div class="blue-background">
 <!-- /templates/product.liquid -->
 {% assign current_variant = product.selected_or_first_available_variant %}
@@ -144,7 +146,9 @@
           <div class="center-it" style="max-width: 420px;">
             
             <div class="no-mobile">
-            {% include 'product-price', variant: current_variant %}
+              <div class="no-js-hidden" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
+                {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large product-single__price' -%}
+              </div>
             </div>
             
             <div class="product-description product-single__description rte no-mobile" itemprop="description">
@@ -155,9 +159,9 @@
             
             <div class="steps-box no-mobile">
               <p>steps</p>
-                <span class="steps-swatch step-selected">1</span>
-                <span class="steps-swatch">2</span>
-                <span class="steps-swatch">3</span>
+              {%- for option in product.options_with_values -%}
+                <span class="steps-swatch{% if forloop.first %} step-selected{%- endif -%}">{{ forloop.index }}</span>
+              {%- endfor -%}
                 <span class="steps-swatch">4</span>
                 <span class="steps-swatch">5</span>
             </div>
@@ -174,8 +178,130 @@
             {% capture "form_id" %}AddToCartForm--product-custom-template-2{%- endcapture -%}
 
             {% form 'product', product, class:form_classes, id:form_id, data-product-form: '' %}
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            <input type="hidden" name="sections" value="cart-total-price,cart-items-template">
               {% unless product.has_only_default_variant %}
-                {% for option in product.options_with_values %}
+                <variant-radios class="no-js-hidden" data-section="{{ section.id }}" data-url="{{ product.url }}" {{ block.shopify_attributes }}>
+                  {%- for option in product.options_with_values -%}
+                  {% if option.name == 'Title' %}
+                      <fieldset class="js product-form__input first-step steps">
+                        <div class="color-option">
+                          <label class="color-option single-option-radio__label product-single__description flex-box align-center"
+                            for="ProductSelect-option-{{ forloop.index0 }}">
+                            1. One or two pets? <span class="flex-box info-icon">{% include "info-icon" %}<div class="info-box first">You can choose to have one or two pets on your portrait.</div></span>
+                          </label>
+                          <div class="flex-box text-center justify-between">
+                            {%- for value in option.values -%}
+                              <input type="radio" id="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
+                                    name="{{ option.name }}"
+                                    class="display-non"
+                                    value="{{ value | escape }}"
+                                    form="product-form-{{ section.id }}"
+                                    {% if option.selected_value == value %}checked{% endif %}
+                              >
+                              {% assign colorsSch = colorScheme | strip_newlines | split: "," %}
+                              {% for colors in colorsSch %}
+                                {% assign color = colors | split: ":" %}
+                              {% assign downcase1 = color[0] | downcase %}
+                              {% assign downcase2 = value | downcase %}
+                                {% if downcase2 == downcase1 %}
+                                  {% assign variantColorCode = color[1] %}
+                                  {% break %}
+                                {% endif %}
+                              {% endfor %} 
+                              {% if variantColorCode == blank %}
+                              {% assign variantColorCode = "url(//cdn.shopify.com/s/files/1/0594/3604/0367/files/none.png?v=1634556355)" %}
+                              {% endif %}
+                              <label for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}" class="flex-box flex-column option-title-label">
+                              <span 
+                                class="type-One option-title-label-img" id="ProductSelect-option-title-One-manual" loading="lazy" 
+                                style="background: {{ variantColorCode }};background-size: contain;background-position: center;background-repeat: no-repeat;"></span>
+                                <p>{{ value }} (+ €0)</p>
+                              </label>
+                            {%- endfor -%}
+                          </div>
+                      </div>
+                      </fieldset>
+
+                      {% elsif option.name == 'Color' %}
+                      <fieldset class="js product-form__input second-step steps no-disp">
+                        <div class="color-option">
+                          <label class="color-option single-option-radio__label product-single__description flex-box align-center"
+                            for="ProductSelect-option-{{ forloop.index0 }}">
+                            2. Frame background color <span class="flex-box info-icon">{% include "info-icon" %}<div class="info-box second">Background colour of your portrait.</div></span>
+                          </label>
+                          <div class="color-div flex-box justify-between">
+                            {%- for value in option.values -%}
+                              <input type="radio" id="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
+                                    name="{{ option.name }}"
+                                    class="display-non"
+                                    value="{{ value | escape }}"
+                                    form="product-form-{{ section.id }}"
+                                    {% if option.selected_value == value %}checked{% endif %}
+                              >
+                              <label 
+                                class="frame-swatch" 
+                                for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
+                                data-index="option{{ option_index }}" name="option{{ option.position }}"
+                                id="ProductSelect-option-{{ option.name | handleize }}-{{ frame | escape | remove: " " }}-manual" 
+                              >
+                              {% assign colorsSch = colorScheme | strip_newlines | split: "," %}
+                              {% for colors in colorsSch %}
+                                {% assign color = colors | split: ":" %}
+                              {% assign downcase1 = color[0] | downcase %}
+                              {% assign downcase2 = value | downcase %}
+                                {% if downcase2 == downcase1 %}
+                                  {% assign variantColorCode = color[1] %}
+                                  {% break %}
+                                {% endif %}
+                              {% endfor %} 
+                              {% if variantColorCode == blank %}
+                              {% assign variantColorCode = "url(//cdn.shopify.com/s/files/1/0594/3604/0367/files/none.png?v=1634556355)" %}
+                              {% endif %}
+                                <span class="frame-color" style="background: {{ variantColorCode }};"></span>
+                                <span class="colors-text">{{frame}}</span>
+                                {{ value }}
+                              </label>
+                            {%- endfor -%}
+                          </div>
+                        </div>
+                      </fieldset>
+                      {% elsif option.name == 'Size' %}
+                        <fieldset class="js product-form__input third-step steps no-disp">
+                          <div class="color-option">
+                            <label class="color-option single-option-radio__label product-single__description flex-box align-center"
+                              for="ProductSelect-option-{{ forloop.index0 }}">
+                              3. Size of canvas (in cm)? <span class="flex-box info-icon">{% include "info-icon" %}<div class="info-box third">Three sizes. Two pets are in landscape mode.</div></span>
+                            </label>
+                            <div class="color-div flex-box justify-between">
+                              {%- for value in option.values -%}
+                                <input type="radio" id="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
+                                      name="{{ option.name }}"
+                                      class="display-non"
+                                      value="{{ value | escape }}"
+                                      form="product-form-{{ section.id }}"
+                                      {% if option.selected_value == value %}checked{% endif %}
+                                >
+                                <label
+                                  class="frame-swatch {{ value | escape }}" 
+                                  data-index="option{{ option_index }}" 
+                                  name="option{{ option.position }}" 
+                                  id="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape | remove: " " }}-manual"
+                                  for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}">
+                                  <span class="frame-size">{{value}}</span>
+                                </label>
+                              {%- endfor -%}
+                            </div>
+                          </div>
+                        </fieldset>
+                      {%- endif -%}
+                  {%- endfor -%}
+                  <script type="application/json">
+                    {{ product.variants | json }}
+                  </script>
+                </variant-radios>
+
+                {%- comment -%}
             		<div class="radio-wrapper js product-form__item no-desktop no-mobile ">
                       <label class="single-option-radio__label product-single__description"
                         for="ProductSelect-option-{{ forloop.index0 }}">
@@ -273,9 +399,9 @@
             		</div>
                   	
             	{% endif %}
-                {% endfor %}
+              {%- endcomment -%}
               {% endunless %}
-
+{%- comment -%}
               <select name="id" id="ProductSelect--product-custom-template-2" class="product-single__variants no-js">
                 {% for variant in product.variants %}                  
                     <option {% if variant == product.selected_or_first_available_variant %}
@@ -354,7 +480,7 @@
                 {% for variant in selected_product.variants %}
                   <div class="flex-box flex-column hanging-products" data-variant="{{ variant.id }}" data-price="{{ variant.price | money_without_currency | replace: ",", "." }}">
                       <img src="{{ variant.image.src | image_url }}" alt="{{ variant.image.alt | escape }}" loading="lazy">
-                      <p class="text-center">+ {{ variant.price | money | replace: ",", "." }}</p>
+                      <p class="text-center">+ {{ variant.price | money }}</p>
                   </div>
                    {% endfor%}
                  
@@ -388,7 +514,7 @@
                   </button>
                 </div>
               </div>
-            
+            {%- endcomment -%}
             {% endform %}
 
           </div>

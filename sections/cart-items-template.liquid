@@ -268,71 +268,7 @@ style="padding: 20px 0px;">Or, add more classic stickers.</label>
 </div>
 
 <script>
- 
-  let cartDiscountAmt = 45;
-  let cart_total_price = {{ cart.total_price }};
-  if ((cart_total_price / 100) < cartDiscountAmt) {
-
-        var total_price = cart_total_price / 100;
-        $('.ProgressBar__indicator').ready(function () {
-
-            if (total_price > 0 && total_price <= (cartDiscountAmt * 0.10)) {
-                $('.ProgressBar__indicator').toggleClass('less-than-10');
-            }
-            if (total_price > (cartDiscountAmt * 0.10) && total_price <= (cartDiscountAmt * 0.20)) {
-                $('.ProgressBar__indicator').toggleClass('less-than-20');
-            }
-            if (total_price > (cartDiscountAmt * 0.20) && total_price <= (cartDiscountAmt * 0.25)) {
-                $('.ProgressBar__indicator').toggleClass('quarter-clicked');
-            }
-
-            if (total_price > (cartDiscountAmt * 0.25) && total_price <= (cartDiscountAmt * 0.30)) {
-                $('.ProgressBar__indicator').toggleClass('less-than-30');
-            }
-            if (total_price > (cartDiscountAmt * 0.30) && total_price <= (cartDiscountAmt * 0.40)) {
-                $('.ProgressBar__indicator').toggleClass('less-than-40');
-            }
-            if (total_price > (cartDiscountAmt * 0.40) && total_price <= (cartDiscountAmt * 0.50)) {
-                $('.ProgressBar__indicator').toggleClass('half-clicked');
-            }
-            if (total_price > (cartDiscountAmt * 0.50) && total_price <= (cartDiscountAmt * 0.60)) {
-                $('.ProgressBar__indicator').toggleClass('less-than-60');
-            }
-            if (total_price > (cartDiscountAmt * 0.60) && total_price <= (cartDiscountAmt * 0.70)) {
-                $('.ProgressBar__indicator').toggleClass('less-than-70');
-            }
-            if (total_price > (cartDiscountAmt * 0.70) && total_price <= (cartDiscountAmt * 0.75)) {
-                $('.ProgressBar__indicator').toggleClass('three-quarters-clicked');
-            }
-            if (total_price > (cartDiscountAmt * 0.75) && total_price <= (cartDiscountAmt * 0.80)) {
-                $('.ProgressBar__indicator').toggleClass('less-than-80');
-            }
-            if (total_price > (cartDiscountAmt * 0.80) && total_price <= (cartDiscountAmt * 0.90)) {
-                $('.ProgressBar__indicator').toggleClass('less-than-90');
-            }
-            if (total_price > (cartDiscountAmt * 0.90) && total_price < (cartDiscountAmt * 0.95)) {
-                $('.ProgressBar__indicator').toggleClass('less-than-95');
-            }
-            if (total_price > (cartDiscountAmt * 0.95) && total_price < (cartDiscountAmt)) {
-                $('.ProgressBar__indicator').toggleClass('less-than-95');
-            }
-
-        });
-    }
-
-    if (cart_total_price / 100 >= cartDiscountAmt) {
-        // console.log("Discount Applied : " + data.cartDiscountsApplied);
-        console.log("Cart Total : " + cart_total_price / 100);
-        $(".shipping-text").text("Congrats! You get free shipping.");
-
-        $('.ProgressBar__indicator').ready(function () {
-            $('.ProgressBar__indicator').toggleClass('clicked');
-        });
-    }
-    else {
-        console.log("Cart Total : " + cart_total_price / 100);
-        var remainingAmt = cartDiscountAmt - (cart_total_price / 100);
-      $(".shipping-text").text(`You're  €${(remainingAmt).toFixed(2)} away from free shipping`);
-    }
-  
+$( document ).ready(function() {
+  shippingCalculator(parseInt(`{{ cart.total_price }}`));
+});
   </script>
