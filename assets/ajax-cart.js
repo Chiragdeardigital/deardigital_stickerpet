@@ -25,6 +25,7 @@ function addToCartVariant() {
   let addToCartForm = document.querySelector('form[action="/cart/add"]');
   let formData = new FormData(addToCartForm);
   let renderedHtml;
+  let renderedTotalPrice;
   $('.mobile-cart-submit').addClass('special-loader');
   $('.mobile-cart-submit').html('Loading <span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>');
   fetch('/cart/add.js', {
@@ -36,11 +37,13 @@ function addToCartVariant() {
     })
     .then(data => {
       renderedHtml = getSectionInnerHTML(data.sections["cart-items-template"], "#CartContainer");
+      renderedTotalPrice = getSectionInnerHTML(data.sections["cart-total-price"], ".shopify-section");
       $("#CartContainer").html(renderedHtml);
-      jQuery.getJSON('/cart.js', function (cart) {
-        shippingCalculator(cart);
-        openCart();
-      });
+      shippingCalculator(parseInt(renderedTotalPrice));
+      // jQuery.getJSON('/cart.js', function (cart) {
+      //   shippingCalculator(cart);
+      // });
+      openCart();
       $('.mobile-cart-submit, .AddToCart').removeClass('special-loader');
       $('.mobile-cart-submit').html('Upload a picture');
       $(".AddToCart").html('order now');
@@ -57,16 +60,17 @@ function addToCartVariant() {
 
 //upsellcart
 $("body").on('click', '.UpsellAddToCart', function () {
+  $("#CartContainer").addClass("block-cursor");
   let variant_id = parseInt(this.getAttribute("data-variant-id"));
   let variant_quantity = $(this).data('quantity') != "" ? $(this).data('quantity') : 1;
-  // console.log(parseInt(variant_quantity));
   let renderedHtml;
+  let renderedTotalPrice;
   var formData = {
     'items': [{
       'id': variant_id,
       'quantity': parseInt(variant_quantity)
     }],
-    sections: "cart-live-region-text,cart-items-template"
+    sections: "cart-total-price,cart-items-template"
   };
 
   $.ajax({
@@ -77,12 +81,13 @@ $("body").on('click', '.UpsellAddToCart', function () {
   })
     .done(function (data) {
       renderedHtml = getSectionInnerHTML(data.sections["cart-items-template"], "#CartContainer");
+      renderedTotalPrice = getSectionInnerHTML(data.sections["cart-total-price"], ".shopify-section");
       $("#CartContainer").html(renderedHtml);
-
-      jQuery.getJSON('/cart.js', function (cart) {
-        // openAjaxCart(cart);
-        shippingCalculator(cart);
-      });
+      shippingCalculator(parseInt(renderedTotalPrice));
+      $("#CartContainer").removeClass("block-cursor");
+      // jQuery.getJSON('/cart.js', function (cart) {
+      //   // openAjaxCart(cart);
+      // });
 
     })
     .fail(function (error) {
@@ -100,7 +105,7 @@ $("body").on('change', '#CartSpecialInstructions', function () {
   let text_val = $(this).val();
   var formData = {
     note: `${text_val}`,
-    sections: "cart-live-region-text,cart-items-template"
+    sections: "cart-items-template"
   };
 
   $.ajax({
@@ -112,7 +117,7 @@ $("body").on('change', '#CartSpecialInstructions', function () {
     .done(function (data) {
       renderedHtml = getSectionInnerHTML(data.sections["cart-items-template"], "#CartContainer");
       $("#CartContainer").html(renderedHtml);
-      shippingCalculator(data);
+      shippingCalculator(data.total_price);
       $("#CartContainer").removeClass("block-cursor");
     })
     .fail(function (error) {
@@ -121,11 +126,11 @@ $("body").on('change', '#CartSpecialInstructions', function () {
 });
 
 
-function shippingCalculator(cart) {
+function shippingCalculator(cartTotalPrice) {
   let cartDiscountAmt = 45;
-  if ((cart.total_price / 100) < cartDiscountAmt) {
+  var total_price = cartTotalPrice / 100;
+  if (total_price < cartDiscountAmt) {
 
-    var total_price = cart.total_price / 100;
     $('.ProgressBar__indicator').ready(function () {
 
       if (total_price > 0 && total_price <= (cartDiscountAmt * 0.10)) {
@@ -172,9 +177,9 @@ function shippingCalculator(cart) {
     });
   }
 
-  if (cart.total_price / 100 >= cartDiscountAmt) {
+  if (total_price >= cartDiscountAmt) {
     // console.log("Discount Applied : " + data.cartDiscountsApplied);
-    console.log("Cart Total : " + cart.total_price / 100);
+    console.log("Cart Total : " + total_price );
     $(".shipping-text").text("Congrats! You get free shipping.");
 
     $('.ProgressBar__indicator').ready(function () {
@@ -182,8 +187,8 @@ function shippingCalculator(cart) {
     });
   }
   else {
-    console.log("Cart Total : " + cart.total_price / 100);
-    var remainingAmt = cartDiscountAmt - (cart.total_price / 100);
+    console.log("Cart Total : " + total_price );
+    var remainingAmt = cartDiscountAmt - total_price ;
     $(".shipping-text").text(`You're  €${(remainingAmt).toFixed(2)} away from free shipping`);
   }
 }
@@ -469,7 +474,7 @@ function changeItem(line, quantity) {
   let formData = {
     "line": parseInt(line),
     "quantity": quantity,
-    sections: "cart-live-region-text,cart-items-template"
+    sections: "cart-items-template"
   };
 
   $.ajax({
@@ -480,11 +485,9 @@ function changeItem(line, quantity) {
   })
     .done(function (data) {
       console.log(data.sections);
-      // console.log(getSectionInnerHTML(data.sections["cart-items-template"], ".shopify-section"));
-      // openAjaxCart(data);
       renderedHtml = getSectionInnerHTML(data.sections["cart-items-template"], "#CartContainer");
       $("#CartContainer").html(renderedHtml);
-      shippingCalculator(data);
+      shippingCalculator(data.total_price);
       $("#CartContainer").removeClass("block-cursor");
     })
     .fail(function (error) {

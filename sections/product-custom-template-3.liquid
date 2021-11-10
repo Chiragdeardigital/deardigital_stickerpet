@@ -263,7 +263,7 @@
 
             {% form 'product', product, class:form_classes, id:form_id, data-product-form: '' %}
             <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-            <input type="hidden" name="sections" value="cart-items-template">
+            <input type="hidden" name="sections" value="cart-total-price,cart-items-template">
             {% unless product.has_only_default_variant %}
             <variant-radios class="no-js-hidden" data-section="{{ section.id }}" data-url="{{ product.url }}" {{ block.shopify_attributes }}>
               {%- for option in product.options_with_values -%}
