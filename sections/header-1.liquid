@@ -1,6 +1,6 @@
 {{ 'cart-template.css' | asset_url | stylesheet_tag }}
 <div id="NavDrawer" class="drawer drawer--left no-d">
-    {% include 'drawer-menu' %}
+  {% include 'drawer-menu' %}
 </div>
 <div class="header-container">
 
@@ -32,9 +32,9 @@
             <a href="/" class="site-header-logo-image">
               {% if section.settings.brand_img != blank %}
 
-              <img src="{{ section.settings.brand_img | img_url: "533x" }}"
-                   srcset="{{ section.settings.brand_img | img_url: "533x" }} 1x, {{ section.settings.brand_img | img_url: "533x" }} 2x"
-                   alt="StickerPet" itemprop="logo" loading="lazy">
+              <img src="{{ section.settings.brand_img | img_url: " 533x" }}"
+                srcset="{{ section.settings.brand_img | img_url: " 533x" }} 1x, {{ section.settings.brand_img |
+                img_url: "533x" }} 2x" alt="StickerPet" itemprop="logo" loading="lazy">
               {% else %}
               {{ 'product-3' | placeholder_svg_tag }}
               {% endif %}
@@ -48,21 +48,38 @@
             {%- when 'Menu' -%}
             {%- for link in linklists[block.settings.header_menu].links -%}
             <li class="nav-item  {% if link.links != blank %}display-menu{% endif %}">
-              <a href="{{ link.url }}" class="nav-link" id="{%- if link.links != blank -%}dropdownMenuHover{%- endif -%}">
-               {% if link.links != blank %}{% include "icon-chevron" %}{% endif %}
+              <a href="{{ link.url }}" class="nav-link"
+                id="{%- if link.links != blank -%}dropdownMenuHover{%- endif -%}">
+                {% if link.links != blank %}{% include "icon-chevron" %}{% endif %}
                 {{ link.title }}
               </a>
             </li>
             {%- endfor -%}
-             {%- endcase -%}
+            {%- endcase -%}
             {%- endfor -%}
 
             <li class="nav-item lang">
-              <div class="nav-link">
-                {% include "icon-flag" %}
-                EN
-                {% include "icon-chevron" %}
-              </div>
+              <details-disclosure>
+                <details>
+                  <summary class="nav-link">
+                    {% include "icon-flag" %}
+                    <span class="">EN</span>
+                    {% render 'icon-caret' %}
+                  </summary>
+                  <ul class="lang_childlink" role="list" tabindex="-1">
+                    <li><a href="#" class=""  aria-current="page">NL</a>
+                      {% include "icon-flag-nl" %}
+                    </li>
+                    <li><a href="#" class=""  aria-current="page" >FR</a>
+                      {% include "icon-flag-fr" %}
+                    </li>
+                    <li><a href="#" class="" aria-current="page" >DE</a>
+                      {% include "icon-flag-de" %}
+                    </li>
+                  </ul>
+                </details>
+              </details-disclosure>
+
             </li>
             <li class="nav-item currency">
               <button class="site-nav__link site-nav__link--icon nav-link currency-changer">
@@ -74,12 +91,13 @@
 
             </li>
             <li id="cartBtn" class="nav-item cart" aria-controls="CartDrawer" aria-expanded="true">
-             
-              <div class="nav-link site-nav__link site-nav__link--icon cart-link js-drawer-open-button-right" >
+
+              <div class="nav-link site-nav__link site-nav__link--icon cart-link js-drawer-open-button-right">
                 {% if cart.item_count > 0 %}
-                <img id="cartLogo" src="{{"fullcart-bowl-thicker-100px-01.png" | asset_url}}" alt="full cart bowl" srcset="">
+                <img id="cartLogo" src="{{" fullcart-bowl-thicker-100px-01.png" | asset_url}}" alt="full cart bowl"
+                  srcset="">
                 {% else %}
-                <img id="cartLogo" src="{{"cart-bowl-thicker-100px-01.png" | asset_url}}" alt="cart bowl" srcset="">
+                <img id="cartLogo" src="{{" cart-bowl-thicker-100px-01.png" | asset_url}}" alt="cart bowl" srcset="">
                 {% endif %}
               </div>
             </li>
@@ -92,14 +110,13 @@
           {%- when 'Menu' -%}
           {%- for link in linklists[block.settings.header_menu].links -%}
           {%- if link.links != blank -%}
-          <div class="dropdown-menu announcement-bar" aria-labelledby="dropdownMenuButton"
-               id="dropdown-menu">
+          <div class="dropdown-menu announcement-bar" aria-labelledby="dropdownMenuButton" id="dropdown-menu">
             <span class="hover-assist"></span>
             <div id="dropdownMenuButton" class="container">
               <div class="row flex">
-                {%- for child_link in link.links -%} 
+                {%- for child_link in link.links -%}
                 {%- assign product = child_link.object -%}
-                
+
                 <div class="dropdown-item column-30">
                   <div class="row">
                     <div class="column-30 self-center">
@@ -109,16 +126,13 @@
                       {% else %}
                       {% assign product_image = product.featured_image %}
                       {% endif %}
-                      <img 
-                           srcset="{% if product_image.width >= 288 %}{{ product_image | img_url: '288x' }} 288w,{% endif %}
+                      <img
+                        srcset="{% if product_image.width >= 288 %}{{ product_image | img_url: '288x' }} 288w,{% endif %}
                                    {% if product_image.width >= 576 %}{{ product_image | img_url: '576x' }} 576w,{% endif %}
                                    {% if product_image.width >= 550 %}{{ product_image | img_url: '550x' }} 550w,{% endif %}
                                    {% if product_image.width >= 1100 %}{{ product_image | img_url: '1100x' }} 1100w{% endif %}"
-                           src="{{ product_image | img_url: '1024x' }}" 
-                           alt="{{ product.title }}" 
-                           class="" 
-                           loading="lazy">
-                      
+                        src="{{ product_image | img_url: '1024x' }}" alt="{{ product.title }}" class="" loading="lazy">
+
                       {% else %}
                       {{ 'product-1' | placeholder_svg_tag }}
                       {% endif %}
@@ -147,52 +161,52 @@
 
 {% schema %}
 {
-    "name": "Header",
-    "settings": [
-        {
-            "id": "brand_img",
-            "type": "image_picker",
-            "label": "Header Brand Image"
-        }
-    ],
-    "blocks": [
-        {
-            "type": "Menu",
-            "name": "Header Menu",
-			"limit":1,
-            "settings": [
-                {
-                    "id": "header_menu",
-                    "type": "link_list",
-                    "label": "Menu"
-                }
-            ]
-        },
-        {
-            "type": "mobile_menu",
-            "name": "Mobile menu",
-			"limit":1,
-            "settings": [
-                {
-                    "id": "mobile_menu",
-                    "type": "link_list",
-                    "label": "Mobile menu"
-                }
-            ]
-        },
-        {
-            "type": "announcement",
-            "name": "Announcement Text",
-            "settings": [
-                {
-                    "id": "announcement_text",
-                    "type": "text",
-                    "label": "Text",
-                    "default": "🌴 Some text 🌴"
-                }
-            ]
-        }
-    ]
+"name": "Header",
+"settings": [
+{
+"id": "brand_img",
+"type": "image_picker",
+"label": "Header Brand Image"
+}
+],
+"blocks": [
+{
+"type": "Menu",
+"name": "Header Menu",
+"limit":1,
+"settings": [
+{
+"id": "header_menu",
+"type": "link_list",
+"label": "Menu"
+}
+]
+},
+{
+"type": "mobile_menu",
+"name": "Mobile menu",
+"limit":1,
+"settings": [
+{
+"id": "mobile_menu",
+"type": "link_list",
+"label": "Mobile menu"
+}
+]
+},
+{
+"type": "announcement",
+"name": "Announcement Text",
+"settings": [
+{
+"id": "announcement_text",
+"type": "text",
+"label": "Text",
+"default": "🌴 Some text 🌴"
+}
+]
+}
+]
 }
 {% endschema %}
 
