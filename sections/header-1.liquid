@@ -67,13 +67,13 @@
                     {% render 'icon-caret' %}
                   </summary>
                   <ul class="lang_childlink" role="list" tabindex="-1">
-                    <li><a href="#" class=""  aria-current="page">NL</a>
+                    <li><a href="#" class="" aria-current="page">NL</a>
                       {% include "icon-flag-nl" %}
                     </li>
-                    <li><a href="#" class=""  aria-current="page" >FR</a>
+                    <li><a href="#" class="" aria-current="page">FR</a>
                       {% include "icon-flag-fr" %}
                     </li>
-                    <li><a href="#" class="" aria-current="page" >DE</a>
+                    <li><a href="#" class="" aria-current="page">DE</a>
                       {% include "icon-flag-de" %}
                     </li>
                   </ul>
@@ -113,7 +113,7 @@
           <div class="dropdown-menu announcement-bar" aria-labelledby="dropdownMenuButton" id="dropdown-menu">
             <span class="hover-assist"></span>
             <div id="dropdownMenuButton" class="container">
-              <div class="row flex">
+              <div class="row flex" style="align-items: start;">
                 {%- for child_link in link.links -%}
                 {%- assign product = child_link.object -%}
 
@@ -143,6 +143,51 @@
                       <a href="{{ product.url }}" class="button border-button">UPLOAD YOUR PET</a>
                     </div>
                   </div>
+
+                  {%- if link.links != blank -%}
+                  <details-disclosure>
+                    <details >
+                      <summary class="">
+                        {% render 'icon-caret' %}
+                      </summary>
+                      <div class="">
+                      {%- for grandchildlink in child_link.links -%}
+                      {%- assign product = grandchildlink.object -%}
+                      {% if grandchildlink != blank %}
+                      <div id="" class="header_grandchild_dropdown row">
+                        <div class="column-30 self-center">
+                          {% if product.images.size > 0 %}
+                          {% if product.images.size > 1 %}
+                          {% assign product_image = product.images[1] %}
+                          {% else %}
+                          {% assign product_image = product.featured_image %}
+                          {% endif %}
+                          <img
+                            srcset="{% if product_image.width >= 288 %}{{ product_image | img_url: '288x' }} 288w,{% endif %}
+                                       {% if product_image.width >= 576 %}{{ product_image | img_url: '576x' }} 576w,{% endif %}
+                                       {% if product_image.width >= 550 %}{{ product_image | img_url: '550x' }} 550w,{% endif %}
+                                       {% if product_image.width >= 1100 %}{{ product_image | img_url: '1100x' }} 1100w{% endif %}"
+                            src="{{ product_image | img_url: '1024x' }}" alt="{{ product.title }}" class=""
+                            loading="lazy">
+
+                          {% else %}
+                          {{ 'product-1' | placeholder_svg_tag }}
+                          {% endif %}
+                        </div>
+                        <div class="column-60">
+                          <!-- <h4 class="caps">{{ product.metafields.my_fields.header_for_dropdown }}</h4> -->
+                          <!-- <p class="nav-bar-items">{{ product.metafields.my_fields.description_for_dropdown }}</p> -->
+                          <a href="{{ product.url }}" class="button border-button">UPLOAD YOUR PET</a>
+                        </div>
+                      </div>
+                      {% else %}
+                      <div id="" class="header_grandchild_dropdown row"></div>
+                      {% endif %}
+                      {%- endfor -%}
+                    </div>
+                    </details>
+                    {% endif %}
+                  </details-disclosure>
                 </div>
                 {%- endfor -%}
 
