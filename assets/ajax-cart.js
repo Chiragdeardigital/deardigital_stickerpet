@@ -179,7 +179,7 @@ function shippingCalculator(cartTotalPrice) {
 
   if (total_price >= cartDiscountAmt) {
     // console.log("Discount Applied : " + data.cartDiscountsApplied);
-    console.log("Cart Total : " + total_price );
+    console.log("Cart Total : " + total_price);
     $(".shipping-text").text("Congrats! You get free shipping.");
 
     $('.ProgressBar__indicator').ready(function () {
@@ -187,8 +187,8 @@ function shippingCalculator(cartTotalPrice) {
     });
   }
   else {
-    console.log("Cart Total : " + total_price );
-    var remainingAmt = cartDiscountAmt - total_price ;
+    console.log("Cart Total : " + total_price);
+    var remainingAmt = cartDiscountAmt - total_price;
     $(".shipping-text").text(`You're  €${(remainingAmt).toFixed(2)} away from free shipping`);
   }
 }

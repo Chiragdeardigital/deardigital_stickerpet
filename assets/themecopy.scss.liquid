@@ -1093,6 +1093,10 @@ a {
   	transform: scale(1.3);
     border: 4px solid rgba(255,255,255,1);
 }
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
 
 fieldset input:checked+label .colors-color {
   	transform: scale(1.3);
@@ -1416,12 +1420,12 @@ fieldset.product-form__input{
   	height: 150px;
  	border: 3px solid transparent;
 }
-.type-Two {
+/* .type-Two {
 	width: 250px;
   	height: 150px;
   	object-fit: fill;
   	border: 3px solid transparent;
-}
+} */
 .first-step .type-One:hover, .first-step .type-Two:hover {
 	border: 3px solid orange;
 }
@@ -1430,7 +1434,7 @@ fieldset input:checked+label .option-title-label-img{
 }
 .frame-swatch {
     cursor: pointer;
-/*     width: 30%; */
+    width: calc(33% - 5px);
     display: flex;
   	flex-direction: column;
 }
@@ -1452,7 +1456,7 @@ fieldset input:checked+label .frame-color {
 }
 .frame-size {
     height: 150px;
-    width: 120px;
+    width: 100%;
     background-color: #f1f1f2;
     display: flex;
   	justify-content: center;
@@ -1511,8 +1515,8 @@ padding: 8px 10px;
   	letter-spacing: .1em;
     text-transform: uppercase;
 }
-.back-link:hover {
-	color: orange;
+.back-link:not(button[disabled]):hover {
+  color: orange;
 }
 .font-20 {
 	font-size: 20px !important;

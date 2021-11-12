@@ -52,9 +52,16 @@ class VariantSelects extends HTMLElement {
     updateVariantInput() {
       const productForms = document.querySelectorAll(`#product-form-${this.dataset.section}, #product-form-installment, #AddToCartForm--product-custom-template, #AddToCartForm--product-custom-template-2 `);
       productForms.forEach((productForm) => {
-        const input = productForm.querySelector('input[name="id"]');
-        input.value = this.currentVariant.id;
-        input.dispatchEvent(new Event('change', { bubbles: true }));
+        const input0 = productForm.querySelector('input[name="id"]');
+        if (input0) {
+        input0.value = this.currentVariant.id;
+        input0.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+        const input1 = productForm.querySelector('input[name="items[0][id]"]');
+        if (input1) {
+          input1.value = this.currentVariant.id;
+          input1.dispatchEvent(new Event('change', { bubbles: true }));
+        }
       });
     }
   

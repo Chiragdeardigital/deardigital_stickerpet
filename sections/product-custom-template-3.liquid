@@ -502,52 +502,52 @@
 {% endunless %}
 
 <script type="text/javascript">
-    $( document ).ready(function() {
-      $('.product-form__input input[type=radio]').change(function() {
-        changeImage();
-      });
+    // $( document ).ready(function() {
+    //   $('.product-form__input input[type=radio]').change(function() {
+    //     changeImage();
+    //   });
 
-      function changeImage() {
-        if($('#product-json').length > 0) {
-          var string = "";
-          var hardcode_img = "";
-          $(".product-form__input").each(function(index){
-            if(index == 0) {
-              hardcode_img = $(this).find("input:checked").data("img");
-            // console.log(hardcode_img);
-              string += $(this).find("input:checked").val();
-            } else {
-              string += " / " + $(this).find("input:checked").val();
-            }
+    //   function changeImage() {
+    //     if($('#product-json').length > 0) {
+    //       var string = "";
+    //       var hardcode_img = "";
+    //       $(".product-form__input").each(function(index){
+    //         if(index == 0) {
+    //           hardcode_img = $(this).find("input:checked").data("img");
+    //         // console.log(hardcode_img);
+    //           string += $(this).find("input:checked").val();
+    //         } else {
+    //           string += " / " + $(this).find("input:checked").val();
+    //         }
 
-          });
-          var x = JSON.parse($('#product-json').html());
-		// console.log(x);
-          var w = x.find(item => {
-            return item.public_title === string;
-          });
-          console.log(w);
-          $(".slider-nav img").each(function(index) {
-            // console.log($(this).attr('src') + hardcode_img );
-            if(w.featured_image == null && hardcode_img != "" && hardcode_img != null) {
-              if(hardcode_img.indexOf($(this).attr('src')) > -1) {
-                console.log("got it");
-                $('.slider-nav').slick('slickGoTo', index);
-              }
-            }
-            if($(this).attr('src') != null && w.featured_image != null) {
-              if(w.featured_image.src.indexOf($(this).attr('src')) > -1) {
+    //       });
+    //       var x = JSON.parse($('#product-json').html());
+		// // console.log(x);
+    //       var w = x.find(item => {
+    //         return item.public_title === string;
+    //       });
+    //       console.log(w);
+    //       $(".slider-nav img").each(function(index) {
+    //         // console.log($(this).attr('src') + hardcode_img );
+    //         if(w.featured_image == null && hardcode_img != "" && hardcode_img != null) {
+    //           if(hardcode_img.indexOf($(this).attr('src')) > -1) {
+    //             console.log("got it");
+    //             $('.slider-nav').slick('slickGoTo', index);
+    //           }
+    //         }
+    //         if($(this).attr('src') != null && w.featured_image != null) {
+    //           if(w.featured_image.src.indexOf($(this).attr('src')) > -1) {
 
-                // console.log($(this).attr('src') + w.featured_image.src );
-                // console.log($(this).attr('data-index') );
-                $('.slider-nav').slick('slickGoTo', index);
-              }
-            }
-          });
-        }
-      }
-      changeImage();
-    });
+    //             // console.log($(this).attr('src') + w.featured_image.src );
+    //             // console.log($(this).attr('data-index') );
+    //             $('.slider-nav').slick('slickGoTo', index);
+    //           }
+    //         }
+    //       });
+    //     }
+    //   }
+    //   changeImage();
+    // });
   
   function addgiftbox() {
     console.log('clicked');
