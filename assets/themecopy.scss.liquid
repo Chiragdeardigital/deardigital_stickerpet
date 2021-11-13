@@ -1384,10 +1384,13 @@ fieldset.product-form__input{
   	visibility: visible;
 }
 .info-box {
-	display: block;
+	display: flex;
+  justify-content: center;
+    align-items: center;
+    min-height: 88px;
   	position: absolute;
   	top: -86px;
-  	left: 28%;
+  	right: -30px; 
   	width: 186px;
 /*   	height: 60px;
   	overflow-y: scroll; */
@@ -1400,9 +1403,9 @@ fieldset.product-form__input{
     transition: 0.4s ease;
     visibility: hidden;
 }
-.info-box.second,.info-box.third {
+/* .info-box.second,.info-box.third {
     top: -63px;
-}
+} */
 
 
 /* .info-box::-webkit-scrollbar {
@@ -1502,6 +1505,7 @@ padding: 8px 10px;
 	margin-left: 5px;
   	align-items: center;
   	cursor: pointer;
+    /* position: relative; */
 }
 .back-link {
 	color: #fff;

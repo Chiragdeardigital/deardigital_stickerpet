@@ -110,34 +110,34 @@ $(document).ready(function () {
 
 
 
-    // setInterval(function () {
-    //     if ($(".step-selected").text() == 4) {
-    //         if ($('.pet2').hasClass("no-disp")) {
-    //             if ($('#pet1').val() == "") {
-    //                 $('#Steps-button').attr('disabled', true);
-    //             }
-    //             else {
-    //                 $('#Steps-button').text('Step 5');
-    //                 $('#Steps-button').attr('disabled', false);
-    //             }
-    //         }
-    //         else {
-    //             if ($('#pet1').val() == "" || $('#pet2').val() == "") {
-    //                 $('#Steps-button').attr('disabled', true);
-    //             }
-    //             else {
-    //                 $('#Steps-button').text('Step 5');
-    //                 $('#Steps-button').attr('disabled', false);
-    //             }
-    //         }
-    //     }
-    // }, 500);
+    setInterval(function () {
+        if ($(".step-selected").text() == 4) {
+            if ($('.pet2').hasClass("no-disp")) {
+                if ($('#pet1').val() == "") {
+                    $('#nextBtn').attr('disabled', true);
+                }
+                else {
+                    $('#nextBtn').text('Step 5');
+                    $('#nextBtn').attr('disabled', false);
+                }
+            }
+            else {
+                if ($('#pet1').val() == "" || $('#pet2').val() == "") {
+                    $('#nextBtn').attr('disabled', true);
+                }
+                else {
+                    $('#nextBtn').text('Step 5');
+                    $('#nextBtn').attr('disabled', false);
+                }
+            }
+        }
+    }, 500);
 
 
 
-    $('#AddToCart--product-custom-template-2').click(function (e) {
-        e.preventDefault();
-          addToCartVariant();
-      });
+    // $('#AddToCart--product-custom-template-2').click(function (e) {
+    //     e.preventDefault();
+    //       addToCartVariant();
+    //   });
 });
 

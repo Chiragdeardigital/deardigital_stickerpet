@@ -1,76 +1,83 @@
-
-
-$('.AddToCart').click(function (e) {
+$(".AddToCart").click(function (e) {
   e.preventDefault();
-  if ($("#image").val() === "") {
+  if ($("#image") && $("#image").val() === "") {
     let ele = $(this);
     ele.addClass("required-file");
-    ele.html('No File Selected !!');
+    ele.html("No File Selected !!");
     setTimeout(function () {
       ele.removeClass("required-file");
-      ele.html('order now');
+      ele.html("order now");
     }, 2000);
   } else {
-    $(this).addClass('special-loader');
-    $(this).html('Loading <span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>');
-
     addToCartVariant();
   }
 });
 
-
-
 function addToCartVariant() {
-
   let addToCartForm = document.querySelector('form[action="/cart/add"]');
   let formData = new FormData(addToCartForm);
   let renderedHtml;
   let renderedTotalPrice;
-  $('.mobile-cart-submit').addClass('special-loader');
-  $('.mobile-cart-submit').html('Loading <span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>');
-  fetch('/cart/add.js', {
-    method: 'POST',
-    body: formData
+  let btn_txt = $(".AddToCart").html();
+  $(".AddToCart").addClass("special-loader");
+  $(".AddToCart").html(
+    'Loading <span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>'
+  );
+  $(".mobile-cart-submit").addClass("special-loader");
+  $(".mobile-cart-submit").html(
+    'Loading <span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>'
+  );
+  fetch("/cart/add.js", {
+    method: "POST",
+    body: formData,
   })
-    .then(response => {
+    .then((response) => {
       return response.json();
     })
-    .then(data => {
-      renderedHtml = getSectionInnerHTML(data.sections["cart-items-template"], "#CartContainer");
-      renderedTotalPrice = getSectionInnerHTML(data.sections["cart-total-price"], ".shopify-section");
+    .then((data) => {
+      $("#cartLogo").attr("src", "https://cdn.shopify.com/s/files/1/0571/9641/3125/t/8/assets/fullcart-bowl-thicker-100px-01.png?v=6117101600441770735");
+      renderedHtml = getSectionInnerHTML(
+        data.sections["cart-items-template"],
+        "#CartContainer"
+      );
+      renderedTotalPrice = getSectionInnerHTML(
+        data.sections["cart-total-price"],
+        ".shopify-section"
+      );
       $("#CartContainer").html(renderedHtml);
       shippingCalculator(parseInt(renderedTotalPrice));
       // jQuery.getJSON('/cart.js', function (cart) {
       //   shippingCalculator(cart);
       // });
       openCart();
-      $('.mobile-cart-submit, .AddToCart').removeClass('special-loader');
-      $('.mobile-cart-submit').html('Upload a picture');
-      $(".AddToCart").html('order now');
+      $(".mobile-cart-submit, .AddToCart").removeClass("special-loader");
+      $(".mobile-cart-submit").html("Upload a picture");
+      $(".AddToCart").html(btn_txt);
       $(".box").css("background-image", "url()");
-      $('.box__input label').css({ "visibility": "visible" });
+      $(".box__input label").css({ visibility: "visible" });
       $("#image").val("");
     })
     .catch((error) => {
-      console.error('Error:', error);
+      console.error("Error:", error);
     });
 }
 
-
-
 //upsellcart
-$("body").on('click', '.UpsellAddToCart', function () {
+$("body").on("click", ".UpsellAddToCart", function () {
   $("#CartContainer").addClass("block-cursor");
   let variant_id = parseInt(this.getAttribute("data-variant-id"));
-  let variant_quantity = $(this).data('quantity') != "" ? $(this).data('quantity') : 1;
+  let variant_quantity =
+    $(this).data("quantity") != "" ? $(this).data("quantity") : 1;
   let renderedHtml;
   let renderedTotalPrice;
   var formData = {
-    'items': [{
-      'id': variant_id,
-      'quantity': parseInt(variant_quantity)
-    }],
-    sections: "cart-total-price,cart-items-template"
+    items: [
+      {
+        id: variant_id,
+        quantity: parseInt(variant_quantity),
+      },
+    ],
+    sections: "cart-total-price,cart-items-template",
   };
 
   $.ajax({
@@ -80,32 +87,34 @@ $("body").on('click', '.UpsellAddToCart', function () {
     data: formData,
   })
     .done(function (data) {
-      renderedHtml = getSectionInnerHTML(data.sections["cart-items-template"], "#CartContainer");
-      renderedTotalPrice = getSectionInnerHTML(data.sections["cart-total-price"], ".shopify-section");
+      $("#cartLogo").attr("src", "https://cdn.shopify.com/s/files/1/0571/9641/3125/t/8/assets/fullcart-bowl-thicker-100px-01.png?v=6117101600441770735");
+      renderedHtml = getSectionInnerHTML(
+        data.sections["cart-items-template"],
+        "#CartContainer"
+      );
+      renderedTotalPrice = getSectionInnerHTML(
+        data.sections["cart-total-price"],
+        ".shopify-section"
+      );
       $("#CartContainer").html(renderedHtml);
       shippingCalculator(parseInt(renderedTotalPrice));
       $("#CartContainer").removeClass("block-cursor");
       // jQuery.getJSON('/cart.js', function (cart) {
       //   // openAjaxCart(cart);
       // });
-
     })
     .fail(function (error) {
       console.log(error);
     });
 });
 
-
-
-
-
-$("body").on('change', '#CartSpecialInstructions', function () {
+$("body").on("change", "#CartSpecialInstructions", function () {
   $("#CartContainer").addClass("block-cursor");
   let renderedHtml;
   let text_val = $(this).val();
   var formData = {
     note: `${text_val}`,
-    sections: "cart-items-template"
+    sections: "cart-items-template",
   };
 
   $.ajax({
@@ -115,7 +124,10 @@ $("body").on('change', '#CartSpecialInstructions', function () {
     data: formData,
   })
     .done(function (data) {
-      renderedHtml = getSectionInnerHTML(data.sections["cart-items-template"], "#CartContainer");
+      renderedHtml = getSectionInnerHTML(
+        data.sections["cart-items-template"],
+        "#CartContainer"
+      );
       $("#CartContainer").html(renderedHtml);
       shippingCalculator(data.total_price);
       $("#CartContainer").removeClass("block-cursor");
@@ -125,55 +137,87 @@ $("body").on('change', '#CartSpecialInstructions', function () {
     });
 });
 
-
 function shippingCalculator(cartTotalPrice) {
   let cartDiscountAmt = 45;
   var total_price = cartTotalPrice / 100;
   if (total_price < cartDiscountAmt) {
-
-    $('.ProgressBar__indicator').ready(function () {
-
-      if (total_price > 0 && total_price <= (cartDiscountAmt * 0.10)) {
-        $('.ProgressBar__indicator').toggleClass('less-than-10');
+    $(".ProgressBar__indicator").ready(function () {
+      if (total_price > 0 && total_price <= cartDiscountAmt * 0.1) {
+        $(".ProgressBar__indicator").toggleClass("less-than-10");
       }
-      if (total_price > (cartDiscountAmt * 0.10) && total_price <= (cartDiscountAmt * 0.20)) {
-        $('.ProgressBar__indicator').toggleClass('less-than-20');
+      if (
+        total_price > cartDiscountAmt * 0.1 &&
+        total_price <= cartDiscountAmt * 0.2
+      ) {
+        $(".ProgressBar__indicator").toggleClass("less-than-20");
       }
-      if (total_price > (cartDiscountAmt * 0.20) && total_price <= (cartDiscountAmt * 0.25)) {
-        $('.ProgressBar__indicator').toggleClass('quarter-clicked');
-      }
-
-      if (total_price > (cartDiscountAmt * 0.25) && total_price <= (cartDiscountAmt * 0.30)) {
-        $('.ProgressBar__indicator').toggleClass('less-than-30');
-      }
-      if (total_price > (cartDiscountAmt * 0.30) && total_price <= (cartDiscountAmt * 0.40)) {
-        $('.ProgressBar__indicator').toggleClass('less-than-40');
-      }
-      if (total_price > (cartDiscountAmt * 0.40) && total_price <= (cartDiscountAmt * 0.50)) {
-        $('.ProgressBar__indicator').toggleClass('half-clicked');
-      }
-      if (total_price > (cartDiscountAmt * 0.50) && total_price <= (cartDiscountAmt * 0.60)) {
-        $('.ProgressBar__indicator').toggleClass('less-than-60');
-      }
-      if (total_price > (cartDiscountAmt * 0.60) && total_price <= (cartDiscountAmt * 0.70)) {
-        $('.ProgressBar__indicator').toggleClass('less-than-70');
-      }
-      if (total_price > (cartDiscountAmt * 0.70) && total_price <= (cartDiscountAmt * 0.75)) {
-        $('.ProgressBar__indicator').toggleClass('three-quarters-clicked');
-      }
-      if (total_price > (cartDiscountAmt * 0.75) && total_price <= (cartDiscountAmt * 0.80)) {
-        $('.ProgressBar__indicator').toggleClass('less-than-80');
-      }
-      if (total_price > (cartDiscountAmt * 0.80) && total_price <= (cartDiscountAmt * 0.90)) {
-        $('.ProgressBar__indicator').toggleClass('less-than-90');
-      }
-      if (total_price > (cartDiscountAmt * 0.90) && total_price < (cartDiscountAmt * 0.95)) {
-        $('.ProgressBar__indicator').toggleClass('less-than-95');
-      }
-      if (total_price > (cartDiscountAmt * 0.95) && total_price < (cartDiscountAmt)) {
-        $('.ProgressBar__indicator').toggleClass('less-than-95');
+      if (
+        total_price > cartDiscountAmt * 0.2 &&
+        total_price <= cartDiscountAmt * 0.25
+      ) {
+        $(".ProgressBar__indicator").toggleClass("quarter-clicked");
       }
 
+      if (
+        total_price > cartDiscountAmt * 0.25 &&
+        total_price <= cartDiscountAmt * 0.3
+      ) {
+        $(".ProgressBar__indicator").toggleClass("less-than-30");
+      }
+      if (
+        total_price > cartDiscountAmt * 0.3 &&
+        total_price <= cartDiscountAmt * 0.4
+      ) {
+        $(".ProgressBar__indicator").toggleClass("less-than-40");
+      }
+      if (
+        total_price > cartDiscountAmt * 0.4 &&
+        total_price <= cartDiscountAmt * 0.5
+      ) {
+        $(".ProgressBar__indicator").toggleClass("half-clicked");
+      }
+      if (
+        total_price > cartDiscountAmt * 0.5 &&
+        total_price <= cartDiscountAmt * 0.6
+      ) {
+        $(".ProgressBar__indicator").toggleClass("less-than-60");
+      }
+      if (
+        total_price > cartDiscountAmt * 0.6 &&
+        total_price <= cartDiscountAmt * 0.7
+      ) {
+        $(".ProgressBar__indicator").toggleClass("less-than-70");
+      }
+      if (
+        total_price > cartDiscountAmt * 0.7 &&
+        total_price <= cartDiscountAmt * 0.75
+      ) {
+        $(".ProgressBar__indicator").toggleClass("three-quarters-clicked");
+      }
+      if (
+        total_price > cartDiscountAmt * 0.75 &&
+        total_price <= cartDiscountAmt * 0.8
+      ) {
+        $(".ProgressBar__indicator").toggleClass("less-than-80");
+      }
+      if (
+        total_price > cartDiscountAmt * 0.8 &&
+        total_price <= cartDiscountAmt * 0.9
+      ) {
+        $(".ProgressBar__indicator").toggleClass("less-than-90");
+      }
+      if (
+        total_price > cartDiscountAmt * 0.9 &&
+        total_price < cartDiscountAmt * 0.95
+      ) {
+        $(".ProgressBar__indicator").toggleClass("less-than-95");
+      }
+      if (
+        total_price > cartDiscountAmt * 0.95 &&
+        total_price < cartDiscountAmt
+      ) {
+        $(".ProgressBar__indicator").toggleClass("less-than-95");
+      }
     });
   }
 
@@ -182,14 +226,15 @@ function shippingCalculator(cartTotalPrice) {
     console.log("Cart Total : " + total_price);
     $(".shipping-text").text("Congrats! You get free shipping.");
 
-    $('.ProgressBar__indicator').ready(function () {
-      $('.ProgressBar__indicator').toggleClass('clicked');
+    $(".ProgressBar__indicator").ready(function () {
+      $(".ProgressBar__indicator").toggleClass("clicked");
     });
-  }
-  else {
+  } else {
     console.log("Cart Total : " + total_price);
     var remainingAmt = cartDiscountAmt - total_price;
-    $(".shipping-text").text(`You're  €${(remainingAmt).toFixed(2)} away from free shipping`);
+    $(".shipping-text").text(
+      `You're  €${remainingAmt.toFixed(2)} away from free shipping`
+    );
   }
 }
 
@@ -218,7 +263,10 @@ function openAjaxCart(cart) {
                   <div class="ProgressBar__indicator"></div>
                 `;
   if (cart.item_count > 0) {
-    $("#cartLogo").attr("src", "https://cdn.shopify.com/s/files/1/0571/9641/3125/t/8/assets/fullcart-bowl-thicker-100px-01.png?v=6117101600441770735");
+    $("#cartLogo").attr(
+      "src",
+      "https://cdn.shopify.com/s/files/1/0571/9641/3125/t/8/assets/fullcart-bowl-thicker-100px-01.png?v=6117101600441770735"
+    );
     output += `
         <div class="cart-body">`;
 
@@ -228,19 +276,15 @@ function openAjaxCart(cart) {
       var variantTitle;
       if (item.variant_title) {
         variantTitle = item.variant_title;
-      }
-      else {
+      } else {
         variantTitle = "";
       }
       if (jQuery.isEmptyObject(item["properties"])) {
-
         var cart_item = {
           image: `${item.image}`,
           title: `${item.product_title}`,
-
         };
       } else {
-
         let j = 0;
         for (const property in properties) {
           if (j < 1) {
@@ -267,7 +311,8 @@ function openAjaxCart(cart) {
                     </div>
                     <div class="grid__item three-quarters">
                         <div class="ajaxcart__product-name--wrapper">
-                            <a href="${item.url}" class="ajaxcart__product-name">
+                            <a href="${item.url
+        }" class="ajaxcart__product-name">
                                 ${cart_item["title"]}
                             </a>
                             <span class="ajaxcart__product-meta">${variantTitle}</span>
@@ -280,26 +325,31 @@ function openAjaxCart(cart) {
                                         class="ajaxcart__qty-adjust ajaxcart__qty--minus icon-fallback-text " 
                                         data-id="${item.key}"
                                         data-qty="${item.quantity - 1}" 
-                                        data-line="${i + 1}" aria-label="Reduce item quantity by one">
+                                        data-line="${i + 1
+        }" aria-label="Reduce item quantity by one">
                                         <span class="icon icon-minus" aria-hidden="true"></span>
                                         <span class="fallback-text" aria-hidden="true">−</span>
                                     </button>
                                     <input type="text" name="updates[]" class="ajaxcart__qty-num" 
                                         value="${item.quantity}" min="0"
                                         data-id="${item.key}" 
-                                        data-line="${i + 1}" aria-label="quantity" pattern="[0-9]*" />
+                                        data-line="${i + 1
+        }" aria-label="quantity" pattern="[0-9]*" />
                                     <button type="button"
                                         class="ajaxcart__qty-adjust ajaxcart__qty--plus icon-fallback-text" 
                                         data-id="${item.key}"
                                         data-line="${i + 1}" 
-                                        data-qty="${item.quantity + 1}" aria-label="Increase item quantity by one">
+                                        data-qty="${item.quantity + 1
+        }" aria-label="Increase item quantity by one">
                                         <span class="icon icon-plus" aria-hidden="true"></span>
                                         <span class="fallback-text" aria-hidden="true">+</span>
                                     </button>
                                 </div>
                             </div>
                             <div class="grid__item one-half text-right">
-                                <span class="ajaxcart__price euro">€ ${(item.line_price / 100).toFixed(2)}</span>
+                                <span class="ajaxcart__price euro">€ ${(
+          item.line_price / 100
+        ).toFixed(2)}</span>
                             </div>
                         </div>
                     </div>
@@ -372,9 +422,11 @@ function openAjaxCart(cart) {
     
       </div>
             `;
-  }
-  else {
-    $("#cartLogo").attr("src", "https://cdn.shopify.com/s/files/1/0571/9641/3125/t/8/assets/cart-bowl-thicker-100px-01.png?v=15354146367745521056");
+  } else {
+    $("#cartLogo").attr(
+      "src",
+      "https://cdn.shopify.com/s/files/1/0571/9641/3125/t/8/assets/cart-bowl-thicker-100px-01.png?v=15354146367745521056"
+    );
   }
   output += `
             </div >
@@ -450,31 +502,19 @@ function openAjaxCart(cart) {
   // }
 }
 
-
-
-
-
-
-
-
-
-
 function getSectionInnerHTML(html, selector) {
   return new DOMParser()
-    .parseFromString(html, 'text/html')
+    .parseFromString(html, "text/html")
     .querySelector(selector).innerHTML;
 }
-
-
-
 
 function changeItem(line, quantity) {
   $("#CartContainer").addClass("block-cursor");
   let renderedHtml;
   let formData = {
-    "line": parseInt(line),
-    "quantity": quantity,
-    sections: "cart-items-template"
+    line: parseInt(line),
+    quantity: quantity,
+    sections: "cart-items-template",
   };
 
   $.ajax({
@@ -485,7 +525,11 @@ function changeItem(line, quantity) {
   })
     .done(function (data) {
       console.log(data.sections);
-      renderedHtml = getSectionInnerHTML(data.sections["cart-items-template"], "#CartContainer");
+      data.item_count > 0 ? $("#cartLogo").attr("src", "https://cdn.shopify.com/s/files/1/0571/9641/3125/t/8/assets/fullcart-bowl-thicker-100px-01.png?v=6117101600441770735"):$("#cartLogo").attr("src","https://cdn.shopify.com/s/files/1/0571/9641/3125/t/8/assets/cart-bowl-thicker-100px-01.png?v=15354146367745521056");
+      renderedHtml = getSectionInnerHTML(
+        data.sections["cart-items-template"],
+        "#CartContainer"
+      );
       $("#CartContainer").html(renderedHtml);
       shippingCalculator(data.total_price);
       $("#CartContainer").removeClass("block-cursor");
@@ -513,7 +557,6 @@ function updateQuantity(line, qty) {
   changeItem(line, qty);
 }
 
-
 // Update quantity based on input on change
 $("body").on("change", ".ajaxcart__qty-num", function () {
   var $el = $(this),
@@ -528,19 +571,17 @@ $("body").on("change", ".ajaxcart__qty-num", function () {
   }
 });
 
-
 // Add or remove from the quantity
-$("body").on('click', '.ajaxcart__qty-adjust', function () {
-
+$("body").on("click", ".ajaxcart__qty-adjust", function () {
   var $el = $(this),
-    line = $el.data('line'),
-    $qtySelector = $el.siblings('.ajaxcart__qty-num'),
-    qty = parseInt($qtySelector.val().replace(/\D/g, ''));
+    line = $el.data("line"),
+    $qtySelector = $el.siblings(".ajaxcart__qty-num"),
+    qty = parseInt($qtySelector.val().replace(/\D/g, ""));
 
   qty = validateQty(qty);
 
   // Add or subtract from the current quantity
-  if ($el.hasClass('ajaxcart__qty--plus')) {
+  if ($el.hasClass("ajaxcart__qty--plus")) {
     qty += 1;
   } else {
     qty -= 1;
@@ -555,7 +596,6 @@ $("body").on('click', '.ajaxcart__qty-adjust', function () {
     $qtySelector.val(qty);
   }
 });
-
 
 validateQty = function (qty) {
   if (parseFloat(qty) === parseInt(qty) && !isNaN(qty)) {
@@ -702,5 +742,3 @@ validateQty = function (qty) {
 // }
 
 // customElements.define('cart-items', CartItems);
-
-

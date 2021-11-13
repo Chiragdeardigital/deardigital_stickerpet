@@ -3111,6 +3111,8 @@ $socialIconFontStack: 'icons';
 .product-single__description {
   margin-top: 40px;
   text-align: left;
+  position: relative;
+    width: fit-content;
 }
 
 .product-single__full-details {
