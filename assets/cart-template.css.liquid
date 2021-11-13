@@ -122,7 +122,7 @@ input.input-full, select.input-full, textarea.input-full {
 .shipping-text {
   text-align: center !important;
   font-size: 13px;
-  margin: 0 0 65px 0;
+  margin: 0 0 25px 0;
   padding: 0;
   position: relative;
   top: 0;
@@ -131,25 +131,33 @@ input.input-full, select.input-full, textarea.input-full {
 
 .ProgressBar__hide {
   display: block;
-  position: absolute;
+  /* position: relative; */
   background-color: #fff;
-  width: 85%;
+  width: 100%;
   height: 10px;
-  top: 60px;
+  /* top: 60
+px
+; */
   z-index: 0;
-  right: 25px;
-  left: 25px;
+  /* right: 25
+px
+; */
+  margin-bottom: 20px;
+  /* left: 25
+px
+; */
 }
 
 .ProgressBar__indicator {
-  position: absolute;
+  /* position: absolute; */
   margin: 10px 0 10px 0;
-  top: 50px;
+  top: 0;
   height: 10px;
   width: 0%;
-  right: 25px;
-  left: 25px;
-  /*   max-width:85%; */
+  /* right: 25
+px
+; */
+  left: 0;
   background-color: #a5dcde;
   z-index: 100;
   -webkit-transition: width 1s ease-in 1s;
@@ -257,14 +265,14 @@ input.input-full, select.input-full, textarea.input-full {
   flex-direction: column;
 } */
 
-.block-cursor *{
-  pointer-events:none;
+.block-cursor * {
+  pointer-events: none;
   opacity: 0.8;
   transition: opacity 300ms ease;
 }
 
 .block-cursor {
-  cursor:not-allowed;
+  cursor: not-allowed;
 }
 
 .cart-body {
@@ -497,7 +505,7 @@ input.input-full, select.input-full, textarea.input-full {
 
 @media (max-width:768px) {
   .cart-body {
-    height: auto;
+    height: calc(100vh - 420px);
   }
 }
 
@@ -562,7 +570,7 @@ input.input-full, select.input-full, textarea.input-full {
     width: 80.75%;
   }
   .ProgressBar__indicator.clicked {
-    width: 85%;
+    width: 100%;
   }
 }
 
@@ -633,7 +641,7 @@ input.input-full, select.input-full, textarea.input-full {
     width: 88.35%;
   }
   .ProgressBar__indicator.clicked {
-    width: 93%;
+    width: 100%;
   }
 }
 

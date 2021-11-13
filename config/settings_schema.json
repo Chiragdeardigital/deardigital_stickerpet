@@ -260,16 +260,5 @@
                 "info": "t:settings_schema.favicon.settings.favicon.info"
             }
         ]
-    },
-    {
-        "name": "Upsell Product",
-        "settings": [
-            {
-                "type": "product",
-                "id": "upsell_product",
-                "label": "Product",
-                "info": "Select a product for upsell"
-            }
-        ]
     }
 ]

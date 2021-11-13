@@ -1,4 +1,4 @@
-{% assign selected_product = settings.upsell_product %}
+{% assign selected_product = section.settings.upsell_product %}
 {% assign upsellProduct = all_products[selected_product] %}
 {% assign upsellProductHandle = upsellProduct.handle %}
 {% for item in cart.items %}
@@ -30,8 +30,9 @@
           <div class="shipping-text">
             You're €45 away from free shipping
           </div>
-          <div class="ProgressBar__hide"></div>
-          <div class="ProgressBar__indicator"></div>
+          <div class="ProgressBar__hide">
+            <div class="ProgressBar__indicator"></div>
+          </div>
           {% if cart.item_count > 0 %}
           <div class="cart-body">
             {% for item in cart.items %}
@@ -145,8 +146,12 @@
                   <div class="grid__item two-thirds">
                     <div class="ajaxcart__product-name--wrapper ajax-padder">
                       <label class="ajaxcart__product-name text-left"
-                             style="padding-top: 15px;padding-bottom: 15px;">
-                        {{ upsellProduct.metafields.my_fields.title_for_upsell }}
+                            style="padding-top: 15px;padding-bottom: 15px;">
+                          {%- if upsellProduct.metafields.my_fields.title_for_upsell != blank -%}
+                            {{ upsellProduct.metafields.my_fields.title_for_upsell }}
+                          {%- else -%}
+                            Better with a <strong>{{ upsellProduct.title }}</strong>
+                          {%- endif -%}
                       </label>
 
 
@@ -168,7 +173,6 @@
               </div>
               <div class="grid__item two-thirds text-right">
                 <p class="ajaxcart__subtotal euro">{{ cart.total_price | money }} INCL. VAT</p>
-                <!--                 <p class="ajaxcart__subtotal pound display-non">£23.70 INCL. VAT</p> -->
               </div>
             </div>
             <div class="grid">
@@ -197,58 +201,7 @@
               Continue Shopping
             </a>
             <p></p>
-
-
-            <!--             <div id="add-another" class="ajaxcart__product ajaxcart__product-name--wrapper no-disp">
-<div class="" data-line="1"
-style="padding: 0 20px;background-color: #a5dcde;border-radius: 5px;">
-<div class="grid">
-<div class="grid__item one-third">
-<label for="image" class="ajaxcart__product-image"><img
-src="//cdn.shopify.com/s/files/1/0268/5580/0887/t/15/assets/upload_6.png?v=4897508998010868741"
-alt="more pets upload" style="padding: 10px;"></label>
-</div>
-<div class="grid__item two-thirds">
-<div class="ajax-padder">
-<label for="image" class="ajaxcart__product-name text-left euro"
-style="padding: 20px 0;">Upload a pet for a custom pet
-sticker.</label>
-<label for="image"
-class="ajaxcart__product-name text-left pound display-non"
-style="padding: 20px 0;">Upload a pet for a custom pet
-sticker.</label>
-</div>
-</div>
-</div>
-</div>
-</div>
--->
-            <!--             <div id="classic-upload" class="ajaxcart__product ajaxcart__product-name--wrapper no-disp">
-<div class="" data-line="1"
-style="padding: 0 20px;background-color: #a5dcde;border-radius: 5px;">
-<div class="grid">
-<div class="grid__item one-third">
-<label for="image" class="ajaxcart__product-image"><img
-src="//cdn.shopify.com/s/files/1/0268/5580/0887/t/15/assets/Leftovers.png?v=16655450064709790815"
-alt="more classic stickers upload" style="padding: 10px;"></label>
-</div>
-<div class="grid__item two-thirds">
-<div class="ajax-padder">
-<label for="image" class="ajaxcart__product-name text-left euro"
-style="padding: 20px 0px;">Or, add more classic stickers.</label>
-<label for="image"
-class="ajaxcart__product-name text-left pound display-non"
-style="padding: 20px 0px;">Or, add more classic stickers.</label>
-</div>
-</div>
-</div>
-</div>
-</div>
--->
-
-
             <p style="padding-top: 15px;border-bottom: 1px solid;margin: 0 0 12px 0;"></p>
-
             <div>
               <label for="CartSpecialInstructions" class="ajaxcart__note">woof, anything special we
                 can do for you?</label>
@@ -260,9 +213,6 @@ style="padding: 20px 0px;">Or, add more classic stickers.</label>
           {% endif %}
         </div>
       </div>
-
-
-
     </div>
   </div>
 </div>
@@ -272,3 +222,17 @@ $( document ).ready(function() {
   shippingCalculator(parseInt(`{{ cart.total_price }}`));
 });
   </script>
+
+{% schema %}
+{
+  "name": "Cart",
+  "settings": [
+    {
+      "type": "product",
+      "id": "upsell_product",
+      "label": "Upsell product",
+      "info": "Select a product for upsell"
+    }
+  ]
+}
+{% endschema %}
