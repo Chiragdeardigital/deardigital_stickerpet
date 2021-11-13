@@ -99,7 +99,7 @@ $(document).ready(function () {
     $(".fifth-step .hanging-products").click(function () {
         $(".fifth-step .hanging-products").removeClass("hanging-product-selected");
         $(this).addClass("hanging-product-selected");
-        let variant_id =  $(this).data("variant");
+        let variant_id = $(this).data("variant");
         if (variant_id) {
             $("#upsellProductId").html(`<input type="hidden" name="items[1][id]" value="${variant_id}">`);
         } else {
@@ -130,6 +130,8 @@ $(document).ready(function () {
                     $('#nextBtn').attr('disabled', false);
                 }
             }
+        } else {
+            $('#nextBtn').attr('disabled', false);
         }
     }, 500);
 
