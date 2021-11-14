@@ -1,5 +1,5 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
-
+<div class="form-wrapper">
 <div class="customer activate">
   <svg style="display: none">
     <symbol id="icon-error" viewBox="0 0 13 13">
@@ -96,4 +96,5 @@
       {{ 'customer.activate_account.cancel' | t }}
     </button>
   {%- endform -%}
+</div>
 </div>
