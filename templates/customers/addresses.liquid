@@ -1,6 +1,6 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
-
+<script src="{{ 'customer.js' | asset_url }}" defer></script>
 <div class="form-wrapper">
   {%- paginate customer.addresses by 5 -%}
     <div class="customer addresses" data-customer-addresses>
@@ -263,4 +263,4 @@
     typeof CustomerAddresses !== 'undefined' && new CustomerAddresses();
   }
 </script>
-<script src="{{ 'customer.js' | asset_url }}" defer></script>
+
