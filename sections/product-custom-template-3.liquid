@@ -73,9 +73,10 @@
             <span class="mobile-product-reviews">8 reviews</span>
           </a>
         </p>
-        <p class="product-price no-d">
-         {{ current_variant.price | money | replace:",","." }}
-        </p>
+        <div class="no-js-hidden price-{{ section.id }}" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
+          {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large product-single__price justify-content-center euro no-desktop' -%}
+         
+        </div>
         {% include "product-template-slider" %}
       
       </div>
@@ -235,7 +236,7 @@
             {% endcomment %}
             
             <div class="no-mobile">
-              <div class="no-js-hidden" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
+              <div class="no-js-hidden price-{{ section.id }}" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
                 {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large product-single__price' -%}
               </div>
             </div>

@@ -49,7 +49,7 @@
             <span style="display: block;font-size: 14px;font-weight: 100;font-family: Lato,sans-serif;letter-spacing: .5px;margin-bottom: 16px;">135 reviews{% for product in collections.reviews.products %}{% if product.id == 6748620488903 %}{{ product.metafields.stamped.reviews_count }}135 reviews{% endif %}{% endfor %}</span>
           </a>
           
-            <div class="no-js-hidden" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
+            <div class="no-js-hidden price-{{ section.id }}" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
               {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large product-single__price justify-content-center euro no-desktop' -%}
               <span class="smaller-font">incl. VAT</span>
             </div>
@@ -120,7 +120,7 @@
           <div class="center-it" style="max-width: 420px;">
             
             <div class="no-mobile">
-              <div class="no-js-hidden" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
+              <div class="no-js-hidden price-{{ section.id }}" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
                 {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large product-single__price' -%}
               </div>
             </div>

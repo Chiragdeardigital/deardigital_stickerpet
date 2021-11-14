@@ -83,11 +83,12 @@ class VariantSelects extends HTMLElement {
         .then((responseText) => {
           const id = `price-${this.dataset.section}`;
           const html = new DOMParser().parseFromString(responseText, 'text/html')
-          const destination = document.getElementById(id);
-          const source = html.getElementById(id);
-  
-          if (source && destination) destination.innerHTML = source.innerHTML;
-  
+          const destination = document.getElementsByClassName(id);
+          const source = html.getElementsByClassName(id);
+          for (let index = 0; index < source.length; index++) {
+            const element = source[index];
+            if (element && destination[index]) destination[index].innerHTML = element.innerHTML;
+          }
           document.getElementById(`price-${this.dataset.section}`)?.classList.remove('visibility-hidden');
           this.toggleAddButton(!this.currentVariant.available, window.variantStrings.soldOut);
         });

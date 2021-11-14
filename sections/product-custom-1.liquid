@@ -156,7 +156,7 @@
               Optionally show the 'compare at' or original price of the product.
               {% include 'product-price', variant: current_variant %}
             {% endcomment %}
-            <div class="no-js-hidden" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
+            <div class="no-js-hidden price-{{ section.id }}" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
               {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
             </div>
 
