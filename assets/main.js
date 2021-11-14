@@ -145,6 +145,7 @@ for (i = 0; i < coll.length; i++) {
 
 /*=================== DROPDOWN MENU FUNCTION ===================*/
 
+
 $(".display-menu, .dropdown-menu").hover(function () {
   $(".dropdown-menu").css("top", "77%");
   $("#dropdownMenuHover svg").css("transform", "rotate(180deg)");

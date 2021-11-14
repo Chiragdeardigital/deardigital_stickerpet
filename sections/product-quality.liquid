@@ -10,13 +10,13 @@
       </div>
       {%- endcase -%}
       {%- endfor -%}
-      
+      {%- comment -%}
       {%- if section.settings.show_rating_block -%}
       <div class="quality-block no-m">
         <h2 class="headings">4.9&nbsp;&nbsp;<span class="star">{% include "icon-star" %}</span><br>rating</h2>
       </div>
       {%- endif -%}
-
+    {%- endcomment -%}
     </div>
   </div>
 </section>
