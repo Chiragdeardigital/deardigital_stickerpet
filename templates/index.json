@@ -6,7 +6,8 @@
         "6062bad8-24b8-46c3-b5e1-b51f755bdf99": {
           "type": "typed_text",
           "settings": {
-            "typed_text": "cat,dog,fish,llama"
+            "typed_text": "cat,dog,fish,llama",
+            "type_text_color": "text-accent-2"
           }
         }
       },
@@ -16,7 +17,9 @@
       "settings": {
         "feature_collection": "pet-stickers",
         "text_1": "For the",
-        "text_2": "lovers."
+        "text_2": "lovers.",
+        "type_text": "center",
+        "color_scheme": "gradient-background"
       }
     },
     "16269316720393125d": {
@@ -59,6 +62,7 @@
         "0725de58-75c0-4417-a0e4-0d7c50040c26"
       ],
       "settings": {
+        "cards_section_background": "background-color-3"
       }
     },
     "16269320911dc86b20": {
@@ -112,6 +116,7 @@
         "desktop_image": "shopify:\/\/shop_images\/portrait-fireplace-2_x395_c7f4ff9c-8013-436c-b67e-d9450fad5113.jpg",
         "mobile_image": "shopify:\/\/shop_images\/dog-stickers.png",
         "height": "adapt",
+        "image_with_text_bg": "solid-button-labels",
         "layout": "text_first",
         "change_bg": false
       }
@@ -167,6 +172,7 @@
         "desktop_image": "shopify:\/\/shop_images\/custom-printed-t-shirts-block.jpg",
         "mobile_image": "shopify:\/\/shop_images\/mila-shadows-01_95b97056-76c2-40e2-9996-8aacbccf0250.png",
         "height": "adapt",
+        "image_with_text_bg": "solid-button-labels",
         "layout": "image_first",
         "change_bg": true
       }
@@ -222,6 +228,7 @@
         "desktop_image": "shopify:\/\/shop_images\/portrait-fireplace-2_x395_c7f4ff9c-8013-436c-b67e-d9450fad5113.jpg",
         "mobile_image": "shopify:\/\/shop_images\/t-shirt-with-shadow-01.png",
         "height": "adapt",
+        "image_with_text_bg": "solid-button-labels",
         "layout": "text_first",
         "change_bg": false
       }
@@ -229,55 +236,17 @@
     "16269327587c3cb1a5": {
       "type": "customer-reviews",
       "blocks": {
-        "85140499-bf7d-41c2-8ca2-2a70990f0141": {
-          "type": "review",
+        "af4c9ed6-8e44-44ff-b855-637603227414": {
+          "type": "pet_review",
           "settings": {
-            "review_image": "shopify:\/\/shop_images\/Stella_1_x200_fd30bce7-5157-4ccf-bc8c-b28c858d1589.png",
-            "review_text": "<i>“Can't stop wagging my tail when I see my face on those stickers <\/i>🐶”<br><i>- Stella, dog<\/i>"
-          }
-        },
-        "1800715f-c548-43a1-8249-72efca1e8068": {
-          "type": "review",
-          "settings": {
-            "review_image": "shopify:\/\/shop_images\/Anne_x200_37eacb54-d57c-4b49-a334-8701dabc7c16.png",
-            "review_text": "<i>“Smooth, friendly order &amp; service. Nice job! Now handing out the stickers and ordering more. Already hooked! <\/i>”<br><i>- Anne, human<\/i>"
-          }
-        },
-        "41c21231-0ac8-4070-b880-7ebe43f1e7a0": {
-          "type": "review",
-          "settings": {
-            "review_image": "shopify:\/\/shop_images\/Maurice_1_x200_a3fd90e9-0ea4-44f2-90ab-a75490ba8106.png",
-            "review_text": "<i>“Those stickers are AMAZING pussy magnets bro <\/i> 🤙”<br><i>- Maurice, cat<\/i>"
-          }
-        },
-        "11fbc5ec-d39a-415f-acd4-5f29473ed954": {
-          "type": "review",
-          "settings": {
-            "review_image": "shopify:\/\/shop_images\/Lene_x200_ebbe589b-bc2b-4026-9ad9-fbdcb3be61ac.png",
-            "review_text": "<i>“Lovely gift! Really nice quality. Instant happiness when you see the envelope. Thanks Sticker Pet, wish you all the best!”<br><i>- Lene, human<\/i><\/i>"
-          }
-        },
-        "7352cd42-e349-4dc9-998a-4d9c211cf74a": {
-          "type": "review",
-          "settings": {
-            "review_image": "shopify:\/\/shop_images\/Dolly_1_x200_f6799be8-db76-4cf9-8273-f4f06da74f5c.png",
-            "review_text": "<i>“Meeeh, could have been better, my hair wasn’t right on the pic<\/i> 🤷”<br><i>- Dolly, sheep<\/i>"
-          }
-        },
-        "c1eea724-4b56-4de2-b2e1-d6acf0fc3181": {
-          "type": "typed_text",
-          "settings": {
-            "typed_text": "human,pet"
+            "review_image": "shopify:\/\/shop_images\/Stella_1_x200_7035dabb-44b6-4a16-aea6-cb2ae93bc9bb.png",
+            "review_text": "<i>“Can't stop wagging my tail when I see my face on those stickers <\/i>🐶”<br><i>- stella, pet<\/i>",
+            "typed_text_pet": "pet"
           }
         }
       },
       "block_order": [
-        "85140499-bf7d-41c2-8ca2-2a70990f0141",
-        "1800715f-c548-43a1-8249-72efca1e8068",
-        "41c21231-0ac8-4070-b880-7ebe43f1e7a0",
-        "11fbc5ec-d39a-415f-acd4-5f29473ed954",
-        "7352cd42-e349-4dc9-998a-4d9c211cf74a",
-        "c1eea724-4b56-4de2-b2e1-d6acf0fc3181"
+        "af4c9ed6-8e44-44ff-b855-637603227414"
       ],
       "settings": {
       }
@@ -349,7 +318,8 @@
         "5292ea36-9db0-4238-b117-78de54840b5a"
       ],
       "settings": {
-        "reverse_columns": true,
+        "layout": "image_first",
+        "collage_bg": "solid-button-labels",
         "header_text": "Stick & share with friends",
         "para_text": "With a pack of 21 stickers, you can have a lot of stickering fun. We recommend sticking your pet’s faces on smooth and clean surfaces like:<br><br><span class=\"list-icon\">💻 📱 🎸 🛹<\/span> <br>Yeah, you got it, almost everywhere!<br><br>Oh psst, you can also share them with your friends and make your pet the rock star on Instagram.",
         "mobile_header_text": "Share them.<br>Gift them.",
