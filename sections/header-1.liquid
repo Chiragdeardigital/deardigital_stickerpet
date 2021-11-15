@@ -143,10 +143,9 @@
                       <a href="{{ product.url }}" class="button border-button">UPLOAD YOUR PET</a>
                     </div>
                   </div>
-                  <div class="icon-chevron-summary">{% if link.links != blank %}{% include "icon-chevron" %}{% endif %}</div>
-
+                  <div class="icon-chevron-summary">{% if child_link.links != blank %}{% include "icon-chevron" %}{% endif %}</div>
+                  
                   {%- if link.links != blank -%}
-
                   <div class="grandchild-items">
                     {%- for grandchildlink in child_link.links -%}
                     {%- assign product = grandchildlink.object -%}

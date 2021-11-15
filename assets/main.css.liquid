@@ -541,6 +541,7 @@ header .container {
   background-color: transparent;
   padding: 1.25rem 0;
   width: calc(30.3333% - 16px);
+  cursor: pointer;
 }
 
 .dropdown-item .row {
@@ -624,8 +625,10 @@ header .container {
 }
 
 .grandchild-items {
-  display: none;
-  transition: transform .4s;
+  visibility: hidden;
+  opacity: 0;
+  transition: .4s all ease .1s;
+  height: 0;
 }
 
 .icon-chevron-summary svg {
@@ -645,9 +648,11 @@ header .container {
 
 }
 
-.icon-chevron-summary:hover + .grandchild-items , .grandchild-items:hover{
-  display: block;
-  transition: transform .4s;
+.dropdown-item:hover  .grandchild-items , .grandchild-items:hover {
+  visibility: visible;
+  opacity: 1;
+  transition: .4s all ease;
+  height: 100%;
 }
 
 
