@@ -243,10 +243,37 @@
             "review_text": "<i>“Can't stop wagging my tail when I see my face on those stickers <\/i>🐶”<br><i>- stella, pet<\/i>",
             "typed_text_pet": "pet"
           }
+        },
+        "34229b2e-c551-4c47-857e-36f2edb5d789": {
+          "type": "human_review",
+          "settings": {
+            "review_image": "shopify:\/\/shop_images\/Anne_x200_24164819-b4dc-4e18-beae-16de6539423f.png",
+            "review_text": "<i>“Smooth, friendly order &amp; service. Nice job! Now handing out the stickers and ordering more. Already hooked!”<br><i>- Anne, human<\/i><\/i>",
+            "typed_text_human": "human"
+          }
+        },
+        "0e6873ab-3fe5-4bbc-9e88-21876b48ffd7": {
+          "type": "pet_review",
+          "settings": {
+            "review_image": "shopify:\/\/shop_images\/Dolly_1_x200_dc00e323-1b6b-4a4e-9ab6-6aee92027412.png",
+            "review_text": "<i>“Meeeh, could have been better, my hair wasn’t right on the pic 🤷”<br><i>- Dolly, pet<\/i><\/i>",
+            "typed_text_pet": "pet"
+          }
+        },
+        "1610bbb9-1ac0-4603-af23-d503408c5a7c": {
+          "type": "human_review",
+          "settings": {
+            "review_image": "shopify:\/\/shop_images\/Maurice_1_x200_f27796e3-1c67-4f48-a31a-9a6b3bbd06d8.png",
+            "review_text": "<i>“Lovely gift! Really nice quality. Instant happiness when you see the envelope. Thanks Sticker Pet, wish you all the best!”<br><i>- Lene, human<\/i><\/i>",
+            "typed_text_human": "human"
+          }
         }
       },
       "block_order": [
-        "af4c9ed6-8e44-44ff-b855-637603227414"
+        "af4c9ed6-8e44-44ff-b855-637603227414",
+        "34229b2e-c551-4c47-857e-36f2edb5d789",
+        "0e6873ab-3fe5-4bbc-9e88-21876b48ffd7",
+        "1610bbb9-1ac0-4603-af23-d503408c5a7c"
       ],
       "settings": {
       }
