@@ -236,14 +236,6 @@
     "16269327587c3cb1a5": {
       "type": "customer-reviews",
       "blocks": {
-        "af4c9ed6-8e44-44ff-b855-637603227414": {
-          "type": "pet_review",
-          "settings": {
-            "review_image": "shopify:\/\/shop_images\/Stella_1_x200_7035dabb-44b6-4a16-aea6-cb2ae93bc9bb.png",
-            "review_text": "<i>“Can't stop wagging my tail when I see my face on those stickers <\/i>🐶”<br><i>- stella, pet<\/i>",
-            "typed_text_pet": "pet"
-          }
-        },
         "34229b2e-c551-4c47-857e-36f2edb5d789": {
           "type": "human_review",
           "settings": {
@@ -252,11 +244,11 @@
             "typed_text_human": "human"
           }
         },
-        "0e6873ab-3fe5-4bbc-9e88-21876b48ffd7": {
+        "af4c9ed6-8e44-44ff-b855-637603227414": {
           "type": "pet_review",
           "settings": {
-            "review_image": "shopify:\/\/shop_images\/Dolly_1_x200_dc00e323-1b6b-4a4e-9ab6-6aee92027412.png",
-            "review_text": "<i>“Meeeh, could have been better, my hair wasn’t right on the pic 🤷”<br><i>- Dolly, pet<\/i><\/i>",
+            "review_image": "shopify:\/\/shop_images\/Stella_1_x200_7035dabb-44b6-4a16-aea6-cb2ae93bc9bb.png",
+            "review_text": "<i>“Can't stop wagging my tail when I see my face on those stickers <\/i>🐶”<br><i>- stella, pet<\/i>",
             "typed_text_pet": "pet"
           }
         },
@@ -267,13 +259,21 @@
             "review_text": "<i>“Lovely gift! Really nice quality. Instant happiness when you see the envelope. Thanks Sticker Pet, wish you all the best!”<br><i>- Lene, human<\/i><\/i>",
             "typed_text_human": "human"
           }
+        },
+        "0e6873ab-3fe5-4bbc-9e88-21876b48ffd7": {
+          "type": "pet_review",
+          "settings": {
+            "review_image": "shopify:\/\/shop_images\/Dolly_1_x200_dc00e323-1b6b-4a4e-9ab6-6aee92027412.png",
+            "review_text": "<i>“Meeeh, could have been better, my hair wasn’t right on the pic 🤷”<br><i>- Dolly, pet<\/i><\/i>",
+            "typed_text_pet": "pet"
+          }
         }
       },
       "block_order": [
-        "af4c9ed6-8e44-44ff-b855-637603227414",
         "34229b2e-c551-4c47-857e-36f2edb5d789",
-        "0e6873ab-3fe5-4bbc-9e88-21876b48ffd7",
-        "1610bbb9-1ac0-4603-af23-d503408c5a7c"
+        "af4c9ed6-8e44-44ff-b855-637603227414",
+        "1610bbb9-1ac0-4603-af23-d503408c5a7c",
+        "0e6873ab-3fe5-4bbc-9e88-21876b48ffd7"
       ],
       "settings": {
       }
