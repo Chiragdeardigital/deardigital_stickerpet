@@ -1,23 +1,44 @@
 <style type="text/css">
-  .template-404 .title + * {
-    margin-top: 1rem;
+  .hero-image-reviews {
+    height: auto;
+    position: relative;
+    min-height: 300px;
+    background-color: #a5dcde;
   }
 
-  @media screen and (min-width: 750px) {
-    .template-404 .title + * {
-      margin-top: 2rem;
+  .text-center {
+    text-align: center;
+  }
+
+  .heading1 {
+    color: #fff;
+    font-size: 46px;
+  }
+
+  .star {
+    color: #f9ae37;
+  }
+  .hero-img img {
+    object-fit: contain;
+    max-width: 100%;
+    width: auto;
+}
+
+  @media (max-width: 1380px) {
+    .hero-image-reviews .heading1 {
+      font-size: 35px;
     }
   }
-</style>
 
-<div class="template-404 page-width page-margin center">
-  <p>
-    {{ 'templates.404.subtext' | t }}
-  </p>
-  <h1 class="title">
-    {{ 'templates.404.title' | t }}
-  </h1>
-  <a href="{{ routes.all_products_collection_url }}" class="link body-large">
-    {{ 'general.continue_shopping' | t }}
-  </a>
+</style>
+<div class="hero-image-reviews" style="height: auto;">
+  <div class="text-center" style="padding-top: 3%;">
+    <h1 class="h1 heading1 text-center" style="max-width: 800px;margin-left: auto;margin-right: auto;"><span
+        class="star">404</span><br><br><span style="font-size: 75%">Sorry.<br>This page you are looking for can not be
+        found.<br>Please try the links above in our menu or contact us <a href="mailto:info@stickerpet.com"
+          style="color: #fff;">info@stickerpet.com</a><br></span></h1>
+    <div class="hero-img">
+      <img class="" src="{{ " cactus-01.gif" | asset_url }}" width="500" alt="404 logo">
+    </div>
+  </div>
 </div>
