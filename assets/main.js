@@ -233,7 +233,7 @@ TxtType.prototype.tick = function () {
 
 
 /*=================== REVIEW SECTION SCRIPT ===================*/
-
+$( document ).ready(function() {
 var TxtTyper = function (elr, toRotater, periodr) {
   this.toRotater = toRotater;
   this.elr = elr;
@@ -329,7 +329,7 @@ window.onload = function () {
   document.body.appendChild(css);
 };
 
-
+});
 /*=================== ANNOUNCEMENT SECTION SCRIPT ===================*/
 
 if (

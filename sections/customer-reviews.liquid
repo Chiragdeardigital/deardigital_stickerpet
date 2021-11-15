@@ -4,13 +4,18 @@
       <div class="row">
         <div class="column-50 self-center">
           <h2 class="h3 headings">Real,<br>
-          {% assign textArray = section.settings.typed_text | split: "," %}
+            <span style="display: none;"></span>
+
+
             <span id="review-typewriter" class="typewriter" data-period="6000"
                   data-type="[
-                    {%- for text in textArray -%}
-                      '{{ text }}'{%- unless forloop.last -%},{%- endunless -%}
-                    {%- endfor -%}
-                  ]">
+                  {%- for block in section.blocks -%}{%- case block.type -%}{%- when "human_review" -%}
+                  {%- assign textArray_human = block.settings.typed_text_human | split: "," -%}
+                  '{{textArray_human}}'{%- unless forloop.last -%},{%- endunless -%}{%- when "pet_review" -%}{%- assign textArray_pet = block.settings.typed_text_pet | split: "," -%}
+                  '{{textArray_pet}}' {%- unless forloop.last -%},{%- endunless -%}
+                  {%- endcase -%}{%- endfor -%}
+                  ]"
+              >
               <span class="wrap">human</span></span>
 
             reviews.
@@ -30,8 +35,7 @@
         </div>
         <div class="column-50 faders">
           {%- for block in section.blocks -%}
-          {% case block.type %}
-          {%- when 'review' -%}
+        
           <div class="row v-center" {% if forloop.index > 1  %}style="display: none;"{% endif %}>
             <div class="column-30">
               <div class="v-center">
@@ -51,7 +55,7 @@
               <p class="para">{{ block.settings.review_text }}</p>
             </div>
           </div>
-          {%- endcase -%}
+   
           {%- endfor -%}
         </div>
       </div>
@@ -62,17 +66,12 @@
 {
     "name": "Customer Reviews",
     "settings": [
-    {
-      "id": "typed_text",
-      "type": "text",
-      "label": "Text",
-      "info": "Enter the words for typing effect separated with comma(,) eg. text1,text2"
-    }
+    
     ],
     "blocks": [
         {
-            "type": "review",
-            "name": "Review",
+            "type": "human_review",
+            "name": "Human Review",
             "settings": [
                 {
                     "id": "review_image",
@@ -83,11 +82,43 @@
                     "id": "review_text",
                     "type": "html",
                     "label": "Text",
-                    "default": "<i>“The comment by the reviewer goes here </i>🐶”<br><i>- name goes here, category</i>",
+                    "default": "<i>“The comment by the reviewer goes here </i>🐶”<br><i>- name goes here, human</i>",
                     "info": "Change the text only and don't remove the tags i.e., '<i>,<br>', if you don't know what they are."
+                },
+                {
+                  "id": "typed_text_human",
+                  "type": "text",
+                  "label": "Text",
+                  "default" : "human",
+                  "info": "Enter the words for typing effect separated with comma(,) eg. text1,text2"
                 }
             ]
-        }
+        },
+        {
+          "type": "pet_review",
+          "name": "Pet Review",
+          "settings": [
+              {
+                  "id": "review_image",
+                  "type": "image_picker",
+                  "label": "Add image"
+              },
+              {
+                  "id": "review_text",
+                  "type": "html",
+                  "label": "Text",
+                  "default": "<i>“The comment by the reviewer goes here </i>🐶”<br><i>- name goes here, pet</i>",
+                  "info": "Change the text only and don't remove the tags i.e., '<i>,<br>', if you don't know what they are."
+              },
+              {
+                "id": "typed_text_pet",
+                "type": "text",
+                "label": "Text",
+                "default" : "pet",
+                "info": "Enter the words for typing effect separated with comma(,) eg. text1,text2"
+              }
+          ]
+      }
         
     ],
     "presets": [
