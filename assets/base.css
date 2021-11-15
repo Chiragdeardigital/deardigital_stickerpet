@@ -1212,6 +1212,17 @@ deferred-media {
   margin-top: 0.5rem;
 }
 
+.customer button, .shopify-challenge__button {
+  border-radius: 50px;
+  padding: 0.9rem 3rem 1.1rem;
+  background-color: var(--solid-button-bg-color);
+  box-shadow: 0 0 0 0.1rem var(--solid-button-bg-color);
+  color: var(--solid-button-labels);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: var(--font-family-headers);
+}
+
 /* component-form */
 .field__input,
 .select__select,
@@ -1219,13 +1230,13 @@ deferred-media {
 .customer select {
   -webkit-appearance: none;
   appearance: none;
-  background-color: transparent;
+  background-color: #ffffffa8;
   border: 0;
-  border-radius: 0;
-  color: rgb(var(--color-foreground));
+  border-radius: 5px;
+  color: var(--text-color);
   font-size: 1.6rem;
   width: 100%;
-  box-shadow: 0 0 0 0.1rem rgba(var(--color-foreground), 0.55);
+  box-shadow: 0 0 0 0.1rem #fff;
   height: 4.5rem;
   box-sizing: border-box;
   transition: box-shadow var(--duration-short) ease;
@@ -1244,7 +1255,7 @@ deferred-media {
 .customer .field input:hover,
 .customer select:hover,
 .localization-form__select:hover {
-  box-shadow: 0 0 0 0.2rem rgba(var(--color-foreground), 0.55);
+  box-shadow: 0 0 0 0.2rem #fff;
 }
 
 .field__input:focus-visible,
@@ -1258,9 +1269,8 @@ deferred-media {
 .field__input:focus,
 .select__select:focus,
 .field input:focus {
-  box-shadow: 0 0 0 0.1rem rgba(var(--color-foreground), 0.55),
-    0 0 0 0.3rem rgb(var(--color-background)),
-    0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
+  box-shadow: 0 0 0 0.1rem #fff,
+    0 0 0 0.3rem #fff;
 }
 
 .text-area,
@@ -1320,7 +1330,7 @@ deferred-media {
   position: absolute;
   transition: top var(--duration-short) ease,
     font-size var(--duration-short) ease;
-  color: rgba(var(--color-foreground), 0.75);
+  /* color: rgba(var(--color-foreground), 0.75); */
   letter-spacing: 0.1rem;
   line-height: 1.5;
 }
