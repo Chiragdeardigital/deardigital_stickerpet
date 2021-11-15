@@ -11,8 +11,9 @@ html{
 .cart-items th {
   text-align: left;
   padding-bottom: 1.8rem;
-  opacity: 0.85;
-  font-weight: normal;
+  opacity: 1;
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
 .cart-item__totals {
@@ -88,24 +89,25 @@ html{
 }
 
 @media screen and (min-width: 750px) and (max-width: 989px) {
-  /* .cart-item cart-remove-button {
+  .cart-item cart-remove-button {
     width: 4.5rem;
     height: 4.5rem;
-  } */
+  }
 }
 
 cart-remove-button .button {
   min-width: 4.5rem;
   min-height: 4.5rem;
   padding: 0;
-  margin: 0 0.1rem 0.1rem 0;
+  /* margin: 0 0.1rem 0.1rem 0; */
+  width: fit-content;
   display: flex;
 }
 
 @media screen and (min-width: 1024px) {
   cart-remove-button .button {
-    min-width: 3.5rem;
-    min-height: 3.5rem;
+    /* min-width: 3.5rem;
+    min-height: 3.5rem; */
   }
 }
 
@@ -180,7 +182,7 @@ cart-remove-button .icon-remove {
   .cart-items thead tr {
     display: flex;
     justify-content: space-between;
-    border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.2);
+    border-bottom: 0.1rem solid var(--solid-button-labels);
     margin-bottom: 4rem;
   }
 
@@ -228,7 +230,7 @@ cart-remove-button .icon-remove {
   }
 
   .cart-items th {
-    border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.2);
+    border-bottom: 0.15rem solid var(--solid-button-labels);
   }
 
   .cart-items th + th {
