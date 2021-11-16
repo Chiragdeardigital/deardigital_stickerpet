@@ -2,26 +2,98 @@
 
 <section class="image-with-text classic">
     <div class="wrapper marg-bot-xl">
-        <div class="flex">
+        <div class="flex {% if section.settings.layout == 'image_first' %} row-reverse{% endif %}">
             <div class="flex-center column-40">
                 <div class="">
-                    <h2 class="h3 headings">Sticker of the month 🤩
+                    {%- for block in section.blocks -%}
+                    {% case block.type %}
+                    {%- when 'heading' -%}
+                    <h2 class="h3 headings">{{ block.settings.heading | escape }}
                     </h2>
+                    {%- when 'text' -%}
                     <p class="para">
-                        Don't we all know a dog that farts a lot 😅? Well, if you own a frenchie you might have hit
-                        the fart-jackpot, as those dogs are the real kings of smelly air in the morning 💩.
+                        {{ block.settings.text }}
                     </p>
+                    {%- endcase -%}
+                    {%- endfor -%}
                 </div>
             </div>
-
+            {% assign product_selected = section.settings.single_product %}
+            {% assign singleProduct = all_products[selected_product] %}
             <div class="column-40">
                 <div class="v-center">
-                    <img src="https://cdn.shopify.com/s/files/1/0268/5580/0887/products/French_Farts_600x.png?v=1605550810" alt="" />
-                    <button class="button button-outline direct-cart " data-value="" data-name=""
-                        data-img="">Buy for €3,95</button>
+                    <img src="{{ singleProduct.featured_image | product_img_url: '600x' }}" alt="{{ singleProduct.title | escape  }}" />
+                    <button class="button button-outline direct-cart " data-variant-id="{{ singleProduct.variants.first.id }}" data-name=""
+                        data-img="">Buy for {{ singleProduct.variants.first.price | money }}</button>
                 </div>
             </div>
 
         </div>
     </div>
 </section>
+
+
+{% schema %}
+{
+    "name": "Product with text",
+    "settings": [
+        {
+          "type": "select",
+          "id": "layout",
+          "options": [
+            {
+              "value": "image_first",
+              "label": "Image First"
+            },
+            {
+              "value": "text_first",
+              "label": "Text First"
+            }
+          ],
+          "default": "image_first",
+          "label": "Desktop Layout",
+          "info" : "Text first is the default mobile layout."
+        },
+        {
+            "type": "product",
+            "id": "single_product",
+            "label": "Product",
+            "info": "Select a product to display."
+        }
+    ],
+    "blocks": [
+          {
+            "type": "heading",
+            "name": "Image with text",
+            "limit": 1,
+            "settings": [
+              {
+                "type": "text",
+                "id": "heading",
+                "default": "Sticker of the month 🤩",
+                "label": "Heading"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "name": "description",
+            "limit": 1,
+            "settings": [
+              {
+                "type": "html",
+                "id": "text",
+                "label": "Description",
+                "default" : "Don't we all know a dog that farts a lot 😅? Well, if you own a frenchie you might have hit the fart-jackpot, as those dogs are the real kings of smelly air in the morning 💩."
+              }
+            ]
+          }
+    ],
+    "presets": [
+        {
+            "name": "Product with text",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}

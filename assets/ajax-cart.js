@@ -62,12 +62,27 @@ function addToCartVariant() {
     });
 }
 
+
+$("body").on("click", ".direct-cart", function () {
+  let btn_txt = $(this).html();
+  $(this).addClass("special-loader");
+  $(this).html(
+    'Loading <span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>'
+  );
+  addToCart(this);
+  $(this).html(btn_txt);
+});
+
 //upsellcart
 $("body").on("click", ".UpsellAddToCart", function () {
+  addToCart(this);
+});
+
+function addToCart(element) {
   $("#CartContainer").addClass("block-cursor");
-  let variant_id = parseInt(this.getAttribute("data-variant-id"));
+  let variant_id = parseInt(element.getAttribute("data-variant-id"));
   let variant_quantity =
-    $(this).data("quantity") != "" ? $(this).data("quantity") : 1;
+    $(element).data("quantity") != "" ? $(element).data("quantity") : 1;
   let renderedHtml;
   let renderedTotalPrice;
   var formData = {
@@ -102,11 +117,13 @@ $("body").on("click", ".UpsellAddToCart", function () {
       // jQuery.getJSON('/cart.js', function (cart) {
       //   // openAjaxCart(cart);
       // });
+      openCart();
     })
     .fail(function (error) {
       console.log(error);
+      $("#CartContainer").removeClass("block-cursor");
     });
-});
+}
 
 $("body").on("change", "#CartSpecialInstructions", function () {
   $("#CartContainer").addClass("block-cursor");
