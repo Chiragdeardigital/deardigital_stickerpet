@@ -1,0 +1,36 @@
+.image-with-text.classic .wrapper {
+    max-width: 63%;
+    margin: 0 auto;
+}
+.image-with-text.classic .para{
+    font-size: 16px;
+}
+
+.image-with-text.classic .button {
+    margin: 30px auto;
+    width: fit-content;
+}
+
+.button.button-outline {
+    background: 0 0;
+    color: #fbb038;
+    border: 2px solid #fbb038;
+}
+
+.button.button-outline:hover {
+    background: #fbb038;
+    color: #fff;
+    border: 2px solid #fbb038;
+}
+
+@media (max-width:768px) {
+    .image-with-text.classic .flex {
+        flex-direction: column;
+    }
+    .image-with-text.classic .column-40 {
+        max-width: 100%;
+    }
+    .image-with-text.classic .para{
+        margin-bottom: 25px;
+    }
+}

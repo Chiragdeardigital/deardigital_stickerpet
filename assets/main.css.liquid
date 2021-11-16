@@ -187,7 +187,7 @@ img,
   font-family: var(--font-family-headers);
   text-align: center;
   display: block;
-  width: 153px;
+  width: fit-content;
   font-size: 15.3px;
   border-radius: 50px;
   font-weight: 700;
@@ -200,6 +200,18 @@ img,
   user-select: none;
   color: var(--solid-button-labels);
   transition: all 0.4s ease-out;
+}
+
+.button.button-outline {
+  background: 0 0;
+  color: var(--solid-button-bg-color);
+  border: 2px solid var(--solid-button-bg-color);
+}
+
+.button.button-outline:hover {
+  background: var(--solid-button-bg-color);
+  color: var(--solid-button-labels);
+  border: 2px solid var(--solid-button-bg-color);
 }
 
 .gallery .text-block .flex {
