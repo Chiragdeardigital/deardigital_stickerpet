@@ -1,36 +1,82 @@
 {{ 'product-grid.css' | asset_url | stylesheet_tag }}
 
 <div class="wrapper marg-bot-xl">
-    <h2 class="h3 headings text-center no-mobile marg-bot" style="font-size: 35px !important;">Our unique designs desktop🤙<br><span style="font-size: 20px;"> High quality, super fun stickers</span></h2>
-    <h2 class="h3 headings text-center no-desktop marg-bot marg-top-xxl" style="font-size: 30px !important;">Our unique designs mobile🤙<br><span style="font-size: 16px;"> High quality, super fun stickers</span></h2>
+    <h2 class="h3 headings text-center no-mobile marg-bot" style="font-size: 35px !important;">{{section.settings.product_grid_heading}}<span class="grid_heading_subtext"> {{section.settings.product_grid_subtext}}</span></h2>
+    <h2 class="h3 headings text-center no-desktop marg-bot marg-top-xxl" style="font-size: 30px !important;">{{section.settings.product_grid_heading}}<span style="font-size: 16px;"> {{section.settings.product_grid_subtext}}</span></h2>
     <div class="row">
+      {% for product in collections[section.settings.collection_selected_grid].products %}
       <div class="col-md-4 flex-center">
         <div class="classic-products products">
           <div class="about-us middle-text image-section">
-              <img src="../../French_Farts_600x.png" alt="Classic Product Image" loading = "lazy" />
+              <img src="{{ product.featured_image | img_url: 'master' }}" alt="Classic Product Image" loading = "lazy" />
           </div>
           <div class="product-detail justify-text">
   
-            <div class="row space-between">
+            <div class="row space-around">
               <p class="col-9 product-title">
-                  1x product_title
+                  1x {{ product.title | escape  }}
               </p>
               <p class="col-3 product-price">
-                  5.12
+                {{ product.price | money }}
               </p>
             </div>
   
             <div class="row">
               <p class="col-9 product-description">
-                70 * 60 mm
+                {{ product.description | escape  }}
               </p>
               <p class="col-3 product-size">
               </p>
             </div>
-            <button class="button button-outline" style="margin: 0 auto;">ADD TO CART</button>
-  
+            <button class="button button-outline no-mobile" style="margin: 0 auto;">ADD TO CART</button>
+            <button class="button button-outline no-desktop btn-mobile" style="margin: 0 auto;">{{ product.price | money }}</button>
+
           </div>
         </div>
       </div>
+      {% endfor %}
     </div>
   </div>
+
+
+  {% schema %}
+{
+    "name": "Product Grid",
+    "settings": [
+        {
+            "type": "html",
+            "id": "product_grid_heading",
+            "default": "Our unique designs desktop🤙<br>",
+            "label": "Product Grid Heading"
+        },
+        {
+          "type": "html",
+          "id": "product_grid_subtext",
+          "default": "High quality, super fun stickers",
+          "label": "Product Grid description"
+        },
+        {
+          "type": "collection",
+          "id": "collection_selected_grid",
+          "label": "Select a collection"
+        }
+        
+        
+    ],
+    "blocks": [
+      
+    ],
+    "presets": [
+        {
+            "name": "Product Grid",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

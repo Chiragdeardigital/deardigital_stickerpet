@@ -2,10 +2,84 @@
 
 <div class="hero-image-about hero-image-classic" style="background-image: none !important;overflow: hidden;">
     <div class="hero-text">
-        <h1 class="h1 heading1">Our classic<br> designs 🤘🏼</h1>
+        <h1 class="h1 heading1">{{ section.settings.sticker_banner_heading }}</h1>
     </div>
-    <img src="../../classic-image-1.png" class="classic-banner-image_1" alt="Classic Banner Images" loading="lazy">
-    <img src="../../French_Farts_600x.png" class="classic-banner-image_2" alt="Classic Banner Images" loading="lazy">
-    <img src="../../classic-image-3.png" class="classic-banner-image_3" alt="Classic Banner Images" loading="lazy">
-    <img src="../../classic-image-4.png" class="classic-banner-image_4" alt="Classic Banner Images" loading="lazy">
+
+    {% if section.settings.banner_overlay_image_1 != blank %}
+    <img 
+    src="{{ section.settings.banner_overlay_image_1 | img_url: 'master' }}" class="classic-banner-image_1" alt="{{ section.settings.banner_overlay_image_1.alt }}" loading="lazy">
+    {% else %}
+    {{ 'lifestyle-2' | placeholder_svg_tag }}
+    {% endif %}
+
+    {% if section.settings.banner_overlay_image_2 != blank %}
+    <img 
+    src="{{ section.settings.banner_overlay_image_2 | img_url: 'master' }}" class="classic-banner-image_2" alt="{{ section.settings.banner_overlay_image_2.alt }}" loading="lazy">
+    {% else %}
+    {{ 'lifestyle-2' | placeholder_svg_tag }}
+    {% endif %}
+
+    {% if section.settings.banner_overlay_image_3 != blank %}
+    <img 
+    src="{{ section.settings.banner_overlay_image_3 | img_url: 'master' }}" class="classic-banner-image_3" alt="{{ section.settings.banner_overlay_image_3.alt }}" loading="lazy">
+    {% else %}
+    {{ 'lifestyle-2' | placeholder_svg_tag }}
+    {% endif %}
+
+    {% if section.settings.banner_overlay_image_4 != blank %}
+    <img 
+    src="{{ section.settings.banner_overlay_image_4 | img_url: 'master' }}" class="classic-banner-image_4" alt="{{ section.settings.banner_overlay_image_4.alt }}" loading="lazy">
+    {% else %}
+    {{ 'lifestyle-2' | placeholder_svg_tag }}
+    {% endif %}
+  
 </div>
+
+{% schema %}
+{
+    "name": "Sticker Banner",
+    "settings": [
+        {
+            "type": "html",
+            "id": "sticker_banner_heading",
+            "default": "Our classic<br> designs 🤘🏼",
+            "label": "Banner Heading"
+        },
+        {
+            "type": "image_picker",
+            "id": "banner_overlay_image_1",
+            "label": "Image 1"
+        },
+        {
+            "type": "image_picker",
+            "id": "banner_overlay_image_2",
+            "label": "Image 2"
+        },
+        {
+            "type": "image_picker",
+            "id": "banner_overlay_image_3",
+            "label": "Image 3"
+        },
+        {
+            "type": "image_picker",
+            "id": "banner_overlay_image_4",
+            "label": "Image 4"
+        }
+    ],
+    "blocks": [
+        
+    ],
+    "presets": [
+        {
+            "name": "Sticker Banner",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

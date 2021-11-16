@@ -32,14 +32,16 @@ img{
     position: absolute;
     right: 8%;
     height: 20vw;
-    bottom: -15%
+    bottom: -15%;
+    width: auto;
 }
 
 .classic-banner-image_2 {
     position: absolute;
     left: -2%;
     height: 20vw;
-    top: 3%
+    top: 3%;
+    width: auto ;
 }
 
 .classic-banner-image_3 {
@@ -47,6 +49,7 @@ img{
     left: 10%;
     height: 20vw;
     bottom: -15%;
+    width: auto;
 }
 
 .classic-banner-image_4 {
@@ -54,6 +57,7 @@ img{
     right: -2%;
     height: 20vw;
     top: 3%;
+    width: auto;
 }
 
 
