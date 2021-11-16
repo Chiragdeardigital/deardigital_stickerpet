@@ -1,1 +1,111 @@
-{"sections":{"banner":{"type":"main-collection-banner","settings":{}},"product-grid":{"type":"main-collection-product-grid","settings":{}}},"order":["banner","product-grid"]}
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": false,
+        "show_collection_image": false
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "disabled": true,
+      "settings": {
+        "products_per_page": 16,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_vendor": false,
+        "enable_filtering": true,
+        "enable_sorting": true
+      }
+    },
+    "16370855266c37916c": {
+      "type": "sticker-banner",
+      "settings": {
+        "sticker_banner_heading": "Our classic<br> designs 🤘🏼",
+        "banner_overlay_image_1": "shopify:\/\/shop_images\/classic-image-1.png",
+        "banner_overlay_image_2": "shopify:\/\/shop_images\/classic-image-4.png",
+        "banner_overlay_image_3": "shopify:\/\/shop_images\/classic-image-3.png",
+        "banner_overlay_image_4": "shopify:\/\/shop_images\/French_Farts_600x_533b2a09-3888-487f-a134-39c2a465959c.png"
+      }
+    },
+    "1637085621f0de8ee9": {
+      "type": "product-quality",
+      "blocks": {
+        "583150e4-3f64-40ed-a0d3-362c7221f1ab": {
+          "type": "quality_block",
+          "settings": {
+            "heading": "🔫 water<br> proof",
+            "hide_block": false
+          }
+        },
+        "46ce85c0-94f4-4cf3-a904-f4dc4b9cd3ff": {
+          "type": "quality_block",
+          "settings": {
+            "heading": "super 🦎<br> sticky",
+            "hide_block": false
+          }
+        },
+        "04a9385c-9579-45aa-8668-d5364c8e8be8": {
+          "type": "quality_block",
+          "disabled": true,
+          "settings": {
+            "heading": "🔫 water<br> proof",
+            "hide_block": false
+          }
+        }
+      },
+      "block_order": [
+        "583150e4-3f64-40ed-a0d3-362c7221f1ab",
+        "46ce85c0-94f4-4cf3-a904-f4dc4b9cd3ff",
+        "04a9385c-9579-45aa-8668-d5364c8e8be8"
+      ],
+      "settings": {
+        "show_rating_block": true
+      }
+    },
+    "16370857413564dd6d": {
+      "type": "product-with-text",
+      "blocks": {
+        "7b172af4-d9e1-47a3-baaf-44609145f6f1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Sticker of the month 🤩"
+          }
+        },
+        "29431a19-2c4e-4c0f-81c2-f2c49f7cac76": {
+          "type": "text",
+          "settings": {
+            "text": "Don't we all know a dog that farts a lot 😅? Well, if you own a frenchie you might have hit the fart-jackpot, as those dogs are the real kings of smelly air in the morning 💩."
+          }
+        }
+      },
+      "block_order": [
+        "7b172af4-d9e1-47a3-baaf-44609145f6f1",
+        "29431a19-2c4e-4c0f-81c2-f2c49f7cac76"
+      ],
+      "settings": {
+        "layout": "text_first",
+        "single_product": "portraits"
+      }
+    },
+    "1637085898d123724a": {
+      "type": "product-grid",
+      "settings": {
+        "product_grid_heading": "Our unique designs desktop🤙<br>",
+        "product_grid_subtext": "High quality, super fun stickers",
+        "collection_selected_grid": "pet-stickers"
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid",
+    "16370855266c37916c",
+    "1637085621f0de8ee9",
+    "16370857413564dd6d",
+    "1637085898d123724a"
+  ]
+}
