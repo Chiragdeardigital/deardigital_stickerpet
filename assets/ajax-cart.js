@@ -64,13 +64,8 @@ function addToCartVariant() {
 
 
 $("body").on("click", ".direct-cart", function () {
-  let btn_txt = $(this).html();
-  $(this).addClass("special-loader");
-  $(this).html(
-    'Loading <span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>'
-  );
   addToCart(this);
-  $(this).html(btn_txt);
+  
 });
 
 //upsellcart
@@ -85,6 +80,13 @@ function addToCart(element) {
     $(element).data("quantity") != "" ? $(element).data("quantity") : 1;
   let renderedHtml;
   let renderedTotalPrice;
+
+  let btn_txt = $(element).html();
+  $(element).addClass("special-loader");
+  $(element).html(
+    'Loading <span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>'
+  );
+
   var formData = {
     items: [
       {
@@ -118,6 +120,8 @@ function addToCart(element) {
       //   // openAjaxCart(cart);
       // });
       openCart();
+      $(element).html(btn_txt);
+      $(element).removeClass("special-loader");
     })
     .fail(function (error) {
       console.log(error);

@@ -7,14 +7,14 @@
 
     {% if section.settings.banner_overlay_image_1 != blank %}
     <img 
-    src="{{ section.settings.banner_overlay_image_1 | img_url: 'master' }}" class="classic-banner-image_1" alt="{{ section.settings.banner_overlay_image_1.alt }}" loading="lazy">
+    src="{{ section.settings.banner_overlay_image_1 | img_url: 'master' }}" class="classic-banner-image_1"  alt="{{ section.settings.banner_overlay_image_1.alt }}" loading="lazy">
     {% else %}
     {{ 'lifestyle-2' | placeholder_svg_tag }}
     {% endif %}
 
     {% if section.settings.banner_overlay_image_2 != blank %}
     <img 
-    src="{{ section.settings.banner_overlay_image_2 | img_url: 'master' }}" class="classic-banner-image_2" alt="{{ section.settings.banner_overlay_image_2.alt }}" loading="lazy">
+    src="{{ section.settings.banner_overlay_image_2 | img_url: 'master' }}" class="classic-banner-image_2" alt="{{ section.settings.banner_overlay_image_2.alt }}" >
     {% else %}
     {{ 'lifestyle-2' | placeholder_svg_tag }}
     {% endif %}
@@ -28,7 +28,7 @@
 
     {% if section.settings.banner_overlay_image_4 != blank %}
     <img 
-    src="{{ section.settings.banner_overlay_image_4 | img_url: 'master' }}" class="classic-banner-image_4" alt="{{ section.settings.banner_overlay_image_4.alt }}" loading="lazy">
+    src="{{ section.settings.banner_overlay_image_4 | img_url: 'master' }}" class="classic-banner-image_4" alt="{{ section.settings.banner_overlay_image_4.alt }}" >
     {% else %}
     {{ 'lifestyle-2' | placeholder_svg_tag }}
     {% endif %}

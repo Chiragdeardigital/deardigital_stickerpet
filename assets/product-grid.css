@@ -88,6 +88,9 @@
     .product-detail .row{
         justify-content: center;
     }
+    .classic-products.products{
+        padding: 32px 0;
+    }
 }
 
 @media (max-width: 420px){
@@ -116,6 +119,8 @@
     .classic-products.products .image-section {
         height: 300px;
         display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .classic-products.products .image-section img {
         height: auto;

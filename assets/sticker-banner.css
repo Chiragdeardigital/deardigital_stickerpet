@@ -34,6 +34,7 @@ img{
     height: 20vw;
     bottom: -15%;
     width: auto;
+    max-width: fit-content;
 }
 
 .classic-banner-image_2 {
@@ -41,7 +42,8 @@ img{
     left: -2%;
     height: 20vw;
     top: 3%;
-    width: auto ;
+    width: 230px ;
+    max-width: fit-content;
 }
 
 .classic-banner-image_3 {
@@ -50,6 +52,7 @@ img{
     height: 20vw;
     bottom: -15%;
     width: auto;
+    max-width: fit-content;
 }
 
 .classic-banner-image_4 {
@@ -57,7 +60,8 @@ img{
     right: -2%;
     height: 20vw;
     top: 3%;
-    width: auto;
+    width: 230px;
+    max-width: fit-content;
 }
 
 

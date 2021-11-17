@@ -8,7 +8,7 @@
                     {%- for block in section.blocks -%}
                     {% case block.type %}
                     {%- when 'heading' -%}
-                    <h2 class="h3 headings">{{ block.settings.heading | escape }}
+                    <h2 class="h3 headings product-text">{{ block.settings.heading | escape }}
                     </h2>
                     {%- when 'text' -%}
                     <p class="para">
@@ -19,12 +19,16 @@
                 </div>
             </div>
             {% assign product_selected = section.settings.single_product %}
-            {% assign singleProduct = all_products[selected_product] %}
+            {% assign singleProduct = all_products[product_selected] %}
             <div class="column-40">
                 <div class="v-center">
-                    <img src="{{ singleProduct.featured_image | product_img_url: '600x' }}" alt="{{ singleProduct.title | escape  }}" />
-                    <button class="button button-outline direct-cart " data-variant-id="{{ singleProduct.variants.first.id }}" data-name=""
-                        data-img="">Buy for {{ singleProduct.variants.first.price | money }}</button>
+                  {% if singleProduct.featured_image != blank %}
+                  <a href="{{singleProduct.url}}"><img src="{{ singleProduct.featured_image | product_img_url: '600x' }}" alt="{{ singleProduct.title | escape  }}" /></a>
+                    {% else %}
+                    {{ 'product-1' | placeholder_svg_tag }}
+                    {% endif %}
+                    <button class="button button-outline direct-cart " data-variant-id="{{ singleProduct.first_available_variant.id }}" data-name=""
+                        data-img="">Buy for {{ singleProduct.first_available_variant.price | money }}</button>
                 </div>
             </div>
 

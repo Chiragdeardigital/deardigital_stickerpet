@@ -4,11 +4,16 @@
     <h2 class="h3 headings text-center no-mobile marg-bot" style="font-size: 35px !important;">{{section.settings.product_grid_heading}}<span class="grid_heading_subtext"> {{section.settings.product_grid_subtext}}</span></h2>
     <h2 class="h3 headings text-center no-desktop marg-bot marg-top-xxl" style="font-size: 30px !important;">{{section.settings.product_grid_heading}}<span style="font-size: 16px;"> {{section.settings.product_grid_subtext}}</span></h2>
     <div class="row">
-      {% for product in collections[section.settings.collection_selected_grid].products %}
+      {% for product in collection.products %}
+      {% if product.price > 0 %}
       <div class="col-md-4 flex-center">
         <div class="classic-products products">
           <div class="about-us middle-text image-section">
-              <img src="{{ product.featured_image | img_url: 'master' }}" alt="Classic Product Image" loading = "lazy" />
+            {% if product.featured_image != blank %}
+              <a href="{{product.url}}"><img src="{{ product.featured_image | img_url: 'master' }}" alt="Classic Product Image" loading = "lazy" /></a>
+              {% else %}
+              {{ 'product-1' | placeholder_svg_tag }}
+              {% endif %}
           </div>
           <div class="product-detail justify-text">
   
@@ -28,12 +33,13 @@
               <p class="col-3 product-size">
               </p>
             </div>
-            <button class="button button-outline no-mobile" style="margin: 0 auto;">ADD TO CART</button>
-            <button class="button button-outline no-desktop btn-mobile" style="margin: 0 auto;">{{ product.price | money }}</button>
+            <button class="button button-outline no-mobile direct-cart" data-variant-id="{{ product.first_available_variant.id }}" style="margin: 0 auto;">ADD TO CART</button>
+            <button class="button button-outline no-desktop btn-mobile direct-cart" data-variant-id="{{ product.first_available_variant.id }}" style="margin: 0 auto;">{{ product.price | money }}</button>
 
           </div>
         </div>
       </div>
+      {% endif %}
       {% endfor %}
     </div>
   </div>
