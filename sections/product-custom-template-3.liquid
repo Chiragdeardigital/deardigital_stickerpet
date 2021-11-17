@@ -260,7 +260,7 @@
               product-single__form installment caption-large{% if product.has_only_default_variant %} product-single__form--no-variants{% endif %}
             {%- endcapture %}
 
-            {% capture "form_id" %}AddToCartForm--product-custom-template{%- endcapture -%}
+            {% capture "form_id" %}product-form-{{ section.id }}{%- endcapture -%}
 
             {% form 'product', product, class:form_classes, id:form_id, data-product-form: '' %}
             <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
@@ -332,95 +332,7 @@
                 {{ product.variants | json }}
               </script>
             </variant-radios>
-                {% comment %} {% for option in product.options_with_values %}
-            		<div class="radio-wrapper js product-form__item no-desktop no-mobile ">
-                      <label class="single-option-radio__label product-single__description"
-                        for="ProductSelect-option-{{ forloop.index0 }}">
-                        {{ option.name | escape }}
-                      </label>
-                    
-                      {% if section.settings.product_selector == 'radio' %}
-                        <fieldset class="color-div colors-text single-option-radio"
-                          id="ProductSelect-option-{{ forloop.index0 }}">
-                          {% assign option_index = forloop.index %}
-                          {% for value in option.values %}
-                            {% assign variant_label_state = true %}
-                            {% if product.options.size == 1 %}
-                              {% unless product.variants[forloop.index0].available  %}
-                                {% assign variant_label_state = false %}
-                              {% endunless %}
-                            {% endif %}
-                            <input type="radio"
-                              {% unless variant_label_state %} disabled="disabled"{% endunless %}
-                              value="{{ value | escape }}"
-                              data-index="option{{ option_index }}"
-                             
-                              name="option{{ option.position }}"
-                              class="single-option-selector__radio{% unless variant_label_state %} disabled{% endunless %}"
-                              id="ProductSelect-option-{{ option.name | handleize }}-{{ value | replace: " " | escape }}">
-                            <label for="ProductSelect-option-{{ option.name | handleize }}-{{ value | replace: " " | escape }}"{% unless variant_label_state %} class="disabled"{% endunless %}>{{ value | escape }}</label>
-                          {% endfor %}
-                        </fieldset>
-                      {% else %}
-                        <select class="single-option-selector__radio single-option-selector-{{ section.id }} product-form__input" id="SingleOptionSelector-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
-                          {% for value in option.values %}
-                            <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value | escape }}</option>
-                          {% endfor %}
-                        </select>
-                      {% endif %}
-                  	</div>
-
-                  {% if option.name == 'Size' %}
-                  <div class="color-option">
-                    <label class="color-option single-option-radio__label product-single__description"
-                           for="ProductSelect-option-{{ forloop.index0 }}">
-                      {{ option.name | escape }}<span class="size-popup modal-show">(what's my size?)</span>
-                    </label>
-                    <div class="color-div">
-                      {% for value in option.values %}
-                      <span class="size-circle {{ value | escape }}" 
-                            data-index="option{{ option_index }}"
-                             data-title="{{ value | replace: " " }}"
-                            name="option{{ option.position }}"
-                            id="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}-manual">{{value}}</span>
-                      {% endfor %}
-                    </div>
-                  </div>
-
-
-
-                  {% elsif option.name == 'Color' %}
-
-                  <div class="color-option">
-                    <label class="color-option single-option-radio__label product-single__description"
-                           for="ProductSelect-option-{{ forloop.index0 }}">
-                      {{ option.name | escape }}
-                    </label>
-                    <div class="color-div">
-                      {% for color in option.values %}
-                      {% assign color_handle =  color | handleize %}
-                          {% for variant in product.variants %}
-                              {% assign color_meta_handle =  variant.metafields.my_fields.color_name | handleize %}
-                              {% if color_handle == color_meta_handle %}
-                                  {% assign color_hash = variant.metafields.my_fields.color %}
-                                  {% assign slider_index = variant.metafields.my_fields.slider_index %}
-                                  {% break %}
-                              {% endif %}
-                          {% endfor %}
-                          <span class="colors-swatch" 
-                                data-index="option{{ option_index }}"
-                                data-slide="{{ slider_index }}"
-                                 data-title="{{ color | replace: " " }}"
-                                name="option{{ option.position }}"
-                                id="ProductSelect-option-{{ option.name | handleize }}-{{ color | replace: " " | escape }}-manual">
-                            <span class="{{ color | replace: " " }} colors-color" style="background-color: {{ color_hash }};"></span>
-                            <span class="colors-text">{{ color }}</span>
-                          </span>
-                      {% endfor %}
-                    </div>
-                  </div>
-            {% endif %}
-            {% endfor %} {% endcomment %}
+                
             {% endunless %}
 
               <select name="" id="ProductSelect--product-custom-template" class="product-single__variants no-js">
@@ -471,10 +383,18 @@
             
 
               <div class="product-single__add-to-cart{% if section.settings.add_to_cart_button_size == 'large' %} product-single__add-to-cart--full-width{% endif %}">
-                <button name="add" id="AddToCart--{{ section.id }}" class="AddToCart this-is-cart-btn btn button border-button btn--add-to-cart">
-                  <span class="btn__text">
-                      Order Now
-                  </span>
+                <button 
+                name="add" 
+                id="AddToCart--{{ section.id }}" 
+                class="AddToCart this-is-cart-btn btn button border-button btn--add-to-cart"
+                {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
+                >
+                {%- if product.selected_or_first_available_variant.available -%}
+                Order Now
+              {%- else -%}
+                sold out
+              {%- endif -%}
+                  
                 </button>
               </div>            
             {% endform %}

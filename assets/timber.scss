@@ -1364,7 +1364,7 @@ html input[disabled] {
 
   &[disabled],
   &.disabled {
-    cursor: default;
+    cursor: not-allowed;
     color: darken($disabledBorder, 27%);
     background-color: $disabledGrey;
   }
