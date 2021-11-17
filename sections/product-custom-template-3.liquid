@@ -8,7 +8,7 @@
 <div class="blue-background">
 <!-- /templates/product.liquid -->
 {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
-  <script>
+  <!-- <script>
   tshirt_variants_json = {}
   variant_colors = []
   variant_sizes = []
@@ -34,10 +34,10 @@
     
     {% endif %}
   {% endfor %}
-	console.log(variant_sizes);
-    console.log(tshirt_variants_json);
-    console.log(variant_id);
-</script>
+	// console.log(variant_sizes);
+  //   console.log(tshirt_variants_json);
+  //   console.log(variant_id);
+</script> -->
 
 <div class="wrapper padd-bot-xl min-height-element" itemscope itemtype="http://schema.org/Product" id="ProductSection--product-custom-template"
   data-section-id="{{ section.id }}"
@@ -284,7 +284,7 @@
                               form="product-form-{{ section.id }}"
                               {% if option.selected_value == value %}checked{% endif %}
                         >
-                        <label class="size-circle" for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}">
+                        <label class="size-circle {{ value }}" for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}">
                           {{ value }}
                         </label>
                       {%- endfor -%}
@@ -305,7 +305,11 @@
                                 form="product-form-{{ section.id }}"
                                 {% if option.selected_value == value %}checked{% endif %}
                           >
-                          <label class="colors-swatch" for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}">
+                          <label 
+                          class="colors-swatch" 
+                          for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
+                          data-option-id="ProductSelect-option-{{ option.name | handleize }}-{{ value | replace: " " | escape }}-manual"
+                          > 
                             {% assign colorsSch = colorScheme | strip_newlines | split: "," %}
                             {% for colors in colorsSch %}
                               {% assign color = colors | split: ":" %}
@@ -651,351 +655,7 @@
 	}( document, window, 0 ));
   
   
-  
-    
-//   $( document ).ready(function() {
-//     jQuery.getJSON('/cart.js', function(cart) {
-//       window.cart_info = cart;        
-//     } );
-    
-//     window.message_cart_qty = 0;
 
-//     $( ".this-is-cart-btn" ).click(function() {
-//       addgiftbox();
-//     });    
-    
-//     $('input[type=radio][name=giftbags]').on('change', function() {
-//       switch ($(this).val()) {
-//         case 'yup':
-//           $(".gift-checkbox").prop("checked", true);
-//           break;
-//         case 'nah':
-//           $(".gift-checkbox").prop("checked", false);
-//           break;
-//       }
-//     });
-    
-// //       $('[data-toggle="tooltip"]').tooltip();  
-    
-//   });
-
-</script>
-
-
-<script>
-  
-// $(document).ready(function() {
-//      $('#AddToCart--product-custom-template').attr('disabled', true);
-       
-// });
-  
-  $size = 0;
-  $color = 0;
-  
-//     $( ".colors-swatch" ).click(function() {
-//       var colorSelected = $(this).attr('id');
-//       $(this).addClass("selected-color");
-//       var inputColor = colorSelected.substring(0,colorSelected.lastIndexOf('-')).replaceAll(" ","");
-//       console.log("Input Color: "+inputColor);
-//       document.getElementById(inputColor).checked = true;
-//       if(inputColor.substring(inputColor.lastIndexOf('-')+1) == "Blue") {
-//         $color = 1;
-//         $(".product-single__thumbnail").each(function(){
-//           var newMediaId = "product-custom-template-15794993299655";
-//           if($(this).data("media-id") == newMediaId) {
-//             $( this ).trigger( "click" );
-//           }
-//           $('.product-single__media-group.slick-initialized').slick("slickGoTo", 1);
-//         });
-//       }
-//       else if (inputColor.substring(inputColor.lastIndexOf('-')+1) == "Green") {
-//       	$color = 2;
-//         $(".product-single__thumbnail").each(function(){
-//           var newMediaId = "product-custom-template-15794993234119";
-//           if($(this).data("media-id") == newMediaId) {
-//             $( this ).trigger( "click" );
-//           }
-//           $('.product-single__media-group.slick-initialized').slick("slickGoTo", 2);
-//         });
-//       }
-//       else if (inputColor.substring(inputColor.lastIndexOf('-')+1) == "LightBlue") {
-//       	$color = 3;
-//         $(".product-single__thumbnail").each(function(){
-//           var newMediaId = "product-custom-template-21992432795847";
-//           if($(this).data("media-id") == newMediaId) {
-//             $( this ).trigger( "click" );
-//           }
-//           $('.product-single__media-group.slick-initialized').slick("slickGoTo", 4);
-//         });
-//       }
-//       else if (inputColor.substring(inputColor.lastIndexOf('-')+1) == "Purple") {
-//       	$color = 4;
-//         $(".product-single__thumbnail").each(function(){
-//           var newMediaId = "product-custom-template-21992312045767";
-//           if($(this).data("media-id") == newMediaId) {
-//             $( this ).trigger( "click" );
-//           }
-//           $('.product-single__media-group.slick-initialized').slick("slickGoTo", 3);
-//         });
-//       }
-      
-//       $( ".colors-swatch" ).each(function( index ) {
-//         if($(this).attr('id')!=colorSelected) {
-//           $(this).removeClass("selected-color"); 
-//           var removedColor = $(this).attr('id');
-// //           console.log("Removed Color: "+removedColor.substring(0,removedColor.lastIndexOf('-')));
-//           document.getElementById(removedColor.substring(0,removedColor.lastIndexOf('-'))).checked = false;
-//         }
-//       });
-      
-//       var color = inputColor.substring(inputColor.lastIndexOf('-')+1);
-// //       console.log("Color: "+color);
-//       $size = 0;
-//       $(".size-circle").removeClass("selected-size");
-//       $(".size-circle").removeClass("not-available");
-//       $("#ProductSelect--product-custom-template option").each(function() {
-//         var variantName = $(this).attr("variant-name").replaceAll(" ","");
-//         var sizeVariant = variantName.replaceAll(" ","").substring(variantName.lastIndexOf("/")+1);
-//         variantName = variantName.substring(0,variantName.lastIndexOf("/"));
-// //         console.log(variantName);
-// //         if(variantName == color) {
-// //           if($(this).data("avaliable") == "no") {
-// // //             console.log("Not Available Size : "+sizeVariant);
-// //             $(".size-circle."+sizeVariant).addClass("not-available");
-// //           }
-// //           else {
-// // //             console.log("Available Size : "+sizeVariant);
-// //           	$(".size-circle."+sizeVariant).removeClass("not-available");
-// //           }
-// //         }
-//       });
-      
-//     });
-  
-  // 	$( ".size-circle" ).click(function() {
-  //     if($(this).hasClass("not-available")) {
-  //       console.log("Size not available for selected Color");
-  //     }
-  //     else {
-  //     	var sizeSelected = $(this).attr('id');
-  //       $(this).addClass("selected-size"); 
-  //       var inputsize = sizeSelected.substring(0,sizeSelected.lastIndexOf('-'));
-  // //       console.log("Input Size: "+inputsize);
-  //       document.getElementById(inputsize).checked = true;
-  //       if(inputsize.substring(inputsize.lastIndexOf('-')+1) == "XS") {
-  //         $size=1;
-  //       }
-  //       else if (inputsize.substring(inputsize.lastIndexOf('-')+1) == "S") {
-  //         $size=2;
-  //       }
-  //       else if (inputsize.substring(inputsize.lastIndexOf('-')+1) == "M") {
-  //         $size=3;
-  //       }
-  //       else if (inputsize.substring(inputsize.lastIndexOf('-')+1) == "L") {
-  //         $size=4;
-  //       }
-  //       else if (inputsize.substring(inputsize.lastIndexOf('-')+1) == "XL") {
-  //         $size=5;
-  //       }
-  //       else if (inputsize.substring(inputsize.lastIndexOf('-')+1) == "XXL") {
-  //         $size=6;
-  //       }
-
-  //       $( ".size-circle" ).each(function( index ) {
-  //         if($(this).attr('id')!=sizeSelected) {
-  //           $(this).removeClass("selected-size");
-  //           var removedsize = $(this).attr('id');
-  // //           console.log("Removed Size: "+removedsize.substring(0,removedsize.lastIndexOf('-')));
-  //           document.getElementById(removedsize.substring(0,removedsize.lastIndexOf('-'))).checked = false;
-  //         }
-  //       });
-  //     }
-      
-  //   });
-  
-//   setInterval(function() {
-    
-//     if($color>0 && $size>0) {
-// // 	  console.log("T-shirt Variant : "+$color.toString()+$size.toString());
-//       if ($('#image').val() != '') {
-// 		$('#AddToCart--product-custom-template').attr('disabled', false);
-//       }
-//       else {
-//         $('#AddToCart--product-custom-template').attr('disabled', true);
-//       }
-// //       console.log($color.toString()+$size.toString());
-//       switch ($color.toString()+$size.toString()) {
-
-//           case '11': if($("#ProductSelect--product-custom-template [value=37750847733959]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(37750847733959);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//           case '12': if($("#ProductSelect--product-custom-template [value=37750847602887]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(37750847602887);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//           case '13': if($("#ProductSelect--product-custom-template [value=37750847635655]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(37750847635655);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//           case '14': if($("#ProductSelect--product-custom-template [value=37750847668423]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(37750847668423);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//           case '15': if($("#ProductSelect--product-custom-template [value=37750847701191]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(37750847701191);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//           case '16': if($("#ProductSelect--product-custom-template [value=37750847766727]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(37750847766727);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//           case '21': if($("#ProductSelect--product-custom-template [value=37750847930567]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(37750847930567);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//           case '22': if($("#ProductSelect--product-custom-template [value=37750847799495]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(37750847799495);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//           case '23': if($("#ProductSelect--product-custom-template [value=37750847832263]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(37750847832263);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//           case '24': if($("#ProductSelect--product-custom-template [value=37750847865031]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(37750847865031);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//           case '25': if($("#ProductSelect--product-custom-template [value=37750847897799]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(37750847897799);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//           case '26': if($("#ProductSelect--product-custom-template [value=37750847963335]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(37750847963335);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-          
-//           case '31': if($("#ProductSelect--product-custom-template [value=40085548695751]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(40085548695751);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//           case '32': if($("#ProductSelect--product-custom-template [value=40085553086663]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(40085553086663);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//           case '33': if($("#ProductSelect--product-custom-template [value=40085554626759]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(40085554626759);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//           case '34': if($("#ProductSelect--product-custom-template [value=40085557117127]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(40085557117127);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//           case '35': if($("#ProductSelect--product-custom-template [value=40085558329543]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(40085558329543);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//           case '36': if($("#ProductSelect--product-custom-template [value=40085559541959]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(40085559541959);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//           case '41': if($("#ProductSelect--product-custom-template [value=40085560131783]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(40085560131783);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//           case '42': if($("#ProductSelect--product-custom-template [value=40085571109063]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(40085571109063);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//           case '43': if($("#ProductSelect--product-custom-template [value=40085573697735]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(40085573697735);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//           case '44': if($("#ProductSelect--product-custom-template [value=40085574320327]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(40085574320327);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//           case '45': if($("#ProductSelect--product-custom-template [value=40085577007303]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(40085577007303);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//           case '46': if($("#ProductSelect--product-custom-template [value=40085581922503]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(40085581922503);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-
-//         default : if($("#ProductSelect--product-custom-template [value=37750847733959]").data('avaliable') == 'yes'){$('#AddToCart--product-custom-template span').text('Order Now');$("#ProductSelect--product-custom-template").val(37750847733959);break;}else{ $('#AddToCart--product-custom-template').attr('disabled', true).find('span').text('Sold Out');break; }
-//       }
-      
-//     }
-//     else {
-// //     	if($('#image').val() == "") {
-// 		$('#AddToCart--product-custom-template').attr('disabled', true);
-// //       }
-//     }
-//   }, 1000);
-  
-  
-  
-  
-  
-  
-  
-    // $( ".colors-swatch" ).click(function() {
-    //   let slideNo = $(this).data("slide");
-    //    $('.slider-single.slick-initialized').slick("slickGoTo", slideNo);
-    // });
-  
-  
-  
-
-  // $('form[action="/cart/add"]').submit(function(e){
-  //   e.preventDefault();
-  // });
-  // setInterval(function() {
-  //   if($(".colors-swatch.selected-color").data("title") && $(".size-circle.selected-size").data("title") && $("#image").val() != ""){
-  //     $(".btn--add-to-cart").removeAttr("disabled");
-
-  //   }
-  // }, 1000);
-  
-  // $(".AddToCart").click(function(event) {
-  //   event.preventDefault();
-  //   if ($("#image").val() === "") {
-  //   let ele = $(this);
-  //   ele.addClass("required-file");
-  //   ele.html('No File Selected !!');
-  //   setTimeout(function () {
-  //     ele.removeClass("required-file");
-  //     ele.html('order now');
-  //   }, 2000);
-  // } else {
-  //   $(this).addClass('special-loader');
-  //   $(this).html('Loading<span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>');
-
-  //   addToCartNew();
-  // }
-  // });
-//   function addToCartNew() {
-
-// //     var frame = $(".selected-frame").attr("id").substring(0,$(".selected-frame").attr("id").lastIndexOf("-"));
-// //     var frameSize = $(".selected-frame-size").attr("id").substring(0,$(".selected-frame-size").attr("id").lastIndexOf("-")).replaceAll(" ","");
-
-// //     frame = frame.substring(frame.lastIndexOf("-")+1);
-// //     frameSize = frameSize.substring(frameSize.lastIndexOf("-")+1);
-    
-// //     var type;
-// //     if($(".type-selected").hasClass("One")) {
-// //     	type = "One";
-// //     }
-// //     else {
-// //     	type = "Two";
-// //     }
-//       var colorname = $(".colors-swatch.selected-color").data("title");
-//     console.log(colorname);
-//     var sizename = $(".size-circle.selected-size").data("title");
-//     console.log(sizename);
-    
-//     var variantName = colorname+"/"+sizename;
-//   	var productId = tshirt_variants_json[variantName];
-//     console.log(variantName);
-//     console.log(productId);
-    
-//     $("#ProductSelect--product-custom-template option").each(function() {
-//       $(this).prop('selected', false)
-//       if($(this).attr("value") === productId) {
-//           $(this).prop('selected', true)
-//       }
-//     });
-  
-  
-//      var formData;
-//     var formArray = document.getElementById("AddToCartForm--product-custom-template");
-//     console.log(formArray)
-//     formData = new FormData(formArray)
-//     console.log(formData)
-    
-//     fetch('/cart/add.js', {
-//       method: 'POST',
-//       body: formData
-//     })
-//     .then(response => {
-//       return response.json();
-
-
-//     })
-//     .then(result => {
-//       console.log(result);
-//       jQuery.getJSON('/cart.js', function(cart) {
-//         openAjaxCart(cart);
-//       });
-//       $(".btn--add-to-cart").removeClass('special-loader');
-//       $(".btn--add-to-cart").html('order now');
-//       //     $(this).html('order now');
-//     })
-//     .catch((error) => {
-//       console.error('Error:', error);
-//     });
-
-//   }
-
-  
-  
-  
-  
-  
-  
-  
 </script>
 
 {% schema %}
