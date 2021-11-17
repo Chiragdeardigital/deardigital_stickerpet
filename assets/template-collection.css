@@ -22,6 +22,8 @@
 .collection-product-count {
   margin-top: 0;
   font-size: 1.4rem;
+  width: 100%;
+  text-align: center;
 }
 
 @media screen and (min-width: 750px) {
@@ -57,6 +59,7 @@
 .collection-filters {
   display: flex;
   flex-direction: column;
+  background: var(--background-color-2);
 }
 
 @media screen and (min-width: 750px) {
@@ -67,6 +70,12 @@
   .collection-filters > * + * {
     margin-top: 0;
     margin-left: 2rem;
+  }
+}
+
+@media screen and (max-width : 767px) {
+  .collection-filters{
+    background: var(--solid-button-labels);
   }
 }
 
@@ -169,6 +178,7 @@
 
 .facets__reset {
   margin-left: auto;
+  font-size: 1.3rem;
 }
 
 .facets__disclosure {
@@ -201,17 +211,17 @@
   border: 1px solid rgba(var(--color-foreground), 0.2);
   top: calc(100% + 0.5rem);
   left: -0.1rem;
-  width: 35rem;
+  width: 27rem;
   max-height: 55rem;
   overflow-y: auto;
 }
 
 .facets__header {
   border-bottom: 1px solid rgba(var(--color-foreground), 0.2);
-  padding: 1.5rem 2rem;
+  padding: 0rem 2rem;
   display: flex;
   justify-content: space-between;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   position: sticky;
   top: 0;
   background-color: rgb(var(--color-background));
@@ -219,7 +229,7 @@
 }
 
 .facets__list {
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 0.8rem;
 }
 
 .facets__item {
@@ -305,7 +315,7 @@ button.facets__button {
 }
 
 .active-facets {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   width: 100%;
   margin-left: -1rem;
@@ -397,11 +407,11 @@ a.active-facets__button:focus .active-facets__button-inner {
   pointer-events: none;
 }
 
-@media all and (min-width: 750px) {
+/* @media all and (min-width: 750px) {
   .active-facets-mobile {
     display: none;
   }
-}
+} */
 
 .count-bubble {
   display: flex;
@@ -454,15 +464,15 @@ a.active-facets__button:focus .active-facets__button-inner {
   z-index: 3;
 }
 
-@media screen and (min-width: 750px) {
+/* @media screen and (min-width: 750px) {
   .mobile-facets {
     display: none;
   }
-}
+} */
 
 .mobile-facets__inner {
-  background-color: rgb(var(--color-background));
-  width: calc(100% - 5rem);
+  background-color: var(--background-color-1);
+  width: 100%;
   margin-left: auto;
   height: 100%;
   overflow-y: auto;
@@ -496,6 +506,7 @@ a.active-facets__button:focus .active-facets__button-inner {
 
 .mobile-facets__info {
   padding: 0 2.6rem;
+  font-size: 1.3rem;
 }
 
 .mobile-facets__heading {
@@ -514,6 +525,7 @@ a.active-facets__button:focus .active-facets__button-inner {
   text-align: center;
   width: 100%;
   padding: 0;
+  display: flex;
 }
 
 .mobile-facets__open > * + * {
@@ -540,7 +552,7 @@ details[open] .mobile-facets__open {
   position: fixed;
   top: 0.7rem;
   right: 1rem;
-  width: 4.4rem;
+  width: 2.4rem;
   height: 4.4rem;
   z-index: 101;
   opacity: 0;
@@ -548,7 +560,7 @@ details[open] .mobile-facets__open {
 }
 
 .mobile-facets__close svg {
-  width: 2.2rem;
+  width: 2rem;
 }
 
 details.menu-opening .mobile-facets__close {
@@ -625,6 +637,7 @@ details.menu-opening .mobile-facets__close svg {
 .mobile-facets__summary > div,
 .facets__summary > div {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
 
@@ -651,6 +664,7 @@ details.menu-opening .mobile-facets__close svg {
 .js details[open].menu-opening > .mobile-facets__submenu {
   transform: translateX(0);
   visibility: visible;
+  background-color: var(--background-color-2);
 }
 
 .js .menu-drawer__submenu .mobile-facets__submenu {
@@ -762,4 +776,5 @@ input.mobile-facets__checkbox {
 
 .mobile-facets__sort .select__select {
   box-shadow: none;
+  height: 50px;
 }

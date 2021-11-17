@@ -153,7 +153,7 @@ html.no-js .no-js-hidden {
   max-width: 120rem;
   margin: 0 auto;
   padding: 6rem .5rem 0;
-  background: var(--background-color-1);
+  background: var(--solid-button-labels);
 }
 
 .page-width-desktop {
@@ -161,9 +161,10 @@ html.no-js .no-js-hidden {
   margin: 0 auto;
 }
 
+
 @media screen and (min-width: 750px) {
   .page-width {
-    padding: 6rem 5rem 0;
+    padding: 2rem 5rem 10rem;
   }
 
   .page-width--narrow {
@@ -449,9 +450,15 @@ table:not([class]) th {
   border: 0.1rem solid rgba(var(--color-foreground), 0.2);
 }
 
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 992px) {
   .small-hide {
     display: none;
+  }
+  .page-width {
+    padding: 2rem;
+  }
+  .collection-filters{
+    background-color: var(--solid-button-labels) !important;
   }
 }
 
@@ -459,17 +466,17 @@ table:not([class]) th {
   display: none !important;
 }
 
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 992px) {
   .small-hide {
     display: none !important;
   }
 }
 
-@media screen and (min-width: 750px) and (max-width: 989px) {
+/* @media screen and (min-width: 750px) and (max-width: 989px) {
   .medium-hide {
     display: none !important;
   }
-}
+} */
 
 @media screen and (min-width: 990px) {
   .large-up-hide {
@@ -1233,7 +1240,7 @@ deferred-media {
 .customer select {
   -webkit-appearance: none;
   appearance: none;
-  background-color: #ffffffa8;
+  background-color:  var(--nav-link-color);
   border: 0;
   border-radius: 5px;
   color: var(--text-color);
