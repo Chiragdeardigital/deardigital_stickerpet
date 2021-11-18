@@ -8,19 +8,6 @@
         "show_collection_image": false
       }
     },
-    "product-grid": {
-      "type": "main-collection-product-grid",
-      "disabled": true,
-      "settings": {
-        "products_per_page": 16,
-        "image_ratio": "adapt",
-        "show_secondary_image": false,
-        "add_image_padding": false,
-        "show_vendor": false,
-        "enable_filtering": true,
-        "enable_sorting": true
-      }
-    },
     "16370855266c37916c": {
       "type": "sticker-banner",
       "settings": {
@@ -91,8 +78,21 @@
         "single_product": "portraits"
       }
     },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 16,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_vendor": false,
+        "enable_filtering": true,
+        "enable_sorting": true
+      }
+    },
     "1637085898d123724a": {
       "type": "product-grid",
+      "disabled": true,
       "settings": {
         "product_grid_heading": "Our unique designs desktop🤙<br>",
         "product_grid_subtext": "High quality, super fun stickers",
@@ -102,10 +102,10 @@
   },
   "order": [
     "banner",
-    "product-grid",
     "16370855266c37916c",
     "1637085621f0de8ee9",
     "16370857413564dd6d",
+    "product-grid",
     "1637085898d123724a"
   ]
 }
