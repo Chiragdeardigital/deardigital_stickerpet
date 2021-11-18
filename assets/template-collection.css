@@ -59,7 +59,6 @@
 .collection-filters {
   display: flex;
   flex-direction: column;
-  background: var(--background-color-2);
 }
 
 @media screen and (min-width: 750px) {
@@ -206,14 +205,18 @@
 }
 
 .facets__display {
-  background-color: rgb(var(--color-background));
+  background-color: var(--solid-button-labels);
   position: absolute;
-  border: 1px solid rgba(var(--color-foreground), 0.2);
+  border: 1px solid var(--text-color);
   top: calc(100% + 0.5rem);
   left: -0.1rem;
   width: 27rem;
   max-height: 55rem;
   overflow-y: auto;
+}
+
+.facets__display .field__input{
+  border: 1px solid var(--text-color);
 }
 
 .facets__header {
@@ -627,6 +630,19 @@ details.menu-opening .mobile-facets__close svg {
 
 .mobile-facets__summary {
   padding: 1.3rem 2.5rem;
+}
+#CollectionFiltersForm .facets__summary{
+  background-color: var(--solid-button-labels);
+  border-radius: 5px;
+  border: 1px solid var(--text-color);
+}
+
+#CollectionFiltersForm .select__select{
+  border: 1px solid var(--text-color);
+}
+
+#CollectionFiltersForm .facets__summary svg{
+  right: 13px;
 }
 
 .mobile-facets__summary svg {

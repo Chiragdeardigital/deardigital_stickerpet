@@ -115,6 +115,7 @@
     .classic-products.products {
         width: 100%;
         margin: 0 auto;
+        padding: 35px 0;
     }
     .classic-products.products .image-section {
         height: 300px;

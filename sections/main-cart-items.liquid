@@ -6,7 +6,7 @@
 {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
 
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
-<div class="form-wrapper">
+<div class="cart-form-wrapper">
 
   <cart-items class="page-width{% if cart == empty %} is-empty{% endif %}">
     <div class="title-wrapper-with-link">
