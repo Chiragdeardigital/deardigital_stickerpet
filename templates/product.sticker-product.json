@@ -1,1 +1,79 @@
-{"sections":{"main":{"type":"main-product","disabled":true,"blocks":{"vendor":{"type":"text","settings":{"text":"{{ product.vendor }}","text_style":"uppercase"}},"title":{"type":"title","settings":{}},"subtitle":{"type":"text","settings":{"text":"{{ product.metafields.descriptors.subtitle.value }}","text_style":"subtitle"}},"price":{"type":"price","settings":{}},"variant_picker":{"type":"variant_picker","settings":{"picker_type":"button"}},"quantity_selector":{"type":"quantity_selector","settings":{}},"buy_buttons":{"type":"buy_buttons","settings":{"show_dynamic_checkout":true}},"description":{"type":"description","settings":{}},"share":{"type":"share","settings":{}}},"block_order":["vendor","title","subtitle","price","variant_picker","quantity_selector","buy_buttons","description","share"],"settings":{"enable_sticky_info":true,"enable_video_looping":false}},"product-recommendations":{"type":"product-recommendations","disabled":true,"settings":{"heading":"You may also like","image_ratio":"adapt","show_secondary_image":false,"add_image_padding":false,"show_vendor":false}},"16276484407c6cf276":{"type":"product-without-variant","settings":{}},"1627650907db31c9ac":{"type":"product-quality","blocks":{"413630f5-f4b7-41df-a193-89a8a4ffa0ae":{"type":"quality_block","settings":{"heading":"🔫 water<br> proof"}},"6dbe0668-f3ac-407e-96d8-cf770916fc1d":{"type":"quality_block","settings":{"heading":"super 🦎<br>\nsticky"}}},"block_order":["413630f5-f4b7-41df-a193-89a8a4ffa0ae","6dbe0668-f3ac-407e-96d8-cf770916fc1d"],"settings":{"show_rating_block":true}},"162765438754b888b5":{"type":"product-perks","blocks":{"0c75e03d-e9f1-41dc-9cc2-21c7da3cf4a4":{"type":"perk","settings":{"perk_image":"shopify:\/\/shop_images\/noun_Card_2555057.png","perk_text":"Secure checkout"}},"bb870180-c8d0-48f9-a818-076c3bb2c125":{"type":"perk","settings":{"perk_image":"shopify:\/\/shop_images\/noun_Gift_2555021_1.png","perk_text":"Gifting options"}},"6f76605b-d2bd-4c39-9564-79c02007be35":{"type":"perk","settings":{"perk_image":"shopify:\/\/shop_images\/noun_Mail_2555061.png","perk_text":"Fits in your mailbox"}},"5167a294-a0d8-4a44-bfa1-d90cef644b12":{"type":"perk","settings":{"perk_image":"shopify:\/\/shop_images\/noun_typing_2555043.png","perk_text":"Super fast answers"}}},"block_order":["0c75e03d-e9f1-41dc-9cc2-21c7da3cf4a4","bb870180-c8d0-48f9-a818-076c3bb2c125","6f76605b-d2bd-4c39-9564-79c02007be35","5167a294-a0d8-4a44-bfa1-d90cef644b12"],"settings":{}}},"order":["main","product-recommendations","16276484407c6cf276","1627650907db31c9ac","162765438754b888b5"]}
+{
+  "sections": {
+    "16276484407c6cf276": {
+      "type": "product-without-variant",
+      "settings": {
+      }
+    },
+    "1627650907db31c9ac": {
+      "type": "product-quality",
+      "blocks": {
+        "413630f5-f4b7-41df-a193-89a8a4ffa0ae": {
+          "type": "quality_block",
+          "settings": {
+            "heading": "🔫 water<br> proof"
+          }
+        },
+        "6dbe0668-f3ac-407e-96d8-cf770916fc1d": {
+          "type": "quality_block",
+          "settings": {
+            "heading": "super 🦎<br>\nsticky"
+          }
+        }
+      },
+      "block_order": [
+        "413630f5-f4b7-41df-a193-89a8a4ffa0ae",
+        "6dbe0668-f3ac-407e-96d8-cf770916fc1d"
+      ],
+      "settings": {
+        "show_rating_block": true
+      }
+    },
+    "162765438754b888b5": {
+      "type": "product-perks",
+      "blocks": {
+        "0c75e03d-e9f1-41dc-9cc2-21c7da3cf4a4": {
+          "type": "perk",
+          "settings": {
+            "perk_image": "shopify:\/\/shop_images\/noun_Card_2555057.png",
+            "perk_text": "Secure checkout"
+          }
+        },
+        "bb870180-c8d0-48f9-a818-076c3bb2c125": {
+          "type": "perk",
+          "settings": {
+            "perk_image": "shopify:\/\/shop_images\/noun_Gift_2555021_1.png",
+            "perk_text": "Gifting options"
+          }
+        },
+        "6f76605b-d2bd-4c39-9564-79c02007be35": {
+          "type": "perk",
+          "settings": {
+            "perk_image": "shopify:\/\/shop_images\/noun_Mail_2555061.png",
+            "perk_text": "Fits in your mailbox"
+          }
+        },
+        "5167a294-a0d8-4a44-bfa1-d90cef644b12": {
+          "type": "perk",
+          "settings": {
+            "perk_image": "shopify:\/\/shop_images\/noun_typing_2555043.png",
+            "perk_text": "Super fast answers"
+          }
+        }
+      },
+      "block_order": [
+        "0c75e03d-e9f1-41dc-9cc2-21c7da3cf4a4",
+        "bb870180-c8d0-48f9-a818-076c3bb2c125",
+        "6f76605b-d2bd-4c39-9564-79c02007be35",
+        "5167a294-a0d8-4a44-bfa1-d90cef644b12"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "16276484407c6cf276",
+    "1627650907db31c9ac",
+    "162765438754b888b5"
+  ]
+}
