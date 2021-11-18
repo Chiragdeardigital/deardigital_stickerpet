@@ -442,6 +442,7 @@ function readURL(input) {
     };
 
     reader.readAsDataURL(input.files[0]);
+    // $(".box__input label").css("visibility", "visible");
   }
 }
 

@@ -344,7 +344,7 @@
                     <option {% if variant == product.selected_or_first_available_variant %}
                       selected="selected" {% endif %}
                       data-sku="{{ variant.sku }}"
-					  data-avaliable="{% if variant.inventory_quantity > 0 %}yes{% else %}no{% endif %}"
+					  data-avaliable="{% if variant.available %}yes{% else %}no{% endif %}"
                       value="{{ variant.id }}"
                       variant-name="{{ variant.title }}">
                       {{ variant.title }} - {{ variant.price | money_with_currency }}
@@ -540,13 +540,15 @@
 		Array.prototype.forEach.call( forms, function( form )
 		{
 			var input		 = form.querySelector( 'input[type="file"]' ),
-				label		 = form.querySelector( 'label' ),
+				label		 = $( 'label[for="image"]' ),
 				errorMsg	 = form.querySelector( '.box__error span' ),
 				restart		 = form.querySelectorAll( '.box__restart' ),
 				droppedFiles = false,
 				showFiles	 = function( files )
 				{
-					label.style.visibility = "hidden"; //files.length > 1 ? ( input.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', files.length ) : files[ 0 ].name;
+          console.log(label); 
+          label.css({ "visibility": "hidden" });
+					// label.style.visibility = "hidden"; //files.length > 1 ? ( input.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', files.length ) : files[ 0 ].name;
 				}
 
 
@@ -631,7 +633,7 @@
                       $(".box").css("background-size", "contain");                                  
                       $(".box").css("background-position", "center");
                       $(".box").css("background-image", "url(" + e.target.result + ")");
-                      $(".box__icon").css("visibility", "hidden");
+                      // $(".box__icon").css("visibility", "hidden");
                       
                       if ($(window).width() < 767) {
                         if (!(window.location.href.indexOf("custom-t-shirt") > -1)) {
@@ -645,6 +647,7 @@
                     }
 
                     reader.readAsDataURL(this.files[0]);
+                    // $(".box__icon").css("visibility", "visible");
                   }
           });
 			// Firefox focus bug fix for file input
