@@ -156,7 +156,7 @@ html.no-js .no-js-hidden {
   background-color: var(--solid-button-labels);
 }
 
-.cart-form-wrapper .page-width , #main-cart-footer{
+.cart-form-wrapper , .cart-form-wrapper .page-width , #main-cart-footer , .cart__footer-wrapper{ 
   background-color: var(--background-color-1);
 }
 

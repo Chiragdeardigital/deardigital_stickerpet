@@ -131,6 +131,10 @@
         display: block;
         align-self: center;
     }
+    .classic-products.products .image-section img:hover{
+        transition: transform 1s ease-out;
+        transform: scale(1.08);
+    }
     .classic-products.products p {
         font-size: 16px;
         font-weight: 500;

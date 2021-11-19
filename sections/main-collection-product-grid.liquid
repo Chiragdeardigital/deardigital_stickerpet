@@ -489,7 +489,9 @@
                               1x {{ product.title | escape  }}
                           </p>
                           <p class="col-3 product-price">
-                            {{ product.price | money }}
+                          {% if product.compare_at_price != blank %}  
+                          <s class="strike">{{product.compare_at_price | money}}</s> - {% endif %}
+                          {{ product.price | money }}
                           </p>
                         </div>
               
