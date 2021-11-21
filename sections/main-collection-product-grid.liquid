@@ -491,17 +491,18 @@
                           <p class="col-3 product-price">
                           {% if product.compare_at_price != blank %}  
                           <s class="strike">{{product.compare_at_price | money}}</s> - {% endif %}
-                          {{ product.price | money }}
+                         {% for variant in product.variants limit:1%} {{ variant.price | money }} {% endfor %}
                           </p>
                         </div>
               
                         <div class="row">
                           <p class="col-9 product-description">
                             {{ product.description | escape  }}
+                            
                           </p>
                           <p class="col-3 product-size">
                           </p>
-                        </div>
+                        </div><br>
                         <button class="button button-outline no-mobile direct-cart" data-variant-id="{{ product.variants.first.id }}" style="margin: 0 auto;">ADD TO CART</button>
                         <button class="button button-outline no-desktop btn-mobile direct-cart" data-variant-id="{{ product.variants.first.id }}" style="margin: 0 auto;">{{ product.price | money }}</button>
             

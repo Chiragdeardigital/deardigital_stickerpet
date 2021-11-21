@@ -28,8 +28,8 @@
         {%- for child_link in link.links -%} 
         {%- assign product = child_link.object -%}
 
-        <li class="mobile-nav__item">
-          <a href="{{ product.url }}" class="mobile-nav__link">Custom {{ product.title }}
+        <li class="accordian mobile-nav__item">
+          <a href="#" class="mobile-nav__link">Custom {{ product.title }}
             {%- if product.images.size > 0 -%}
             {%- if product.images.size > 1 -%}
             {%- assign product_image = product.images[1] -%}
@@ -44,13 +44,46 @@
                  style="width: 60px; margin-top: -10px;"
                  loading="lazy"
                  />
-
             {%- else -%}
             {{ 'product-1' | placeholder_svg_tag }}
             {%- endif -%}
           </a>
-        </li>
-        {%- endfor -%}
+
+
+          <details-disclosure id="grandlink_mobile">
+            <details>
+              <summary>
+                {% render 'icon-caret' %}
+              </summary>
+                {%- for grand_child_link in child_link.links -%} 
+                {%- assign product = grand_child_link.object -%}
+                    <li class="mobile_granchild mobile-nav__item">
+                      <a href="#" class="mobile-nav__link">Custom {{ product.title }}</span> 
+                        {%- if product.images.size > 0 -%}
+                        {%- if product.images.size > 1 -%}
+                        {%- assign product_image = product.images[1] -%}
+                        {%- else -%}
+                        {%- assign product_image = product.featured_image -%}
+                        {%- endif -%}
+                        <img srcset="{%- if product_image.width >= 60 -%}{{ product_image | img_url: '60x' }} 60w,{%- endif -%}"
+                            src="{{ product_image | img_url: '60x' }}" 
+                            alt="{{ product.title }}" 
+                            width="auto"
+                            height="auto"
+                            style="width: 60px; margin-top: -10px;"
+                            loading="lazy"
+                            />
+
+                        {%- else -%}
+                        {{ 'product-1' | placeholder_svg_tag }}
+                        {%- endif -%}
+                      </a>
+                    </li>
+            {%- endfor -%}
+          </li>
+        </details>
+      </details-disclosure>
+      {%- endfor -%}
       </ul>
       {%- endif -%}
     </li>

@@ -183,7 +183,7 @@ img,
   object-fit: cover;
 }
 
-.button {
+.button , .shopify-payment-button .shopify-payment-button__button--unbranded {
   font-family: var(--font-family-headers);
   text-align: center;
   display: block;
@@ -222,7 +222,7 @@ img,
   margin: 10px 0;
 }
 
-.button:hover {
+.button:hover, .shopify-payment-button .shopify-payment-button__button--unbranded:hover { 
   opacity: 0.8;
 }
 
@@ -1421,15 +1421,20 @@ footer li:last-child {
 
 .mobile-nav__sublist .mobile-nav__link {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
-  padding-left: 30px;
+  gap: 10px;
   font-weight: 400;
 }
 
 .mobile-nav__sublist .mobile-nav__item:after {
   top: 0;
   bottom: auto;
+}
+
+#grandlink_mobile summary .icon-caret{
+  right: 15px;
+  top: -52px;
 }
 
 /* .mobile-nav__sublist .mobile-nav__item:after {
