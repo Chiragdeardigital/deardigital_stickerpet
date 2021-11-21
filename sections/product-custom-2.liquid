@@ -149,7 +149,7 @@
               product-single__form{% if product.has_only_default_variant %} product-single__form--no-variants{% endif %}
             {%- endcapture %}
 
-            {% capture "form_id" %}AddToCartForm--product-custom-template-2{%- endcapture -%}
+            {% capture "form_id" %}product-form-{{ section.id }}{%- endcapture -%}
 
             {% form 'product', product, class:form_classes, id:form_id, data-product-form: '' %}
             <input type="hidden" name="items[0][id]" value="{{ product.selected_or_first_available_variant.id }}">
@@ -198,7 +198,7 @@
                                   loading="lazy" 
                                   style="background: {{ variantColorCode }};background-size: contain;background-position: center;background-repeat: no-repeat;">
                                 </span>
-                                <p>{{ value }} (+ €0)</p>
+                                <p>{{ value }}</p>
                               </label>
                             {%- endfor -%}
                           </div>
@@ -226,6 +226,7 @@
                                 for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
                                 data-index="option{{ option_index }}" name="option{{ option.position }}"
                                 id="ProductSelect-option-{{ option.name | handleize }}-{{ frame | escape | remove: " " }}-manual" 
+                                data-option-id="ProductSelect-option-{{ option.name | handleize }}-{{ value | replace: " " | escape }}-manual"
                               >
                               {% assign colorsSch = colorScheme | strip_newlines | split: "," %}
                               {% for colors in colorsSch %}
@@ -250,7 +251,7 @@
                       </fieldset>
                       {% elsif option.name contains 'Size' %}
                         <fieldset class="js product-form__input third-step tab steps">
-                          <div class="color-option">
+                          <div class="">
                             <label class="color-option single-option-radio__label product-single__description flex-box align-center"
                               for="ProductSelect-option-{{ forloop.index0 }}">
                               {{ forloop.index }}. Size of canvas (in cm)? <span class="flex-box info-icon">{% include "info-icon" %}<div class="info-box third">Three sizes. Two pets are in landscape mode.</div></span>
@@ -360,7 +361,7 @@
                           <div class="fifth-step steps tab">
                             <label class="flex-box product-single__description">5. Do you need a hanging system? <span class="flex-box info-icon">{% include "info-icon" %}<div class="info-box fifth">You can stick your portrait on a wall or screw it in the wall.</div></span></label>
                             <div class="flex-box hanging-div sub-marg-top">
-                                <div class="flex-box flex-column hanging-products" data-variant="" data-price="€0,00">
+                                <div class="flex-box flex-column hanging-products hanging-product-selected" data-variant="" data-price="€0,00">
                                     <img src="{{ "no-system-01.png"  | asset_url }}" alt="{{ image.alt | escape }}" loading="lazy">
                                     <p class="text-center">+ €0,00</p>
                                 </div>
@@ -378,7 +379,7 @@
                   <div class="flex-box justify-center align-center">
                     <button type="button" class="back-link no-mobile" id="prevBtn" onclick="nextPrev(-1)">BACK</button>
                     <div class="product-single__add-to-cart{% if section.settings.add_to_cart_button_size == 'large' %} product-single__add-to-cart--full-width{% endif %}">
-                      <button type="button" name="add" id="nextBtn" onclick="nextPrev(1)" class="this-is-cart-btn btn upload-btn-xl spacing border-button btn--add-to-cart no-mobile">
+                      <button type="button" id="nextBtn" onclick="nextPrev(1)" class="this-is-cart-btn btn upload-btn-xl spacing border-button btn--add-to-cart no-mobile">
                         Next
                       </button>
                     </div>
@@ -390,7 +391,20 @@
                     </div>
                   </div>
                 </variant-radios>
-
+                <select name="id" id="ProductSelect--product-custom-template" class="product-single__variants no-js">
+                  {% for variant in product.variants %}                  
+                      <option {% if variant == product.selected_or_first_available_variant %}
+                         {% endif %}
+                        data-sku="{{ variant.sku }}"
+                        data-variant-price="{{ variant.price | money | replace:",","."   }}"
+              data-avaliable="{% if variant.available %}yes{% else %}no{% endif %}"
+                        value="{{ variant.id }}"
+                        variant-name="{{ variant.title }}"
+                        >
+                        {{ variant.title }} - {{ variant.price | money_with_currency }}
+                      </option>
+                  {% endfor %}
+                </select>
 
                 {%- comment -%}
             		<div class="radio-wrapper js product-form__item no-desktop no-mobile ">
