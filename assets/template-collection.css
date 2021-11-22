@@ -257,6 +257,7 @@
   position: relative;
   font-size: 1.4rem;
   display: flex;
+  align-items: center;
   word-break: break-word;
 }
 
@@ -283,7 +284,7 @@
   position: absolute;
   left: 1.4rem;
   z-index: 5;
-  top: 1.4rem;
+  top: 1.9rem;
 }
 
 .facet-checkbox > input[type='checkbox']:checked ~ .icon-checkmark {
