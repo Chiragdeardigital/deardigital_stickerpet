@@ -29,7 +29,7 @@
         {%- assign product = child_link.object -%}
 
         <li class="accordian mobile-nav__item">
-          <a href="#" class="mobile-nav__link">Custom {{ product.title }}
+          <a href="{{product.url}}" class="mobile-nav__link">Custom {{ product.title }}
             {%- if product.images.size > 0 -%}
             {%- if product.images.size > 1 -%}
             {%- assign product_image = product.images[1] -%}
@@ -49,16 +49,22 @@
             {%- endif -%}
           </a>
 
-
+          {% if child_link.links != blank %}
           <details-disclosure id="grandlink_mobile">
-            <details>
+            <details open>
               <summary>
-                {% render 'icon-caret' %}
+                <button type="button" class="mobile-shop-btn-2 mobile-nav__toggle-btn icon-fallback-text"
+                    aria-controls="Linklist-0" aria-expanded="false" data-list-idd="GrandLinklist-{{ forloop.index }}">
+                  <div class="plus-icon-wrap">
+                    <div class="toggle toggle-grand open"></div>
+                  </div>
+                </button>
               </summary>
+              <ul class="mobile-nav__sublist content-list" id="GrandLinklist-{{ forloop.index }}" role="navigation">
                 {%- for grand_child_link in child_link.links -%} 
                 {%- assign product = grand_child_link.object -%}
-                    <li class="mobile_granchild mobile-nav__item">
-                      <a href="#" class="mobile-nav__link">Custom {{ product.title }}</span> 
+                    <li class="mobile_granchild mobile-nav__item" >
+                      <a href="{{product.url}}" class="mobile-nav__link">Custom {{ product.title }}</span> 
                         {%- if product.images.size > 0 -%}
                         {%- if product.images.size > 1 -%}
                         {%- assign product_image = product.images[1] -%}
@@ -79,10 +85,12 @@
                         {%- endif -%}
                       </a>
                     </li>
-            {%- endfor -%}
+                    {%- endfor -%}
+              </ul>
           </li>
         </details>
       </details-disclosure>
+      {% endif %}
       {%- endfor -%}
       </ul>
       {%- endif -%}

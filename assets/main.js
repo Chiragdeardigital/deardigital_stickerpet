@@ -169,6 +169,29 @@ for (i = 0; i < coll.length; i++) {
 
 
 
+var colll = document.getElementsByClassName("mobile-shop-btn-2");
+var s;
+
+for (s = 0; s < colll.length; s++) {
+  colll[s].addEventListener("click", function () {
+    var btn = $(this);
+    btn.find('.toggle-grand').toggleClass('open');
+
+    this.classList.toggle("activee");
+    var x = $(this).data('list-idd');
+    // console.log(x)
+    var ele = document.getElementById(x);
+    // console.log(ele);
+    if (ele.style.maxHeight) {
+      ele.style.maxHeight = null;
+    } else {
+      ele.style.maxHeight = "50vh";
+    }
+  });
+}
+
+
+
 
 
 // --------------------------- MOBILE SUBLIST MENU---------------------------------------
