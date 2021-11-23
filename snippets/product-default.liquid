@@ -1,0 +1,121 @@
+{{ 'component-product-without-variants.css' | asset_url | stylesheet_tag }}
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+
+<section class="product-hero">
+  <div class="container">
+    <div class="product-wrapper">
+      <div class="slider left">
+        <p class="mobile-product-text no-d">21 stickers of your pets face, printed and ✂️ cut by us.
+          <br>
+          <a class="review-stars" href="#reviews">
+            <span class="stars">
+              <span class="star">{% include "icon-star" %}</span>
+              <span class="star">{% include "icon-star" %}</span>
+              <span class="star">{% include "icon-star" %}</span>
+              <span class="star">{% include "icon-star" %}</span>
+              <span class="star">{% include "icon-star" %}</span>
+            </span>
+            <span class="mobile-product-reviews">142 reviews</span>
+          </a>
+        </p>
+        <p class="product-price no-d">
+          {{ current_variant.price | money | replace: ",", "." }}
+        </p>
+        {% render "product-template-slider" %}
+        <div class="sticky-prices no-d">
+          <label for="image"><p class="button mobile-cart-submit">Upload a picture</p></label>
+        </div>
+      </div>
+      <div class="product-single-wrapper right no-m">
+        <div class="product-single">
+          <h1 class="product-single-title">
+            {%- if product.metafields.my_fields.product_page_title !=blank -%}
+            {{ product.metafields.my_fields.product_page_title }}
+            {%- else -%}
+            {{ product.title }}
+            {%- endif -%}
+          </h1>
+          <div class="center-it">
+            <div class="price-container">
+              <span class="product-price">{{ current_variant.price | money | replace: ",", "." }}</span>
+              <span class="stars">
+                <span class="star">{% include "icon-star" %}</span>
+                <span class="star">{% include "icon-star" %}</span>
+                <span class="star">{% include "icon-star" %}</span>
+                <span class="star">{% include "icon-star" %}</span>
+                <span class="star">{% include "icon-star" %}</span>
+              </span>
+              <div class="product-single-description" itemprop="description">
+
+                <p>{{product.metafields.my_fields.description}}</p>
+                <p><em>Delivery time: 4 - 8 days<br></em><em>Shipped from Belgium<br></em></p>
+              </div>
+              {% capture "form_classes" %}
+              product-single__form{% if product.has_only_default_variant %} AddToCartForm--product-template--no-variants product-single__form--no-variants{% endif %}
+            {%- endcapture %}
+
+            {% capture "form_id" %}AddToCartForm--product-template--no-variants{%- endcapture -%}
+
+            {% form 'product', product, class:form_classes, id:form_id, data-product-form: '' %}
+              <select name="id" id="ProductSelect--{{ section.id }}" class="product-single__variants no-js" hidden>
+                  {% for variant in product.variants %}
+                    {% if variant.available %}
+                      <option {% if variant == product.selected_or_first_available_variant %}
+                        selected="selected" {% endif %}
+                        data-sku="{{ variant.sku }}"
+                        value="{{ variant.id }}">
+                        {{ variant.title }} - {{ variant.price | money_with_currency }}
+                      </option>
+                    {% else %}
+                      <option disabled="disabled">
+                        {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                      </option>
+                    {% endif %}
+                  {% endfor %}
+                </select>
+            
+                <div class="line-item-property__field box has-advanced-upload">
+                  <div class="box__input">
+                    <input type="hidden" name="properties[Image we will cut out ✂️]" value="No">
+                    <input type="hidden" name="sections" value="cart-total-price,cart-items-template">
+                    <input id="image" required type="file" class="box__file required" accept="image/*"
+                            enctype="multipart/form-data"
+                           name="properties[Image we will cut out ✂️]"
+                            onchange="readURL(this);"
+                           />
+                    <label for="image"><strong>UPLOAD</strong><span
+                                                                    class="box__dragndrop"></span></label>
+                    <label for="image">
+                      <span class="box__icon">
+                        <img src="{{ "upload_4.png" | asset_url }}" alt="upload icon" 
+                            width="auto"
+                            height="auto"
+                            loading="lazy">
+                      </span>
+                    </label>
+                    
+                   
+                  </div>
+
+                </div>
+                <div class="product-single__add-to-cart">
+                  <button  name="add" id="AddToCart--product-template"
+                          class="button border-button AddToCart"
+                          data-id="{{ current_variant.id }}">
+                    Order Now
+                  </button>
+
+                  {{ form | payment_button }}
+                </div>
+          
+               {% endform %}
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

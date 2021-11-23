@@ -1,0 +1,53 @@
+{% include "colors-snippet" %}
+{% assign type = section.settings.product_section_type %}
+{% case type %}
+  {%- when "default" -%} 
+    {% render 'product-default' %}
+{%- when "variants" -%}
+    {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
+    {{ 'themecopy.scss.css' | asset_url | stylesheet_tag }}
+    {{ 'bootstrap.scss.css' | asset_url | stylesheet_tag }}
+    {% render 'product-with-variants', colorScheme:colorScheme %}
+{%- when "steps" -%} 
+    {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
+    {{ 'themecopy.scss.css' | asset_url | stylesheet_tag }}
+    {{ 'bootstrap.scss.css' | asset_url | stylesheet_tag }}
+    {% render 'product-with-steps', colorScheme:colorScheme %}
+    {{ 'slick1.js' | asset_url | script_tag }}
+{% endcase %}
+
+{% schema %}
+{
+    "name": "Product template",
+    "settings": [
+        {
+            "type": "select",
+            "id": "product_section_type",
+            "label": "Select product type",
+            "options": [
+              {
+                "value": "default",
+                "label": "Default"
+              },
+              {
+                "value": "variants",
+                "label": "Product with variants"
+              },
+              {
+                "value": "steps",
+                "label": "Product with steps"
+              }
+            ],
+            "default": "default" 
+          }
+          
+    ],
+    "blocks": [],
+    "presets": [
+        {
+            "name": "Product template",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %} 
