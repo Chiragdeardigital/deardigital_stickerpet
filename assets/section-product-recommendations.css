@@ -1,8 +1,43 @@
 .product-recommendations {
   display: block;
+  margin-bottom: 80px;
 }
 
 .product-recommendations__heading {
   margin: 0;
   margin-bottom: 3rem;
+}
+
+.related-product-grid .media.media--transparent.media--adapt.media--hover-effect{
+  padding-bottom: 150px !important;
+}
+
+.related-product-grid .media.media--transparent.media--adapt.media--hover-effect img{
+  height: auto;
+  max-height: 250px;
+  width: auto;
+  margin: 0 auto;
+  display: block;
+  align-self: center;
+}
+
+.related-product-grid .card__badge{
+  left: 0;
+}
+
+.related-product-grid .price{
+  font-size: 16px;
+}
+
+.related-product-grid .badge{
+  background-color: var(--solid-button-bg-color);
+  border-color: var(--solid-button-bg-color);
+}
+
+.related-product-grid .card-wrapper:hover .card-information__text{
+  text-decoration: none;
+}
+
+.related-product-grid .row{
+  row-gap: 80px;
 }

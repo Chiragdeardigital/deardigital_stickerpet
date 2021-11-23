@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+.product-detail .price{
+    font-size: 16px;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
 
 .marg-bot-xl {
     margin-bottom: 100px!important;
@@ -90,6 +95,11 @@
     }
     .classic-products.products{
         padding: 32px 0;
+    }
+    .product-detail .price{
+        justify-content: center;
+        gap: 2px;
+        margin-left: 20px;
     }
 }
 
