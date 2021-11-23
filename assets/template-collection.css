@@ -423,6 +423,15 @@ a.active-facets__button:focus .active-facets__button-inner {
   pointer-events: none;
 }
 
+.active-facets .button{
+  background-color: #000;
+  color: #ffffff;
+}
+
+.active-facets .button .close-small-a{
+  stroke: #fff;
+}
+
 /* @media all and (min-width: 750px) {
   .active-facets-mobile {
     display: none;
