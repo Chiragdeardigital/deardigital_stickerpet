@@ -325,7 +325,7 @@ button.facets__button {
 }
 
 .active-facets {
-  display: none;
+  display: flex;
   flex-wrap: wrap;
   width: 100%;
   margin-left: -1rem;
@@ -408,6 +408,12 @@ a.active-facets__button:focus .active-facets__button-inner {
   display: none;
 }
 
+@media (min-width: 990px){
+  .active-facets-mobile {
+      display: none;
+  }
+}
+
 .mobile-facets__clear {
   width: 100%;
 }
@@ -431,8 +437,9 @@ a.active-facets__button:focus .active-facets__button-inner {
   width: 1.7rem;
   height: 1.7rem;
   border-radius: 50%;
-  background-color: rgba(var(--color-button), var(--alpha-button-border));
-  color: rgb(var(--color-background));
+  background-color: var(--text-color);
+  color: var(--nav-link-color);
+  border: 1px solid var(--text-color);
   margin-left: 0.7rem;
 }
 
@@ -442,6 +449,7 @@ a.active-facets__button:focus .active-facets__button-inner {
 
 .count-bubble--dot:empty {
   visibility: visible;
+  background-color: var(--text-color);
 }
 
 .count-bubble--dot::before {
@@ -548,7 +556,7 @@ a.active-facets__button:focus .active-facets__button-inner {
 
 .mobile-facets__open line,
 .mobile-facets__open circle {
-  stroke: rgba(var(--color-button), var(--alpha-button-border));
+  stroke: var(--text-color);
 }
 
 details[open] .mobile-facets__open {
@@ -717,6 +725,7 @@ input.mobile-facets__checkbox {
   transition: background-color 0.2s ease;
   word-break: break-word;
   display: flex;
+  align-items: center;
 }
 
 .mobile-facets__label > svg {
@@ -729,8 +738,8 @@ input.mobile-facets__checkbox {
 
 .mobile-facets__label .icon-checkmark {
   position: absolute;
-  top: 1.9rem;
-  left: 4.8rem;
+  top: 2rem;
+  left: 4.7rem;
   visibility: hidden;
 }
 

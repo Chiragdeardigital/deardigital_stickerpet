@@ -459,9 +459,6 @@ table:not([class]) th {
 }
 
 @media screen and (max-width: 992px) {
-  .small-hide {
-    display: none;
-  }
   .page-width {
     padding: 2rem;
   }
@@ -470,11 +467,12 @@ table:not([class]) th {
   }
 }
 
+
 .hidden {
   display: none !important;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 989px) {
   .small-hide {
     display: none !important;
   }

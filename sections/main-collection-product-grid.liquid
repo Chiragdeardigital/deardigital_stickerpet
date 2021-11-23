@@ -223,7 +223,7 @@
     <menu-drawer class="mobile-facets__wrapper" data-breakpoint="mobile">
       <details class="disclosure-has-popup medium-hide large-up-hide">
         <summary>
-          <span class="mobile-facets__open button button--secondary">
+          <span class="mobile-facets__open button button--secondary button-outline">
             {% render 'icon-filter' %}
             <span>{{ 'sections.collection_template.filter_and_sort' | t }}</span>
             <span class="count-bubble">
@@ -432,7 +432,7 @@
 </div>
 
 <div id="CollectionProductGrid">
-  {%- paginate collection.products by section.settings.products_per_page -%}
+  {%- paginate collection.products by 50 -%}
     {%- if collection.products.size == 0 -%}
       <div class="collection collection--empty page-width" id="main-collection-product-grid" data-id="{{ section.id }}">
         <div class="loading-overlay">
