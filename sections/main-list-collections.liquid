@@ -2,7 +2,7 @@
 {{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
 
 <div class="page-width">
-  <h1 class="title title--primary">{{ section.settings.title | escape }}</h1>
+  <h1 class="collection-list-title-new title title--primary">{{ section.settings.title | escape }}</h1>
 
   {%- liquid
     case section.settings.sort
@@ -17,13 +17,13 @@
     endif
   -%}
 
-  <ul class="collection-list grid grid--1-col grid--3-col-tablet" role="list">
+  <ul class="collection-list-ul row">
     {%- for collection in collections -%}
       <li class="collection-list__item grid__item">
         <a{% if collection.all_products_count > 0 %} href="{{ collection.url }}"{% endif %}
           class="card animate-arrow{% if collection.image != blank %} card--media{% else %}{% if section.settings.image_ratio != 'adapt' %} card--stretch{% endif %}{% endif %}{% unless section.settings.image_padding %} card--light-border{% endunless %}"
         >
-          <div class="card--stretch card-colored color-{{ section.settings.color_scheme }}">
+          <div class="collection-list-grid card--stretch card-colored color-{{ section.settings.color_scheme }}">
             {%- if collection.image != blank -%}
               <div{% if section.settings.image_padding %} class="card__media-spacer"{% endif %}>
                 {% if section.settings.image_padding %}<div class="overlay-card"></div>{% endif %}

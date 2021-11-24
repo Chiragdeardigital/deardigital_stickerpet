@@ -307,3 +307,29 @@
     transition: background-color var(--duration-long) ease;
   }
 }
+
+.collection-list-grid .media.media--adapt.media--hover-effect.overflow-hidden img{
+  height: auto;
+  max-height: 250px;
+  /* width: auto; */
+  margin: 0 auto;
+  display: block;
+  align-self: center; 
+}
+
+.collection-list-ul{
+  justify-content: space-evenly;
+}
+
+.collection-list-grid .media.media--adapt.media--hover-effect.overflow-hidden{
+  padding-bottom: 250px !important;
+}
+
+.collection-list-title-new {
+  text-transform: capitalize;
+  margin-bottom: 3rem;
+}
+
+.collection-list-grid .card__text.card__text-spacing.card__text-hover {
+  padding-left: 0;
+}
