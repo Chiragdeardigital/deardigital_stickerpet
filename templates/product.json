@@ -2,7 +2,14 @@
   "sections": {
     "1629096612ba7600a9": {
       "type": "product-without-variant",
+      "disabled": true,
       "settings": {
+      }
+    },
+    "1637853061f1d0b879": {
+      "type": "product-main",
+      "settings": {
+        "product_section_type": "default"
       }
     },
     "16290966851973846b": {
@@ -75,6 +82,7 @@
   },
   "order": [
     "1629096612ba7600a9",
+    "1637853061f1d0b879",
     "16290966851973846b",
     "162909679183423fb6"
   ]
