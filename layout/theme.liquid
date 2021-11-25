@@ -7,25 +7,25 @@
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
-<!--     ============ convert into dynamic ============================= -->
+    <!--     ============ convert into dynamic ============================= -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,400;0,700;1,500&display=swap"
-        rel="stylesheet">
+          href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,400;0,700;1,500&display=swap"
+          rel="stylesheet">
 
     {%- if settings.favicon != blank -%}
-      <link rel="icon" type="image/png" href="{{ settings.favicon | img_url: '32x32' }}">
+    <link rel="icon" type="image/png" href="{{ settings.favicon | img_url: '32x32' }}">
     {%- endif -%}
 
     {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
-      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
     <title>{{ page_title }}</title>
 
     {% if page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
+    <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
 
     {% render 'meta-tags' %}
@@ -40,41 +40,41 @@
     %}
     {% style %}
     :root {
-      --solid-button-labels: {{ settings.colors_solid_button_labels }};
-      --background-color-1: {{ settings.colors_accent_2 }};
-      --background-color-2: {{ settings.colors_background_2 }};
-      --background-color-3: {{ settings.colors_background_3 }};
-      --gradient-background: var(--gradient-background-1), var(--gradient-background-2);
-      --gradient-background-1: {{ settings.gradient_background_1 }};
-      --gradient-background-2:  {{ settings.gradient_background_2 }};
-      --solid-button-bg-color: {{ settings.colors_accent_1 }};
-      --text-color:{{ settings.colors_text }};
-      --nav-link-color:{{ settings.colors_link_labels }};
-      --font-family-headers: {{ settings.type_header_font.family }}, sans-serif;
-      --font-family-body: {{ settings.type_body_font.family }}, sans-serif;
+    --solid-button-labels: {{ settings.colors_solid_button_labels }};
+    --background-color-1: {{ settings.colors_accent_2 }};
+    --background-color-2: {{ settings.colors_background_2 }};
+    --background-color-3: {{ settings.colors_background_3 }};
+    --gradient-background: var(--gradient-background-1), var(--gradient-background-2);
+    --gradient-background-1: {{ settings.gradient_background_1 }};
+    --gradient-background-2:  {{ settings.gradient_background_2 }};
+    --solid-button-bg-color: {{ settings.colors_accent_1 }};
+    --text-color:{{ settings.colors_text }};
+    --nav-link-color:{{ settings.colors_link_labels }};
+    --font-family-headers: {{ settings.type_header_font.family }}, sans-serif;
+    --font-family-body: {{ settings.type_body_font.family }}, sans-serif;
     }
     {% endstyle %}
-    
+
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {% if template == 'product.product-custom-template-1' or template == 'product.product-custom-template-2' or template == 'product.product-custom-template-3' %} 
 
     {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
     {{ 'themecopy.scss.css' | asset_url | stylesheet_tag }}
     {{ 'bootstrap.scss.css' | asset_url | stylesheet_tag }}
-     
-    {% endif %}
-    
-      {% if  template == 'product.product-custom-template-2'  %} 
 
-  {{ 'slick.css' | asset_url | stylesheet_tag }}
     {% endif %}
-    
+
+    {% if  template == 'product.product-custom-template-2'  %} 
+
+    {{ 'slick.css' | asset_url | stylesheet_tag }}
+    {% endif %}
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
           integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
     {{ 'custom-products.css' | asset_url | stylesheet_tag }}
     {{ 'main.css' | asset_url | stylesheet_tag }}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
             integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     {%- unless settings.type_body_font.system? -%}
@@ -88,31 +88,31 @@
   </head>
 
   <body>
-  
+
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
     </a>
 
-   <style>
-/*       #currency-toggle {
-        display: none;
+    <style>
+      /*       #currency-toggle {
+      display: none;
       } */
     </style>
-    {% form 'currency', id: "currency-toggle" %}
+    {% form 'currency' %}
     <select name="currency">
       {% for currency in shop.enabled_currencies %}
       {% if currency == cart.currency %}
-      <option>{{currency.iso_code}} {{currency.symbol}}</option>
+      <option selected="true">{{currency.iso_code}} {{currency.symbol}}</option>
       {% else %}
-      <option selected="true">{{currency.iso_code}}</option>
+      <option>{{currency.iso_code}}</option>
       {% endif %}
       {% endfor %}
     </select>
     {% endform %}
-     
-      {% section 'header-1' %}
-      {% section "cart-items-template" %}
-    
+
+    {% section 'header-1' %}
+    {% section "cart-items-template" %}
+
     <div id="PageContainer" class="page-container">
       <div class="header-desktop__backdrop header-desktop__backdrop--open" style="display: none;"></div>
       <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
@@ -121,7 +121,7 @@
 
       {% section 'footer-1' %}
     </div>
-     
+
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
@@ -145,24 +145,24 @@
         unavailable: `{{ 'products.product.unavailable' | t }}`,
       }
     </script>
-  
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-   
+
     <script src="{{ 'main.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'ajax-cart.js' | asset_url }}" defer="defer"></script>
-    
+
     {% if template == 'product.product-custom-template-1' or template == 'product.product-custom-template-2' or template == 'product.product-custom-template-3' %} 
     <script src="{{ 'lazysizes.min.js' | asset_url }}" async="async"></script>
 
-<!--     <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script> -->
+    <!--     <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script> -->
     {{ 'modernizr.min.js' | asset_url | script_tag }}
-        {% endif %}
-
-        {% if  template == 'product.product-custom-template-2'  %} 
-
-   {{ 'slick1.js' | asset_url | script_tag }}
     {% endif %}
-   {% render "modal" %}
-   <script src="{{ 'variants.js' | asset_url }}" defer="defer"></script>
+
+    {% if  template == 'product.product-custom-template-2'  %} 
+
+    {{ 'slick1.js' | asset_url | script_tag }}
+    {% endif %}
+    {% render "modal" %}
+    <script src="{{ 'variants.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>
