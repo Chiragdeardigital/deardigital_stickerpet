@@ -82,13 +82,17 @@
 
             </li>
             <li class="nav-item currency">
-              <button class="site-nav__link site-nav__link--icon nav-link currency-changer">
-                <span class="currency-icon">
-                  <span class="front">€</span>
-                  <span class="back">£</span>
-                </span>
-              </button>
-
+              {% form 'currency' %}
+              <select name="currency">
+                {% for currency in shop.enabled_currencies %}
+                  {% if currency == cart.currency %}
+                    <option selected="true">{{currency.iso_code}} {{currency.symbol}}</option>
+                    {% else %}
+                    <option>{{currency.iso_code}}</option>
+                  {% endif %}
+                {% endfor %}
+              </select>
+            {% endform %}
             </li>
             <li id="cartBtn" class="nav-item cart" aria-controls="CartDrawer" aria-expanded="true">
 
