@@ -1,0 +1,797 @@
+{{ 'timber.scss.css' | asset_url | stylesheet_tag }}
+{{ 'themecopy.scss.css' | asset_url | stylesheet_tag }}
+{{ 'bootstrap.scss.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-badge.css' | asset_url | stylesheet_tag }}
+{% include "colors-snippet" %}
+<div class="blue-background">
+<!-- /templates/product.liquid -->
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+{%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
+
+<div class="wrapper padd-bot-xl min-height-element" itemscope itemtype="http://schema.org/Product" id="ProductSection--{{ section.id }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="product-template"
+  data-image-zoom-type="{{ section.settings.enable_image_zoom }}"
+  data-enable-history-state="true"
+  data-stacked-layout="{% if section.settings.media_layout == "stacked" %}true{% else %}false{% endif %}"
+  {% if first_3d_model %}data-has-model="true"{% endif %}>
+
+    <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+    <meta itemprop="image" content="{{ product.featured_media | img_url: 'grande' }}">
+
+    {% assign current_variant = product.selected_or_first_available_variant %}
+    {% assign featured_media = current_variant.featured_media | default: product.featured_media %}
+
+    {% assign stacked = false %}
+    {% if section.settings.media_layout == "stacked" %}{% assign stacked = true %}{% endif %}
+    {%- assign first_media = true -%}
+
+    <div class="product grid product-single custom-product-3">
+     
+      
+      {% comment %}
+      	Place custom product images here
+      {% endcomment %}
+      <div class="grid__item large--seven-twelfths text-center">
+        <div class="product-title text-center no-desktop">
+          
+          <div class="product-description product-single__description text-center">{{ product.description }}</div>
+          <p class=" no-d"> </p>
+          <p class="product-single__description examples-text no-desktop">
+            {{ product.metafields.my_fields.mobile_description}}
+            <br>
+            <br>
+            See some examples 
+            <a href="/pages/cutouts" target="_blank">right here</a>. 👈</p>
+          
+          <a class="no-desktop" href="#reviews">
+            <span class="fa fa-star star font-20"></span><span class="fa fa-star star font-20"></span><span class="fa fa-star star font-20"></span><span class="fa fa-star star font-20"></span><span class="fa fa-star star font-20"></span>
+            <span style="display: block;font-size: 14px;font-weight: 100;font-family: Lato,sans-serif;letter-spacing: .5px;margin-bottom: 16px;">135 reviews{% for product in collections.reviews.products %}{% if product.id == 6748620488903 %}{{ product.metafields.stamped.reviews_count }}135 reviews{% endif %}{% endfor %}</span>
+          </a>
+          
+            <div class="no-js-hidden price-{{ section.id }}" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
+              {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large product-single__price justify-content-center euro no-desktop' -%}
+              <span class="smaller-font">incl. VAT</span>
+            </div>
+          
+<!--           
+          <p class="product-single__price no-desktop pound no-disp">
+             {{ current_variant.price | money | replace:",","."  }}<br><span class="smaller-font">incl. VAT</span>
+          </p> -->
+         
+          
+        </div>
+        
+  		<div class="slider-forx sub-marg-bottom">
+          {% for image in product.images %}
+          {% assign looplen = forloop.length | minus: 1 %}
+          <img srcset="{%- if image.width >= 165 -%}{{ image | img_url: '165x' }} 165w,{%- endif -%}
+                       {%- if image.width >= 360 -%}{{ image | img_url: '360x' }} 360w,{%- endif -%}
+                       {%- if image.width >= 535 -%}{{ image | img_url: '535x' }} 535w,{%- endif -%}
+                       {%- if image.width >= 720 -%}{{ image | img_url: '720x' }} 720w,{%- endif -%}
+                       {%- if image.width >= 940 -%}{{ image | img_url: '940x' }} 940w,{%- endif -%}
+                       {%- if image.width >= 1070 -%}{{ image | img_url: '1070x' }} 1070w{%- endif -%}"
+               src="{{ image.src | img_url: 'master' }}" 
+               alt="{{ image.alt | escape }}" 
+               loading="lazy">
+          {% endfor %}
+        </div>
+        <style>
+          .slider-for .slick-dots li, .slider-for .slick-dots li button, .slider-for .slick-dots li button:before {
+            width: {{ 100 | divided_by: looplen }}px;
+          }
+          .slider-for .slick-dots {
+          	bottom: 8px;
+          }
+        </style>
+        <div class="slider-navx no-mobile">
+          {% for image in product.images %}
+          <img srcset="{%- if image.width >= 165 -%}{{ image | img_url: '165x' }} 165w,{%- endif -%}
+                       {%- if image.width >= 360 -%}{{ image | img_url: '360x' }} 360w,{%- endif -%}
+                       {%- if image.width >= 535 -%}{{ image | img_url: '535x' }} 535w,{%- endif -%}
+                       {%- if image.width >= 720 -%}{{ image | img_url: '720x' }} 720w,{%- endif -%}
+                       {%- if image.width >= 940 -%}{{ image | img_url: '940x' }} 940w,{%- endif -%}
+                       {%- if image.width >= 1070 -%}{{ image | img_url: '1070x' }} 1070w{%- endif -%}"
+               src="{{ image.src | img_url: '200x' }}" 
+               alt="{{ image.alt | escape }}" 
+               width="auto"
+                 height="auto"
+               loading="lazy">
+          {% endfor %}
+        </div>
+        
+      </div>
+    
+
+      <div class="grid__item product-single__meta--wrapper large--five-twelfths">
+        <div class="product-single__meta">
+          {% if section.settings.product_vendor_enable %}
+            <h2 class="product-single__vendor" itemprop="brand">{{ product.vendor }}</h2>
+          {% endif %}
+
+          <h1 class="product-single__title text-left center-it no-mobile" itemprop="name" style="max-width: 420px;">
+            {%- if product.metafields.my_fields.product_page_title !=blank -%}
+            {{ product.metafields.my_fields.product_page_title }}
+            {%- else -%}
+            {{ product.title }}
+            {%- endif -%}
+          </h1>
+          
+          <div class="center-it" style="max-width: 420px;">
+            
+            <div class="no-mobile">
+              <div class="no-js-hidden price-{{ section.id }}" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
+                {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large product-single__price' -%}
+              </div>
+            </div>
+            
+            <div class="product-description product-single__description rte no-mobile" itemprop="description">
+              {{product.metafields.my_fields.description}}
+            </div>
+            
+            <p class="product-single__description examples-text no-mobile">See some examples <a href="/pages/cutouts" target="_blank">right here</a>. 👈</p>
+            
+            <div class="steps-box no-mobile">
+              <p>steps</p>
+              {%- for option in product.options_with_values -%}
+                <span class="steps-swatch step{% if forloop.first %} step-selected{%- endif -%}">{{ forloop.index }}</span>
+                {%- assign step_number = forloop.index -%}
+              {%- endfor -%}
+              {% for block in section.blocks %}
+                {%- case block.type -%}
+                  {%- when 'image_block' -%}
+                    {% if block.settings.image_block %}
+                    {%- assign step_number = step_number | plus: 1 -%}
+                      <span class="steps-swatch step">{{ step_number }}</span>
+                    {% endif %}
+                  {%- when 'extra_product' -%}
+                    {%- if block.settings.product_handle != blank -%}
+                    {%- assign step_number = step_number | plus: 1 -%}
+                      <span class="steps-swatch step">{{ step_number }}</span>
+                    {%- endif -%}
+                {%- endcase -%}
+              {%- endfor -%}
+            </div>
+
+            <div itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating" itemscope>
+              <meta itemprop="reviewCount" content="35" />
+              <meta itemprop="ratingValue" content="4.9" />
+            </div>
+
+            {% capture "form_classes" %}
+              product-single__form{% if product.has_only_default_variant %} product-single__form--no-variants{% endif %}
+            {%- endcapture %}
+
+            {% capture "form_id" %}product-form-{{ section.id }}{%- endcapture -%}
+
+            {% form 'product', product, class:form_classes, id:form_id, data-product-form: '' %}
+            <input type="hidden" name="items[0][id]" value="{{ product.selected_or_first_available_variant.id }}">
+            <div id="upsellProductId">
+               
+            </div>
+            <input type="hidden" name="sections" value="cart-total-price,cart-items-template">
+              {% unless product.has_only_default_variant %}
+                <variant-radios class="no-js-hidden" data-section="{{ section.id }}" data-url="{{ product.url }}" {{ block.shopify_attributes }}>
+                  {%- for option in product.options_with_values -%}
+                  {% if option.name contains 'Title' %}
+                      <fieldset class="js product-form__input first-step tab steps">
+                        <div class="color-option">
+                          <label class="color-option single-option-radio__label product-single__description flex-box align-center"
+                            for="ProductSelect-option-{{ forloop.index0 }}">
+                            {{ forloop.index }}. One or two pets? <span class="flex-box info-icon">{% render "info-icon" %}<div class="info-box first">You can choose to have one or two pets on your portrait.</div></span>
+                          </label>
+                          <div class="flex-box text-center justify-between">
+                            {%- for value in option.values -%}
+                              <input type="radio" id="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
+                                    name="{{ option.name }}"
+                                    class="display-non option-title-input"
+                                    data-option="option-{{ value }}"
+                                    onchange="checkFrames(this)"
+                                    value="{{ value | escape }}"
+                                    form="product-form-{{ section.id }}"
+                                    {% if option.selected_value == value %}checked{% endif %}
+                              >
+                              {% assign colorsSch = colorScheme | strip_newlines | split: "," %}
+                              {% for colors in colorsSch %}
+                                {% assign color = colors | split: ":" %}
+                              {% assign downcase1 = color[0] | downcase %}
+                              {% assign downcase2 = value | downcase %}
+                                {% if downcase2 == downcase1%}
+                                  {% assign variantColorCode = color[1] %}
+                                  {% break %}
+                                {% endif %}
+                              {% endfor %} 
+                              {% if variantColorCode == blank %}
+                              {% assign variantColorCode = "url(//cdn.shopify.com/s/files/1/0594/3604/0367/files/none.png?v=1634556355)" %}
+                              {% endif %}
+                              <label for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}" data-option="option-{{ value }}" class="option-{{ value }} flex-box flex-column option-title-label">
+                                <span 
+                                  class="type-{{ value }} option-title-label-img" 
+                                  id="ProductSelect-option-title-One-manual" 
+                                  loading="lazy" 
+                                  style="background: {{ variantColorCode }};background-size: contain;background-position: center;background-repeat: no-repeat;">
+                                </span>
+                                <p>{{ value }}</p>
+                              </label>
+                            {%- endfor -%}
+                          </div>
+                      </div>
+                      </fieldset>
+
+                      {% elsif option.name contains 'Color' %}
+                      <fieldset class="js product-form__input second-step tab steps">
+                        <div class="color-option">
+                          <label class="color-option single-option-radio__label product-single__description flex-box align-center"
+                            for="ProductSelect-option-{{ forloop.index0 }}">
+                            {{ forloop.index }}. Frame background color <span class="flex-box info-icon">{% render "info-icon" %}<div class="info-box second">Background colour of your portrait.</div></span>
+                          </label>
+                          <div class="color-div flex-box justify-between">
+                            {%- for value in option.values -%}
+                              <input type="radio" id="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
+                                    name="{{ option.name }}"
+                                    class="display-non"
+                                    value="{{ value | escape }}"
+                                    form="product-form-{{ section.id }}"
+                                    {% if option.selected_value == value %}checked{% endif %}
+                              >
+                              <label 
+                                class="frame-swatch" 
+                                for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
+                                data-index="option{{ option_index }}" name="option{{ option.position }}"
+                                id="ProductSelect-option-{{ option.name | handleize }}-{{ frame | escape | remove: " " }}-manual" 
+                                data-option-id="ProductSelect-option-{{ option.name | handleize }}-{{ value | replace: " " | escape }}-manual"
+                              >
+                              {% assign colorsSch = colorScheme | strip_newlines | split: "," %}
+                              {% for colors in colorsSch %}
+                                {% assign color = colors | split: ":" %}
+                              {% assign downcase1 = color[0] | downcase %}
+                              {% assign downcase2 = value | downcase %}
+                                {% if downcase2 == downcase1 %}
+                                  {% assign variantColorCode = color[1] %}
+                                  {% break %}
+                                {% endif %}
+                              {% endfor %} 
+                              {% if variantColorCode == blank %}
+                              {% assign variantColorCode = "url(//cdn.shopify.com/s/files/1/0594/3604/0367/files/none.png?v=1634556355)" %}
+                              {% endif %}
+                                <span class="frame-color" style="background: {{ variantColorCode }};"></span>
+                                <span class="colors-text">{{frame}}</span>
+                                {{ value }}
+                              </label>
+                            {%- endfor -%}
+                          </div>
+                        </div>
+                      </fieldset>
+                      {% elsif option.name contains 'Size' %}
+                        <fieldset class="js product-form__input third-step tab steps">
+                          <div class="">
+                            <label class="color-option single-option-radio__label product-single__description flex-box align-center"
+                              for="ProductSelect-option-{{ forloop.index0 }}">
+                              {{ forloop.index }}. Size of canvas (in cm)? <span class="flex-box info-icon">{% render "info-icon" %}<div class="info-box third">Three sizes. Two pets are in landscape mode.</div></span>
+                            </label>
+                            <div class="color-div flex-box justify-between">
+                              {%- for value in option.values -%}
+                                <input type="radio" id="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
+                                      name="{{ option.name }}"
+                                      class="display-non"
+                                      value="{{ value | escape }}"
+                                      form="product-form-{{ section.id }}"
+                                      {% if option.selected_value == value %}checked{% endif %}
+                                >
+                                <label
+                                  class="frame-swatch {{ value | escape }}" 
+                                  data-index="option{{ option_index }}" 
+                                  name="option{{ option.position }}" 
+                                  id="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape | remove: " " }}-manual"
+                                  for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}">
+                                  <span class="frame-size">{{value}}</span>
+                                </label>
+                              {%- endfor -%}
+                            </div>
+                          </div>
+                        </fieldset>
+                      {%- else -%}
+                      <fieldset class="js product-form__input tab">
+                        <legend class="form__label">{{ option.name }}</legend>
+                        {%- for value in option.values -%}
+                          <input type="radio" id="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
+                                name="{{ option.name }}"
+                                value="{{ value | escape }}"
+                                class="display-non"
+                                form="product-form-{{ section.id }}"
+                                {% if option.selected_value == value %}checked{% endif %}
+                          >
+                          <label for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}">
+                            {{ value }}
+                          </label>
+                        {%- endfor -%}
+                      </fieldset>
+                      {%- endif -%}
+                      {%- assign fieldset_step_number = forloop.index -%}
+                  {%- endfor -%}
+                  <script id="product-json" type="application/json">
+                    {{ product.variants | json }}
+                  </script>
+                  {% for block in section.blocks %}
+                    {%- case block.type -%}
+                      {%- when 'image_block' -%}
+                        {% if block.settings.image_block %}
+                        {%- assign fieldset_step_number = fieldset_step_number | plus: 1 -%}
+                          <div class="fourth-step steps tab">
+                            <label class="flex-box product-single__description">{{ fieldset_step_number }}. Upload your pet(s) below: <span class="flex-box info-icon">{% render "info-icon" %}<div class="info-box fourth">Upload a clear pictture. Write "EMPTY" when you don't want text written.</div></span></label>
+                              
+                                <div class="flex-box justify-between align-center pet1 sub-marg-top sub-marg-bottom">
+                                  <div class="line-item-property__field pet-imgbox has-advanced-upload">
+                                  <div class="box__input">              
+                                    <!-- <input type="hidden" name="properties[Image we will design]" value="No"> -->
+                                    <input id="pet1" required type="file" class="box__file required" data-multiple-caption="Error {count} files selected" accept="image/*" name="items[0][properties[Image we will design 🎨]]" value="Yes" enctype="multipart/form-data" />
+                <!--                     <label for="pet1"><strong>UPLOAD</strong><span class="box__dragndrop"></span></label> -->
+                                    <button type="submit" class="box__button">Upload</button>
+                                    <label for="pet1"><span class="box__icon svg-inline--fa"></span></label>
+                                  </div>
+                                  <div class="box__uploading">
+                                    Uploading&hellip;
+                                  </div>
+                                  <div class="box__success">
+                                    Done!
+                                  </div>
+                                  <div class="box__error">
+                                    Error! <span></span>.
+                                  </div>
+                                  </div>
+                                  <p class="line-item-property__field flex-box flex-column">
+                                    <label for="Petname1">Pet name</label>
+                                    <input type="text" class="" id="Petname1" name="items[0][properties[_Petname]]">
+                                  </p>
+                                </div>
+                              
+                                <div class="flex-box justify-between align-center pet2 sub-marg-bottom no-disp">
+                                  <div class="line-item-property__field pet-imgbox has-advanced-upload">
+                                  <div class="box__input">              
+                <!--                     <input type="hidden" name="properties[Image we will design ]" value="No"> -->
+                                    <input id="pet2" type="file" class="box__file" data-multiple-caption="Error {count} files selected" accept="image/*" name="items[0][properties[_Second Image we will design 🎨]]" value="Yes" enctype="multipart/form-data" />
+                    <!--                 <label for="image"><strong>UPLOAD</strong><span class="box__dragndrop"></span></label> -->
+                                    <button type="submit" class="box__button">Upload</button>
+                                    <label for="pet2"><span class="box__icon svg-inline--fa"></span></label>
+                                  </div>
+                                  <div class="box__uploading">
+                                    Uploading&hellip;
+                                  </div>
+                                  <div class="box__success">
+                                    Done!
+                                  </div>
+                                  <div class="box__error">
+                                    Error! <span></span>.
+                                  </div>
+                                  </div>
+                                <p class="line-item-property__field flex-box flex-column">
+                                  <label for="Petname2">Pet name</label>
+                                  <input type="text" class="" id="Petname2" name="items[0][properties[_Petname2]]">
+                                </p>
+                              </div>
+                          </div>
+                        {% endif %}
+                      {%- when 'extra_product' -%}
+                        {%- if block.settings.product_handle != blank -%}
+                          {% assign selected_product =  block.settings.product_handle %}
+                          {%- assign fieldset_step_number = fieldset_step_number | plus: 1 -%}
+                          <div class="fifth-step steps tab">
+                            <label class="flex-box product-single__description">{{ fieldset_step_number }}. Do you need a hanging system? <span class="flex-box info-icon">{% render "info-icon" %}<div class="info-box fifth">You can stick your portrait on a wall or screw it in the wall.</div></span></label>
+                            <div class="flex-box hanging-div sub-marg-top">
+                                <div class="flex-box flex-column hanging-products hanging-product-selected" data-variant="" data-price="€0,00">
+                                    <img src="{{ "no-system-01.png"  | asset_url }}" alt="{{ image.alt | escape }}" loading="lazy">
+                                    <p class="text-center">+ €0,00</p>
+                                </div>
+                              
+                              {% for variant in selected_product.variants %}
+                                <div class="flex-box flex-column hanging-products" data-variant="{{ variant.id }}" data-price="{{ variant.price | money_without_currency | replace: ",", "." }}">
+                                    <img src="{{ variant.image.src | image_url }}" alt="{{ variant.image.alt | escape }}" loading="lazy">
+                                    <p class="text-center">+ {{ variant.price | money }}</p>
+                                </div>
+                              {% endfor%}
+                            </div>
+                          </div>
+                        {%- endif -%}
+                    {%- endcase -%}
+                  {%- endfor -%}
+                  <div class="flex-box justify-center align-center step-buttons">
+                    <button type="button" class="back-link no-mobile" id="prevBtn" onclick="nextPrev(-1)">
+                      BACK
+                    </button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)" class="button border-button no-mobile">
+                      Next
+                    </button>
+          
+                    <button type="submit" name="add" id="AddToCart--product-custom-template-2" disabled="true" class="AddToCart button border-button no-disp">
+                      <span class="btn__text">Add to Cart</span>
+                    </button>
+                    
+                  </div>
+                </variant-radios>
+                <select id="ProductSelect--product-custom-template" class="product-single__variants no-js">
+                  {% for variant in product.variants %}                  
+                      <option {% if variant == product.selected_or_first_available_variant %}
+                         {% endif %}
+                        data-sku="{{ variant.sku }}"
+                        data-variant-price="{{ variant.price | money | replace:",","."   }}"
+              data-avaliable="{% if variant.available %}yes{% else %}no{% endif %}"
+                        value="{{ variant.id }}"
+                        variant-name="{{ variant.title }}"
+                        >
+                        {{ variant.title }} - {{ variant.price | money_with_currency }}
+                      </option>
+                  {% endfor %}
+                </select>
+              {% endunless %}
+{%- comment -%}
+              {% if section.settings.quantity_enabled %}
+              <div class="product-single__quantity">
+                <label for="Quantity" class="product-single__quantity-label js-quantity-selector">{{ 'products.product.quantity' | t }}</label>
+                <input type="number" hidden="hidden" id="Quantity" name="quantity" value="1" min="1" class="js-quantity-selector">
+              </div>
+              {% endif %}
+    
+            {%- endcomment -%}
+            {% endform %}
+
+          </div>
+
+        </div>
+      </div>                  
+      
+      <div class="sticky-prices no-mobile no-desktop">
+        <label for="image"><button class="mobile-cart-submit">Upload a picture</button></label>
+      </div>
+      
+    </div>
+</div>
+</div>
+
+{{ 'slick.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'slick1.js' | asset_url }}" defer></script>
+<script src="{{ 'product-custom-2.js' | asset_url }}" defer="defer"></script>
+<script>
+ 
+
+ function AfterBodyResize() {
+  var curr = $(".step-selected").text();
+
+}
+  
+  $(window).resize(function(){
+    if(window.outerWidth < 768) {
+    	$(".steps").removeClass("no-disp")
+        $("#AddToCart--product-custom-template-2").removeClass("no-disp");
+    }
+    else {
+        // AfterBodyResize();
+    }
+  });
+  
+  if(window.outerWidth < 768) {
+    	$(".steps").removeClass("no-disp");
+        $("#AddToCart--product-custom-template-2").removeClass("no-disp");
+  }
+  else {
+        AfterBodyResize();
+  }
+  
+  /*
+
+
+  
+*/
+</script>
+
+<script type="text/javascript">
+  
+
+	'use strict';
+
+	;( function ( document, window, index )
+	{
+		// feature detection for drag&drop upload
+		var isAdvancedUpload = function()
+			{
+				var div = document.createElement( 'div' );
+				return ( ( 'draggable' in div ) || ( 'ondragstart' in div && 'ondrop' in div ) ) && 'FormData' in window && 'FileReader' in window;
+			}();
+
+
+		// applying the effect for every form
+		var forms = document.querySelectorAll( '.pet1 .pet-imgbox' );
+		Array.prototype.forEach.call( forms, function( form )
+		{
+			var input		 = form.querySelector( 'input[type="file"]' ),
+				label		 = form.querySelector( 'label' ),
+				errorMsg	 = form.querySelector( '.box__error span' ),
+				restart		 = form.querySelectorAll( '.box__restart' ),
+				droppedFiles = false,
+				showFiles	 = function( files )
+				{
+					label.style.visibility = "hidden"; //files.length > 1 ? ( input.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', files.length ) : files[ 0 ].name;
+				}
+
+
+
+			// drag&drop files if the feature is available
+			if( isAdvancedUpload )
+			{
+				form.classList.add( 'has-advanced-upload' ); // letting the CSS part to know drag&drop is supported by the browser
+
+				[ 'drag', 'dragstart', 'dragend', 'dragover', 'dragenter', 'dragleave', 'drop' ].forEach( function( event )
+				{
+					form.addEventListener( event, function( e )
+					{
+						// preventing the unwanted behaviours
+						e.preventDefault();
+						e.stopPropagation();
+					});
+				});
+				[ 'dragover', 'dragenter' ].forEach( function( event )
+				{
+					form.addEventListener( event, function()
+					{
+						form.classList.add( 'is-dragover' );
+					});
+				});
+				[ 'dragleave', 'dragend', 'drop' ].forEach( function( event )
+				{
+					form.addEventListener( event, function()
+					{
+						form.classList.remove( 'is-dragover' );
+					});
+				});
+				form.addEventListener( 'drop', function( e )
+				{
+                  droppedFiles = e.dataTransfer.files[0]; // the files that were dropped
+                  var fileTypeX = e.dataTransfer.files[0].type;
+                  var validImageTypesX = ["image/jpeg", "image/png"];                
+                  if ($.inArray(fileTypeX, validImageTypesX) < 0) {
+                    console.log('invalid file');
+                  } else {
+                    input.files = e.dataTransfer.files;
+                    showFiles( e.dataTransfer.files );
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                      //$('#blah').attr('src', e.target.result);                                        
+                      $(".pet1 .pet-imgbox").css("background-color", "transparent");                                        
+                      $(".pet1 .pet-imgbox").css("background-repeat", "no-repeat");                                     
+                      $(".pet1 .pet-imgbox").css("background-size", "contain");                                  
+                      $(".pet1 .pet-imgbox").css("background-position", "center");
+                      $(".pet1 .pet-imgbox").css("background-image", "url(" + e.target.result + ")");
+                      $(".pet1 .box__icon").css("visibility", "hidden");
+                      if ($(window).width() < 767) {
+                        $('#AddToCartForm--product-template').submit();
+                        $('.mobile-cart-submit').addClass('special-loader');
+                        $('.mobile-cart-submit').html('Loading<span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>');
+                      }
+                    }
+
+                    reader.readAsDataURL(e.dataTransfer.files[0]);
+                  } 
+
+					
+
+									});
+			}
+          $("#pet1").change(function() {            		
+                  var fileTypeX = this.files[0].type;
+                  var validImageTypesX = ["image/jpeg", "image/png"];
+                  if ($.inArray(fileTypeX, validImageTypesX) < 0) {
+                    console.log('invalid file');
+                  } else {
+                    //input.files = this.files;
+                    showFiles( this.files );
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                      //$('#blah').attr('src', e.target.result);                                        
+                      $(".pet1 .pet-imgbox").css("background-color", "transparent");                                        
+                      $(".pet1 .pet-imgbox").css("background-repeat", "no-repeat");                                    
+                      $(".pet1 .pet-imgbox").css("background-size", "contain");                                  
+                      $(".pet1 .pet-imgbox").css("background-position", "center");
+                      $(".pet1 .pet-imgbox").css("background-image", "url(" + e.target.result + ")");
+                      $(".pet1 .box__icon").css("visibility", "hidden");
+                      if ($(window).width() < 767) {
+                        if (!(window.location.href.indexOf("custom-t-shirt") > -1)) {
+                          $('#AddToCartForm--product-template').submit();
+                          $('.mobile-cart-submit').addClass('special-loader');
+                          $('.mobile-cart-submit').html('Loading<span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>');
+                        }
+                      }
+                    }
+
+                    reader.readAsDataURL(this.files[0]);
+                  }
+          });
+			// Firefox focus bug fix for file input
+			input.addEventListener( 'focus', function(){ input.classList.add( 'has-focus' ); });
+			input.addEventListener( 'blur', function(){ input.classList.remove( 'has-focus' ); });
+
+		});
+	}( document, window, 0 ));
+  
+
+</script>
+
+
+<script type="text/javascript">
+  
+
+	'use strict';
+
+	;( function ( document, window, index )
+	{
+		// feature detection for drag&drop upload
+		var isAdvancedUpload = function()
+			{
+				var div = document.createElement( 'div' );
+				return ( ( 'draggable' in div ) || ( 'ondragstart' in div && 'ondrop' in div ) ) && 'FormData' in window && 'FileReader' in window;
+			}();
+
+
+		// applying the effect for every form
+		var forms2 = document.querySelectorAll( '.pet2 .pet-imgbox' );
+		Array.prototype.forEach.call( forms2, function( form2 )
+		{
+			var input		 = form2.querySelector( 'input[type="file"]' ),
+				label		 = form2.querySelector( 'label' ),
+				errorMsg	 = form2.querySelector( '.box__error span' ),
+				restart		 = form2.querySelectorAll( '.box__restart' ),
+				droppedFiles = false,
+				showFiles	 = function( files )
+				{
+					label.style.visibility = "hidden"; //files.length > 1 ? ( input.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', files.length ) : files[ 0 ].name;
+				}
+
+
+
+			// drag&drop files if the feature is available
+			if( isAdvancedUpload )
+			{
+				form2.classList.add( 'has-advanced-upload' ); // letting the CSS part to know drag&drop is supported by the browser
+
+				[ 'drag', 'dragstart', 'dragend', 'dragover', 'dragenter', 'dragleave', 'drop' ].forEach( function( event )
+				{
+					form2.addEventListener( event, function( e )
+					{
+						// preventing the unwanted behaviours
+						e.preventDefault();
+						e.stopPropagation();
+					});
+				});
+				[ 'dragover', 'dragenter' ].forEach( function( event )
+				{
+					form2.addEventListener( event, function()
+					{
+						form2.classList.add( 'is-dragover' );
+					});
+				});
+				[ 'dragleave', 'dragend', 'drop' ].forEach( function( event )
+				{
+					form2.addEventListener( event, function()
+					{
+						form2.classList.remove( 'is-dragover' );
+					});
+				});
+				form2.addEventListener( 'drop', function( e )
+				{
+                  droppedFiles = e.dataTransfer.files[0]; // the files that were dropped
+                  var fileTypeX = e.dataTransfer.files[0].type;
+                  var validImageTypesX = ["image/jpeg", "image/png"];                
+                  if ($.inArray(fileTypeX, validImageTypesX) < 0) {
+                    console.log('invalid file');
+                  } else {
+                    input.files = e.dataTransfer.files;
+                    showFiles( e.dataTransfer.files );
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                      //$('#blah').attr('src', e.target.result);                                        
+                      $(".pet2 .pet-imgbox").css("background-color", "transparent");                                        
+                      $(".pet2 .pet-imgbox").css("background-repeat", "no-repeat");                                     
+                      $(".pet2 .pet-imgbox").css("background-size", "contain");                                  
+                      $(".pet2 .pet-imgbox").css("background-position", "center");
+                      $(".pet2 .pet-imgbox").css("background-image", "url(" + e.target.result + ")");
+                      $(".pet2 .box__icon").css("visibility", "hidden");
+                      if ($(window).width() < 767) {
+                        $('#AddToCartForm--product-template').submit();
+                        $('.mobile-cart-submit').addClass('special-loader');
+                        $('.mobile-cart-submit').html('Loading<span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>');
+                      }
+                    }
+
+                    reader.readAsDataURL(e.dataTransfer.files[0]);
+                  } 
+
+					
+
+									});
+			}
+          $("#pet2").change(function() {            		
+                  var fileTypeX = this.files[0].type;
+                  var validImageTypesX = ["image/jpeg", "image/png"];
+                  if ($.inArray(fileTypeX, validImageTypesX) < 0) {
+                    console.log('invalid file');
+                  } else {
+                    //input.files = this.files;
+                    showFiles( this.files );
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                      //$('#blah').attr('src', e.target.result);                                        
+                      $(".pet2 .pet-imgbox").css("background-color", "transparent");                                        
+                      $(".pet2 .pet-imgbox").css("background-repeat", "no-repeat");                                    
+                      $(".pet2 .pet-imgbox").css("background-size", "contain");                                  
+                      $(".pet2 .pet-imgbox").css("background-position", "center");
+                      $(".pet2 .pet-imgbox").css("background-image", "url(" + e.target.result + ")");
+                      $(".pet2 .box__icon").css("visibility", "hidden");
+                      if ($(window).width() < 767) {
+                        if (!(window.location.href.indexOf("custom-t-shirt") > -1)) {
+                          $('#AddToCartForm--product-template').submit();
+                          $('.mobile-cart-submit').addClass('special-loader');
+                          $('.mobile-cart-submit').html('Loading<span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>');
+                        }
+                      }
+                    }
+
+                    reader.readAsDataURL(this.files[0]);
+                  }
+          });
+			// Firefox focus bug fix for file input
+			input.addEventListener( 'focus', function(){ input.classList.add( 'has-focus' ); });
+			input.addEventListener( 'blur', function(){ input.classList.remove( 'has-focus' ); });
+
+		});
+	}( document, window, 0 ));
+  
+
+</script>
+
+
+{% schema %}
+{
+    "name": "Product with steps",
+    "settings": [          
+    ],
+    "blocks": [
+      {
+        "type": "image_block",
+        "name": "Image block",
+        "limit":1,
+        "settings": [
+          {
+            "type": "checkbox",
+            "id": "image_block",
+            "default": true,
+            "label": "Add a image block",
+            "info":"This block helps to upload images for the product. It will be added as an extra step after the variants. Only available for product-with-steps template."
+          }
+        ]
+      },
+      {
+        "type": "extra_product",
+        "name": "Extra Product",
+        "limit":1,
+        "settings": [
+          {
+            "type": "product",
+            "id": "product_handle",
+            "label": "Product",
+            "info": "Select a upsell/extra product to sell."
+          }
+        ]
+      }
+    ],
+    "presets": [
+        {
+            "name": "Product with steps",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %} 

@@ -1,0 +1,41 @@
+{% include "colors-snippet" %}
+{% assign type = section.settings.product_section_type %}
+{% case type %}
+  {%- when "default" -%} 
+    {% render 'product-default' %}
+{%- when "variants" -%}
+    {% render 'product-with-variants', colorScheme:colorScheme %}
+{% endcase %}
+
+{% schema %}
+{
+    "name": "Product template",
+    "settings": [
+        {
+            "type": "select",
+            "id": "product_section_type",
+            "label": "Select product type",
+            "options": [
+              {
+                "value": "default",
+                "label": "Default"
+              },
+              {
+                "value": "variants",
+                "label": "Product with variants"
+              }
+            ],
+            "default": "default" 
+          }
+          
+    ],
+    "blocks": [
+    ],
+    "presets": [
+        {
+            "name": "Product template",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %} 

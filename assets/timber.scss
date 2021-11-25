@@ -16,15 +16,15 @@
 ==============================================================================*/
 .clearfix {
   &:after {
-    content: '';
-    display: table;
-    clear: both;
+    // content: '';
+    // display: table;
+    // clear: both;
   }
 }
 
 @mixin clearfix() {
   &:after {
-    content: '';
+    // content: '';
     display: table;
     clear: both;
   }
@@ -556,15 +556,15 @@ body {
   background-color: $colorBody;
 }
 
-.wrapper {
-  max-width: $siteWidth;
-  margin: 0 auto;
-  padding: 0 ($gutter / 2);
+// .wrapper {
+//   max-width: $siteWidth;
+//   margin: 0 auto;
+//   padding: 0 ($gutter / 2);
 
-  @include at-query ($min, $postSmall) {
-    padding: 0 $gutter;
-  }
-}
+//   @include at-query ($min, $postSmall) {
+//     padding: 0 $gutter;
+//   }
+// }
 
 .main-content {
   display: block;
@@ -596,47 +596,47 @@ hr {
 }
 
 /*================ Partials | Typography styles ================*/
-body,
-input,
-textarea,
-button,
-select {
-  font-size: $baseFontSize;
-  line-height: 1.6;
-  font-family: $bodyFontStack;
-  color: $colorTextBody;
-  font-weight: $bodyFontWeight;
-  font-style: $bodyFontStyle;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 100%;
-  text-rendering: optimizeLegibility;
-}
+// body,
+// input,
+// textarea,
+// button,
+// select {
+//   font-size: $baseFontSize;
+//   line-height: 1.6;
+//   font-family: $bodyFontStack;
+//   color: $colorTextBody;
+//   font-weight: $bodyFontWeight;
+//   font-style: $bodyFontStyle;
+//   -webkit-font-smoothing: antialiased;
+//   -webkit-text-size-adjust: 100%;
+//   text-rendering: optimizeLegibility;
+// }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  display: block;
-  font-family: $headerFontStack;
-  font-weight: $headerFontWeight;
-  font-style: $headerFontStyle;
-  margin: 0 0 0.5em;
-  line-height: 1.4;
-  text-rendering: optimizeLegibility;
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+//   display: block;
+//   font-family: $headerFontStack;
+//   font-weight: $headerFontWeight;
+//   font-style: $headerFontStyle;
+//   margin: 0 0 0.5em;
+//   line-height: 1.4;
+//   text-rendering: optimizeLegibility;
 
-  // Headings in the hero/slideshow use the color set in
-  // the Slideshow section settings, not $colorHeadings
-  &:not(.hero__title) {
-    color: $colorHeadings;
-  }
+//   // Headings in the hero/slideshow use the color set in
+//   // the Slideshow section settings, not $colorHeadings
+//   &:not(.hero__title) {
+//     color: $colorHeadings;
+//   }
 
-  a {
-    text-decoration: none;
-    font-weight: inherit;
-  }
-}
+//   a {
+//     text-decoration: none;
+//     font-weight: inherit;
+//   }
+// }
 
 /*================ Use em() Sass function to declare font-size ================*/
 h1 {
@@ -759,29 +759,29 @@ pre {
 }
 
 /*================ Partials | Lists ================*/
-ul,
-ol {
-  margin: 0 0 ($gutter / 2) 20px;
-  padding: 0;
-  text-rendering: optimizeLegibility;
-}
+// ul,
+// ol {
+//   margin: 0 0 ($gutter / 2) 20px;
+//   padding: 0;
+//   text-rendering: optimizeLegibility;
+// }
 
-ol ol {
-  list-style: lower-alpha;
-}
+// ol ol {
+//   list-style: lower-alpha;
+// }
 
-ol {
-  list-style: decimal;
-}
-ul ul,
-ul ol,
-ol ol,
-ol ul {
-  margin: 4px 0 5px 20px;
-}
-li {
-  margin-bottom: 0.25em;
-}
+// ol {
+//   list-style: decimal;
+// }
+// ul ul,
+// ul ol,
+// ol ol,
+// ol ul {
+//   margin: 4px 0 5px 20px;
+// }
+// li {
+//   margin-bottom: 0.25em;
+// }
 
 ul.square {
   list-style: square outside;
@@ -1326,110 +1326,110 @@ html input[disabled] {
   cursor: default;
 }
 
-.btn,
-.rte .btn {
-  display: inline-block;
-  padding: 8px 10px;
-  margin: 0;
-  width: auto;
-  line-height: 1.42;
-  font-weight: $accentFontWeightBold;
-  text-decoration: none;
-  text-align: center;
-  vertical-align: middle;
-  white-space: normal;
-  cursor: pointer;
-  border: 1px solid transparent;
-  @include prefix("user-select", "none");
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  border-radius: $radius;
+// .btn,
+// .rte .btn {
+//   display: inline-block;
+//   padding: 8px 10px;
+//   margin: 0;
+//   width: auto;
+//   line-height: 1.42;
+//   font-weight: $accentFontWeightBold;
+//   text-decoration: none;
+//   text-align: center;
+//   vertical-align: middle;
+//   white-space: normal;
+//   cursor: pointer;
+//   border: 1px solid transparent;
+//   @include prefix("user-select", "none");
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   border-radius: $radius;
 
-  /*================ Set primary button colors - can override later ================*/
-  background-color: $colorBtnPrimary;
-  color: $colorBtnPrimaryText;
-  @include transition(background-color 0.4s ease-out);
+//   /*================ Set primary button colors - can override later ================*/
+//   background-color: $colorBtnPrimary;
+//   color: $colorBtnPrimaryText;
+//   @include transition(background-color 0.4s ease-out);
 
-  &:hover {
-    @include transition(background-color 0.15s ease-out);
-    background-color: $colorBtnPrimaryHover;
-    color: $colorBtnPrimaryText;
-  }
+//   &:hover {
+//     @include transition(background-color 0.15s ease-out);
+//     background-color: $colorBtnPrimaryHover;
+//     color: $colorBtnPrimaryText;
+//   }
 
-  &:active {
-    @include transition(background-color 0.15s ease-out);
-    background-color: $colorBtnPrimaryActive;
-    color: $colorBtnPrimaryText;
-  }
+//   &:active {
+//     @include transition(background-color 0.15s ease-out);
+//     background-color: $colorBtnPrimaryActive;
+//     color: $colorBtnPrimaryText;
+//   }
 
-  &[disabled],
-  &.disabled {
-    cursor: not-allowed;
-    color: darken($disabledBorder, 27%);
-    background-color: $disabledGrey;
-  }
-}
+//   &[disabled],
+//   &.disabled {
+//     cursor: not-allowed;
+//     color: darken($disabledBorder, 27%);
+//     background-color: $disabledGrey;
+//   }
+// }
 
-.btn--secondary,
-.rte .btn--secondary {
-  @extend .btn;
-  background-color: $colorBtnSecondary;
+// .btn--secondary,
+// .rte .btn--secondary {
+//   @extend .btn;
+//   background-color: $colorBtnSecondary;
 
-  &:hover {
-    background-color: $colorBtnSecondaryHover;
-    color: $colorBtnSecondaryText;
-  }
+//   &:hover {
+//     background-color: $colorBtnSecondaryHover;
+//     color: $colorBtnSecondaryText;
+//   }
 
-  &:active {
-    background-color: $colorBtnSecondaryActive;
-    color: $colorBtnSecondaryText;
-  }
-}
+//   &:active {
+//     background-color: $colorBtnSecondaryActive;
+//     color: $colorBtnSecondaryText;
+//   }
+// }
 
-.btn--secondary-accent {
-  background-color: $colorBody;
-  border: 1px solid $colorBtnSecondaryAccent;
-  color: $colorBtnSecondaryAccent;
+// .btn--secondary-accent {
+//   background-color: $colorBody;
+//   border: 1px solid $colorBtnSecondaryAccent;
+//   color: $colorBtnSecondaryAccent;
 
-  &:hover,
-  &:focus {
-    background-color: $colorBody;
-    border: 1px solid $colorBtnSecondaryAccentHover;
-    color: $colorBtnSecondaryAccentHover;
-  }
+//   &:hover,
+//   &:focus {
+//     background-color: $colorBody;
+//     border: 1px solid $colorBtnSecondaryAccentHover;
+//     color: $colorBtnSecondaryAccentHover;
+//   }
 
-  &:active {
-    background-color: $colorBody;
-    border: 1px solid $colorBtnSecondaryAccentActive;
-    color: $colorBtnSecondaryAccentActive;
-  }
+//   &:active {
+//     background-color: $colorBody;
+//     border: 1px solid $colorBtnSecondaryAccentActive;
+//     color: $colorBtnSecondaryAccentActive;
+//   }
 
-  &[disabled],
-  &.disabled {
-    cursor: default;
-    color: darken($disabledBorder, 27%);
-    background-color: $disabledGrey;
-    border: none;
+//   &[disabled],
+//   &.disabled {
+//     cursor: default;
+//     color: darken($disabledBorder, 27%);
+//     background-color: $disabledGrey;
+//     border: none;
 
-    &:hover {
-      opacity: 1;
-    }
-  }
-}
+//     &:hover {
+//       opacity: 1;
+//     }
+//   }
+// }
 
-.btn--small {
-  padding: 4px 5px;
-  font-size: em(12px);
-}
+// .btn--small {
+//   padding: 4px 5px;
+//   font-size: em(12px);
+// }
 
-.btn--large {
-  padding: 12px 15px;
-  font-size: em(16px);
-}
+// .btn--large {
+//   padding: 12px 15px;
+//   font-size: em(16px);
+// }
 
-.btn--full {
-  width: 100%;
-}
+// .btn--full {
+//   width: 100%;
+// }
 
 /*================ Force an input/button to look like a text link ================*/
 .text-link {
@@ -1819,105 +1819,105 @@ $socialIconFontStack: 'icons';
   overflow: hidden;
 }
 
-.drawer {
-/*   display: none; */
-  position: fixed;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-  top: 0;
-  bottom: 0;
-  padding: 0 ($gutter / 2) ($gutter / 2);
-  max-width: 100%;
-  z-index: $zindexDrawer;
-  color: $colorDrawerText;
-  background-color: $colorDrawers;
-  @include transition($drawerTransition);
+// .drawer {
+// /*   display: none; */
+//   position: fixed;
+//   overflow-y: auto;
+//   overflow-x: hidden;
+//   -webkit-overflow-scrolling: touch;
+//   top: 0;
+//   bottom: 0;
+//   padding: 0 ($gutter / 2) ($gutter / 2);
+//   max-width: 100%;
+//   z-index: $zindexDrawer;
+//   color: $colorDrawerText;
+//   background-color: $colorDrawers;
+//   @include transition($drawerTransition);
 
-  @include at-query($min, $large) {
-    padding: 0 $gutter $gutter;
-  }
+//   @include at-query($min, $large) {
+//     padding: 0 $gutter $gutter;
+//   }
 
-  a {
-/*     color: $colorDrawerText; */
+//   a {
+// /*     color: $colorDrawerText; */
 
-    &:hover {
-      color: $colorDrawerText;
-    }
-  }
+//     &:hover {
+//       color: $colorDrawerText;
+//     }
+//   }
 
-  input[type='text'],
-  input[type='email'],
-  input[type='number'],
-  textarea {
-    border-color: $colorDrawerBorder;
-  }
+//   input[type='text'],
+//   input[type='email'],
+//   input[type='number'],
+//   textarea {
+//     border-color: $colorDrawerBorder;
+//   }
 
-  .btn--secondary {
-    background-color: $colorDrawerButton;
-    color: $colorDrawerButtonText;
-  }
-}
+//   .btn--secondary {
+//     background-color: $colorDrawerButton;
+//     color: $colorDrawerButtonText;
+//   }
+// }
 
-.drawer--left {
-  width: $drawerNavWidth;
-  left: -$drawerNavWidth;
+// .drawer--left {
+//   width: $drawerNavWidth;
+//   left: -$drawerNavWidth;
 
-  .js-drawer-open-left & {
-    display: block;
-    @include transform(translateX($drawerNavWidth));
-  }
-}
+//   .js-drawer-open-left & {
+//     display: block;
+//     @include transform(translateX($drawerNavWidth));
+//   }
+// }
 
-.drawer--right {
-  width: $drawerCartWidth;
-  right: -$drawerCartWidth;
+// .drawer--right {
+//   width: $drawerCartWidth;
+//   right: -$drawerCartWidth;
 
-  @include at-query($min, $postSmall) {
-    width: $drawerCartWidthLarge;
-    right: -$drawerCartWidthLarge;
-  }
+//   @include at-query($min, $postSmall) {
+//     width: $drawerCartWidthLarge;
+//     right: -$drawerCartWidthLarge;
+//   }
 
-  .js-drawer-open-right & {
-    display: block;
-    @include transform(translateX(-$drawerCartWidth));
+//   .js-drawer-open-right & {
+//     display: block;
+//     @include transform(translateX(-$drawerCartWidth));
 
-    @include at-query($min, $postSmall) {
-      @include transform(translateX(-$drawerCartWidthLarge));
-    }
-  }
-}
+//     @include at-query($min, $postSmall) {
+//       @include transform(translateX(-$drawerCartWidthLarge));
+//     }
+//   }
+// }
 
-.page-container,
-.drawer__header-container {
-  @include transition($drawerTransition);
+// .page-container,
+// .drawer__header-container {
+//   @include transition($drawerTransition);
 
-  .js-drawer-open-left & {
-    @include transform(translateX($drawerNavWidth));
-  }
+//   .js-drawer-open-left & {
+//     @include transform(translateX($drawerNavWidth));
+//   }
 
-  .js-drawer-open-right & {
-    @include transform(translateX(-$drawerCartWidth));
+//   .js-drawer-open-right & {
+//     @include transform(translateX(-$drawerCartWidth));
 
-    @include at-query($min, $postSmall) {
-      @include transform(translateX(-$drawerCartWidthLarge));
-    }
-  }
-}
+//     @include at-query($min, $postSmall) {
+//       @include transform(translateX(-$drawerCartWidthLarge));
+//     }
+//   }
+// }
 
-.drawer__header {
-  display: table;
-  height: $drawerHeaderHeight;
-  width: 100%;
-  margin-bottom: $gutter / 2;
-  border-bottom: 1px solid $colorDrawerBorder;
-}
+// .drawer__header {
+//   display: table;
+//   height: $drawerHeaderHeight;
+//   width: 100%;
+//   margin-bottom: $gutter / 2;
+//   border-bottom: 1px solid $colorDrawerBorder;
+// }
 
-.drawer__title,
-.drawer__close {
-  display: table-cell;
-  vertical-align: middle;
-}
+// .drawer__title,
+// .drawer__close {
+//   display: table-cell;
+//   vertical-align: middle;
+// }
 
 /* .drawer__title {
   width: 100%;
@@ -2026,7 +2026,7 @@ $socialIconFontStack: 'icons';
     margin-left: -$gutter / 2;
 
     > .grid__item {
-      padding-left: $gutter / 2;
+      // padding-left: $gutter / 2;
     }
   }
 }
@@ -2044,16 +2044,16 @@ $socialIconFontStack: 'icons';
   }
 }
 
-.ajaxcart__row {
-  padding-bottom: $gutter / 2;
-  margin-bottom: $gutter / 2;
-  border-bottom: 1px solid $colorDrawerBorder;
+// .ajaxcart__row {
+//   padding-bottom: $gutter / 2;
+//   margin-bottom: $gutter / 2;
+//   border-bottom: 1px solid $colorDrawerBorder;
 
-  @include at-query($min, $postSmall) {
-    padding-bottom: $gutter;
-    margin-bottom: $gutter;
-  }
-}
+//   @include at-query($min, $postSmall) {
+//     padding-bottom: $gutter;
+//     margin-bottom: $gutter;
+//   }
+// }
 
 .ajaxcart__product-image {
   display: block;
@@ -2438,26 +2438,26 @@ $socialIconFontStack: 'icons';
 }
 
 /*================ Module | Site Header ================*/
-.site-header {
-  background-color: $colorBody;
-  padding: 15px 0;
+// .site-header {
+//   background-color: $colorBody;
+//   padding: 15px 0;
 
-  .grid--table {
-    display: table;
-    table-layout: fixed;
-    width: 100%;
+//   .grid--table {
+//     display: table;
+//     table-layout: fixed;
+//     width: 100%;
 
-    > .grid__item {
-      float: none;
-      display: table-cell;
-      vertical-align: middle;
-    }
-  }
+//     > .grid__item {
+//       float: none;
+//       display: table-cell;
+//       vertical-align: middle;
+//     }
+//   }
 
-  .header-wrapper--transparent & {
-    background-color: transparent;
-  }
-}
+//   .header-wrapper--transparent & {
+//     background-color: transparent;
+//   }
+// }
 
 .site-header__logo {
   text-align: center;
@@ -2492,19 +2492,19 @@ $socialIconFontStack: 'icons';
   text-decoration: none;
 }
 
-.announcement-bar {
-  display: block;
-  text-align: center;
-  position: relative;
-  text-decoration: none;
-}
+// .announcement-bar {
+//   display: block;
+//   text-align: center;
+//   position: relative;
+//   text-decoration: none;
+// }
 
-.announcement-bar__message {
-  display: block;
-  font-weight: $headerFontWeight;
-  padding: 10px $gutter;
-  margin: 0;
-}
+// .announcement-bar__message {
+//   display: block;
+//   font-weight: $headerFontWeight;
+//   padding: 10px $gutter;
+//   margin: 0;
+// }
 
 /*================ Module | Search Bar ================*/
 .search-bar {
@@ -2572,73 +2572,73 @@ $socialIconFontStack: 'icons';
 }
 
 /*================ Module | Site Nav and Dropdowns ================*/
-.site-nav {
-  cursor: default;
-  margin: 0;
-  margin-left: -$gutter / 2;
-}
+// .site-nav {
+//   cursor: default;
+//   margin: 0;
+//   margin-left: -$gutter / 2;
+// }
 
-.site-nav__item {
-  position: relative;
-  display: inline-block;
-  margin: 0;
+// .site-nav__item {
+//   position: relative;
+//   display: inline-block;
+//   margin: 0;
 
-  li {
-    display: block;
-  }
-}
+//   li {
+//     display: block;
+//   }
+// }
 
-.site-nav--mobile {
-  @extend .site-nav;
-  margin-left: -10px;
+// .site-nav--mobile {
+//   @extend .site-nav;
+//   margin-left: -10px;
 
-  &.text-right {
-    margin: 0 -10px 0 0;
-  }
-}
+//   &.text-right {
+//     margin: 0 -10px 0 0;
+//   }
+// }
 
-.site-nav__link {
-  display: inline-block;
-  text-decoration: none;
-  padding: $gutter / 2;
-  white-space: nowrap;
-  font-size: em(14px);
+// .site-nav__link {
+//   display: inline-block;
+//   text-decoration: none;
+//   padding: $gutter / 2;
+//   white-space: nowrap;
+//   font-size: em(14px);
 
-  .icon-arrow-down {
-    position: relative;
-    top: -2px;
-    padding-left: $gutter / 4;
-    font-size: 10px;
-  }
-}
+//   .icon-arrow-down {
+//     position: relative;
+//     top: -2px;
+//     padding-left: $gutter / 4;
+//     font-size: 10px;
+//   }
+// }
 
-.site-nav__dropdown-link {
-  .icon-arrow-down {
-    position: absolute;
-    top: 50%;
-    right: $gutter / 2;
-    font-size: 10px;
-    @include transform("translateY(-50%) rotate(-90deg)");
-  }
-  .site-nav__dropdown-grandchild & {
-    white-space: normal;
-  }
-}
+// .site-nav__dropdown-link {
+//   .icon-arrow-down {
+//     position: absolute;
+//     top: 50%;
+//     right: $gutter / 2;
+//     font-size: 10px;
+//     @include transform("translateY(-50%) rotate(-90deg)");
+//   }
+//   .site-nav__dropdown-grandchild & {
+//     white-space: normal;
+//   }
+// }
 
-.site-nav__link--icon {
-  padding-left: $gutter / 4;
-  padding-right: $gutter / 4;
-}
+// .site-nav__link--icon {
+//   padding-left: $gutter / 4;
+//   padding-right: $gutter / 4;
+// }
 
-.site-nav--mobile {
-  .site-nav__link {
-    display: inline-block;
-  }
+// .site-nav--mobile {
+//   .site-nav__link {
+//     display: inline-block;
+//   }
 
-  .icon {
-    font-size: em(30px);
-  }
-}
+//   .icon {
+//     font-size: em(30px);
+//   }
+// }
 
 /*================ Dropdowns ================*/
 /* .site-nav__dropdown {
@@ -3074,39 +3074,39 @@ $socialIconFontStack: 'icons';
   margin-top: 10px;
 }
 
-.product-single__add-to-cart {
-  margin: 0 0 10px 0;
-  display: block;
-  flex-flow: row wrap;
-  align-items: flex-start;
+// .product-single__add-to-cart {
+//   margin: 0 0 10px 0;
+//   display: block;
+//   flex-flow: row wrap;
+//   align-items: flex-start;
 
-  &.default-product {
-    margin-top: 20px;
-  }
-}
+//   &.default-product {
+//     margin-top: 20px;
+//   }
+// }
 
 .product-single__form--no-variants {
   margin-top: 30px;
 }
 
-.product-single__add-to-cart--full-width {
-  width: 100%;
-}
+// .product-single__add-to-cart--full-width {
+//   width: 100%;
+// }
 
-.btn--add-to-cart {
-  margin: 10px 10px 0 0;
-  min-width: 155px;
-  flex: auto;
+// .btn--add-to-cart {
+//   margin: 10px 10px 0 0;
+//   min-width: 155px;
+//   flex: auto;
 
-  &.btn {
-    padding: 12px 30px;
-  }
+//   &.btn {
+//     padding: 12px 30px;
+//   }
 
-  .product-single__add-to-cart--full-width & {
-    flex-basis: 100%;
-    margin-right: 0;
-  }
-}
+//   .product-single__add-to-cart--full-width & {
+//     flex-basis: 100%;
+//     margin-right: 0;
+//   }
+// }
 
 .product-single__description {
   margin-top: 40px;
@@ -3498,54 +3498,54 @@ $socialIconFontStack: 'icons';
   }
 }
 
-.shopify-payment-button {
-  margin: 10px 10px 0 0;
-  min-width: 155px;
-  flex: auto;
+// .shopify-payment-button {
+//   margin: 10px 10px 0 0;
+//   min-width: 155px;
+//   flex: auto;
 
-  .product-single__add-to-cart--full-width & {
-    margin-right: 0;
-  }
+//   .product-single__add-to-cart--full-width & {
+//     margin-right: 0;
+//   }
 
-  .shopify-payment-button__button {
-    border-radius: $radius;
-  }
+//   .shopify-payment-button__button {
+//     border-radius: $radius;
+//   }
 
-  .shopify-payment-button__button--unbranded {
-    @extend .btn;
-    @include accentFontStack;
-    margin-right: 0;
-    width: 100%;
-    min-height: 44px;
-    font-size: em(13px);
+//   .shopify-payment-button__button--unbranded {
+//     @extend .btn;
+//     @include accentFontStack;
+//     margin-right: 0;
+//     width: 100%;
+//     min-height: 44px;
+//     font-size: em(13px);
 
-    &:hover,
-    &:focus {
-      background-color: $colorBtnSecondaryAccentHover !important;
-    }
+//     &:hover,
+//     &:focus {
+//       background-color: $colorBtnSecondaryAccentHover !important;
+//     }
 
-    &:active {
-      background-color: $colorBtnSecondaryAccentActive !important;
-    }
-  }
+//     &:active {
+//       background-color: $colorBtnSecondaryAccentActive !important;
+//     }
+//   }
 
-  .shopify-payment-button__more-options {
-    font-size: em(14px);
-    color: $colorNavText;
-    white-space: nowrap;
-    text-decoration: underline;
-    padding: 0 15px;
+//   .shopify-payment-button__more-options {
+//     font-size: em(14px);
+//     color: $colorNavText;
+//     white-space: nowrap;
+//     text-decoration: underline;
+//     padding: 0 15px;
 
-    &:hover,
-    &:focus {
-      color: lighten($colorNavText, 12%);
-    }
+//     &:hover,
+//     &:focus {
+//       color: lighten($colorNavText, 12%);
+//     }
 
-    &:active {
-      color: adaptive-color($colorNavText, 24%);
-    }
-  }
-}
+//     &:active {
+//       color: adaptive-color($colorNavText, 24%);
+//     }
+//   }
+// }
 
 .product-unit-price {
   color: $colorTextBody;

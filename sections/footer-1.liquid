@@ -95,14 +95,13 @@
     <hr class="full-length-ruler">
     <p class="copyright text-center all-caps no-mobile">
       {{ section.settings.bottom_header_text }}
-      <span class="footer-payment-strip">
-        {%- for block in section.blocks -%}
-        {% case block.type %}
-        {%- when 'payments' -%}
-        <img src="{{ block.settings.payment_image | img_url: '533x' }}" alt=""  loading="lazy">
-        {%- endcase -%}
-        {%- endfor -%}
+      <span class="footer-payment-strip list-payment__item">
+        {%- for type in shop.enabled_payment_types -%}
+        <span>
 
+          {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+        </span>
+        {%- endfor -%}
       </span>
     </p>
 
