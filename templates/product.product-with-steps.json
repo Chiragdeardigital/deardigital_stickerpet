@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "1629096612ba7600a9": {
+      "type": "product-without-variant",
+      "settings": {
+      }
+    },
+    "16290966851973846b": {
+      "type": "product-quality",
+      "blocks": {
+        "9f072f77-f73e-4a9d-b687-74dded20d9b5": {
+          "type": "quality_block",
+          "settings": {
+            "heading": "🔫 water<br> proof",
+            "hide_block": false
+          }
+        },
+        "7ab40d95-4af7-485e-8f26-4d010fe2c9d1": {
+          "type": "quality_block",
+          "settings": {
+            "heading": "super 🦎<br>\nsticky",
+            "hide_block": false
+          }
+        }
+      },
+      "block_order": [
+        "9f072f77-f73e-4a9d-b687-74dded20d9b5",
+        "7ab40d95-4af7-485e-8f26-4d010fe2c9d1"
+      ],
+      "settings": {
+        "show_rating_block": true
+      }
+    },
+    "162909679183423fb6": {
+      "type": "product-perks",
+      "blocks": {
+        "a0a25cf3-33d8-4c00-a941-b335613f1baf": {
+          "type": "perk",
+          "settings": {
+            "perk_image": "shopify:\/\/shop_images\/noun_Card_2555057.png",
+            "perk_text": "Secure checkout"
+          }
+        },
+        "ea37f555-d14f-443d-8b18-1a82ca6e829e": {
+          "type": "perk",
+          "settings": {
+            "perk_image": "shopify:\/\/shop_images\/noun_Gift_2555021_1.png",
+            "perk_text": "Gifting options"
+          }
+        },
+        "1ec403ef-5039-4556-80c9-2301c3ddd6e5": {
+          "type": "perk",
+          "settings": {
+            "perk_image": "shopify:\/\/shop_images\/noun_Mail_2555061.png",
+            "perk_text": "Fits in your mailbox"
+          }
+        },
+        "e27177ca-fb86-4aaf-be3a-84ce6d7d8ecb": {
+          "type": "perk",
+          "settings": {
+            "perk_image": "shopify:\/\/shop_images\/noun_typing_2555043.png",
+            "perk_text": "Super fast answers"
+          }
+        }
+      },
+      "block_order": [
+        "a0a25cf3-33d8-4c00-a941-b335613f1baf",
+        "ea37f555-d14f-443d-8b18-1a82ca6e829e",
+        "1ec403ef-5039-4556-80c9-2301c3ddd6e5",
+        "e27177ca-fb86-4aaf-be3a-84ce6d7d8ecb"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "1629096612ba7600a9",
+    "16290966851973846b",
+    "162909679183423fb6"
+  ]
+}
