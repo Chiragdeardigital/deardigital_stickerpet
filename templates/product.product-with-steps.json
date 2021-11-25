@@ -2,6 +2,30 @@
   "sections": {
     "1629096612ba7600a9": {
       "type": "product-without-variant",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "16378528721d5b6e1c": {
+      "type": "product-with-steps-section",
+      "blocks": {
+        "e003ec46-c0ba-4d59-9b18-4fc390658bdb": {
+          "type": "image_block",
+          "settings": {
+            "image_block": true
+          }
+        },
+        "b4f4005b-6f0d-4929-81a4-d2988a1a398d": {
+          "type": "extra_product",
+          "settings": {
+            "product_handle": "hanging-system"
+          }
+        }
+      },
+      "block_order": [
+        "e003ec46-c0ba-4d59-9b18-4fc390658bdb",
+        "b4f4005b-6f0d-4929-81a4-d2988a1a398d"
+      ],
       "settings": {
       }
     },
@@ -75,6 +99,7 @@
   },
   "order": [
     "1629096612ba7600a9",
+    "16378528721d5b6e1c",
     "16290966851973846b",
     "162909679183423fb6"
   ]
