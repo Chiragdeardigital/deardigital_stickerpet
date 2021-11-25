@@ -4,16 +4,7 @@
   {%- when "default" -%} 
     {% render 'product-default' %}
 {%- when "variants" -%}
-    {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
-    {{ 'themecopy.scss.css' | asset_url | stylesheet_tag }}
-    {{ 'bootstrap.scss.css' | asset_url | stylesheet_tag }}
     {% render 'product-with-variants', colorScheme:colorScheme %}
-{%- when "steps" -%} 
-    {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
-    {{ 'themecopy.scss.css' | asset_url | stylesheet_tag }}
-    {{ 'bootstrap.scss.css' | asset_url | stylesheet_tag }}
-    {% render 'product-with-steps', colorScheme:colorScheme %}
-    {{ 'slick1.js' | asset_url | script_tag }}
 {% endcase %}
 
 {% schema %}
@@ -32,17 +23,14 @@
               {
                 "value": "variants",
                 "label": "Product with variants"
-              },
-              {
-                "value": "steps",
-                "label": "Product with steps"
               }
             ],
             "default": "default" 
           }
           
     ],
-    "blocks": [],
+    "blocks": [
+    ],
     "presets": [
         {
             "name": "Product template",

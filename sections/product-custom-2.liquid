@@ -391,7 +391,7 @@
                     </div>
                   </div>
                 </variant-radios>
-                <select name="id" id="ProductSelect--product-custom-template" class="product-single__variants no-js">
+                <select id="ProductSelect--product-custom-template" class="product-single__variants no-js">
                   {% for variant in product.variants %}                  
                       <option {% if variant == product.selected_or_first_available_variant %}
                          {% endif %}

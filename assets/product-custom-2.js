@@ -5,6 +5,7 @@ function showTab(n) {
     // This function will display the specified tab of the form...
     var x = document.getElementsByClassName("tab");
     x[n].style.display = "block";
+    x[n].classList.add("tab-selected");
     //... and fix the Previous/Next buttons:
     if (n == 0) {
         document.getElementById("prevBtn").disabled = true;
@@ -31,6 +32,7 @@ function nextPrev(n) {
     // if (n == 1 && !validateForm()) return false;
     // Hide the current tab:
     x[currentTab].style.display = "none";
+    x[currentTab].classList.remove("tab-selected");
     // Increase or decrease the current tab by 1:
     currentTab = currentTab + n;
     // if you have reached the end of the form...
@@ -111,7 +113,10 @@ $(document).ready(function () {
 
 
     setInterval(function () {
-        if ($(".step-selected").text() == 4) {
+        let el = document.getElementsByClassName('tab-selected');
+        let el_has_class = el[0].closest(".pet1");
+        if (el_has_class) {
+            console.log("test")
             if ($('.pet2').hasClass("no-disp")) {
                 if ($('#pet1').val() == "") {
                     $('#nextBtn').attr('disabled', true);
@@ -131,7 +136,7 @@ $(document).ready(function () {
                 }
             }
         } else {
-            $('#nextBtn').attr('disabled', false);
+            // $('#nextBtn').attr('disabled', false);
         }
     }, 500);
 
