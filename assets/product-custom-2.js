@@ -114,9 +114,11 @@ $(document).ready(function () {
 
     setInterval(function () {
         let el = document.getElementsByClassName('tab-selected');
-        let el_has_class = el[0].closest(".pet1");
+        // console.log(el);
+        let el_has_class = el[0].querySelector(".pet1") != null;
+        // console.log(el_has_class);
         if (el_has_class) {
-            console.log("test")
+            // console.log("test")
             if ($('.pet2').hasClass("no-disp")) {
                 if ($('#pet1').val() == "") {
                     $('#nextBtn').attr('disabled', true);
@@ -136,7 +138,7 @@ $(document).ready(function () {
                 }
             }
         } else {
-            // $('#nextBtn').attr('disabled', false);
+            $('#nextBtn').attr('disabled', false);
         }
     }, 500);
 

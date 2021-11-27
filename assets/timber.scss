@@ -3047,8 +3047,8 @@ $socialIconFontStack: 'icons';
 }
 
 .product-single__meta--wrapper {
-  padding-left: 45px;
-  padding-right: 25px;
+  // padding-left: 45px;
+  // padding-right: 25px;
 }
 
 .product-single__meta {
@@ -3225,8 +3225,9 @@ $socialIconFontStack: 'icons';
 
 @include at-query($max, $small) {
   .product-single__meta--wrapper {
-    padding-right: $gutter;
-    padding-left: $gutter / 2;
+    // padding-right: $gutter;
+    // padding-left: $gutter / 2;
+    padding: 0 25px;
     margin: 0 ($gutter / 2);
   }
 
