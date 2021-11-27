@@ -75,9 +75,10 @@
 
 .currency .disclosure__link{
   padding: 0.5rem 10px;
-  font-size: 17px;
-  font-family: 'Lato' , sans-serif;
+  font-size: 14px;
+  font-family: 'Lato';
   color: #000;
+  font-weight: 700;
 }
 
 .currency .disclosure__link:hover{

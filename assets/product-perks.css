@@ -21,6 +21,7 @@
   letter-spacing: 1px;
   font-size: 17px;
   margin-bottom: 12px;
+  text-align: center;
 }
 
 .feature-of {
@@ -34,6 +35,9 @@
     .perk {
         flex: 0 0 50%;
         max-width: 50%;
+    }
+    .feature-of{
+      padding: 0 10px;
     }
 }
 
