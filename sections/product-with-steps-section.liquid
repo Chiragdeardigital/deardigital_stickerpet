@@ -292,7 +292,12 @@
                         </fieldset>
                       {%- else -%}
                       <fieldset class="js product-form__input tab">
-                        <legend class="form__label">{{ option.name }}</legend>
+                        <label class="color-option single-option-radio__label product-single__description flex-box align-center"
+                        for="ProductSelect-option-{{ forloop.index0 }}">
+                        {{ forloop.index }}. {{ option.name }}<span class="flex-box info-icon">{% render "info-icon" %}<div class="info-box third">Three sizes. Two pets are in landscape mode.</div></span>
+                      </label>
+                      <div class="sub-marg-top sub-marg-bottom">
+
                         {%- for value in option.values -%}
                           <input type="radio" id="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
                                 name="{{ option.name }}"
@@ -301,10 +306,13 @@
                                 form="product-form-{{ section.id }}"
                                 {% if option.selected_value == value %}checked{% endif %}
                           >
-                          <label for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}">
+                          <label for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
+                          class="badge"
+                          >
                             {{ value }}
                           </label>
                         {%- endfor -%}
+                      </div>
                       </fieldset>
                       {%- endif -%}
                       {%- assign fieldset_step_number = forloop.index -%}

@@ -207,6 +207,27 @@
                           {%- endfor -%}
                           </div>
                       </div>
+                      {%- else -%}
+                      <label class="form__label color-option single-option-radio__label product-single__description">
+                        {{ option.name }}
+                      </label>
+                    <div class="sub-marg-bottom">
+
+                      {%- for value in option.values -%}
+                        <input type="radio" id="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
+                              name="{{ option.name }}"
+                              value="{{ value | escape }}"
+                              class="display-non"
+                              form="product-form-{{ section.id }}"
+                              {% if option.selected_value == value %}checked{% endif %}
+                        >
+                        <label for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
+                        class="badge"
+                        >
+                          {{ value }}
+                        </label>
+                      {%- endfor -%}
+                    </div>
                       {%- endif -%}
                   </fieldset>
               {%- endfor -%}

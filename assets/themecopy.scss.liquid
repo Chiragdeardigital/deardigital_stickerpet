@@ -1383,7 +1383,7 @@ fieldset.product-form__input{
 .flex-column {
 	flex-direction: column;
 }
-.first-step, .second-step, .third-step, .fourth-step, .fifth-step {
+.tab {
 	max-width: 450px;
   	min-height: 260px;
   	position: relative;
@@ -1494,6 +1494,13 @@ fieldset input:checked+label .frame-color {
 fieldset input:checked+label .frame-size {
     border: 3px solid orange;
 }
+label.badge{
+  margin-bottom: 10px; 
+}
+.product-form__input input[type=radio]:checked+.badge {
+  background-color: #000;
+  color: #fff;
+}
 
 .box__input input{
   display: none;
@@ -1514,7 +1521,7 @@ padding: 8px 10px;
     max-width: 100%;
     margin: 0;
 }
-.line-item-property__field {
+.pet-imgbox.line-item-property__field, p.line-item-property__field {
   width: 45%;
 }
 .pet-imgbox.has-advanced-upload .box__icon {
