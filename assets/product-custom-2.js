@@ -15,11 +15,11 @@ function showTab(n) {
     if (n == (x.length - 1)) {
         document.getElementById("nextBtn").innerHTML = "ADD TO CART";
         document.getElementById("nextBtn").classList.add("no-disp");
-        document.getElementById("AddToCart--product-custom-template-2").classList.remove("no-disp");
+        document.getElementById("AddToCart--product-custom-template-2").classList.remove("no-desktop");
     } else {
         document.getElementById("nextBtn").innerHTML = `STEP ${n + 2}`;
         document.getElementById("nextBtn").classList.remove("no-disp");
-        document.getElementById("AddToCart--product-custom-template-2").classList.add("no-disp");
+        document.getElementById("AddToCart--product-custom-template-2").classList.add("no-desktop");
     }
     //... and run a function that will display the correct step indicator:
     fixStepIndicator(n)
