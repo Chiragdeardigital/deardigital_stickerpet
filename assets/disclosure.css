@@ -2,6 +2,11 @@
   position: relative;
 }
 
+.currency .disclosure{
+  padding-left: 20px;
+  padding-right: 15px;
+}
+
 .disclosure__button {
   align-items: center;
   cursor: pointer;
@@ -37,9 +42,10 @@
   bottom: 0;
   top: 50px;
   margin-top: 1.3rem;
-  min-height: 11.2rem;
+  min-height: 10rem;
   max-width: 15rem;
   min-width: 10rem;
+  width: auto;
 }
 
 .currency .localization-selector + .disclosure__list {
@@ -111,5 +117,8 @@
   .currency .localization-form__select .icon-caret {
     right: 1.8rem;
     top: calc(50% - 0.25rem);
+  }
+  .currency .disclosure{
+    padding-left: 15px;
   }
 }
