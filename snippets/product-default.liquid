@@ -55,7 +55,7 @@
               product-single__form{% if product.has_only_default_variant %} AddToCartForm--product-template--no-variants product-single__form--no-variants{% endif %}
             {%- endcapture %}
 
-            {% capture "form_id" %}AddToCartForm--product-template--no-variants{%- endcapture -%}
+            {% capture "form_id" %}product-form-{{ section.id }}{%- endcapture -%}
 
             {% form 'product', product, class:form_classes, id:form_id, data-product-form: '' %}
               <select name="id" id="ProductSelect--{{ section.id }}" class="product-single__variants no-js" hidden>
@@ -77,7 +77,6 @@
             
                 <div class="line-item-property__field box has-advanced-upload">
                   <div class="box__input">
-                    <input type="hidden" name="properties[Image we will cut out ✂️]" value="No">
                     <input type="hidden" name="sections" value="cart-total-price,cart-items-template">
                     <input id="image" required type="file" class="box__file required" accept="image/*"
                             enctype="multipart/form-data"
@@ -99,6 +98,34 @@
                   </div>
 
                 </div>
+                {%- for block in section.blocks -%}
+                {%- case block.type -%}
+                {%- when 'quantity_selector' -%}
+                <div class=" product-form__quantity text-left" {{ block.shopify_attributes }}>
+                  <label class="form__label" for="Quantity-{{ section.id }}">
+                    Quantity
+                  </label>
+                  <quantity-input class="quantity">
+                    <button class="quantity__button no-js-hidden" name="minus" type="button">
+                      <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}</span>
+                      {% render 'icon-minus' %}
+                    </button>
+                    <input class="quantity__input"
+                        type="number"
+                        name="quantity"
+                        id="Quantity-{{ section.id }}"
+                        min="1"
+                        value="1"
+                        form="product-form-{{ section.id }}"
+                      >
+                    <button class="quantity__button no-js-hidden" name="plus" type="button">
+                      <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: product.title | escape }}</span>
+                      {% render 'icon-plus' %}
+                    </button>
+                  </quantity-input>
+                </div>
+                {%- endcase -%}
+                {%- endfor -%}
                 <div class="product-single__add-to-cart">
                   <button  name="add" id="AddToCart--product-template"
                           class="button border-button AddToCart"
