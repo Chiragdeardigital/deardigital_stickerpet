@@ -8,6 +8,16 @@
     },
     "1637853061f1d0b879": {
       "type": "product-main",
+      "blocks": {
+        "0c2485e1-0303-4c9b-8b21-5178b87a9600": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "0c2485e1-0303-4c9b-8b21-5178b87a9600"
+      ],
       "settings": {
         "product_section_type": "default"
       }
