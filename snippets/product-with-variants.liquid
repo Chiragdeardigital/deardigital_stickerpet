@@ -15,37 +15,7 @@
 <div class="blue-background">
 <!-- /templates/product.liquid -->
 {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
-  <!-- <script>
-  tshirt_variants_json = {}
-  variant_colors = []
-  variant_sizes = []
-  variant_id = []
-
-  {% for variant in product.variants %}
-	{% if variant.available %}
-      var title = "{{ variant.title }}"
-      var var_id = "{{ variant.id }}";
-      title = title.replace(/ /g, "");
-      tshirt_variants_json[title] = "{{ variant.id }}"
-      var tshirt_color = title.split("/")[0];
-  	  var tshirt_framesize = title.split("/")[1];
-  	  if(!variant_colors.includes(tshirt_color)) {
-        variant_colors.push(tshirt_color)
-      }
-  	  if(!variant_sizes.includes(tshirt_framesize)) {
-        variant_sizes.push(tshirt_framesize)
-      }
-    if(!variant_id.includes(var_id)) {
-        variant_id.push(var_id)
-      }
-    
-    {% endif %}
-  {% endfor %}
-	// console.log(variant_sizes);
-  //   console.log(tshirt_variants_json);
-  //   console.log(variant_id);
-</script> -->
-
+ 
 <div class="wrapper padd-bot-xl min-height-element" itemscope itemtype="http://schema.org/Product" id="ProductSection--product-custom-template"
   data-section-id="{{ section.id }}"
   data-section-type="product-template"
@@ -346,51 +316,4 @@
   </script>
 {% endunless %}
 
-<script type="text/javascript">
-    // $( document ).ready(function() {
-    //   $('.product-form__input input[type=radio]').change(function() {
-    //     changeImage();
-    //   });
 
-    //   function changeImage() {
-    //     if($('#product-json').length > 0) {
-    //       var string = "";
-    //       var hardcode_img = "";
-    //       $(".product-form__input").each(function(index){
-    //         if(index == 0) {
-    //           hardcode_img = $(this).find("input:checked").data("img");
-    //         // console.log(hardcode_img);
-    //           string += $(this).find("input:checked").val();
-    //         } else {
-    //           string += " / " + $(this).find("input:checked").val();
-    //         }
-
-    //       });
-    //       var x = JSON.parse($('#product-json').html());
-		// // console.log(x);
-    //       var w = x.find(item => {
-    //         return item.public_title === string;
-    //       });
-    //       console.log(w);
-    //       $(".slider-nav img").each(function(index) {
-    //         // console.log($(this).attr('src') + hardcode_img );
-    //         if(w.featured_image == null && hardcode_img != "" && hardcode_img != null) {
-    //           if(hardcode_img.indexOf($(this).attr('src')) > -1) {
-    //             console.log("got it");
-    //             $('.slider-nav').slick('slickGoTo', index);
-    //           }
-    //         }
-    //         if($(this).attr('src') != null && w.featured_image != null) {
-    //           if(w.featured_image.src.indexOf($(this).attr('src')) > -1) {
-
-    //             // console.log($(this).attr('src') + w.featured_image.src );
-    //             // console.log($(this).attr('data-index') );
-    //             $('.slider-nav').slick('slickGoTo', index);
-    //           }
-    //         }
-    //       });
-    //     }
-    //   }
-    //   changeImage();
-    // });
-</script>
