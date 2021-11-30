@@ -28,8 +28,8 @@ html {
 }
 
 body {
-  background-color: rgb(var(--color-base-background-1));
-  color: rgb(var(--color-base-text));
+  background-color: var(--background-color-1);
+  color: var(--text-color);
   font-size: 1.5rem;
   letter-spacing: 0.07rem;
   line-height: 1.9;
@@ -67,6 +67,7 @@ h1,
 }
 
 @media only screen and (min-width: 750px) {
+
   h1,
   .h1 {
     font-size: 4rem;
@@ -79,6 +80,7 @@ h2,
 }
 
 @media only screen and (min-width: 750px) {
+
   h2,
   .h2 {
     font-size: 2.4rem;
@@ -104,11 +106,11 @@ h2,
   font-size: 1.6rem;
   line-height: 1;
   text-decoration: underline;
-  color: rgb(var(--color-base-outline-button-labels));
+  color: var(--text-color);
 }
 
 .link:hover {
-  color: rgba(var(--color-base-outline-button-labels), 0.75);
+  color: var(--solid-button-bg-color);
 }
 
 .button {
@@ -120,28 +122,29 @@ h2,
   border: none;
   padding: 1.5rem 3rem;
   text-decoration: none;
-  background-color: rgb(var(--color-base-accent-1));
-  box-shadow: 0 0 0 0.1rem rgb(var(--color-base-accent-1));
-  color: rgb(var(--color-base-solid-button-labels));
+  background-color: var(--solid-button-bg-color);
+  box-shadow: 0 0 0 0.1rem var(--solid-button-bg-color);
+  color: var(--solid-button-labels);
   min-width: 12rem;
   height: auto;
   font-size: 1.5rem;
   letter-spacing: 0.1rem;
   line-height: 1.2;
+  text-transform: uppercase;
 }
 
 .button:hover {
-  box-shadow: 0 0 0 0.2rem rgb(var(--color-base-accent-1));
+  box-shadow: 0 0 0 0.2rem rgb(var(--solid-button-bg-color));
 }
 
 .button--secondary {
-  color: rgb(var(--color-base-outline-button-labels));
-  box-shadow: 0 0 0 0.1rem rgb(var(--color-base-outline-button-labels));
+  color: var(--solid-button-bg-color);
+  box-shadow: 0 0 0 0.1rem var(--solid-button-bg-color);
   background-color: transparent;
 }
 
 .button--secondary:hover {
-  box-shadow: 0 0 0 0.2rem rgb(var(--color-base-outline-button-labels));
+  box-shadow: 0 0 0 0.2rem var(--solid-button-bg-color);
 }
 
 .gift-card {
@@ -165,7 +168,7 @@ h2,
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-color: rgb(var(--color-base-background-1));
+  background-color: rgb(var(--solid-button-bg-color));
   margin-bottom: 0.8rem;
   margin: 0 auto;
 }
@@ -205,7 +208,7 @@ h2,
   opacity: 0.85;
 }
 
-.gift-card__price > p:first-child {
+.gift-card__price>p:first-child {
   margin-bottom: 1rem;
 }
 
@@ -221,7 +224,7 @@ h2,
 }
 
 .gift-card__number {
-  background-color: rgb(var(--color-base-background-1));
+  background-color: rgb(var(--solid-button-bg-color));
   border: none;
   color: rgb(var(--color-base-text));
   font-size: 1.8rem;
@@ -266,15 +269,15 @@ h2,
   line-height: 1;
   padding: 0.6rem 1.3rem;
   text-align: center;
-  background-color: rgb(var(--color-base-background-1));
-  border-color: rgba(var(--color-base-text), 0.04);
-  color: rgb(var(--color-base-text));
+  background-color: var(--solid-button-bg-color);
+  border-color: var(--solid-button-bg-color);
+  color: var(--solid-button-labels);
 }
 
 .badge--inverse {
-  background-color: rgb(var(--color-base-text));
-  border-color: rgb(var(--color-base-text));
-  color: rgb(var(--color-base-background-1));
+  background-color: var(--color-base-text);
+  border-color: var(--color-base-text);
+  color: var(--solid-button-bg-color);
 }
 
 .caption-large {
@@ -315,7 +318,7 @@ h2,
   margin: 0 auto;
 }
 
-.gift-card__buttons > .button:first-child {
+.gift-card__buttons>.button:first-child {
   display: block;
   margin-bottom: 2rem;
 }
@@ -327,7 +330,7 @@ h2,
 *:focus-visible {
   outline: 0.2rem solid rgba(var(--color-base-text), 0.5);
   outline-offset: 0.3rem;
-  box-shadow: 0 0 0 0.3rem rgb(var(--color-base-background-1)),
+  box-shadow: 0 0 0 0.3rem rgb(var(--solid-button-bg-color)),
     0 0 0.5rem 0.4rem rgba(var(--color-base-text), 0.3);
 }
 
@@ -335,7 +338,7 @@ h2,
 *:focus {
   outline: 0.2rem solid rgba(var(--color-base-text), 0.5);
   outline-offset: 0.3rem;
-  box-shadow: 0 0 0 0.3rem rgb(var(--color-base-background-1)),
+  box-shadow: 0 0 0 0.3rem rgb(var(--solid-button-bg-color)),
     0 0 0.5rem 0.4rem rgba(var(--color-base-text), 0.3);
 }
 
@@ -346,26 +349,26 @@ h2,
 }
 
 .button:focus-visible {
-  box-shadow: 0 0 0 0.1rem rgb(var(--color-base-accent-1)),
-    0 0 0 0.3rem rgb(var(--color-base-background-1)),
+  box-shadow: 0 0 0 0.1rem rgb(var(--solid-button-bg-color)),
+    0 0 0 0.3rem rgb(var(--solid-button-bg-color)),
     0 0 0.5rem 0.4rem rgba(var(--color-base-text), 0.3);
 }
 
 .button:focus {
-  box-shadow: 0 0 0 0.1rem rgb(var(--color-base-accent-1)),
-    0 0 0 0.3rem rgb(var(--color-base-background-1)),
+  box-shadow: 0 0 0 0.1rem rgb(var(--solid-button-bg-color)),
+    0 0 0 0.3rem rgb(var(--solid-button-bg-color)),
     0 0 0.5rem 0.4rem rgba(var(--color-base-text), 0.3);
 }
 
 .button--secondary:focus-visible {
   box-shadow: 0 0 0 0.1rem rgb(var(--color-base-outline-button-labels)),
-    0 0 0 0.3rem rgb(var(--color-base-background-1)),
+    0 0 0 0.3rem rgb(var(--solid-button-bg-color)),
     0 0 0.5rem 0.4rem rgba(var(--color-base-text), 0.3);
 }
 
 .button--secondary:focus {
   box-shadow: 0 0 0 0.1rem rgb(var(--color-base-outline-button-labels)),
-    0 0 0 0.3rem rgb(var(--color-base-background-1)),
+    0 0 0 0.3rem rgb(var(--solid-button-bg-color)),
     0 0 0.5rem 0.4rem rgba(var(--color-base-text), 0.3);
 }
 

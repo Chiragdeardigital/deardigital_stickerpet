@@ -908,10 +908,10 @@ $class-type: unquote(".");
   list-style: none;
   margin: 0;
   padding: 0;
-  margin-left: -($gridGutter / 2);
+  // margin-left: -($gridGutter / 2);
 
   @include at-query($min, $postSmall) {
-    margin-left: -$gridGutter;
+    // margin-left: -$gridGutter;
   }
 }
 
@@ -932,7 +932,7 @@ $class-type: unquote(".");
 }
 
 #{$class-type}grid--small {
-  margin-left: -10px;
+  // margin-left: -10px;
 
   .grid__item {
     padding-left: 10px;
@@ -2023,7 +2023,7 @@ $socialIconFontStack: 'icons';
 
 .ajaxcart__row {
   > .grid {
-    margin-left: -$gutter / 2;
+    // margin-left: -$gutter / 2;
 
     > .grid__item {
       // padding-left: $gutter / 2;
@@ -3251,7 +3251,7 @@ $socialIconFontStack: 'icons';
 
   @include at-query($min, $large) {
     .grid__item + .grid__item {
-      margin-left: -5px;
+      // margin-left: -5px;
     }
   }
 }
