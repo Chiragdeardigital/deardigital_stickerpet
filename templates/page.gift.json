@@ -91,6 +91,37 @@
     },
     "1627819628339a3175": {
       "type": "customer-reviews",
+      "blocks": {
+        "965bd64f-933c-4226-86cd-3802e175efc5": {
+          "type": "human_review",
+          "settings": {
+            "review_image": "shopify:\/\/shop_images\/Maurice_1_x200_f27796e3-1c67-4f48-a31a-9a6b3bbd06d8.png",
+            "review_text": "<i>“The comment by the reviewer goes here <\/i>🐶”<br><i>- name goes here, human<\/i>",
+            "typed_text_human": "human"
+          }
+        },
+        "782a801b-296f-4e7c-bcfe-ac0edcd89cf8": {
+          "type": "pet_review",
+          "settings": {
+            "review_image": "shopify:\/\/shop_images\/Lene_x200_f9e76529-9b5c-4520-86a9-a8a560483a5e.png",
+            "review_text": "<i>“The comment by the reviewer goes here <\/i>🐶”<br><i>- name goes here, pet<\/i>",
+            "typed_text_pet": "pet"
+          }
+        },
+        "51ff0484-db8d-42f5-9d01-3a84d2baab9b": {
+          "type": "human_review",
+          "settings": {
+            "review_image": "shopify:\/\/shop_images\/classic-image-1.png",
+            "review_text": "<i>“The comment by the reviewer goes here <\/i>🐶”<br><i>- name goes here, human<\/i>",
+            "typed_text_human": "review"
+          }
+        }
+      },
+      "block_order": [
+        "965bd64f-933c-4226-86cd-3802e175efc5",
+        "782a801b-296f-4e7c-bcfe-ac0edcd89cf8",
+        "51ff0484-db8d-42f5-9d01-3a84d2baab9b"
+      ],
       "settings": {
       }
     },
