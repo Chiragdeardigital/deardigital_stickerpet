@@ -1,11 +1,5 @@
 {
   "sections": {
-    "1629096612ba7600a9": {
-      "type": "product-without-variant",
-      "disabled": true,
-      "settings": {
-      }
-    },
     "16378528721d5b6e1c": {
       "type": "product-with-steps-section",
       "blocks": {
@@ -95,12 +89,22 @@
       ],
       "settings": {
       }
+    },
+    "163828287075f9b2ce": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_vendor": false
+      }
     }
   },
   "order": [
-    "1629096612ba7600a9",
     "16378528721d5b6e1c",
     "16290966851973846b",
-    "162909679183423fb6"
+    "162909679183423fb6",
+    "163828287075f9b2ce"
   ]
 }

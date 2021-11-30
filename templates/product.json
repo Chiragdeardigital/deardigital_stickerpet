@@ -1,11 +1,5 @@
 {
   "sections": {
-    "1629096612ba7600a9": {
-      "type": "product-without-variant",
-      "disabled": true,
-      "settings": {
-      }
-    },
     "1637853061f1d0b879": {
       "type": "product-main",
       "blocks": {
@@ -88,12 +82,22 @@
       ],
       "settings": {
       }
+    },
+    "16382829904a479123": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_vendor": false
+      }
     }
   },
   "order": [
-    "1629096612ba7600a9",
     "1637853061f1d0b879",
     "16290966851973846b",
-    "162909679183423fb6"
+    "162909679183423fb6",
+    "16382829904a479123"
   ]
 }
