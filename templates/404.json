@@ -1,1 +1,15 @@
-{"sections":{"main":{"type":"main-404","settings":{}}},"order":["main"]}
+{
+  "sections": {
+    "main": {
+      "type": "main-404",
+      "settings": {
+        "header_404": "404",
+        "text_404": "Sorry.\n<br>The page you are looking for cannot be found.\n<br>Please try the links above in our menu or contact us <a href=\"mailto:info@stickerpet.com\">info@stickerpet.com\n<\/a><br>",
+        "image_404": "shopify:\/\/shop_images\/cactus-01.gif"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
