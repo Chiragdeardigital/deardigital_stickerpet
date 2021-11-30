@@ -10,3 +10,33 @@
 input::-webkit-search-decoration {
   -webkit-appearance: none;
 }
+
+.spaced-section{
+  margin-top: 0;
+}
+
+.sticker__search .page-width {
+  background-color: var(--background-color-1);
+  max-width: 100%;
+}
+
+.sticker__search .template-search__results{
+  margin-top: 0rem;
+  background-color: var(--nav-link-color);
+}
+
+.sticker__search .element-margin {
+  font-size: 20px;
+  font-family: cursive;
+  font-weight: 700;
+}
+
+.card--product .badge , .card--search .badge{
+  background-color: var(--solid-button-bg-color);
+  border-color: var(--solid-button-bg-color);
+  color: var(--nav-link-color);
+}
+
+.sticker__search .card-information .price , .sticker__search .card-information__text.h5{
+  font-size: 16px;
+}

@@ -120,6 +120,6 @@
     top: calc(50% - 0.25rem);
   }
   .currency .disclosure{
-    padding-left: 15px;
+    padding-left: 2px;
   }
 }

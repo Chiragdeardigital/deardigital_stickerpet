@@ -1,5 +1,8 @@
 {{ 'cart-template.css' | asset_url | stylesheet_tag }}
 {{ 'section-footer.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-search.css' | asset_url | stylesheet_tag }}</noscript>
+
 
 <link rel="stylesheet" href="{{ 'disclosure.css' | asset_url }}" media="print" onload="this.media='all'">
 <div id="NavDrawer" class="drawer drawer--left no-d">
@@ -84,6 +87,9 @@
               </details-disclosure>
 
             </li>
+            
+            
+
           <li class="nav-item currency">
             <localization-form>
               {%- form 'localization', id: 'FooterCountryForm', class: 'localization-form' -%}
@@ -109,7 +115,8 @@
               {%- endform -%}
             </localization-form>
           </li>
-
+          
+          <a href="/search" >{% render 'search-icon' %}</a>
 
             <li id="cartBtn" class="nav-item cart" aria-controls="CartDrawer" aria-expanded="true">
 
