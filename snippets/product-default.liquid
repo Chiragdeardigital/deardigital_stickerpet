@@ -1,4 +1,7 @@
 {{ 'component-product-without-variants.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-badge.css' | asset_url | stylesheet_tag }}
+{{ 'bootstrap.scss.css' | asset_url | stylesheet_tag }}
 {% assign current_variant = product.selected_or_first_available_variant %}
 {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
 
@@ -20,7 +23,7 @@
           </a>
         </p>
         <p class="product-price no-d">
-          {{ current_variant.price | money | replace: ",", "." }}
+          {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'product-price no-desktop-1 justify-content-center' -%}
         </p>
         {% render "product-template-slider" %}
         <div class="sticky-prices no-d">
@@ -38,7 +41,9 @@
           </h1>
           <div class="center-it">
             <div class="price-container">
-              <span class="product-price">{{ current_variant.price | money | replace: ",", "." }}</span>
+              <span class="product-price">
+                {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'product-price product-single__price' -%}
+              </span>
               <span class="stars">
               <span class="star">{% render "icon-star" %}</span>
               <span class="star">{% render "icon-star" %}</span>

@@ -574,8 +574,6 @@ function readURL(input) {
               $('#AddToCartForm--product-template').submit();
               $('.mobile-cart-submit').addClass('special-loader');
               $('.mobile-cart-submit').html('Loading<span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>');
-              addgiftbox();
-              console.log('asdas');
             }
           }
         }
