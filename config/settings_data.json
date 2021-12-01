@@ -34,6 +34,59 @@
         "settings": {
           "upsell_product": "gift-bag"
         }
+      },
+      "header": {
+        "type": "header",
+        "blocks": {
+          "276cd21f-38a3-4345-8ce4-37e24dd6b0d7": {
+            "type": "Menu",
+            "settings": {
+              "header_menu": "pet-sticker-menu"
+            }
+          },
+          "283ee463-7459-4191-ae09-9a48c75ba0f3": {
+            "type": "mobile_menu",
+            "settings": {
+              "mobile_menu": "pet-sticker-menu"
+            }
+          },
+          "6f41fa6e-b753-47fb-bbd7-a858e3f1efea": {
+            "type": "announcement",
+            "settings": {
+              "announcement_text": "🌴 Some text 🌴"
+            }
+          },
+          "752f24c0-7bef-4d7d-9758-6e9d82a99daa": {
+            "type": "announcement",
+            "settings": {
+              "announcement_text": "🐶 +45€ = FREE shipping"
+            }
+          },
+          "7fb949de-22ca-4bf3-bef1-3ff3ef4ce6cf": {
+            "type": "announcement",
+            "settings": {
+              "announcement_text": "🤘🏼 shipping every Wednesday 🤘🏼"
+            }
+          }
+        },
+        "block_order": [
+          "276cd21f-38a3-4345-8ce4-37e24dd6b0d7",
+          "283ee463-7459-4191-ae09-9a48c75ba0f3",
+          "6f41fa6e-b753-47fb-bbd7-a858e3f1efea",
+          "752f24c0-7bef-4d7d-9758-6e9d82a99daa",
+          "7fb949de-22ca-4bf3-bef1-3ff3ef4ce6cf"
+        ],
+        "settings": {
+          "brand_img": "shopify:\/\/shop_images\/download_1.png"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "top_header_text": "Receive our latest updates ❤️",
+          "bottom_header_text": "Shipped from Belgium 🇧🇪 straight to your mailbox",
+          "footer_image": "shopify:\/\/shop_images\/charity_logo_bg_1_150x_a29c410c-9787-4c65-955f-98b0a95f5418.png"
+        }
       }
     },
     "content_for_index": [
