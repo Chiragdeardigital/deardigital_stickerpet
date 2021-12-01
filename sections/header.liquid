@@ -42,7 +42,7 @@
                 srcset="{{ section.settings.brand_img | img_url: " 533x" }} 1x, {{ section.settings.brand_img |
                 img_url: "533x" }} 2x" alt="StickerPet" itemprop="logo" loading="lazy">
               {% else %}
-              {{ 'product-3' | placeholder_svg_tag }}
+              {{ shop.name }}
               {% endif %}
             </a>
           </div>
@@ -118,6 +118,7 @@
           
           <a href="/search" >{% render 'search-icon' %}</a>
 
+          {%- unless template contains 'cart' -%}
             <li id="cartBtn" class="nav-item cart" aria-controls="CartDrawer" aria-expanded="true">
 
               <div class="nav-link site-nav__link site-nav__link--icon cart-link js-drawer-open-button-right">
@@ -129,7 +130,7 @@
                 {% endif %}
               </div>
             </li>
-
+            {%- endunless -%}
           </ul>
 
           <!-- ---------------------------DROPDOWN MENU-------------- -->

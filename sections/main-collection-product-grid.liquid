@@ -475,13 +475,13 @@
             <div class="row">
               {% for product in collection.products %}
                   {% if product.price > 0 %}
-                  <div data-url = "{{product.url}}" class="col-md-4 flex-center">
+                  <div class="col-md-4 flex-center">
                     <div class="classic-products products">
                       <div class="about-us middle-text image-section">
-                        {% if product.first_available_variant.featured_image != blank %}
-                        <a href="{{product.url}}"><img src="{{ product.first_available_variant.featured_image | img_url: 'master' }}" alt="Classic Product Image" loading = "lazy" /></a>
-                        {%- elsif product.first_available_variant.featured_image == blank and product.featured_image != blank -%}
-                        <a href="{{product.url}}"><img src="{{ product.featured_image | img_url: 'master' }}" alt="Classic Product Image" loading = "lazy" /></a>
+                        {% if product.selected_or_first_available_variant.featured_media != blank %}
+                        <a href="{{product.url}}"><img src="{{ product.selected_or_first_available_variant.featured_media | img_url: 'master' }}" alt="Classic Product Image" loading = "lazy" /></a>
+                        {%- elsif product.selected_or_first_available_variant.featured_media == blank and product.featured_media != blank -%}
+                        <a href="{{product.url}}"><img src="{{ product.featured_media | img_url: 'master' }}" alt="Classic Product Image" loading = "lazy" /></a>
                         {%- else -%}
                          {{ 'product-1' | placeholder_svg_tag }}
                         {% endif %}
@@ -493,11 +493,11 @@
                               1x {{ product.title | escape  }}
                           </p>
                           <p class="col-3 product-price">
-                            <s class="strike">{{product.first_available_variant.compare_at_price | money}}</s>
-                              {% if product.first_available_variant.price != blank %}
-                              {{product.first_available_variant.price | money}}
+                            <s class="strike">{{product.selected_or_first_available_variant.compare_at_price | money}}</s>
+                              {% if product.selected_or_first_available_variant.price != blank %}
+                              {{product.selected_or_first_available_variant.price | money}}
                               {% else %}
-                              {{product.price | money}}
+                              
                               {% endif %}
                           </p>
                         </div>
@@ -510,8 +510,8 @@
                           <p class="col-3 product-size">
                           </p>
                         </div><br>
-                        <button class="button button-outline no-mobile direct-cart" data-variant-id="{%- if product.first_available_variant.id != blank -%}{{product.first_available_variant.id}}{%- else -%}{{product.variants.first.id}}{%- endif -%}" style="margin: 0 auto;">ADD TO CART</button>
-                        <button class="button button-outline no-desktop btn-mobile direct-cart" data-variant-id="{%- if product.first_available_variant.id != blank -%}{{product.first_available_variant.id}}{%- else -%}{{product.variants.first.id}}{%- endif -%}" style="margin: 0 auto;">{{ product.price | money }}</button>
+                        <button class="button button-outline no-mobile direct-cart" data-variant-id="{{product.selected_or_first_available_variant.id}}" style="margin: 0 auto;">ADD TO CART</button>
+                        <button class="button button-outline no-desktop btn-mobile direct-cart" data-variant-id="{{product.selected_or_first_available_variant.id}}" style="margin: 0 auto;">{{ product.price | money }}</button>
             
                       </div>
                     </div>
