@@ -6,29 +6,6 @@
     "favicon": "shopify:\/\/shop_images\/cropped-Stella-2-1-1-32x32_32x32_7ee6eb73-4649-4d99-bf15-17ab70fb1870.png",
     "upsell_product": "gift-bag",
     "sections": {
-      "announcement-bar-1": {
-        "type": "announcement-bar-1",
-        "blocks": {
-          "36508eec-0dd6-4d06-8f8b-514d05beb1e8": {
-            "type": "announcement",
-            "settings": {
-              "announcement_text": "🐶 +45€ = FREE shipping"
-            }
-          },
-          "b79910a5-5339-4099-8a2e-fe10af4713af": {
-            "type": "announcement",
-            "settings": {
-              "announcement_text": "🌴 orders placed after 18\/7 will be shipped 4\/8 🌴"
-            }
-          }
-        },
-        "block_order": [
-          "36508eec-0dd6-4d06-8f8b-514d05beb1e8",
-          "b79910a5-5339-4099-8a2e-fe10af4713af"
-        ],
-        "settings": {
-        }
-      },
       "cart-items-template": {
         "type": "cart-items-template",
         "settings": {

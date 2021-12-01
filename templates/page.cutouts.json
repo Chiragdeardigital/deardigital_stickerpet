@@ -6,11 +6,11 @@
       "settings": {
       }
     },
-    "1628957144e39f318b": {
-      "type": "hero-text-with-stars",
+    "1638337026b2fecea3": {
+      "type": "hero-with-text",
       "settings": {
         "color_scheme": "banner-background-1",
-        "title": "Examples of our stickers, t-shirts and portraits<br> created by professional designers"
+        "title": "Examples of our stickers, by professional designers"
       }
     },
     "1628951885b86a02e3": {
@@ -98,7 +98,7 @@
   },
   "order": [
     "main",
-    "1628957144e39f318b",
+    "1638337026b2fecea3",
     "1628951885b86a02e3"
   ]
 }
