@@ -477,7 +477,7 @@
                     <div class="classic-products products">
                       <div class="about-us middle-text image-section">
                         {% if product.featured_image != blank %}
-                          <a href="{{product.url}}"><img src="{{ product.featured_image | img_url: 'master' }}" alt="Classic Product Image" loading = "lazy" /></a>
+                          <a href="{{product.url}}"><img src="{{ product.first_available_variant.featured_image | img_url: 'master' }}" alt="Classic Product Image" loading = "lazy" /></a>
                           {% else %}
                           {{ 'product-1' | placeholder_svg_tag }}
                           {% endif %}
