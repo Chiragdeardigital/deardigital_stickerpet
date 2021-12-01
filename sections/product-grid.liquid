@@ -13,8 +13,8 @@
             <a href="{{product.url}}"><img src="{{ product.first_available_variant.featured_image | img_url: 'master' }}" alt="Classic Product Image" loading = "lazy" /></a>
             {%- elsif product.first_available_variant.featured_image == blank and product.featured_image != blank -%}
             <a href="{{product.url}}"><img src="{{ product.featured_image | img_url: 'master' }}" alt="Classic Product Image" loading = "lazy" /></a>
-            {%- elsif product.first_available_variant.featured_image == blank and product.featured_image == blank -%}
-             {{ 'product-1' | placeholder_svg_tag }}
+            {%- else -%}
+            {{ 'product-1' | placeholder_svg_tag }}
             {% endif %}
           </div>
           <div class="product-detail justify-text">
