@@ -10,7 +10,7 @@
         <div class="flex">
           {%- for block in section.blocks -%}
           {% case block.type %}
-          {%- when 'buttons' -%}
+          {%- when 'grp_buttons' -%}
           <a href="{{ block.settings.btn_url }}" class="button">
            {{ block.settings.btn_text }}
           </a>
@@ -147,7 +147,7 @@
             ]
         },
         {
-            "type": "buttons",
+            "type": "grp_buttons",
             "name": "Button",
             "limit": 3,
             "settings": [
