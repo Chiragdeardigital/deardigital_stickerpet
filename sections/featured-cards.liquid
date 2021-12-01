@@ -1,0 +1,87 @@
+<section class="products color-{{ section.settings.cards_section_background }}">
+  <div class="container">
+    <div class="flex card-items">
+      {%- for block in section.blocks -%}
+      {% case block.type %}
+      {%- when 'cards' -%}
+      <div class="card-item">
+        
+        {% if block.settings.card_image != blank %}
+        <img srcset="{%- if block.settings.card_image.width >= 100 -%}{{ block.settings.card_image | img_url: '100x' }} 100w,{%- endif -%}
+                     {% if  block.settings.card_image.width >= 288 %}{{  block.settings.card_image | img_url: '288x' }} 288w,{% endif %}"
+             src="{{ block.settings.card_image | img_url: '100x' }}"
+             width="auto"
+           height="auto"
+             alt="{{ block.settings.image.alt }}" 
+             loading="lazy">
+        {% else %}
+
+        	{{ 'collection-2' | placeholder_svg_tag }}
+        {% endif %}
+        
+        <div class="card-details">
+          {{ block.settings.text }}
+        </div>
+      </div>
+      {%- endcase -%}
+      {%- endfor -%}
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+    "name": "Home page cards",
+    "settings": [
+        {
+          "type": "select",
+          "id": "cards_section_background",
+          "label": "color scheme",
+          "default": "background-color-3",
+          "info" : "choose a background",
+          "options": [
+          {
+          "label": "Background 1",
+          "value": "background-color-2"
+          },
+          {
+          "label": "Background 2",
+          "value": "background-color-3"
+          }
+        ]
+      }
+    ],
+    "blocks": [
+        {
+            "type": "cards",
+            "name": "Card",
+            "limit": 3,
+            "settings": [
+                {
+                    "id": "card_image",
+                    "type": "image_picker",
+                    "label": "Add image"
+                },
+                {
+                    "id": "text",
+                    "type": "text",
+                    "label": "Card text"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Cards",
+            "category": "ADVANCED LAYOUT"
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
