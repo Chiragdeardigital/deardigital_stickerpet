@@ -475,7 +475,7 @@
             <div class="row">
               {% for product in collection.products %}
                   {% if product.price > 0 %}
-                  <div data-url = "{{product_card_product.url}}" class="col-md-4 flex-center">
+                  <div data-url = "{{product.url}}" class="col-md-4 flex-center">
                     <div class="classic-products products">
                       <div class="about-us middle-text image-section">
                         {% if product.first_available_variant.featured_image != blank %}
