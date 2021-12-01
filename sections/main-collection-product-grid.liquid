@@ -472,7 +472,7 @@
         </p>
 
           <div id="main-collection-product-grid" data-id="{{ section.id }}" class="wrapper marg-bot-xl">
-            <div class="row">
+            <div data-id="{{ section.id }}" class="row">
               {% for product in collection.products %}
                   {% if product.price > 0 %}
                   <div class="col-md-4 flex-center">
