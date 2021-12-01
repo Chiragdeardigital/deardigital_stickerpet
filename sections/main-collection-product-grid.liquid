@@ -11,7 +11,7 @@
 <noscript>{{ 'component-badge.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 
-<script src="{{ 'collection-filters-form.js' | asset_url }}" defer="defer"></script>
+
 
 {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
 <h2 class="h3 headings text-center marg-bot" style="font-size: 35px !important;">{{section.settings.product_grid_heading}}<span class="grid_heading_subtext"> {{section.settings.product_grid_subtext}}</span></h2>
@@ -431,8 +431,10 @@
   {%- endif -%}
 </div>
 
+<script src="{{ 'collection-filters-form.js' | asset_url }}" defer="defer"></script>
+
 <div id="CollectionProductGrid">
-  {%- paginate collection.products by 50 -%}
+  {%- paginate collection.products by section.settings.products_per_page -%}
     {%- if collection.products.size == 0 -%}
       <div class="collection collection--empty page-width" id="main-collection-product-grid" data-id="{{ section.id }}">
         <div class="loading-overlay">
@@ -469,55 +471,23 @@
           {{ 'sections.collection_template.product_count' | t: product_count: collection.products_count, count: collection.all_products_count }}
         </p>
 
-          <div id="main-collection-product-grid" data-id="{{ section.id }}" class="wrapper marg-bot-xl">
-            <div class="row">
-              {% for product in collection.products %}
-                  {% if product.price > 0%}
-                  <div class="col-md-4 flex-center">
-                    <div class="classic-products products">
-                      <div class="about-us middle-text image-section">
-                        {% if product.first_available_variant.featured_image != blank %}
-                        <a href="{{product.url}}"><img src="{{ product.first_available_variant.featured_image | img_url: 'master' }}" alt="Classic Product Image" loading = "lazy" /></a>
-                        {%- elsif product.first_available_variant.featured_image == blank and product.featured_image != blank -%}
-                        <a href="{{product.url}}"><img src="{{ product.featured_image | img_url: 'master' }}" alt="Classic Product Image" loading = "lazy" /></a>
-                        {%- else -%}
-                         {{ 'product-1' | placeholder_svg_tag }}
-                        {% endif %}
-                          </div>
-                          <div class="product-detail justify-text">
-              
-                        <div class="row space-around">
-                          <p class="col-9 product-title">
-                              1x {{ product.title | escape  }}
-                          </p>
-                          <p class="col-3 product-price">
-                            <s class="strike">{{product.first_available_variant.compare_at_price | money}}</s>
-                              {% if product.first_available_variant.price != blank %}
-                              {{product.first_available_variant.price | money}}
-                              {% else %}
-                              {{product.price | money}}
-                              {% endif %}
-                          </p>
-                        </div>
-              
-                        <div class="row">
-                          <p class="col-9 product-description">
-                            {{ product.description | escape  }}
-                            
-                          </p>
-                          <p class="col-3 product-size">
-                          </p>
-                        </div><br>
-                        <button class="button button-outline no-mobile direct-cart" data-variant-id="{%- if product.first_available_variant.id != blank -%}{{product.first_available_variant.id}}{%- else -%}{{product.variants.first.id}}{%- endif -%}" style="margin: 0 auto;">ADD TO CART</button>
-                        <button class="button button-outline no-desktop btn-mobile direct-cart" data-variant-id="{%- if product.first_available_variant.id != blank -%}{{product.first_available_variant.id}}{%- else -%}{{product.variants.first.id}}{%- endif -%}" style="margin: 0 auto;">{{ product.price | money }}</button>
-            
-                      </div>
-                    </div>
-                  </div>
-                  {% endif %}
-                {% endfor %}
-                </div>
-              </div>
+          <ul id="main-collection-product-grid" data-id="{{ section.id }}" class="
+          grid grid--2-col
+          {% if collection.products_count < 4 %} grid--{{ collection.products_count }}-col-tablet{% else %}
+            {% if collection.products_count == 4 %} grid--4-col-desktop{% else %} grid--3-col-tablet grid--one-third-max grid--4-col-desktop grid--quarter-max{% endif %}
+          {% endif %} negative-margin">
+          {%- for product in collection.products -%}
+            <li class="grid__item">
+              {% render 'product-card',
+                product_card_product: product,
+                media_size: section.settings.image_ratio,
+                show_secondary_image: section.settings.show_secondary_image,
+                add_image_padding: section.settings.add_image_padding,
+                show_vendor: section.settings.show_vendor
+              %}
+            </li>
+          {%- endfor -%}
+        </ul>
 
 
         {%- if paginate.pages > 1 -%}
