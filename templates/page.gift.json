@@ -1,31 +1,31 @@
 {
   "sections": {
-    "1627798891438b8078": {
-      "type": "image-banner1",
+    "1638545985c589b7fc": {
+      "type": "image-banner",
       "blocks": {
-        "9eaef082-ab9d-4366-b840-2229dfded2b3": {
+        "c3024d5a-45fe-4143-9d7a-db0a9ab449ec": {
           "type": "heading",
           "settings": {
-            "heading": "Send stickers with extra love ❤️"
+            "heading": "Sticker<br> banner heading❤️"
           }
         },
-        "21106868-2830-4fa7-a011-f4457119e90f": {
+        "837463c1-2ea5-4e9b-b16d-ce3a6a07b2f3": {
           "type": "button",
           "settings": {
-            "button_label": "gift pack",
+            "button_label": "Button label",
             "border_button": true,
             "button_link": ""
           }
         }
       },
       "block_order": [
-        "9eaef082-ab9d-4366-b840-2229dfded2b3",
-        "21106868-2830-4fa7-a011-f4457119e90f"
+        "c3024d5a-45fe-4143-9d7a-db0a9ab449ec",
+        "837463c1-2ea5-4e9b-b16d-ce3a6a07b2f3"
       ],
       "settings": {
         "color_scheme": "banner-background-1",
-        "image": "shopify:\/\/shop_images\/Gift_bag_x342_332d3e84-1854-4d8c-b818-01857f7eba02.png",
-        "image_2": "shopify:\/\/shop_images\/custom-right-sm.png"
+        "image": "shopify:\/\/shop_images\/a-smiling-big-teddy-bear-like-dog.jpg",
+        "image_2": "shopify:\/\/shop_images\/torso-of-a-person-in-a-plain-grey-shirt.jpg"
       }
     },
     "16277437539db10743": {
@@ -34,14 +34,14 @@
         "61838161-9095-4b8c-9205-f25cf7703086": {
           "type": "quality_block",
           "settings": {
-            "heading": "personal<br>\nmessage 💌",
+            "heading": "gift<br>\npage💌",
             "hide_block": false
           }
         },
         "94a15f01-1428-4519-b3c1-8fbc412ea7a8": {
           "type": "quality_block",
           "settings": {
-            "heading": "eco &amp; reusable<br>\ngift bag 💝",
+            "heading": "git &amp; page<br> 💝",
             "hide_block": false
           }
         }
@@ -60,19 +60,19 @@
         "e38edc23-4c67-4581-9a75-8490f62932f9": {
           "type": "heading",
           "settings": {
-            "heading": "Stickers that will last for years."
+            "heading": "Image with text"
           }
         },
         "0a4373e4-822d-4d1f-b45e-dcd67dac5e9b": {
           "type": "image_2_desc",
           "settings": {
-            "para_text": "<p class=\"para\">\n          Nothing better than a gift that is personalised with a sticker of your, his or her pet.<br><br>\n           Pro tip! Pimp your wine-bottle gifts with your Chateaux-chat sticker.\n        <\/p>"
+            "para_text": "Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review."
           }
         },
         "0525d500-e199-4f0c-8438-e6311fb59235": {
           "type": "button",
           "settings": {
-            "button_label": "Order Now",
+            "button_label": "Button label",
             "button_link": "shopify:\/\/products\/portraits"
           }
         }
@@ -83,9 +83,9 @@
         "0525d500-e199-4f0c-8438-e6311fb59235"
       ],
       "settings": {
-        "desktop_image": "shopify:\/\/shop_images\/gift_790x_f53010b4-9114-48dc-a21d-b7892e3b7d43.png",
-        "mobile_image_1": "shopify:\/\/shop_images\/zakje24_x383_328ced28-1c96-4790-899a-2a2aaac337bf.png",
-        "mobile_image_2": "shopify:\/\/shop_images\/example3_x383_83db62bc-4eac-4b32-a42b-983bb4e1fe2c.png",
+        "desktop_image": "shopify:\/\/shop_images\/white-tshirt-template.jpg",
+        "mobile_image_1": "shopify:\/\/shop_images\/torso-of-a-person-in-a-plain-grey-shirt.jpg",
+        "mobile_image_2": "shopify:\/\/shop_images\/blue-t-shirt.jpg",
         "layout": "text_first"
       }
     },
@@ -103,24 +103,15 @@
         "782a801b-296f-4e7c-bcfe-ac0edcd89cf8": {
           "type": "pet_review",
           "settings": {
-            "review_image": "shopify:\/\/shop_images\/Lene_x200_f9e76529-9b5c-4520-86a9-a8a560483a5e.png",
+            "review_image": "shopify:\/\/shop_images\/portrait-young-man-smiling.jpg",
             "review_text": "<i>“The comment by the reviewer goes here <\/i>🐶”<br><i>- name goes here, pet<\/i>",
             "typed_text_pet": "pet"
-          }
-        },
-        "51ff0484-db8d-42f5-9d01-3a84d2baab9b": {
-          "type": "human_review",
-          "settings": {
-            "review_image": "shopify:\/\/shop_images\/classic-image-1.png",
-            "review_text": "<i>“The comment by the reviewer goes here <\/i>🐶”<br><i>- name goes here, human<\/i>",
-            "typed_text_human": "review"
           }
         }
       },
       "block_order": [
         "965bd64f-933c-4226-86cd-3802e175efc5",
-        "782a801b-296f-4e7c-bcfe-ac0edcd89cf8",
-        "51ff0484-db8d-42f5-9d01-3a84d2baab9b"
+        "782a801b-296f-4e7c-bcfe-ac0edcd89cf8"
       ],
       "settings": {
       }
@@ -131,19 +122,19 @@
         "cb08cd58-7959-4d91-a48d-32dc32ae02bc": {
           "type": "heading",
           "settings": {
-            "heading": "Stickers that will last for years."
+            "heading": "Image with text"
           }
         },
         "1c952ef0-4e93-4859-b38e-d2f687b5e401": {
           "type": "image_2_desc",
           "settings": {
-            "para_text": "<p class=\"para\">\n          Nothing better than a gift that is personalised with a sticker of your, his or her pet.<br><br>\n           Pro tip! Pimp your wine-bottle gifts with your Chateaux-chat sticker.\n        <\/p>"
+            "para_text": "Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review."
           }
         },
         "fa3da896-22d3-4ffc-bdfb-de96cf274906": {
           "type": "button",
           "settings": {
-            "button_label": "Order Now",
+            "button_label": "Button Label",
             "button_link": "shopify:\/\/products\/stickers"
           }
         }
@@ -154,15 +145,15 @@
         "fa3da896-22d3-4ffc-bdfb-de96cf274906"
       ],
       "settings": {
-        "desktop_image": "shopify:\/\/shop_images\/example9_x790_1228392f-b586-471f-926f-07a7fbebb456.png",
-        "mobile_image_1": "shopify:\/\/shop_images\/example9_x790_1228392f-b586-471f-926f-07a7fbebb456.png",
-        "mobile_image_2": "shopify:\/\/shop_images\/zakje24_x383_328ced28-1c96-4790-899a-2a2aaac337bf.png",
+        "desktop_image": "shopify:\/\/shop_images\/poochie-party-treats.jpg",
+        "mobile_image_1": "shopify:\/\/shop_images\/blue-t-shirt.jpg",
+        "mobile_image_2": "shopify:\/\/shop_images\/torso-of-a-person-in-a-plain-grey-shirt.jpg",
         "layout": "image_first"
       }
     }
   },
   "order": [
-    "1627798891438b8078",
+    "1638545985c589b7fc",
     "16277437539db10743",
     "16278030249c3fd9e9",
     "1627819628339a3175",
