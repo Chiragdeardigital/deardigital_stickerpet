@@ -25,44 +25,10 @@
     "16269316720393125d": {
       "type": "partner",
       "settings": {
-        "partner_image": "shopify:\/\/shop_images\/Edgard_Cooper_Logo_New.png",
+        "partner_image": "shopify:\/\/shop_images\/Anne_x200_24164819-b4dc-4e18-beae-16de6539423f.png",
         "text": "partner of",
         "btn_text": "learn more",
         "btn_url": "#"
-      }
-    },
-    "1627032933089769f3": {
-      "type": "homepage-cards",
-      "blocks": {
-        "d07f598d-4aaa-471f-8ca5-e71bb31c791a": {
-          "type": "cards",
-          "settings": {
-            "card_image": "shopify:\/\/shop_images\/favourite-products-01_x300_74c8a688-fd88-4165-9976-71e9bbd927dd.png",
-            "text": "Choose your favourite product(s)."
-          }
-        },
-        "6cb97f94-822f-4be0-ba14-8dde6acab61f": {
-          "type": "cards",
-          "settings": {
-            "card_image": "shopify:\/\/shop_images\/Upload_your_image_x300_3466c037-1989-4ce4-b499-ddc8663f52f7.png",
-            "text": "Upload a clear picture of your darling pet."
-          }
-        },
-        "0725de58-75c0-4417-a0e4-0d7c50040c26": {
-          "type": "cards",
-          "settings": {
-            "card_image": "shopify:\/\/shop_images\/ALASKA-PRODUCTS-01_x300_4596e6a2-09b7-448b-ab42-bf6cd698bead.png",
-            "text": "Our designers and printers will do the rest."
-          }
-        }
-      },
-      "block_order": [
-        "d07f598d-4aaa-471f-8ca5-e71bb31c791a",
-        "6cb97f94-822f-4be0-ba14-8dde6acab61f",
-        "0725de58-75c0-4417-a0e4-0d7c50040c26"
-      ],
-      "settings": {
-        "cards_section_background": "background-color-3"
       }
     },
     "16269320911dc86b20": {
@@ -71,28 +37,28 @@
         "7fe46db1-094a-422e-9724-ee0529c37baf": {
           "type": "heading",
           "settings": {
-            "heading": "Stickers that will last for years."
+            "heading": "Heading for personalized stickers."
           }
         },
         "5aea1296-212f-4d47-8b3f-bddb23f6c558": {
           "type": "text_list",
           "settings": {
             "icon_text": "🔫",
-            "list_text": "Water and dish washer proof."
+            "list_text": "Text for sticker description"
           }
         },
         "56aa43fe-e246-4b8f-acb8-743acdb78e5c": {
           "type": "text_list",
           "settings": {
             "icon_text": "🦎",
-            "list_text": "Super sticky on even surface."
+            "list_text": "Text for sticker description"
           }
         },
         "75203be6-2fec-4e3b-a256-a4fd9a53f8b7": {
           "type": "text_list",
           "settings": {
             "icon_text": "☀️",
-            "list_text": "Sustainable and UV proof, keeping every pixel and colour your camera can capture."
+            "list_text": "Text for sticker description"
           }
         },
         "ea9bccf6-08bb-4d82-b7f1-224f37655427": {
@@ -111,10 +77,10 @@
         "ea9bccf6-08bb-4d82-b7f1-224f37655427"
       ],
       "settings": {
-        "video_checkbox": true,
+        "video_checkbox": false,
         "video_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0268\/5580\/0887\/files\/custom-pet-sticker-from-sticker-pet.mp4?v=1606812993",
-        "desktop_image": "shopify:\/\/shop_images\/portrait-fireplace-2_x395_c7f4ff9c-8013-436c-b67e-d9450fad5113.jpg",
-        "mobile_image": "shopify:\/\/shop_images\/dog-stickers.png",
+        "desktop_image": "shopify:\/\/shop_images\/a-smiling-big-teddy-bear-like-dog.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/young-dog-looking-up-excitedly-awaiting-a-treat.jpg",
         "height": "adapt",
         "image_with_text_bg": "solid-button-labels",
         "layout": "text_first",
@@ -127,28 +93,28 @@
         "2f87c105-6ed8-44bf-bce2-340d0f582f6d": {
           "type": "heading",
           "settings": {
-            "heading": "Personalised pet portraits."
+            "heading": "Personalised portraits."
           }
         },
         "6467e01d-1997-410b-bcb9-bd403f10abc5": {
           "type": "text_list",
           "settings": {
             "icon_text": "🎨",
-            "list_text": "Printed on fine art aluminium with a mat finish."
+            "list_text": "Text for sticker description"
           }
         },
         "7a5a3591-593a-4409-b6af-e238ffb53814": {
           "type": "text_list",
           "settings": {
             "icon_text": "👌",
-            "list_text": "Clear and sharp representation of details."
+            "list_text": "Text for sticker description"
           }
         },
         "387a11d9-3ada-4d26-adf8-893025367c8c": {
           "type": "text_list",
           "settings": {
             "icon_text": "💪",
-            "list_text": "Shape retaining, strong and water-proof material. Scratch resistant."
+            "list_text": "Text for sticker description"
           }
         },
         "645ff431-205b-4b19-a50c-1939126a41f5": {
@@ -169,8 +135,8 @@
       "settings": {
         "video_checkbox": false,
         "video_url": "",
-        "desktop_image": "shopify:\/\/shop_images\/custom-printed-t-shirts-block.jpg",
-        "mobile_image": "shopify:\/\/shop_images\/mila-shadows-01_95b97056-76c2-40e2-9996-8aacbccf0250.png",
+        "desktop_image": "shopify:\/\/shop_images\/model-in-gold-fashion.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/model-in-gold-fashion.jpg",
         "height": "adapt",
         "image_with_text_bg": "solid-button-labels",
         "layout": "image_first",
@@ -183,28 +149,28 @@
         "392464e9-119b-4487-bac6-df0bc43f524d": {
           "type": "heading",
           "settings": {
-            "heading": "Personalised organic t-shirts."
+            "heading": "Personalised t-shirts."
           }
         },
         "af8626c5-1311-403c-8293-1ff8cabde278": {
           "type": "text_list",
           "settings": {
             "icon_text": "🦍",
-            "list_text": "Durable print of high quality."
+            "list_text": "Text for sticker description"
           }
         },
         "e9ea1372-490d-4543-800b-1b71f9e9425d": {
           "type": "text_list",
           "settings": {
             "icon_text": "☘️",
-            "list_text": "100% organic cotton of the finest quality. We only sell the best."
+            "list_text": "Text for sticker description"
           }
         },
         "f7d5b2ad-aace-4e35-9035-81a900c4edda": {
           "type": "text_list",
           "settings": {
             "icon_text": "🤘🏼",
-            "list_text": "Printed on the best printers that reproduce every pixel and colour your camera can capture."
+            "list_text": "Text for sticker description"
           }
         },
         "11962a94-054c-4f8b-ad97-6983c901ac05": {
@@ -225,8 +191,8 @@
       "settings": {
         "video_checkbox": false,
         "video_url": "",
-        "desktop_image": "shopify:\/\/shop_images\/portrait-fireplace-2_x395_c7f4ff9c-8013-436c-b67e-d9450fad5113.jpg",
-        "mobile_image": "shopify:\/\/shop_images\/t-shirt-with-shadow-01.png",
+        "desktop_image": "shopify:\/\/shop_images\/white-tshirt-template.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/torso-of-a-person-in-a-plain-grey-shirt.jpg",
         "height": "adapt",
         "image_with_text_bg": "solid-button-labels",
         "layout": "text_first",
@@ -240,117 +206,24 @@
           "type": "human_review",
           "settings": {
             "review_image": "shopify:\/\/shop_images\/Anne_x200_24164819-b4dc-4e18-beae-16de6539423f.png",
-            "review_text": "<i>“Smooth, friendly order &amp; service. Nice job! Now handing out the stickers and ordering more. Already hooked!”<br><i>- Anne, human<\/i><\/i>",
+            "review_text": "<i>“Text Reivew of customers or a sticker review”<br><i>- Name, human<\/i><\/i>",
             "typed_text_human": "human"
           }
         },
         "af4c9ed6-8e44-44ff-b855-637603227414": {
           "type": "pet_review",
           "settings": {
-            "review_image": "shopify:\/\/shop_images\/Stella_1_x200_7035dabb-44b6-4a16-aea6-cb2ae93bc9bb.png",
-            "review_text": "<i>“Can't stop wagging my tail when I see my face on those stickers <\/i>🐶”<br><i>- stella, pet<\/i>",
-            "typed_text_pet": "pet"
-          }
-        },
-        "1610bbb9-1ac0-4603-af23-d503408c5a7c": {
-          "type": "human_review",
-          "settings": {
-            "review_image": "shopify:\/\/shop_images\/Maurice_1_x200_f27796e3-1c67-4f48-a31a-9a6b3bbd06d8.png",
-            "review_text": "<i>“Lovely gift! Really nice quality. Instant happiness when you see the envelope. Thanks Sticker Pet, wish you all the best!”<br><i>- Lene, human<\/i><\/i>",
-            "typed_text_human": "human"
-          }
-        },
-        "0e6873ab-3fe5-4bbc-9e88-21876b48ffd7": {
-          "type": "pet_review",
-          "settings": {
-            "review_image": "shopify:\/\/shop_images\/Dolly_1_x200_dc00e323-1b6b-4a4e-9ab6-6aee92027412.png",
-            "review_text": "<i>“Meeeh, could have been better, my hair wasn’t right on the pic 🤷”<br><i>- Dolly, pet<\/i><\/i>",
-            "typed_text_pet": "pet"
+            "review_image": "shopify:\/\/shop_images\/blue-t-shirt.jpg",
+            "review_text": "<i>“Text Reivew of customers or a sticker review”<br><i>- Name, sticker <\/i><\/i>",
+            "typed_text_pet": "sticker"
           }
         }
       },
       "block_order": [
         "34229b2e-c551-4c47-857e-36f2edb5d789",
-        "af4c9ed6-8e44-44ff-b855-637603227414",
-        "1610bbb9-1ac0-4603-af23-d503408c5a7c",
-        "0e6873ab-3fe5-4bbc-9e88-21876b48ffd7"
+        "af4c9ed6-8e44-44ff-b855-637603227414"
       ],
       "settings": {
-      }
-    },
-    "16269330812e0bb929": {
-      "type": "collage-1",
-      "blocks": {
-        "1bac0c18-c7d2-4849-aa76-7057141ef72c": {
-          "type": "collage_image",
-          "settings": {
-            "collage_image": "shopify:\/\/shop_images\/grid-img-1_x395_ef95f937-3b50-4a73-be6f-fb43502ea821.png"
-          }
-        },
-        "d02987ad-f6aa-4a78-ae27-b1ab1730f293": {
-          "type": "collage_image",
-          "settings": {
-            "collage_image": "shopify:\/\/shop_images\/grid-img-2_x395_a3262ddd-5da8-42f3-8e7b-078ab10b9f97.png"
-          }
-        },
-        "4db06a6e-91a7-4695-af14-f05dd3151d0a": {
-          "type": "collage_image",
-          "settings": {
-            "collage_image": "shopify:\/\/shop_images\/grid-img-3_x395_8d2c35b0-fa3e-469a-b350-535a6c0c99ad.png"
-          }
-        },
-        "b3240848-e289-4ce3-ab1f-ad4e04384f0f": {
-          "type": "collage_image",
-          "settings": {
-            "collage_image": "shopify:\/\/shop_images\/portrait-fireplace-2_x395_c7f4ff9c-8013-436c-b67e-d9450fad5113.jpg"
-          }
-        },
-        "26bdb57a-28ea-4941-8bbc-3f1fed878573": {
-          "type": "buttons",
-          "settings": {
-            "btn_text": "stickers",
-            "btn_url": "shopify:\/\/products\/stickers"
-          }
-        },
-        "db31f759-dbbc-44f4-8d76-265e2d92d433": {
-          "type": "buttons",
-          "settings": {
-            "btn_text": "t-shirts",
-            "btn_url": "shopify:\/\/products\/t-shirts"
-          }
-        },
-        "a73b6c5b-8e04-4e72-9290-8943226f289d": {
-          "type": "buttons",
-          "settings": {
-            "btn_text": "portraits",
-            "btn_url": "shopify:\/\/products\/portraits"
-          }
-        },
-        "5292ea36-9db0-4238-b117-78de54840b5a": {
-          "type": "mobilebuttons",
-          "settings": {
-            "mobile_btn_text": "Gift them",
-            "mobile_btn_url": "shopify:\/\/pages\/gift"
-          }
-        }
-      },
-      "block_order": [
-        "1bac0c18-c7d2-4849-aa76-7057141ef72c",
-        "d02987ad-f6aa-4a78-ae27-b1ab1730f293",
-        "4db06a6e-91a7-4695-af14-f05dd3151d0a",
-        "b3240848-e289-4ce3-ab1f-ad4e04384f0f",
-        "26bdb57a-28ea-4941-8bbc-3f1fed878573",
-        "db31f759-dbbc-44f4-8d76-265e2d92d433",
-        "a73b6c5b-8e04-4e72-9290-8943226f289d",
-        "5292ea36-9db0-4238-b117-78de54840b5a"
-      ],
-      "settings": {
-        "layout": "image_first",
-        "collage_bg": "solid-button-labels",
-        "header_text": "Stick & share with friends",
-        "para_text": "With a pack of 21 stickers, you can have a lot of stickering fun. We recommend sticking your pet’s faces on smooth and clean surfaces like:<br><br><span class=\"list-icon\">💻 📱 🎸 🛹<\/span> <br>Yeah, you got it, almost everywhere!<br><br>Oh psst, you can also share them with your friends and make your pet the rock star on Instagram.",
-        "mobile_header_text": "Share them.<br>Gift them.",
-        "mobile_para_text": "These stickers are meant to be shared with your friends and family.<br><br>It is even easier to gift the stickers with a reusable pouch. There is no better gift than a personal one."
       }
     },
     "162693353455d4bf27": {
@@ -359,43 +232,43 @@
         "1f81e4a3-0721-4f46-b241-5ea832c1b48b": {
           "type": "feed",
           "settings": {
-            "social_feed_image": "shopify:\/\/shop_images\/insta-1.jpg",
-            "link_url": "https:\/\/www.instagram.com\/p\/CRYggoMrKBF\/"
+            "social_feed_image": "shopify:\/\/shop_images\/blue-t-shirt.jpg",
+            "link_url": "https:\/\/www.instagram.com"
           }
         },
         "147b6577-3542-4e4d-b913-44bd55a24c29": {
           "type": "feed",
           "settings": {
-            "social_feed_image": "shopify:\/\/shop_images\/212103965_855585541727409_1408907895201777266_n.jpg",
-            "link_url": "https:\/\/www.instagram.com\/p\/CRJEcTcgrxW\/"
+            "social_feed_image": "shopify:\/\/shop_images\/a-smiling-big-teddy-bear-like-dog.jpg",
+            "link_url": "https:\/\/www.instagram.com"
           }
         },
         "979e9fa8-0d09-4d0c-bdc7-57cebb4a2c33": {
           "type": "feed",
           "settings": {
-            "social_feed_image": "shopify:\/\/shop_images\/212573143_119297527064418_4250933419178878594_n.jpg",
-            "link_url": "https:\/\/www.instagram.com\/p\/CSWcJIRIXlx\/"
+            "social_feed_image": "shopify:\/\/shop_images\/model-in-gold-fashion.jpg",
+            "link_url": "https:\/\/www.instagram.com"
           }
         },
         "dffbd1de-4eed-4833-9fe7-ac74813012e7": {
           "type": "feed",
           "settings": {
-            "social_feed_image": "shopify:\/\/shop_images\/213526227_233776618378586_3395913326651716939_n.jpg",
-            "link_url": "https:\/\/www.instagram.com\/p\/CSCb8JmoM5n\/"
+            "social_feed_image": "shopify:\/\/shop_images\/boxer-dog.jpg",
+            "link_url": "https:\/\/www.instagram.com"
           }
         },
         "1723ffd5-ffa9-4c37-8f52-f8ae4dcd69e8": {
           "type": "feed",
           "settings": {
-            "social_feed_image": "shopify:\/\/shop_images\/209546036_952085435550305_2539629348458285696_n.jpg",
-            "link_url": "https:\/\/www.instagram.com\/p\/CRyNxoLrUZx\/"
+            "social_feed_image": "shopify:\/\/shop_images\/a-grinning-bronze-coloured-dog.jpg",
+            "link_url": "https:\/\/www.instagram.com"
           }
         },
         "f65dbc12-517f-4937-8352-5785c90dd0b1": {
           "type": "feed",
           "settings": {
-            "social_feed_image": "shopify:\/\/shop_images\/203727374_2567473783548644_1821380606773391407_n.jpg",
-            "link_url": "https:\/\/www.instagram.com\/p\/CRpQmlIL-Ig\/"
+            "social_feed_image": "shopify:\/\/shop_images\/torso-of-a-person-in-a-plain-grey-shirt.jpg",
+            "link_url": "https:\/\/www.instagram.com"
           }
         }
       },
@@ -408,21 +281,19 @@
         "f65dbc12-517f-4937-8352-5785c90dd0b1"
       ],
       "settings": {
-        "social_media_header": "Follow your favourite pet account on Instagram",
-        "social_media_link_text": "@STICKERPEt",
-        "social_media_link": "https:\/\/www.instagram.com\/stickerpet\/"
+        "social_media_header": "Follow your favourite account on Instagram",
+        "social_media_link_text": "@STICKER",
+        "social_media_link": "https:\/\/www.instagram.com\/"
       }
     }
   },
   "order": [
     "1626930599b34bc97d",
     "16269316720393125d",
-    "1627032933089769f3",
     "16269320911dc86b20",
     "16269351204e45dc37",
     "16269353135dc74fd8",
     "16269327587c3cb1a5",
-    "16269330812e0bb929",
     "162693353455d4bf27"
   ]
 }
