@@ -1,1 +1,87 @@
-{"sections":{"main":{"type":"main-page","disabled":true,"settings":{}},"1628001025ce238fa9":{"type":"plain-hero-with-header","settings":{"header_text":"Join the team"}},"162800109101803c02":{"type":"product-quality","blocks":{"799e9a6c-89a1-4270-96fd-b47e32d77fbb":{"type":"quality_block","settings":{"heading":"👩‍💻 remote <br>working"}},"ec88845a-3dcc-440d-ab2c-b2b54c89e3d2":{"type":"quality_block","settings":{"heading":"5.0 ⭐<br>reviews"}},"631710e3-d921-45d6-a9de-bde3b533fd4d":{"type":"quality_block","settings":{"heading":"🦘 fun <br>startup"}}},"block_order":["799e9a6c-89a1-4270-96fd-b47e32d77fbb","ec88845a-3dcc-440d-ab2c-b2b54c89e3d2","631710e3-d921-45d6-a9de-bde3b533fd4d"],"settings":{"show_rating_block":false}},"1628004178abf22af9":{"type":"image-with-text-4","settings":{"image":"shopify:\/\/shop_images\/Sticker_Pet_logo_shadow.png","header_text":"Join us at Sticker Pet","para_text":"We’re a small team with a big heart for pets. Our mission is to offer fun and qualitative pet products, both for pets and owners.","reverse_columns":false}},"16280012106c417d45":{"type":"faq","blocks":{"90e991f1-f66b-4bfc-80a1-88f303fb6366":{"type":"faq_list","settings":{"header_text":"<span style=\"font-size: 25px;\"> Marketing Internship<\/span>","para_text":"As our Marketing and Communications intern you’ll be in charge of our social channels and acquisition partners. You’ll create content, run giveaways, manage influencers and our community.<br><br>Are you a pet-person, with an eye for design? And can you help us grow our Instagram channel and organic reach through fun partnerships? Do you want to launch new products and ideas with us?<br><br>\nThen we would love to offer you an internship where you can learn the basics and the details on how to build a brand and grow an e-commerce business.\n\n\n<h4 class=\"h3 headings text-left\" style=\"font-size: 16px !important;color: #F9AE37;margin: 30px 0;letter-spacing: 2px;\">apply now via <a href=\"mailto:woof@stickerpet.com\" style=\"text-decoration: underline;color: #F9AE37;\">email<\/a> or <a href=\"https:\/\/www.instagram.com\/stickerpet\/\" style=\"text-decoration: underline;color: #F9AE37;\">Instagram<\/a>\n<\/h4>"}}},"block_order":["90e991f1-f66b-4bfc-80a1-88f303fb6366"],"settings":{"title_text":"Jobs"}}},"order":["main","1628001025ce238fa9","162800109101803c02","1628004178abf22af9","16280012106c417d45"]}
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "1628001025ce238fa9": {
+      "type": "plain-hero-with-header",
+      "settings": {
+        "color_scheme": "gradient-background",
+        "hero_text_color": "text-accent-2",
+        "header_text": "Job page banner heading"
+      }
+    },
+    "162800109101803c02": {
+      "type": "product-quality",
+      "blocks": {
+        "799e9a6c-89a1-4270-96fd-b47e32d77fbb": {
+          "type": "quality_block",
+          "settings": {
+            "heading": "👩‍💻 job <br>title",
+            "hide_block": false
+          }
+        },
+        "ec88845a-3dcc-440d-ab2c-b2b54c89e3d2": {
+          "type": "quality_block",
+          "settings": {
+            "heading": "job ⭐<br>title",
+            "hide_block": false
+          }
+        },
+        "631710e3-d921-45d6-a9de-bde3b533fd4d": {
+          "type": "quality_block",
+          "settings": {
+            "heading": "🦘 job <br>title",
+            "hide_block": false
+          }
+        }
+      },
+      "block_order": [
+        "799e9a6c-89a1-4270-96fd-b47e32d77fbb",
+        "ec88845a-3dcc-440d-ab2c-b2b54c89e3d2",
+        "631710e3-d921-45d6-a9de-bde3b533fd4d"
+      ],
+      "settings": {
+        "show_rating_block": false
+      }
+    },
+    "1628004178abf22af9": {
+      "type": "image-with-text-4",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/white-tshirt-template.jpg",
+        "header_text": "Image with text",
+        "para_text": "Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.",
+        "reverse_columns": false,
+        "change_bg": false
+      }
+    },
+    "16280012106c417d45": {
+      "type": "faq",
+      "blocks": {
+        "90e991f1-f66b-4bfc-80a1-88f303fb6366": {
+          "type": "faq_list",
+          "settings": {
+            "header_text": "<span style=\"font-size: 25px;\"> Job title<\/span>",
+            "para_text": "job content"
+          }
+        }
+      },
+      "block_order": [
+        "90e991f1-f66b-4bfc-80a1-88f303fb6366"
+      ],
+      "settings": {
+        "title_text": "FAQ"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1628001025ce238fa9",
+    "162800109101803c02",
+    "1628004178abf22af9",
+    "16280012106c417d45"
+  ]
+}
