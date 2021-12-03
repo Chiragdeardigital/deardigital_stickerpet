@@ -1,21 +1,13 @@
 {
   "sections": {
-    "banner": {
-      "type": "main-collection-banner",
-      "disabled": true,
-      "settings": {
-        "show_collection_description": false,
-        "show_collection_image": false
-      }
-    },
     "16370855266c37916c": {
       "type": "sticker-banner",
       "settings": {
-        "sticker_banner_heading": "Our classic<br> designs 🤘🏼",
-        "banner_overlay_image_1": "shopify:\/\/shop_images\/classic-image-1.png",
-        "banner_overlay_image_2": "shopify:\/\/shop_images\/classic-image-4.png",
-        "banner_overlay_image_3": "shopify:\/\/shop_images\/classic-image-3.png",
-        "banner_overlay_image_4": "shopify:\/\/shop_images\/French_Farts_600x_533b2a09-3888-487f-a134-39c2a465959c.png"
+        "sticker_banner_heading": "Rich Banner<br> Heading🤘🏼",
+        "banner_overlay_image_1": "shopify:\/\/shop_images\/young-dog-looking-up-excitedly-awaiting-a-treat.jpg",
+        "banner_overlay_image_2": "shopify:\/\/shop_images\/boxer-dog.jpg",
+        "banner_overlay_image_3": "shopify:\/\/shop_images\/a-smiling-big-teddy-bear-like-dog.jpg",
+        "banner_overlay_image_4": "shopify:\/\/shop_images\/model-in-gold-fashion.jpg"
       }
     },
     "1637085621f0de8ee9": {
@@ -24,7 +16,7 @@
         "583150e4-3f64-40ed-a0d3-362c7221f1ab": {
           "type": "quality_block",
           "settings": {
-            "heading": "🔫 water<br> proof",
+            "heading": "🔫 sticker<br> proof",
             "hide_block": false
           }
         },
@@ -34,20 +26,11 @@
             "heading": "super 🦎<br> sticky",
             "hide_block": false
           }
-        },
-        "04a9385c-9579-45aa-8668-d5364c8e8be8": {
-          "type": "quality_block",
-          "disabled": true,
-          "settings": {
-            "heading": "🔫 water<br> proof",
-            "hide_block": false
-          }
         }
       },
       "block_order": [
         "583150e4-3f64-40ed-a0d3-362c7221f1ab",
-        "46ce85c0-94f4-4cf3-a904-f4dc4b9cd3ff",
-        "04a9385c-9579-45aa-8668-d5364c8e8be8"
+        "46ce85c0-94f4-4cf3-a904-f4dc4b9cd3ff"
       ],
       "settings": {
         "show_rating_block": true
@@ -59,13 +42,13 @@
         "7b172af4-d9e1-47a3-baaf-44609145f6f1": {
           "type": "heading",
           "settings": {
-            "heading": "Sticker of the month 🤩"
+            "heading": "Heading for Best Product of the month 🤩"
           }
         },
         "29431a19-2c4e-4c0f-81c2-f2c49f7cac76": {
           "type": "text",
           "settings": {
-            "text": "Don't we all know a dog that farts a lot 😅? Well, if you own a frenchie you might have hit the fart-jackpot, as those dogs are the real kings of smelly air in the morning 💩."
+            "text": "Description for Best product of the month with a direct add to cart button."
           }
         }
       },
@@ -81,6 +64,7 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
+        "product_grid_heading": "Our unique designs desktop🤙<br>",
         "products_per_page": 16,
         "image_ratio": "adapt",
         "show_secondary_image": false,
@@ -89,23 +73,12 @@
         "enable_filtering": true,
         "enable_sorting": true
       }
-    },
-    "1637085898d123724a": {
-      "type": "product-grid",
-      "disabled": true,
-      "settings": {
-        "product_grid_heading": "Our unique designs desktop🤙<br>",
-        "product_grid_subtext": "High quality, super fun stickers",
-        "collection_selected_grid": "pet-stickers"
-      }
     }
   },
   "order": [
-    "banner",
     "16370855266c37916c",
     "1637085621f0de8ee9",
     "16370857413564dd6d",
-    "product-grid",
-    "1637085898d123724a"
+    "product-grid"
   ]
 }
