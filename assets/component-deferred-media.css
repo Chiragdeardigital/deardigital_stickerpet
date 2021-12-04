@@ -36,7 +36,7 @@
 }
 
 .deferred-media__poster-button {
-  background-color: rgb(var(--color-background));
+  background-color: var(--background-color-3);
   border: 0.1rem solid rgba(var(--color-foreground), 0.1);
   border-radius: 50%;
   color: rgb(var(--color-foreground));
@@ -52,14 +52,18 @@
   transition: transform var(--duration-short) ease, color var(--duration-short) ease;
   z-index: 1;
 }
+.deferred-media__poster-button.small{
+  width: 3rem;
+  height: 3rem;
+}
 
 .deferred-media__poster-button:hover {
   transform: translate(-50%, -50%) scale(1.1);
 }
 
 .deferred-media__poster-button .icon {
-  width: 2rem;
-  height: 2rem;
+  width: 40%;
+  height: 40%;
 }
 
 .deferred-media__poster-button .icon-play {
