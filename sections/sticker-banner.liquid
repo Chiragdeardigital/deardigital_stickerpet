@@ -1,6 +1,6 @@
 {{ 'sticker-banner.css' | asset_url | stylesheet_tag }}
 
-<div class="hero-image-about hero-image-classic" style="background-image: none !important;overflow: hidden;">
+<div class="hero-image-about hero-image-classic color-{{ section.settings.sticker_banner_bg }}" style="background-image: none;overflow: hidden;">
     <div class="hero-text">
         <h1 class="h1 heading1">{{ section.settings.sticker_banner_heading }}</h1>
     </div>
@@ -42,7 +42,7 @@
         {
             "type": "html",
             "id": "sticker_banner_heading",
-            "default": "Our classic<br> designs 🤘🏼",
+            "default": "Rich Banner<br> Heading 🤘🏼",
             "label": "Banner Heading"
         },
         {
@@ -64,6 +64,27 @@
             "type": "image_picker",
             "id": "banner_overlay_image_4",
             "label": "Image 4"
+        },
+        {
+          "type": "select",
+          "id": "sticker_banner_bg",
+          "label": "Background",
+          "default": "background-color-1",
+          "info" : "choose a background",
+            "options": [
+            {
+            "label": "Background 1",
+            "value": "background-color-1"
+            },
+            {
+            "label": "Gradient Background 1",
+            "value": "gradient-background-2"
+            },
+            {
+            "label": "Gradient Background 2",
+            "value": "gradient-background"
+            }
+          ]
         }
     ],
     "blocks": [

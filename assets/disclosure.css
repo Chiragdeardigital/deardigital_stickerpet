@@ -119,7 +119,11 @@
     right: 1.8rem;
     top: calc(50% - 0.25rem);
   }
+  
+}
+
+@media (max-width: 767px) {
   .currency .disclosure{
-    padding-left: 2px;
+    padding-left: 10px;
   }
 }

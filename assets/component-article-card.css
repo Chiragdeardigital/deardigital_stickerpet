@@ -41,10 +41,11 @@
 }
 
 .article-card__info {
-  padding: 3rem;
+  padding: 3rem 0;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  text-align: left;
 }
 
 .article-content {
@@ -56,10 +57,10 @@
   color: inherit;
 }
 
-.article-content:hover .article-card__title {
+/* .article-content:hover .article-card__title {
   text-decoration: underline;
   text-underline-offset: 0.3rem;
-}
+} */
 
 .article-card__image {
   overflow: hidden;

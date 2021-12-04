@@ -7,11 +7,15 @@
   margin: 0 auto;
 }
 
-@media screen and (min-width: 1320px) {
+.article-template__hero-adapt.media{
+  padding-bottom: 40% !important;
+}
+
+/* @media screen and (min-width: 1320px) {
   .article-template__hero-container:first-child {
     margin-top: 5rem;
   }
-}
+} */
 
 .article-template__hero-medium {
   height: 15.6rem;
@@ -42,7 +46,7 @@
 }
 
 .article-template header {
-  margin-top: 4.4rem;
+  margin-top: 2.4rem;
   margin-bottom: 2rem;
   line-height: 0.8;
 }
@@ -55,6 +59,9 @@
 
 .article-template__title {
   margin: 0;
+  font-size: 32px;
+  font-family: 'Ubuntu';
+  text-transform: uppercase;
 }
 
 .article-template__title:not(:only-child) {
@@ -76,7 +83,7 @@
 }
 
 .article-template__content {
-  margin-top: 3rem;
+  margin-top: 1rem;
   margin-bottom: 3rem;
 }
 
