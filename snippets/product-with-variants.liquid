@@ -292,18 +292,38 @@
                 {{ form | payment_button }}
               </div>            
             {% endform %}
+              <!-- ---------------------------------------------------- -->
+              {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
+
+              {%- assign pick_up_availabilities = product.selected_or_first_available_variant.store_availabilities | where: 'pick_up_enabled', true -%}
+
+              <pickup-availability class="product__pickup-availabilities no-js-hidden"
+                {% if product.selected_or_first_available_variant.available and pick_up_availabilities.size > 0 %} available{% endif %}
+                data-base-url="{{ shop.url }}{{ routes.root_url }}"
+                data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+                data-has-only-default-variant="{{ product.has_only_default_variant }}"
+              >
+                <template>
+                  <pickup-availability-preview class="pickup-availability-preview">
+                    {% render 'icon-unavailable' %}
+                    <div class="pickup-availability-info">
+                      <p class="caption-large">{{ 'products.product.pickup_availability.unavailable' | t }}</p>
+                      <button class="pickup-availability-button link link--text underlined-link">{{ 'products.product.pickup_availability.refresh' | t }}</button>
+                    </div>
+                  </div>
+                </template>
+              </pickup-availability>
+
+
+              <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
+              <!-- ---------------------------------------------------- -->
+
 
           </div>
 
         </div>
       </div>                  
-      
-      <div class="sticky-prices no-mobile no-desktop">
-        {% comment %}
-        <p><span class="text-left lt euro">I would like a gift bag! + €1,95</span><span class="text-left lt pound display-non">I would like a gift bag! + £1.80</span><span class="text-right rt"><label for="yup">Yup!</label><input type="radio" id="yup" name="giftbags" value="yup"><label for="nah">nah</label><input type="radio" id="nah" name="giftbags" value="nah" checked></span></p>
-        {% endcomment %}
-        <label for="image"><p class="mobile-cart-submit">Upload a picture</p></label>
-      </div>
+    
     </div>
 </div>
   </div>

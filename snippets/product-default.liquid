@@ -26,13 +26,11 @@
           {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'product-price no-desktop-1 justify-content-center' -%}
         </p>
         {% render "product-template-slider" %}
-        <div class="sticky-prices no-d">
-          <label for="image"><p class="button mobile-cart-submit">Upload a picture</p></label>
-        </div>
+
       </div>
-      <div class="product-single-wrapper right no-m">
+      <div class="product-single-wrapper right">
         <div class="product-single">
-          <h1 class="product-single-title">
+          <h1 class="product-single-title no-m">
             {%- if product.metafields.my_fields.product_page_title !=blank -%}
             {{ product.metafields.my_fields.product_page_title }}
             {%- else -%}
@@ -40,7 +38,7 @@
             {%- endif -%}
           </h1>
           <div class="center-it">
-            <div class="price-container">
+            <div class="price-container no-m">
               <span class="product-price">
                 {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'product-price product-single__price' -%}
               </span>
@@ -144,9 +142,40 @@
                {% endform %}
               
             </div>
+<!-- ---------------------------------------------------- -->
+            {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
+
+            {%- assign pick_up_availabilities = product.selected_or_first_available_variant.store_availabilities | where: 'pick_up_enabled', true -%}
+
+            <pickup-availability class="product__pickup-availabilities no-js-hidden"
+              {% if product.selected_or_first_available_variant.available and pick_up_availabilities.size > 0 %} available{% endif %}
+              data-base-url="{{ shop.url }}{{ routes.root_url }}"
+              data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+              data-has-only-default-variant="{{ product.has_only_default_variant }}"
+            >
+              <template>
+                <pickup-availability-preview class="pickup-availability-preview">
+                  {% render 'icon-unavailable' %}
+                  <div class="pickup-availability-info">
+                    <p class="caption-large">{{ 'products.product.pickup_availability.unavailable' | t }}</p>
+                    <button class="pickup-availability-button link link--text underlined-link">{{ 'products.product.pickup_availability.refresh' | t }}</button>
+                  </div>
+                </div>
+              </template>
+            </pickup-availability>
+        
+
+          <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
+          <!-- ---------------------------------------------------- -->
+          </div>
+
+
           </div>
         </div>
       </div>
+    </div>
+    <div class="sticky-prices no-d">
+      <label for="image"><p class="button mobile-cart-submit">Upload a picture</p></label>
     </div>
   </div>
 </section>

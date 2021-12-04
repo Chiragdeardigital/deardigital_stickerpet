@@ -13,7 +13,7 @@ PRODUCTS STYLING
 .product-wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start; 
 }
 
 .slider.left {
@@ -268,6 +268,11 @@ PRODUCTS STYLING
 @media (max-width: 768px) {
   .product-wrapper {
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .product-single-wrapper.right{
+    max-width: none;
   }
 
   .slider.left {
