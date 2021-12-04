@@ -25,6 +25,13 @@
         <p class="product-price no-d">
           {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'product-price no-desktop-1 justify-content-center' -%}
         </p>
+       {%- comment -%} shop pay installments{%- endcomment -%} 
+        <div {{ block.shopify_attributes }}>
+          {%- form 'product', product, id: 'product-form-installment', class: 'installment caption-large' -%}
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            {{ form | payment_terms }}
+          {%- endform -%}
+        </div>
         {% render "product-template-slider" %}
 
       </div>
