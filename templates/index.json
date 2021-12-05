@@ -6,7 +6,7 @@
         "6062bad8-24b8-46c3-b5e1-b51f755bdf99": {
           "type": "typed_text",
           "settings": {
-            "typed_text": "cat,dog,fish,llama",
+            "typed_text": "text1,text2,text3,text4",
             "type_text_color": "text-accent-2"
           }
         }
@@ -28,7 +28,38 @@
         "partner_image": "shopify:\/\/shop_images\/Anne_x200_24164819-b4dc-4e18-beae-16de6539423f.png",
         "text": "partner of",
         "btn_text": "learn more",
-        "btn_url": "#"
+        "btn_url": "shopify:\/\/collections"
+      }
+    },
+    "1638694590e3544213": {
+      "type": "featured-cards",
+      "blocks": {
+        "6ad4815b-6b4b-47c2-9b94-eab72d32e7d4": {
+          "type": "cards",
+          "settings": {
+            "text": "Some Text"
+          }
+        },
+        "71f9e04b-d0cb-4131-bf31-464bf0063525": {
+          "type": "cards",
+          "settings": {
+            "text": "Some Text"
+          }
+        },
+        "7d851630-17a9-4d9f-b3b7-5eba201c98a9": {
+          "type": "cards",
+          "settings": {
+            "text": "Some Text"
+          }
+        }
+      },
+      "block_order": [
+        "6ad4815b-6b4b-47c2-9b94-eab72d32e7d4",
+        "71f9e04b-d0cb-4131-bf31-464bf0063525",
+        "7d851630-17a9-4d9f-b3b7-5eba201c98a9"
+      ],
+      "settings": {
+        "cards_section_background": "background-color-3"
       }
     },
     "16269320911dc86b20": {
@@ -37,34 +68,34 @@
         "7fe46db1-094a-422e-9724-ee0529c37baf": {
           "type": "heading",
           "settings": {
-            "heading": "Heading for personalized stickers."
+            "heading": "Image with text"
           }
         },
         "5aea1296-212f-4d47-8b3f-bddb23f6c558": {
           "type": "text_list",
           "settings": {
             "icon_text": "🔫",
-            "list_text": "Text for sticker description"
+            "list_text": "Text for list item"
           }
         },
         "56aa43fe-e246-4b8f-acb8-743acdb78e5c": {
           "type": "text_list",
           "settings": {
             "icon_text": "🦎",
-            "list_text": "Text for sticker description"
+            "list_text": "Text for list item"
           }
         },
         "75203be6-2fec-4e3b-a256-a4fd9a53f8b7": {
           "type": "text_list",
           "settings": {
             "icon_text": "☀️",
-            "list_text": "Text for sticker description"
+            "list_text": "Text for list item"
           }
         },
         "ea9bccf6-08bb-4d82-b7f1-224f37655427": {
           "type": "button",
           "settings": {
-            "button_label": "stickers",
+            "button_label": "Button Label",
             "button_link": "shopify:\/\/products\/stickers"
           }
         }
@@ -93,34 +124,34 @@
         "2f87c105-6ed8-44bf-bce2-340d0f582f6d": {
           "type": "heading",
           "settings": {
-            "heading": "Personalised portraits."
+            "heading": "Image with text"
           }
         },
         "6467e01d-1997-410b-bcb9-bd403f10abc5": {
           "type": "text_list",
           "settings": {
             "icon_text": "🎨",
-            "list_text": "Text for sticker description"
+            "list_text": "Text for list item"
           }
         },
         "7a5a3591-593a-4409-b6af-e238ffb53814": {
           "type": "text_list",
           "settings": {
             "icon_text": "👌",
-            "list_text": "Text for sticker description"
+            "list_text": "Text for list item"
           }
         },
         "387a11d9-3ada-4d26-adf8-893025367c8c": {
           "type": "text_list",
           "settings": {
             "icon_text": "💪",
-            "list_text": "Text for sticker description"
+            "list_text": "Text for list item"
           }
         },
         "645ff431-205b-4b19-a50c-1939126a41f5": {
           "type": "button",
           "settings": {
-            "button_label": "portriats",
+            "button_label": "Button label",
             "button_link": "shopify:\/\/products\/portraits"
           }
         }
@@ -149,34 +180,34 @@
         "392464e9-119b-4487-bac6-df0bc43f524d": {
           "type": "heading",
           "settings": {
-            "heading": "Personalised t-shirts."
+            "heading": "Image with text"
           }
         },
         "af8626c5-1311-403c-8293-1ff8cabde278": {
           "type": "text_list",
           "settings": {
             "icon_text": "🦍",
-            "list_text": "Text for sticker description"
+            "list_text": "Text for list item"
           }
         },
         "e9ea1372-490d-4543-800b-1b71f9e9425d": {
           "type": "text_list",
           "settings": {
             "icon_text": "☘️",
-            "list_text": "Text for sticker description"
+            "list_text": "Text for list item"
           }
         },
         "f7d5b2ad-aace-4e35-9035-81a900c4edda": {
           "type": "text_list",
           "settings": {
             "icon_text": "🤘🏼",
-            "list_text": "Text for sticker description"
+            "list_text": "Text for list item"
           }
         },
         "11962a94-054c-4f8b-ad97-6983c901ac05": {
           "type": "button",
           "settings": {
-            "button_label": "t-shirts",
+            "button_label": "Button Label",
             "button_link": "shopify:\/\/products\/portraits"
           }
         }
@@ -224,6 +255,81 @@
         "af4c9ed6-8e44-44ff-b855-637603227414"
       ],
       "settings": {
+      }
+    },
+    "16386946011612d69e": {
+      "type": "collage",
+      "blocks": {
+        "f08d5b0b-a73a-4d60-808a-044a6844ade7": {
+          "type": "collage_image",
+          "settings": {
+            "collage_image": "shopify:\/\/shop_images\/a-smiling-big-teddy-bear-like-dog_d769d64f-c00e-4ac6-a614-9c5195f26ed4.jpg"
+          }
+        },
+        "0f5b1bc7-e6d3-4b00-ba04-b0382d2b2797": {
+          "type": "collage_image",
+          "settings": {
+            "collage_image": "shopify:\/\/shop_images\/white-tshirt-template.jpg"
+          }
+        },
+        "5bd8086b-db0a-46a5-a35a-a9df273497c5": {
+          "type": "collage_image",
+          "settings": {
+            "collage_image": "shopify:\/\/shop_images\/torso-of-a-person-in-a-plain-grey-shirt.jpg"
+          }
+        },
+        "8274ace7-b17b-4a21-adc2-00fe0d9dc7f7": {
+          "type": "collage_image",
+          "settings": {
+            "collage_image": "shopify:\/\/shop_images\/model-in-gold-fashion.jpg"
+          }
+        },
+        "506faf45-3804-4964-84e9-a474768308e1": {
+          "type": "grp_buttons",
+          "settings": {
+            "btn_text": "Button Label",
+            "btn_url": ""
+          }
+        },
+        "e5b49fb6-f2e9-4f77-842a-236aff6b55a3": {
+          "type": "mobilebuttons",
+          "settings": {
+            "mobile_btn_text": "Button Label",
+            "mobile_btn_url": ""
+          }
+        },
+        "9cdb4aec-15ab-42a3-a2c7-341fb07cef4d": {
+          "type": "grp_buttons",
+          "settings": {
+            "btn_text": "Button Label",
+            "btn_url": ""
+          }
+        },
+        "1120732f-56bd-49f3-870e-f622d0b007be": {
+          "type": "grp_buttons",
+          "settings": {
+            "btn_text": "Button Label",
+            "btn_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "f08d5b0b-a73a-4d60-808a-044a6844ade7",
+        "0f5b1bc7-e6d3-4b00-ba04-b0382d2b2797",
+        "5bd8086b-db0a-46a5-a35a-a9df273497c5",
+        "8274ace7-b17b-4a21-adc2-00fe0d9dc7f7",
+        "506faf45-3804-4964-84e9-a474768308e1",
+        "e5b49fb6-f2e9-4f77-842a-236aff6b55a3",
+        "9cdb4aec-15ab-42a3-a2c7-341fb07cef4d",
+        "1120732f-56bd-49f3-870e-f622d0b007be"
+      ],
+      "settings": {
+        "layout": "image_first",
+        "collage_bg": "solid-button-labels",
+        "header_text": "Multimedia collage with 4 Images",
+        "para_text": "Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.\n<br><br><br>\nPair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.",
+        "mobile_header_text": "Multimedia collage",
+        "mobile_para_text": "Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review."
       }
     },
     "162693353455d4bf27": {
@@ -282,7 +388,7 @@
       ],
       "settings": {
         "social_media_header": "Follow your favourite account on Instagram",
-        "social_media_link_text": "@STICKER",
+        "social_media_link_text": "@INSTAGRAM_HANDLE",
         "social_media_link": "https:\/\/www.instagram.com\/"
       }
     }
@@ -290,10 +396,12 @@
   "order": [
     "1626930599b34bc97d",
     "16269316720393125d",
+    "1638694590e3544213",
     "16269320911dc86b20",
     "16269351204e45dc37",
     "16269353135dc74fd8",
     "16269327587c3cb1a5",
+    "16386946011612d69e",
     "162693353455d4bf27"
   ]
 }

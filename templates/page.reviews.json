@@ -1,1 +1,25 @@
-{"sections":{"1627975595ccb61b9e":{"type":"reviews-hero","settings":{"desktop_header_text":"Products and Customer Service<br> loved by humans and pets alike","mobile_header_text":"Product &amp; Service<br> loved by humans<br> and pets alike","featured_on":"<a href=\"https:\/\/www.producthunt.com\/posts\/sticker-pet?utm_source=badge-featured&amp;utm_medium=badge&amp;utm_souce=badge-sticker-pet\" target=\"_blank\"><img src=\"https:\/\/api.producthunt.com\/widgets\/embed-image\/v1\/featured.svg?post_id=217631&amp;theme=light\" alt=\"Sticker Pet - custom pet stickers, made in 🇧🇪 | Product Hunt Embed\" style=\"width: 250px; height: 54px;\" width=\"250px\" height=\"54px\"><\/a>"}},"162797906566d0dfcc":{"type":"video-iframe","settings":{"header_text":"Dog mom Amélie’s story","iframe_url":"<iframe src=\"https:\/\/www.facebook.com\/plugins\/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fstickerpet%2Fvideos%2F624593471577737%2F&amp;show_text=0&amp;width=560\" width=\"560\" height=\"315\" style=\"border:none;overflow:hidden\" scrolling=\"no\" frameborder=\"0\" allowtransparency=\"true\" allowfullscreen=\"true\"><\/iframe>"}}},"order":["1627975595ccb61b9e","162797906566d0dfcc"]}
+{
+  "sections": {
+    "1627975595ccb61b9e": {
+      "type": "reviews-hero",
+      "settings": {
+        "review_bg": "background-color-1",
+        "review_text_color": "text-accent-2",
+        "desktop_header_text": "Review Banner Heading",
+        "mobile_header_text": "Review Banner Heading",
+        "featured_on": "<a href=\"https:\/\/www.producthunt.com\/posts\/sticker-pet?utm_source=badge-featured&amp;utm_medium=badge&amp;utm_souce=badge-sticker-pet\" target=\"_blank\"><img src=\"https:\/\/api.producthunt.com\/widgets\/embed-image\/v1\/featured.svg?post_id=217631&amp;theme=light\" alt=\"Sticker Pet - custom pet stickers, made in 🇧🇪 | Product Hunt Embed\" style=\"width: 250px; height: 54px;\" width=\"250px\" height=\"54px\"><\/a>"
+      }
+    },
+    "162797906566d0dfcc": {
+      "type": "video-iframe",
+      "settings": {
+        "header_text": "Dog mom Amélie’s story",
+        "iframe_url": "<iframe src=\"https:\/\/www.facebook.com\/plugins\/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fstickerpet%2Fvideos%2F624593471577737%2F&amp;show_text=0&amp;width=560\" width=\"560\" height=\"315\" style=\"border:none;overflow:hidden\" scrolling=\"no\" frameborder=\"0\" allowtransparency=\"true\" allowfullscreen=\"true\"><\/iframe>"
+      }
+    }
+  },
+  "order": [
+    "1627975595ccb61b9e",
+    "162797906566d0dfcc"
+  ]
+}

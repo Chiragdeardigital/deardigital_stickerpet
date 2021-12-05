@@ -7,7 +7,8 @@
         "banner_overlay_image_1": "shopify:\/\/shop_images\/young-dog-looking-up-excitedly-awaiting-a-treat.jpg",
         "banner_overlay_image_2": "shopify:\/\/shop_images\/boxer-dog.jpg",
         "banner_overlay_image_3": "shopify:\/\/shop_images\/a-smiling-big-teddy-bear-like-dog.jpg",
-        "banner_overlay_image_4": "shopify:\/\/shop_images\/model-in-gold-fashion.jpg"
+        "banner_overlay_image_4": "shopify:\/\/shop_images\/model-in-gold-fashion.jpg",
+        "sticker_banner_bg": "background-color-1"
       }
     },
     "1637085621f0de8ee9": {
@@ -16,14 +17,14 @@
         "583150e4-3f64-40ed-a0d3-362c7221f1ab": {
           "type": "quality_block",
           "settings": {
-            "heading": "🔫 sticker<br> proof",
+            "heading": "🔫 default<br> collection",
             "hide_block": false
           }
         },
         "46ce85c0-94f4-4cf3-a904-f4dc4b9cd3ff": {
           "type": "quality_block",
           "settings": {
-            "heading": "super 🦎<br> sticky",
+            "heading": "default🦎<br> collection",
             "hide_block": false
           }
         }
@@ -64,7 +65,7 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
-        "product_grid_heading": "Our unique designs desktop🤙<br>",
+        "product_grid_heading": "Product Grid Heading🤙<br>",
         "products_per_page": 16,
         "image_ratio": "adapt",
         "show_secondary_image": false,
