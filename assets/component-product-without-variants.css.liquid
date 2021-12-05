@@ -213,11 +213,12 @@ PRODUCTS STYLING
   /*   transform: rotate(90deg); */
 }
 
-.custom-product-3 .slider-single .slick-next {
+.product-with-steps .slider-single .slick-next {
   right: 2rem;
 }
-.custom-product-3 .slider-single .slick-prev {
+.product-with-steps .slider-single .slick-prev {
   left: 2rem;
+  z-index: 2;
 }
 
 .js .slider-single>div:nth-child(1n+2) {
@@ -289,8 +290,9 @@ PRODUCTS STYLING
   }
 
   .slick-initialized .slick-slide {
-    height: 35vh;
-    padding-top: 20px;
+    /* height: 35vh; */
+    /* padding-top: 20px; */
+    margin: 10px;
   }
 
   .slider-single img {
