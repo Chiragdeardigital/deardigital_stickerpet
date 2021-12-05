@@ -61,13 +61,6 @@
             <div class="no-js-hidden price-{{ section.id }}" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
               {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large product-single__price justify-content-center euro no-desktop' -%}
               <span class="smaller-font">incl. VAT</span>
-              {%- comment -%} shop pay installments{%- endcomment -%} 
-              <div {{ block.shopify_attributes }}>
-                {%- form 'product', product, id: 'product-form-installment', class: 'installment caption-large' -%}
-                  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                  {{ form | payment_terms }}
-                {%- endform -%}
-              </div>
             </div> 
         </div>
         {% render "product-template-slider" %}
@@ -93,13 +86,7 @@
               <div class="no-js-hidden price-{{ section.id }}" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
                 {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large product-single__price' -%}
               </div>
-              {%- comment -%} shop pay installments{%- endcomment -%} 
-              <div {{ block.shopify_attributes }}>
-                {%- form 'product', product, id: 'product-form-installment', class: 'installment caption-large' -%}
-                  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                  {{ form | payment_terms }}
-                {%- endform -%}
-              </div>
+      
             </div>
             
             <div class="product-description product-single__description rte no-mobile" itemprop="description">
