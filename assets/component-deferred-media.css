@@ -70,3 +70,8 @@
   margin-left: 0.2rem;
 }
 
+@media screen and (max-width:992px) {
+  .deferred-media__poster-button.small{
+    top: 38%;
+  }
+}

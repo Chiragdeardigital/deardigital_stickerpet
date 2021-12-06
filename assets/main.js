@@ -450,36 +450,36 @@ if (
 
 
 /*=================== PRODUCT UPLOAD IMAGE SECTION SCRIPT ===================*/
-function readURL(input) {
-  console.log(input.files);
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
+// function readURL(input) {
+//   console.log(input.files);
+//   if (input.files && input.files[0]) {
+//     var reader = new FileReader();
 
-    reader.onload = function (e) {
-      $('.box').css(
-        {
-          "background-color": "transparent",
-          "background-repeat": "no-repeat",
-          "background-size": "contain",
-          "background-position": "center center",
-          "background-image": `url(${e.target.result})`
-        }
-      );
-      // .attr('src', e.target.result);
-      $('.box__input label').css({ "visibility": "hidden" });
+//     reader.onload = function (e) {
+//       $('.box').css(
+//         {
+//           "background-color": "transparent",
+//           "background-repeat": "no-repeat",
+//           "background-size": "contain",
+//           "background-position": "center center",
+//           "background-image": `url(${e.target.result})`
+//         }
+//       );
+//       // .attr('src', e.target.result);
+//       $('.box__input label').css({ "visibility": "hidden" });
 
-      if ($(window).width() < 768) {
-        addToCartVariant();
-        setTimeout(function () {
-          input.value = "";
-        }, 250);
-      }
-    };
+//       if ($(window).width() < 768) {
+//         addToCartVariant();
+//         setTimeout(function () {
+//           input.value = "";
+//         }, 250);
+//       }
+//     };
 
-    reader.readAsDataURL(input.files[0]);
-    // $(".box__input label").css("visibility", "visible");
-  }
-}
+//     reader.readAsDataURL(input.files[0]);
+//     // $(".box__input label").css("visibility", "visible");
+//   }
+// }
 
 'use strict';
 
@@ -548,10 +548,11 @@ function readURL(input) {
             $(".box").css("background-image", "url(" + e.target.result + ")");
             // $(".box__icon").css("visibility", "hidden");
             if ($(window).width() < 767) {
-              $('#AddToCartForm--product-template').submit();
+              // $('#AddToCartForm--product-template').submit();
+              addToCartVariant();
               $('.mobile-cart-submit').addClass('special-loader');
               $('.mobile-cart-submit').html('Loading<span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>');
-
+              label.css({ "visibility": "visible" });
             }
           }
 
@@ -582,11 +583,12 @@ function readURL(input) {
           // $(".box__icon").css("visibility", "hidden");
 
           if ($(window).width() < 767) {
-            if (!(window.location.href.indexOf("custom-t-shirt") > -1)) {
-              $('#AddToCartForm--product-template').submit();
+            // if (!(window.location.href.indexOf("custom-t-shirt") > -1)) {
+              addToCartVariant();
               $('.mobile-cart-submit').addClass('special-loader');
               $('.mobile-cart-submit').html('Loading<span class="bounce1"></span><span class="bounce2"></span><span class="bounce3"></span>');
-            }
+            // }
+            label.css({ "visibility": "visible" });
           }
         }
 
@@ -623,7 +625,6 @@ $('.slider-single').slick({
     {
       breakpoint: 769,
       settings: {
-        arrows: true,
         slidesToShow: 1,
         slidesToScroll: 1,
       }
@@ -647,23 +648,9 @@ $('.slider-nav')
     responsive: [
 
       {
-        breakpoint: 1024,
+        breakpoint: 992,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 420,
-        settings: {
-          slidesToShow: 3,
           slidesToScroll: 1,
         }
       }
