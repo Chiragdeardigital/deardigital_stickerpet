@@ -18,6 +18,7 @@
       <div class="slider left">
         <p class="mobile-product-text no-d">21 stickers of your pets face, printed and ✂️ cut by us.
           <br>
+          
           <a class="review-stars" href="#reviews">
             <span class="stars">
               <span class="star">{% render "icon-star" %}</span>
@@ -27,28 +28,53 @@
               <span class="star">{% render "icon-star" %}</span>
             </span>
             <span class="mobile-product-reviews">142 reviews</span>
+            {%- for block in section.blocks -%}
+            {%- case block.type -%}
+            {%- when 'text' -%}
+            <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
+            <div class="no-d product-vendor light {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">{{- block.settings.text -}}</div>
+            {%- endcase -%}
+            {%- endfor -%}
           </a>
         </p>
+        {%- for block in section.blocks -%}
+        {%- case block.type -%}
+        {%- when 'price' -%}
         <p class="product-price no-d">
-          {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'product-price no-desktop-1 justify-content-center' -%}
+          {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price product-single__price no-desktop-1 justify-content-center' -%}
         </p>
+        {%- endcase -%}
+        {%- endfor -%}
         {% render "product-template-slider" %}
 
       </div>
       <div class="product-single-wrapper right">
         <div class="product-single">
+          {%- for block in section.blocks -%}
+          {%- case block.type -%}
+          {%- when 'text' -%}
+          <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
+          <div class="product-vendor default light {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">{{- block.settings.text -}}</div>
+          {%- endcase -%}
+          {%- endfor -%}
           <h1 class="product-single-title no-m">
-            {%- if product.metafields.my_fields.product_page_title !=blank -%}
-            {{ product.metafields.my_fields.product_page_title }}
-            {%- else -%}
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+            {%- when 'title' -%}
             {{ product.title }}
-            {%- endif -%}
+            {%- endcase -%}
+            {%- endfor -%}
           </h1>
           <div class="center-it">
             <div class="price-container no-m">
+              {%- for block in section.blocks -%}
+              {%- case block.type -%}
+              {%- when 'price' -%}
               <span class="product-price">
                 {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'product-price product-single__price' -%}
               </span>
+              {%- endcase -%}
+              {%- endfor -%}
               <span class="stars">
               <span class="star">{% render "icon-star" %}</span>
               <span class="star">{% render "icon-star" %}</span>
@@ -142,8 +168,14 @@
                           data-id="{{ current_variant.id }}">
                     Order Now
                   </button>
-
+                  {%- for block in section.blocks -%}
+                  {%- case block.type -%}
+                  {%- when 'buy_buttons' -%}
+                  {%- if block.settings.show_dynamic_checkout -%}
                   {{ form | payment_button }}
+                  {%- endif -%}
+                  {%- endcase -%}
+                  {%- endfor -%}
                 </div>
           
                {% endform %}

@@ -36,6 +36,61 @@
         "type": "quantity_selector",
         "name": "Quantity selector",
         "limit": 1
+      },
+      {
+        "type": "text",
+        "name": "text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "text block"
+          },
+          {
+            "type": "select",
+            "id": "text_style",
+            "options": [
+              {
+                "value": "body",
+                "label": "body"
+              },
+              {
+                "value": "subtitle",
+                "label": "subtitle"
+              },
+              {
+                "value": "uppercase",
+                "label": "uppercase"
+              }
+            ],
+            "default": "body",
+            "label": "Text style"
+          }
+        ]
+      },
+      {
+        "type": "buy_buttons",
+        "name": "Buy button",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "checkbox",
+            "id": "show_dynamic_checkout",
+            "default": true,
+            "label": "Show dynamic checkout buttons",
+            "info": "Using the payment methods available on your store, customers see their preferred option, like PayPal or Apple Pay"
+          }
+        ]
+      },
+      {
+        "type": "title",
+        "name": "Title",
+        "limit": 1
+      },
+      {
+        "type": "price",
+        "name": "Price",
+        "limit": 1
       }
     ],
     "presets": [

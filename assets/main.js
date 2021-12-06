@@ -74,6 +74,18 @@ $('.menu-btn').click(function () {
 });
 
 
+$('.menu-btn.new-drawer-menu').click(function () {
+  var aria_expanded = $('#menu-btn-small').attr('aria-expanded');
+    $(this).attr("aria-expanded", "false");
+    $(this).removeClass('active');
+    $("#NavDrawer").removeClass('js-drawer-open');
+    $("body").removeClass('js-drawer-open js-drawer-open-left');
+    $("html").removeClass('js-drawer-open js-drawer-open-left');
+    $("#menu-btn").attr("aria-expanded", "false");
+    $("#menu-btn").removeClass('active');
+});
+
+
 // let target = document.querySelector('#NavDrawer');
 
 // document.addEventListener('click', (event) => {

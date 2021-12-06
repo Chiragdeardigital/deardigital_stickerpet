@@ -57,8 +57,12 @@
           </a>
         </p>
         <div class="no-js-hidden price-{{ section.id }}" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
+          {%- for block in section.blocks -%}
+          {%- case block.type -%}
+          {%- when 'price' -%}
           {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large product-single__price justify-content-center euro no-desktop' -%}
-         
+          {%- endcase -%}
+          {%- endfor -%}
         </div>
         {% render "product-template-slider" %}
       
@@ -68,30 +72,35 @@
       
       <div class="grid__item product-single__meta--wrapper large--five-twelfths">
         <div class="product-single__meta">
-          {% if section.settings.product_vendor_enable %}
-            <h2 class="product-single__vendor" itemprop="brand">{{ product.vendor }}</h2>
-          {% endif %}
+          {%- for block in section.blocks -%}
+          {%- case block.type -%}
+          {%- when 'text' -%}
+          <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
+          <div class="product-vendor light {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">{{- block.settings.text -}}</div>
+          {%- endcase -%}
+          {%- endfor -%}
 
           <h1 class="product-single__title text-left center-it no-mobile" itemprop="name" style="max-width: 380px;">
-           {%- if product.metafields.my_fields.product_page_title !=blank -%}
-            {{ product.metafields.my_fields.product_page_title }}
-            {%- else -%}
+            {%- for block in section.blocks -%}
+            {%- case block.type -%}
+            {%- when 'title' -%}
             {{ product.title }}
-            {%- endif -%}
+            {%- endcase -%}
+            {%- endfor -%}
           </h1>
           
           {% comment %}
 			<span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
 			{% endcomment %}
-          
-          <div class="center-it" style="max-width: 380px;">
-            {% comment %}
-              Optionally show the 'compare at' or original price of the product.
-            {% endcomment %}
-            
+          <div class="center-it" style="max-width: 380px;">           
             <div class="no-mobile">
               <div class="no-js-hidden price-{{ section.id }}" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
+                {%- for block in section.blocks -%}
+                {%- case block.type -%}
+                {%- when 'price' -%}
                 {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large product-single__price' -%}
+                {%- endcase -%}
+                {%- endfor -%}
               </div>
             
             </div>
@@ -296,7 +305,14 @@
               {%- endif -%}
                   
                 </button>
+                {%- for block in section.blocks -%}
+                {%- case block.type -%}
+                {%- when 'buy_buttons' -%}
+                {%- if block.settings.show_dynamic_checkout -%}
                 {{ form | payment_button }}
+                {%- endif -%}
+                {%- endcase -%}
+                {%- endfor -%}
               </div>            
             {% endform %}
               <!-- ---------------------------------------------------- -->

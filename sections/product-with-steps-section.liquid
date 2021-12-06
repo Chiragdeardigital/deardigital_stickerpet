@@ -57,11 +57,24 @@
             <span class="fa fa-star star font-20"></span><span class="fa fa-star star font-20"></span><span class="fa fa-star star font-20"></span><span class="fa fa-star star font-20"></span><span class="fa fa-star star font-20"></span>
             <span style="display: block;font-size: 14px;font-weight: 100;font-family: Lato,sans-serif;letter-spacing: .5px;margin-bottom: 16px;">135 reviews{% for product in collections.reviews.products %}{% if product.id == 6748620488903 %}{{ product.metafields.stamped.reviews_count }}135 reviews{% endif %}{% endfor %}</span>
           </a>
+
+          {%- for block in section.blocks -%}
+          {%- case block.type -%}
+          {%- when 'text' -%}
+          <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
+          <div class="no-d product-vendor light {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">{{- block.settings.text -}}</div>
+          {%- endcase -%}
+          {%- endfor -%}
           
+          {%- for block in section.blocks -%}
+          {%- case block.type -%}
+          {%- when 'price' -%}
             <div class="no-js-hidden price-{{ section.id }}" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
               {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large product-single__price justify-content-center euro no-desktop' -%}
               <span class="smaller-font">incl. VAT</span>
             </div> 
+          {%- endcase -%}
+          {%- endfor -%}
         </div>
         {% render "product-template-slider" %}
       </div>
@@ -71,22 +84,33 @@
           {% if section.settings.product_vendor_enable %}
             <h2 class="product-single__vendor" itemprop="brand">{{ product.vendor }}</h2>
           {% endif %}
-
+          {%- for block in section.blocks -%}
+          {%- case block.type -%}
+          {%- when 'text' -%}
+          <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
+          <div class="product-vendor steps light {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">{{- block.settings.text -}}</div>
+          {%- endcase -%}
+          {%- endfor -%}
           <h1 class="product-single__title text-left center-it no-mobile" itemprop="name" style="max-width: 420px;">
-            {%- if product.metafields.my_fields.product_page_title !=blank -%}
-            {{ product.metafields.my_fields.product_page_title }}
-            {%- else -%}
+            {%- for block in section.blocks -%}
+            {%- case block.type -%}
+            {%- when 'title' -%}
             {{ product.title }}
-            {%- endif -%}
+            {%- endcase -%}
+            {%- endfor -%}
           </h1>
           
           <div class="center-it" style="max-width: 420px;">
             
             <div class="no-mobile">
+              {%- for block in section.blocks -%}
+          {%- case block.type -%}
+          {%- when 'price' -%}
               <div class="no-js-hidden price-{{ section.id }}" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
                 {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large product-single__price' -%}
               </div>
-      
+          {%- endcase -%}
+          {%- endfor -%}
             </div>
             
             <div class="product-description product-single__description rte no-mobile" itemprop="description">
@@ -781,6 +805,47 @@
             "info": "Select a upsell/extra product to sell."
           }
         ]
+      },
+      {
+        "type": "text",
+        "name": "text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "text block"
+          },
+          {
+            "type": "select",
+            "id": "text_style",
+            "options": [
+              {
+                "value": "body",
+                "label": "body"
+              },
+              {
+                "value": "subtitle",
+                "label": "subtitle"
+              },
+              {
+                "value": "uppercase",
+                "label": "uppercase"
+              }
+            ],
+            "default": "body",
+            "label": "Text style"
+          }
+        ]
+      },
+      {
+        "type": "title",
+        "name": "Title",
+        "limit": 1
+      },
+      {
+        "type": "price",
+        "name": "Price",
+        "limit": 1
       }
     ],
     "presets": [
