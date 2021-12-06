@@ -7,10 +7,37 @@
           "type": "quantity_selector",
           "settings": {
           }
+        },
+        "d2534d2f-1035-435b-85b7-428297181863": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "7a6bd1ac-4822-46dd-a11f-bba3e2bda4fd": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "70934cd6-d103-4073-83ec-efa181fdcb0e": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "bc2882d5-bc1d-41de-a55b-0ca7fe4b7894": {
+          "type": "price",
+          "settings": {
+          }
         }
       },
       "block_order": [
-        "6b981d0e-c4bd-4ecc-baf7-c8950df764e4"
+        "6b981d0e-c4bd-4ecc-baf7-c8950df764e4",
+        "d2534d2f-1035-435b-85b7-428297181863",
+        "7a6bd1ac-4822-46dd-a11f-bba3e2bda4fd",
+        "70934cd6-d103-4073-83ec-efa181fdcb0e",
+        "bc2882d5-bc1d-41de-a55b-0ca7fe4b7894"
       ],
       "settings": {
         "product_section_type": "variants"

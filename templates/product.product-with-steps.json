@@ -14,11 +14,31 @@
           "settings": {
             "product_handle": "hanging-system"
           }
+        },
+        "fa227447-60ba-40f2-b7d0-91f7a3708eb2": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "09b67192-3238-469c-8317-5ccfb264414d": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "2f840a03-961a-4569-9d54-59c12bc9d5d2": {
+          "type": "price",
+          "settings": {
+          }
         }
       },
       "block_order": [
         "e003ec46-c0ba-4d59-9b18-4fc390658bdb",
-        "b4f4005b-6f0d-4929-81a4-d2988a1a398d"
+        "b4f4005b-6f0d-4929-81a4-d2988a1a398d",
+        "fa227447-60ba-40f2-b7d0-91f7a3708eb2",
+        "09b67192-3238-469c-8317-5ccfb264414d",
+        "2f840a03-961a-4569-9d54-59c12bc9d5d2"
       ],
       "settings": {
       }
