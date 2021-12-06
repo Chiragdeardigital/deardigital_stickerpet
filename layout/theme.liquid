@@ -56,14 +56,10 @@
     {% endstyle %}
     
     {{ 'base.css' | asset_url | stylesheet_tag }}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
-          integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {{ 'slick.min.css' | asset_url | stylesheet_tag }}
     {{ 'custom-products.css' | asset_url | stylesheet_tag }}
     {{ 'main.css' | asset_url | stylesheet_tag }}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{ 'jquery.min.js' | asset_url }}" ></script>
     {%- unless settings.type_body_font.system? -%}
     <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
     {%- endunless -%}
@@ -80,13 +76,6 @@
       {{ "accessibility.skip_to_text" | t }}
     </a>
 
-   <!-- <style>
-      #currency-toggle {
-        display: none;
-      }
-    </style> -->
-    
-     
       {% section 'header' %}
       {% section "cart-items-template" %}
     
@@ -122,12 +111,11 @@
         unavailable: `{{ 'products.product.unavailable' | t }}`,
       }
     </script>
-  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-   
+
+    <script src="{{ 'slick.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'main.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'ajax-cart.js' | asset_url }}" defer="defer"></script>
-   {% render "modal" %}
-   <script src="{{ 'variants.js' | asset_url }}" defer="defer"></script>
+    {% render "modal" %}
+    <script src="{{ 'variants.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>

@@ -116,7 +116,9 @@
             </localization-form>
           </li>
           
-          <a href="/search" >{% render 'search-icon' %}</a>
+          <li>
+            <a href="/search" >{% render 'search-icon' %}</a>
+          </li>
 
           {%- unless template contains 'cart' -%}
             <li id="cartBtn" class="nav-item cart" aria-controls="CartDrawer" aria-expanded="true">
