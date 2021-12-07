@@ -465,6 +465,9 @@ table:not([class]) th {
   .collection-filters{
     background-color: var(--solid-button-labels) !important;
   }
+  .page-title-container.page-width{
+    padding: 0;
+  }
 }
 
 

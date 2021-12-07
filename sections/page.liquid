@@ -4,15 +4,12 @@
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'section-main-page.css' | asset_url | stylesheet_tag }}</noscript>
 
-<div class="page-width page-width--narrow">
+<div class="page-title-container page-width page-width--narrow">
   <h2 class="page-title">
-    {%- if section.settings.page.title != blank -%}
-      {{ section.settings.page.title | escape }}
-    {%- else -%}
-      Page title
-    {%- endif -%}
+      {{ page.title | escape }}
   </h2>
-  <div class="rte">
+  
+  <div class="rte  {% if section.settings.hide_page_content %} disp-no{% endif %}">
     {%- if section.settings.page.content != blank -%}
       {{ section.settings.page.content }}
     {%- else -%}
@@ -30,10 +27,12 @@
   "class": "spaced-section",
   "settings": [
     {
-      "type": "page",
-      "id": "page",
-      "label": "t:sections.page.settings.page.label"
+      "type": "checkbox",
+      "id": "hide_page_content",
+      "label": "Hide page content",
+      "default" : true
     }
+
   ],
   "presets": [
     {

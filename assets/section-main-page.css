@@ -10,6 +10,12 @@
   font-family: 'Ubuntu';
 }
 
+.page-title-container .page-title{
+  font-size: 32px;
+  font-family: 'ubuntu';
+  margin: 1rem;
+}
+
 @media screen and (min-width: 750px) {
   .main-page-title {
     margin: 4rem 0rem 2rem 0;
@@ -26,3 +32,4 @@
   width: 52.5rem;
   height: 52.5rem;
 }
+
