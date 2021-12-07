@@ -1,7 +1,7 @@
 {{ 'component-product-without-variants.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-badge.css' | asset_url | stylesheet_tag }}
-{{ 'bootstrap.scss.css' | asset_url | stylesheet_tag }}
+{{ 'bootstrap.css' | asset_url | stylesheet_tag }}
 {% assign current_variant = product.selected_or_first_available_variant %}
 {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
 
