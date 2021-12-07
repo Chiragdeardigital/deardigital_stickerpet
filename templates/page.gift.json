@@ -1,5 +1,11 @@
 {
   "sections": {
+    "163889992975cc7aaf": {
+      "type": "page",
+      "settings": {
+        "hide_page_content": true
+      }
+    },
     "1638545985c589b7fc": {
       "type": "image-banner",
       "blocks": {
@@ -153,6 +159,7 @@
     }
   },
   "order": [
+    "163889992975cc7aaf",
     "1638545985c589b7fc",
     "16277437539db10743",
     "16278030249c3fd9e9",

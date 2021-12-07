@@ -1,5 +1,11 @@
 {
   "sections": {
+    "1638899866df13c45e": {
+      "type": "page",
+      "settings": {
+        "hide_page_content": true
+      }
+    },
     "162791309145580b1f": {
       "type": "about-hero",
       "settings": {
@@ -145,6 +151,7 @@
     }
   },
   "order": [
+    "1638899866df13c45e",
     "162791309145580b1f",
     "1627914162f262a055",
     "1627920281e19dd611",

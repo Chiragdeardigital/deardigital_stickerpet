@@ -1,5 +1,11 @@
 {
   "sections": {
+    "1638899899369fa361": {
+      "type": "page",
+      "settings": {
+        "hide_page_content": true
+      }
+    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -97,6 +103,7 @@
     }
   },
   "order": [
+    "1638899899369fa361",
     "main",
     "1638337026b2fecea3",
     "1628951885b86a02e3"

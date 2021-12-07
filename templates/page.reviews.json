@@ -1,5 +1,11 @@
 {
   "sections": {
+    "16388999698fa7de21": {
+      "type": "page",
+      "settings": {
+        "hide_page_content": true
+      }
+    },
     "1627975595ccb61b9e": {
       "type": "reviews-hero",
       "settings": {
@@ -19,6 +25,7 @@
     }
   },
   "order": [
+    "16388999698fa7de21",
     "1627975595ccb61b9e",
     "162797906566d0dfcc"
   ]
