@@ -106,8 +106,7 @@
         >
       </div>
       {%- else -%}
-      <div>
-        <deferred-media class="deferred-media media" style="padding-top: 82%" data-media-id="{{ media.id }}">
+      <div> 
           
             <span class="deferred-media__poster-button small motion-reduce">
               {%- if media.media_type == 'model' -%}
@@ -128,7 +127,6 @@
               height="{{ 576 | divided_by: media.preview_image.aspect_ratio }}"
               alt="{{ media.preview_image.alt | escape }}"
             >
-        </deferred-media>
       </div>
       {%- endif -%}
     {% endfor %}

@@ -161,6 +161,7 @@
                 </div>
                 {%- endcase -%}
                 {%- endfor -%}
+
                 <div class="product-single__add-to-cart">
                   <button  name="add" id="AddToCart--product-template"
                           class="button border-button AddToCart"
@@ -180,6 +181,46 @@
                {% endform %}
               
             </div>
+
+
+                            <!-- ---------------------------------------------------- -->
+                            <share-button class="share-button " {{ block.shopify_attributes }}>
+                              <button class="share-button__button button button-outline button--tertiary hidden">
+                                {% render 'icon-share' %}
+                                {{ 'general.share.share' | t }}
+                              </button>
+                              <details>
+                                <summary class="share-button__button button button--tertiary">
+                                  {% render 'icon-share' %}
+                                  {{ 'general.share.share' | t }}
+                                </summary>
+                                <div class="share-button__fallback">
+                                  <div class="field">
+                                    <input type="text"
+                                          class="field__input"
+                                          id="url"
+                                          value="{{ shop.url | append: product.url }}"
+                                          placeholder="{{ 'general.share.share_url' | t }}"
+                                          onclick="this.select();"
+                                          readonly
+                                    >
+                                    <label class="field__label" for="url">{{ 'general.share.share_url' | t }}</label>
+                                  </div>
+                                  <button class="button button--tertiary">
+                                    {% render 'icon-clipboard' %}
+                                    {{ 'general.share.copy_to_clipboard' | t }}
+                                  </button>
+                                  <span id="ShareMessage-{{ section.id }}" class="share-button__message hidden" role="status" aria-hidden="true">
+                                    {{ 'general.share.success_message' | t }}
+                                  </span>
+                                </div>
+                              </details>
+                            </share-button>
+                            
+                            <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
+                            <!-- ---------------------------------------------------- -->
+
+
 <!-- ---------------------------------------------------- -->
             {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
 

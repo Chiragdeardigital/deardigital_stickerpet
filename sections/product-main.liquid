@@ -1,5 +1,6 @@
 {% comment %}theme-check-disable UndefinedObject{% endcomment %}
 <link rel="stylesheet" href="{{ 'component-deferred-media.css' | asset_url }}" media="print" onload="this.media='all'">
+<script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
 {% include "colors-snippet" %}
 {% assign type = section.settings.product_section_type %}
 {% case type %}
