@@ -2,6 +2,10 @@
   max-width: 100%;
 }
 
+.contact.page-width.page-width--narrow{
+  background: var(--background-color-1);
+}
+
 .contact .form__message {
   align-items: flex-start;
 }
@@ -22,6 +26,8 @@
 
 .contact__button {
   margin-top: 3rem;
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (min-width: 750px) {
@@ -40,4 +46,11 @@
 
 .grecaptcha-badge {
   visibility: hidden;
+}
+
+@media screen and (min-width: 990px){
+  .contact.page-width--narrow {
+      max-width: 100%;
+      padding: 2rem;
+  }
 }
