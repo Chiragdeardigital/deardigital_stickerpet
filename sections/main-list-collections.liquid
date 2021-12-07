@@ -50,6 +50,23 @@
                 <h2 class="h3">{{- collection.title -}}<span class="icon-wrap">&nbsp;{% render 'icon-arrow' %}</span></h2>
               </div>
             {%- else -%}
+              <div class="media media--{{ section.settings.image_ratio }} media--hover-effect overflow-hidden"
+                    {% if section.settings.image_ratio == 'adapt' %}style="padding-bottom: {{ 1 | divided_by: collection.image.aspect_ratio | times: 100 }}%;"{% endif %}>
+
+                    <img srcset="{%- if  collection.products.first.width >= 165 -%}{{  collection.products.first | img_url: '165x' }} 165w,{%- endif -%}
+                      {%- if  collection.products.first.width >= 360 -%}{{  collection.products.first | img_url: '360x' }} 360w,{%- endif -%}
+                      {%- if  collection.products.first.width >= 535 -%}{{  collection.products.first | img_url: '535x' }} 535w,{%- endif -%}
+                      {%- if  collection.products.first.width >= 720 -%}{{  collection.products.first | img_url: '720x' }} 720w,{%- endif -%}
+                      {%- if  collection.products.first.width >= 940 -%}{{  collection.products.first | img_url: '940x' }} 940w,{%- endif -%}
+                      {%- if  collection.products.first.width >= 1070 -%}{{  collection.products.first | img_url: '1070x' }} 1070w{%- endif -%}"
+                      src="{{  collection.products.first | img_url: '533x' }}"
+                      sizes="(min-width: 1100px) 358px, (min-width: 750px) calc((100vw - 130px) / 3), calc(100vw - 30px)"
+                      alt="{{ collection.title | escape }}"
+                      height="{{  collection.products.first.height }}"
+                      width="{{  collection.products.first.width }}"
+                      loading="lazy"
+                    >
+                  </div>
               <div class="overlay-card"></div>
               <div class="card__text-spacing card__text-hover">
                 <h2 class="h1">

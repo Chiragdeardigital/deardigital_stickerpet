@@ -59,7 +59,7 @@
             {%- case block.type -%}
             {%- when 'text' -%}
             <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
-            <div class="no-d product-vendor light {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">{{- block.settings.text -}}</div>
+            <div class="no-d product-vendor {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">{{- block.settings.text -}}</div>
             {%- endcase -%}
             {%- endfor -%}
         </p>
@@ -83,7 +83,7 @@
           {%- case block.type -%}
           {%- when 'text' -%}
           <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
-          <div class="product-vendor variant-product light {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">{{- block.settings.text -}}</div>
+          <div class="product-vendor variant-product  {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">{{- block.settings.text -}}</div>
           {%- endcase -%}
           {%- endfor -%}
 
