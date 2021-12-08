@@ -49,6 +49,8 @@
         <p class="product-price no-d">
           {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price product-single__price no-desktop-1 justify-content-center' -%}
         </p>
+        {%- when '@app' -%}
+        {% render block %}
         {%- endcase -%}
         {%- endfor -%}
         {% render "product-template-slider" %}
@@ -79,6 +81,8 @@
               <span class="product-price">
                 {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'product-price product-single__price' -%}
               </span>
+              {%- when '@app' -%}
+              {% render block %}
               {%- endcase -%}
               {%- endfor -%}
               <span class="stars">

@@ -74,6 +74,8 @@
           {%- case block.type -%}
           {%- when 'price' -%}
           {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large product-single__price justify-content-center euro no-desktop' -%}
+          {%- when '@app' -%}
+          {% render block %}
           {%- endcase -%}
           {%- endfor -%}
         </div>
@@ -112,6 +114,8 @@
                 {%- case block.type -%}
                 {%- when 'price' -%}
                 {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large product-single__price' -%}
+                {%- when '@app' -%}
+                {% render block %}
                 {%- endcase -%}
                 {%- endfor -%}
               </div>

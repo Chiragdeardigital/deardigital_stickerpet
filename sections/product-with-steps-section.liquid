@@ -82,6 +82,8 @@
               {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large product-single__price justify-content-center euro no-desktop' -%}
               <span class="smaller-font">incl. VAT</span>
             </div> 
+            {%- when '@app' -%}
+            {% render block %}
           {%- endcase -%}
           {%- endfor -%}
         </div>
@@ -118,6 +120,8 @@
               <div class="no-js-hidden price-{{ section.id }}" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
                 {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large product-single__price' -%}
               </div>
+              {%- when '@app' -%}
+              {% render block %}
           {%- endcase -%}
           {%- endfor -%}
             </div>
@@ -830,6 +834,9 @@
     "settings": [          
     ],
     "blocks": [
+      {
+        "type": "@app" 
+      },
       {
         "type": "image_block",
         "name": "Image block",

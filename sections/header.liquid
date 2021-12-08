@@ -35,7 +35,7 @@
         </div>
         <div class="logo-wrapper">
           <div class="logo">
-            <a href="/" class="site-header-logo-image">
+            <a href="{{ routes.root_url }}" class="site-header-logo-image">
               {% if section.settings.brand_img != blank %}
 
               <img src="{{ section.settings.brand_img | img_url: " 533x" }}"
@@ -117,7 +117,7 @@
           </li>
           
           <li>
-            <a href="/search" >{% render 'search-icon' %}</a>
+            <a href="{{ routes.search_url }}" >{% render 'search-icon' %}</a>
           </li>
 
           {%- unless template contains 'cart' -%}
