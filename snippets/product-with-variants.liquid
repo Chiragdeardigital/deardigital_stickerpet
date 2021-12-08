@@ -41,7 +41,13 @@
     {%- assign first_media = true -%}
     <div class="grid product-single custom-product-3">
       <div class="slider left">
-        <p class="mobile-product-text no-d"> {{ product.metafields.my_fields.mobile_description}}
+        <p class="mobile-product-text no-d"> 
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+            {%- when 'description' -%}
+              {{ product.metafields.my_fields.mobile_description}}
+          {%- endcase -%}
+          {%- endfor -%}
           <br>
           <span class="modal-show"> Size chart </span>
           <br>
@@ -111,16 +117,20 @@
               </div>
             
             </div>
-            
-            <div class="product-single__description rte no-mobile" itemprop="description">
-              {{ product.metafields.my_fields.description }}
-              <br>
-              <br>
-              <p>
-                 {{ product.metafields.my_fields.extra_information }}
-              </p>
-              <br>
-            </div>
+            {%- for block in section.blocks -%}
+            {%- case block.type -%}
+            {%- when 'description' -%}
+              <div class="product-single__description rte no-mobile" itemprop="description">
+                {{ product.metafields.my_fields.description }}
+                <br>
+                <br>
+                <p>
+                  {{ product.metafields.my_fields.extra_information }}
+                </p>
+                <br>
+              </div>
+            {%- endcase -%}
+            {%- endfor -%}
 
             <div itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating" itemscope>
               <meta itemprop="reviewCount" content="35" />

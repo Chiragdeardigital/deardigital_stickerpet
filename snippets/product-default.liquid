@@ -16,8 +16,14 @@
   <div class="container">
     <div class="product-wrapper">
       <div class="slider left">
-        <p class="mobile-product-text no-d">21 stickers of your pets face, printed and ✂️ cut by us.
-          <br>
+        <p class="mobile-product-text no-d">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+            {%- when 'description' -%}
+             {{ product.metafields.my_fields.mobile_description }}
+            {%- endcase -%}
+            {%- endfor -%}
+            <br>
           
           <a class="review-stars" href="#reviews">
             <span class="stars">
@@ -82,11 +88,16 @@
               <span class="star">{% render "icon-star" %}</span>
               <span class="star">{% render "icon-star" %}</span>
               </span>
-              <div class="product-single-description" itemprop="description">
 
+              {%- for block in section.blocks -%}
+              {%- case block.type -%}
+              {%- when 'description' -%}
+              <div class="product-single-description" itemprop="description">
                 <p>{{product.metafields.my_fields.description}}</p>
                 <p><em>Delivery time: 4 - 8 days<br></em><em>Shipped from Belgium<br></em></p>
               </div>
+              {%- endcase -%}
+              {%- endfor -%}
               {% capture "form_classes" %}
               product-single__form{% if product.has_only_default_variant %} AddToCartForm--product-template--no-variants product-single__form--no-variants{% endif %}
             {%- endcapture %}

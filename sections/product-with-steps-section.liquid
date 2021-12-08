@@ -43,11 +43,20 @@
       {% endcomment %}
       <div class="grid__item large--seven-twelfths text-center">
         <div class="product-title text-center no-desktop">
-          
-          <div class="product-description product-single__description text-center">{{ product.description }}</div>
+          {%- for block in section.blocks -%}
+          {%- case block.type -%}
+          {%- when 'description' -%}
+              <div class="product-description product-single__description text-center">{{ product.description }}</div>
+          {%- endcase -%}
+          {%- endfor -%}
           <p class=" no-d"> </p>
           <p class="product-single__description examples-text no-desktop">
+            {%- for block in section.blocks -%}
+            {%- case block.type -%}
+            {%- when 'description' -%}
             {{ product.metafields.my_fields.mobile_description}}
+            {%- endcase -%}
+            {%- endfor -%}
             <br>
             <br>
             See some examples 
@@ -112,10 +121,15 @@
           {%- endcase -%}
           {%- endfor -%}
             </div>
-            
+
+            {%- for block in section.blocks -%}
+            {%- case block.type -%}
+            {%- when 'description' -%}
             <div class="product-description product-single__description rte no-mobile" itemprop="description">
               {{product.metafields.my_fields.description}}
             </div>
+            {%- endcase -%}
+            {%- endfor -%}
             
             <p class="product-single__description examples-text no-mobile">See some examples <a href="/pages/cutouts" target="_blank">right here</a>. 👈</p>
 
@@ -882,6 +896,11 @@
       {
         "type": "price",
         "name": "Price",
+        "limit": 1
+      },
+      {
+        "type": "description",
+        "name": "Description",
         "limit": 1
       }
     ],
