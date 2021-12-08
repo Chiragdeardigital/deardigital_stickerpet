@@ -30,6 +30,11 @@
             "text": "{{ product.vendor }}",
             "text_style": "uppercase"
           }
+        },
+        "bbc2966d-b263-4b2f-89ed-3bd970987f31": {
+          "type": "description",
+          "settings": {
+          }
         }
       },
       "block_order": [
@@ -37,7 +42,8 @@
         "0423df30-6c9c-4185-87bf-9c971a1fe15f",
         "c0774ad9-7bd9-46fd-b5f5-9183314d815e",
         "9fd487a2-0e68-4742-b724-388ed9f241a0",
-        "c292310d-a365-49e3-bebd-c7a876cd432d"
+        "c292310d-a365-49e3-bebd-c7a876cd432d",
+        "bbc2966d-b263-4b2f-89ed-3bd970987f31"
       ],
       "settings": {
         "product_section_type": "default"

@@ -30,6 +30,11 @@
           "type": "price",
           "settings": {
           }
+        },
+        "05f98f86-f0eb-42f1-bede-396d26e62e97": {
+          "type": "description",
+          "settings": {
+          }
         }
       },
       "block_order": [
@@ -37,7 +42,8 @@
         "d2534d2f-1035-435b-85b7-428297181863",
         "7a6bd1ac-4822-46dd-a11f-bba3e2bda4fd",
         "70934cd6-d103-4073-83ec-efa181fdcb0e",
-        "bc2882d5-bc1d-41de-a55b-0ca7fe4b7894"
+        "bc2882d5-bc1d-41de-a55b-0ca7fe4b7894",
+        "05f98f86-f0eb-42f1-bede-396d26e62e97"
       ],
       "settings": {
         "product_section_type": "variants"

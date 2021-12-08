@@ -31,6 +31,11 @@
           "type": "price",
           "settings": {
           }
+        },
+        "8959ff07-9898-42bb-b8f1-c872b61feed8": {
+          "type": "description",
+          "settings": {
+          }
         }
       },
       "block_order": [
@@ -38,7 +43,8 @@
         "b4f4005b-6f0d-4929-81a4-d2988a1a398d",
         "fa227447-60ba-40f2-b7d0-91f7a3708eb2",
         "09b67192-3238-469c-8317-5ccfb264414d",
-        "2f840a03-961a-4569-9d54-59c12bc9d5d2"
+        "2f840a03-961a-4569-9d54-59c12bc9d5d2",
+        "8959ff07-9898-42bb-b8f1-c872b61feed8"
       ],
       "settings": {
       }
