@@ -19,7 +19,11 @@
 }
 
 .card .icon-arrow {
-  width: 1.5rem;
+  width: 30px;
+}
+
+.icon-wrap svg{
+  width: 30px;
 }
 
 .card .icon-wrap {
@@ -331,5 +335,5 @@
 }
 
 .collection-list-grid .card__text.card__text-spacing.card__text-hover {
-  padding-left: 0;
+  padding: 3rem;
 }
