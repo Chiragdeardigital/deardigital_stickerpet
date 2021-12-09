@@ -9,8 +9,6 @@
     "162791309145580b1f": {
       "type": "about-hero",
       "settings": {
-        "about_bg_img": "shopify:\/\/shop_images\/poochie-party-treats.jpg",
-        "about_bg_img_mobile": "shopify:\/\/shop_images\/laptop-with-shopify-sticker.jpg",
         "about_head_text": "About banner heading"
       }
     },
@@ -63,7 +61,6 @@
       "settings": {
         "video_checkbox": false,
         "video_script": "",
-        "desktop_image": "shopify:\/\/shop_images\/poochie-party-treats.jpg",
         "change_bg": false,
         "layout": "image_first"
       }
@@ -108,7 +105,6 @@
       "settings": {
         "video_checkbox": false,
         "video_script": "",
-        "desktop_image": "shopify:\/\/shop_images\/white-tshirt-template.jpg",
         "change_bg": false,
         "layout": "text_first"
       }
@@ -144,7 +140,6 @@
       "settings": {
         "video_checkbox": false,
         "video_script": "",
-        "desktop_image": "shopify:\/\/shop_images\/blue-t-shirt.jpg",
         "change_bg": false,
         "layout": "image_first"
       }

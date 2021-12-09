@@ -29,9 +29,7 @@
         "837463c1-2ea5-4e9b-b16d-ce3a6a07b2f3"
       ],
       "settings": {
-        "color_scheme": "banner-background-1",
-        "image": "shopify:\/\/shop_images\/a-smiling-big-teddy-bear-like-dog.jpg",
-        "image_2": "shopify:\/\/shop_images\/torso-of-a-person-in-a-plain-grey-shirt.jpg"
+        "color_scheme": "banner-background-1"
       }
     },
     "16277437539db10743": {
@@ -89,9 +87,6 @@
         "0525d500-e199-4f0c-8438-e6311fb59235"
       ],
       "settings": {
-        "desktop_image": "shopify:\/\/shop_images\/white-tshirt-template.jpg",
-        "mobile_image_1": "shopify:\/\/shop_images\/torso-of-a-person-in-a-plain-grey-shirt.jpg",
-        "mobile_image_2": "shopify:\/\/shop_images\/blue-t-shirt.jpg",
         "layout": "text_first"
       }
     },
@@ -101,7 +96,6 @@
         "965bd64f-933c-4226-86cd-3802e175efc5": {
           "type": "human_review",
           "settings": {
-            "review_image": "shopify:\/\/shop_images\/Maurice_1_x200_f27796e3-1c67-4f48-a31a-9a6b3bbd06d8.png",
             "review_text": "<i>“The comment by the reviewer goes here <\/i>🐶”<br><i>- name goes here, human<\/i>",
             "typed_text_human": "human"
           }
@@ -109,7 +103,6 @@
         "782a801b-296f-4e7c-bcfe-ac0edcd89cf8": {
           "type": "pet_review",
           "settings": {
-            "review_image": "shopify:\/\/shop_images\/portrait-young-man-smiling.jpg",
             "review_text": "<i>“The comment by the reviewer goes here <\/i>🐶”<br><i>- name goes here, pet<\/i>",
             "typed_text_pet": "pet"
           }
@@ -151,9 +144,6 @@
         "fa3da896-22d3-4ffc-bdfb-de96cf274906"
       ],
       "settings": {
-        "desktop_image": "shopify:\/\/shop_images\/poochie-party-treats.jpg",
-        "mobile_image_1": "shopify:\/\/shop_images\/blue-t-shirt.jpg",
-        "mobile_image_2": "shopify:\/\/shop_images\/torso-of-a-person-in-a-plain-grey-shirt.jpg",
         "layout": "image_first"
       }
     }

@@ -4,10 +4,6 @@
       "type": "sticker-banner",
       "settings": {
         "sticker_banner_heading": "Rich Banner<br> Heading🤘🏼",
-        "banner_overlay_image_1": "shopify:\/\/shop_images\/young-dog-looking-up-excitedly-awaiting-a-treat.jpg",
-        "banner_overlay_image_2": "shopify:\/\/shop_images\/boxer-dog.jpg",
-        "banner_overlay_image_3": "shopify:\/\/shop_images\/a-smiling-big-teddy-bear-like-dog.jpg",
-        "banner_overlay_image_4": "shopify:\/\/shop_images\/model-in-gold-fashion.jpg",
         "sticker_banner_bg": "background-color-1"
       }
     },
@@ -59,7 +55,7 @@
       ],
       "settings": {
         "layout": "text_first",
-        "single_product": "portraits"
+        "single_product": ""
       }
     },
     "product-grid": {

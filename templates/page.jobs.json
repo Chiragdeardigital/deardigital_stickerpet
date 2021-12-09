@@ -57,7 +57,6 @@
     "1628004178abf22af9": {
       "type": "image-with-text-4",
       "settings": {
-        "image": "shopify:\/\/shop_images\/white-tshirt-template.jpg",
         "header_text": "Image with text",
         "para_text": "Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.",
         "reverse_columns": false,

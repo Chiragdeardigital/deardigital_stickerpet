@@ -25,7 +25,6 @@
     "16269316720393125d": {
       "type": "partner",
       "settings": {
-        "partner_image": "shopify:\/\/shop_images\/Anne_x200_24164819-b4dc-4e18-beae-16de6539423f.png",
         "text": "partner of",
         "btn_text": "learn more",
         "btn_url": "shopify:\/\/collections"
@@ -110,8 +109,6 @@
       "settings": {
         "video_checkbox": false,
         "video_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0268\/5580\/0887\/files\/custom-pet-sticker-from-sticker-pet.mp4?v=1606812993",
-        "desktop_image": "shopify:\/\/shop_images\/a-smiling-big-teddy-bear-like-dog.jpg",
-        "mobile_image": "shopify:\/\/shop_images\/young-dog-looking-up-excitedly-awaiting-a-treat.jpg",
         "height": "adapt",
         "image_with_text_bg": "solid-button-labels",
         "layout": "text_first",
@@ -166,8 +163,6 @@
       "settings": {
         "video_checkbox": false,
         "video_url": "",
-        "desktop_image": "shopify:\/\/shop_images\/model-in-gold-fashion.jpg",
-        "mobile_image": "shopify:\/\/shop_images\/model-in-gold-fashion.jpg",
         "height": "adapt",
         "image_with_text_bg": "solid-button-labels",
         "layout": "image_first",
@@ -222,8 +217,6 @@
       "settings": {
         "video_checkbox": false,
         "video_url": "",
-        "desktop_image": "shopify:\/\/shop_images\/white-tshirt-template.jpg",
-        "mobile_image": "shopify:\/\/shop_images\/torso-of-a-person-in-a-plain-grey-shirt.jpg",
         "height": "adapt",
         "image_with_text_bg": "solid-button-labels",
         "layout": "text_first",
@@ -236,7 +229,6 @@
         "34229b2e-c551-4c47-857e-36f2edb5d789": {
           "type": "human_review",
           "settings": {
-            "review_image": "shopify:\/\/shop_images\/Anne_x200_24164819-b4dc-4e18-beae-16de6539423f.png",
             "review_text": "<i>“Text Reivew of customers or a sticker review”<br><i>- Name, human<\/i><\/i>",
             "typed_text_human": "human"
           }
@@ -244,7 +236,6 @@
         "af4c9ed6-8e44-44ff-b855-637603227414": {
           "type": "pet_review",
           "settings": {
-            "review_image": "shopify:\/\/shop_images\/blue-t-shirt.jpg",
             "review_text": "<i>“Text Reivew of customers or a sticker review”<br><i>- Name, sticker <\/i><\/i>",
             "typed_text_pet": "sticker"
           }
@@ -263,25 +254,21 @@
         "f08d5b0b-a73a-4d60-808a-044a6844ade7": {
           "type": "collage_image",
           "settings": {
-            "collage_image": "shopify:\/\/shop_images\/a-smiling-big-teddy-bear-like-dog_d769d64f-c00e-4ac6-a614-9c5195f26ed4.jpg"
           }
         },
         "0f5b1bc7-e6d3-4b00-ba04-b0382d2b2797": {
           "type": "collage_image",
           "settings": {
-            "collage_image": "shopify:\/\/shop_images\/white-tshirt-template.jpg"
           }
         },
         "5bd8086b-db0a-46a5-a35a-a9df273497c5": {
           "type": "collage_image",
           "settings": {
-            "collage_image": "shopify:\/\/shop_images\/torso-of-a-person-in-a-plain-grey-shirt.jpg"
           }
         },
         "8274ace7-b17b-4a21-adc2-00fe0d9dc7f7": {
           "type": "collage_image",
           "settings": {
-            "collage_image": "shopify:\/\/shop_images\/model-in-gold-fashion.jpg"
           }
         },
         "506faf45-3804-4964-84e9-a474768308e1": {
@@ -338,42 +325,36 @@
         "1f81e4a3-0721-4f46-b241-5ea832c1b48b": {
           "type": "feed",
           "settings": {
-            "social_feed_image": "shopify:\/\/shop_images\/blue-t-shirt.jpg",
             "link_url": "https:\/\/www.instagram.com"
           }
         },
         "147b6577-3542-4e4d-b913-44bd55a24c29": {
           "type": "feed",
           "settings": {
-            "social_feed_image": "shopify:\/\/shop_images\/a-smiling-big-teddy-bear-like-dog.jpg",
             "link_url": "https:\/\/www.instagram.com"
           }
         },
         "979e9fa8-0d09-4d0c-bdc7-57cebb4a2c33": {
           "type": "feed",
           "settings": {
-            "social_feed_image": "shopify:\/\/shop_images\/model-in-gold-fashion.jpg",
             "link_url": "https:\/\/www.instagram.com"
           }
         },
         "dffbd1de-4eed-4833-9fe7-ac74813012e7": {
           "type": "feed",
           "settings": {
-            "social_feed_image": "shopify:\/\/shop_images\/boxer-dog.jpg",
             "link_url": "https:\/\/www.instagram.com"
           }
         },
         "1723ffd5-ffa9-4c37-8f52-f8ae4dcd69e8": {
           "type": "feed",
           "settings": {
-            "social_feed_image": "shopify:\/\/shop_images\/a-grinning-bronze-coloured-dog.jpg",
             "link_url": "https:\/\/www.instagram.com"
           }
         },
         "f65dbc12-517f-4937-8352-5785c90dd0b1": {
           "type": "feed",
           "settings": {
-            "social_feed_image": "shopify:\/\/shop_images\/torso-of-a-person-in-a-plain-grey-shirt.jpg",
             "link_url": "https:\/\/www.instagram.com"
           }
         }
