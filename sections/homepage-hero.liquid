@@ -1,6 +1,6 @@
 <section class="homepage-hero color-{{ section.settings.color_scheme }}">
   <div class="container">
-    <h1 class="hero-title  {% if section.settings.type_text == 'left' %} left {% elsif section.settings.type_text == 'right' %} right {% else %} {% endif %} {% for block in section.blocks %}{% if block.type == "typed_text" %}  color-{{ block.settings.type_text_color}} {% endif %}{% endfor %}" >{{ section.settings.text_1 }}<br>
+    <h1 class="hero-title  {% if section.settings.type_text == 'left' %} left {% elsif section.settings.type_text == 'right' %} right {% else %} {% endif %}" >{{ section.settings.text_1 }}<br>
       <span>
         {%- for block in section.blocks -%}
           {%- case block.type -%}
@@ -92,20 +92,28 @@
            "type": "select",
            "id": "color_scheme",
            "label": "Color Scheme",
-           "default": "gradient-background",
+           "default": "accent-1",
            "info" : "choose a background",
            "options": [
            {
+            "label": "accent 1",
+            "value": "accent-1"
+            },
+            {
+            "label": "accent 2",
+            "value": "accent-2"
+            },
+            {
             "label": "Background 1",
-            "value": "gradient-background"
+            "value": "background-1"
             },
             {
             "label": "Background 2",
-            "value": "gradient-background-1"
+            "value": "background-2"
             },
             {
-            "label": "Background 3",
-            "value": "gradient-background-2"
+            "label": "Inverse",
+            "value": "inverse"
             }
          ]
        }

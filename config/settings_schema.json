@@ -12,79 +12,58 @@
         "settings": [
             {
                 "type": "header",
-                "content": "Primary colors"
-            },
-            {
+                "content": "t:settings_schema.colors.settings.header__1.content"
+              },
+              {
                 "type": "color",
                 "id": "colors_solid_button_labels",
                 "default": "#FFFFFF",
-                "label": "Solid button label",
-                "info": "Used as foreground color on accent colors."
-            },
-            {
+                "label": "t:settings_schema.colors.settings.colors_solid_button_labels.label",
+                "info": "t:settings_schema.colors.settings.colors_solid_button_labels.info"
+              },
+              {
                 "type": "color",
                 "id": "colors_accent_1",
-                "default": "#f9ae37",
-                "label": "Accent 1",
-                "info": "Used for solid button background."
-            },
-            {
+                "default": "#F9AE37",
+                "label": "t:settings_schema.colors.settings.colors_accent_1.label",
+                "info": "t:settings_schema.colors.settings.colors_accent_1.info"
+              },
+              {
                 "type": "color",
                 "id": "colors_accent_2",
-                "default": "#a5dcde",
-                "label": "Accent 2"
-            },
-            {
+                "default": "#f1f1f2",
+                "label": "t:settings_schema.colors.settings.colors_accent_2.label"
+              },
+              {
                 "type": "header",
-                "content": "Secondary colors"
-            },
-            {
+                "content": "t:settings_schema.colors.settings.header__2.content"
+              },
+              {
                 "type": "color",
                 "id": "colors_text",
                 "default": "#062322",
-                "label": "Text",
-                "info": "Used as foreground color on background colors."
-            },
-            {
+                "label": "t:settings_schema.colors.settings.colors_text.label",
+                "info": "t:settings_schema.colors.settings.colors_text.info"
+              },
+              {
                 "type": "color",
-                "id": "colors_link_labels",
-                "default": "#ffffff",
-                "label": "Link color",
-                "info": "Navbar link color"
-            },
-            {
-                "type": "header",
-                "content": "Background colors"
-            },
-            {
+                "id": "colors_outline_button_labels",
+                "default": "#F1F1F2",
+                "label": "t:settings_schema.colors.settings.colors_outline_button_labels.label",
+                "info": "t:settings_schema.colors.settings.colors_outline_button_labels.info"
+              },
+              {
+                "type": "color",
+                "id": "colors_background_1",
+                "default": "#a5dcde",
+                "label": "t:settings_schema.colors.settings.colors_background_1.label"
+              },
+              {
                 "type": "color",
                 "id": "colors_background_2",
-                "default": "#f2f2f3",
-                "label": "Background 2"
-            },
-            {
-                "type": "color",
-                "id": "colors_background_3",
-                "default": "#f1f1f2",
-                "label": "Background 3"
-            },
-            {
-                "type": "header",
-                "content": "Gradient colors"
-            },
-            {
-                "type": "color",
-                "id": "gradient_background_1",
-                "default": "#a5dcde",
-                "label": "Gradient color 1",
-                "info": "background 1 and background 2 colors will give a gradient effect to the section i.e hero section."
-            },
-            {
-                "type": "color",
-                "id": "gradient_background_2",
                 "default": "#69bcc3",
-                "label": "Gradient color 2"
-            }
+                "label": "t:settings_schema.colors.settings.colors_background_2.label"
+              }
         ]
     },
     {
