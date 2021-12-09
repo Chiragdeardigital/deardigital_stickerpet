@@ -2,7 +2,7 @@
 
 :root,
 .color-background-1 {
-  --color-foreground: var(--color-base-text);
+  --color-foreground: var(--color-base-solid-button-labels);
   --color-background: var(--color-base-background-1);
 }
 
@@ -164,7 +164,6 @@ html.no-js .no-js-hidden {
   padding: 0;
   margin: 0 auto;
 }
-
 
 
 @media screen and (min-width: 750px) {
@@ -1098,8 +1097,8 @@ deferred-media {
   border: 0;
   border-radius: 0;
   background-color: rgba(var(--color-button), var(--alpha-button-background));
-  box-shadow: 0 0 0 0.1rem rgba(var(--color-button), var(--alpha-button-border));
-  color: rgb(var(--color-button-text));
+  /* box-shadow: 0 0 0 0.1rem rgba(var(--color-button), var(--alpha-button-border)); */
+  /* color: rgb(var(--color-button-text)); */
   /* min-width: 12rem;
   min-height: 4.5rem; */
   transition: box-shadow var(--duration-short) ease;
