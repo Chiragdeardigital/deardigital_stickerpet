@@ -8,21 +8,7 @@ input {
   box-sizing: inherit;
 }
 
-/*
-
---solid-button-labels : #FFFFFF
---background-color-1 : #a5dcde
---background-color-2 : #f2f2f3
---background-color-3 : #f1f1f2
---gradient-background : #a5dcde , #69bcc3
---gradient-background-1 : #a5dcde
---gradient-background-2 : #69bcc3
---solid-button-bg-color : #f9ae37
---text-color : #062322
---nav-link-color : #ffffff
-
-*/
-
+{%- comment -%}
 :root,
 .color-solid-button-labels {
   background-color: var(--solid_button_labels) !important;
@@ -88,6 +74,7 @@ input {
   color: var(--text-color) !important;
   background-color: var(--gradient-background-1) !important;
 }
+{%- endcomment -%}
 
 html {
   scroll-behavior: smooth;
@@ -323,6 +310,14 @@ HEADER STYLING
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.flex.space-evenly{
+  justify-content: space-evenly;
+}
+
+.flex.space-around{
+  justify-content: space-around;
 }
 
 .flex-center {

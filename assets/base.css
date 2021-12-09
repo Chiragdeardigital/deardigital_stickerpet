@@ -591,7 +591,8 @@ h6:empty {
 }
 
 .placeholder {
-  background-color: rgba(var(--color-foreground), 0.04);
+  /* background-color: rgba(var(--color-foreground), 0.04); */
+  background-color: rgba(26, 27, 24, 0.04);;
   color: rgba(var(--color-foreground), 0.55);
   fill: rgba(var(--color-foreground), 0.55);
 }

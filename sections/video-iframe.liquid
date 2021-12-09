@@ -2,7 +2,11 @@
 <section class="video-iframe">
    <div class="container">
   <h2 class="iframe-heading">{{ section.settings.header_text }}</h2>
- {{ section.settings.iframe_url }}
+    {%- if section.settings.iframe_url != blank -%}    
+    {{ section.settings.iframe_url }}
+    {%- else -%}
+    {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg'  }}
+    {% endif %}
      </div>
 </section>
 

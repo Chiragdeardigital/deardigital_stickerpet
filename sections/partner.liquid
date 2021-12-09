@@ -2,10 +2,14 @@
   <div class="container">
     <div class="flex-center">
       <p>{{ section.settings.text }}</p>
+      {%- if section.settings.partner_image != blank -%}
       <img srcset="{%- if section.settings.partner_image.width >= 100 -%}{{ section.settings.partner_image | img_url: '100x' }} 100w,{%- endif -%}"
            src="{{ section.settings.partner_image | img_url: '120x' }}" 
            alt="{{ section.settings.image.alt }}" 
            loading="lazy">
+        {% else %}
+        <span style="width: 100px;">{{'product-2' | placeholder_svg_tag }}</span>
+        {%- endif -%}
       <a href="{{ section.settings.btn_url }}">{{ section.settings.btn_text }}</a>
     </div>
   </div>

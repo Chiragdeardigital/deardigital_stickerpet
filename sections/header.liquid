@@ -27,7 +27,7 @@
 
   <header class="site-header">
     <div class="container">
-      <div class="flex">
+      <div class="flex {% if section.settings.menu_position == 'space-evenly' %} space-evenly {% elsif section.settings.menu_position == 'space-around' %} space-around {% else %} {% endif %}">
         <div id="menu-btn" class="menu-btn no-d js-drawer-open-button-left" aria-expanded="false">
           <span></span>
           <span></span>
@@ -239,6 +239,26 @@
           "id": "brand_img",
           "type": "image_picker",
           "label": "Header Brand Image"
+          },
+          {
+            "type": "select",
+            "id": "menu_position",
+            "options": [
+              {
+                "value": "space-between",
+                "label": "space between"
+              },
+              {
+                "value": "space-evenly",
+                "label": "space evenly"
+              },
+              {
+                "value": "space-around",
+                "label": "space around"
+              }
+            ],
+            "default": "space-between",
+            "label": "Menu position"
           }
     ],
     "blocks": [
