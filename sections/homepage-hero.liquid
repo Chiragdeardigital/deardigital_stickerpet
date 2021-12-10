@@ -1,4 +1,4 @@
-<section class="homepage-hero color-{{ section.settings.color_scheme }}">
+<section class="homepage-hero color-{{ section.settings.hero_color_scheme }}">
   <div class="container">
     <h1 class="hero-title  {% if section.settings.type_text == 'left' %} left {% elsif section.settings.type_text == 'right' %} right {% else %} {% endif %}" >{{ section.settings.text_1 }}<br>
       <span>
@@ -90,32 +90,44 @@
         },
         {
            "type": "select",
-           "id": "color_scheme",
-           "label": "Color Scheme",
-           "default": "accent-1",
+           "id": "hero_color_scheme",
            "info" : "choose a background",
            "options": [
-           {
-            "label": "accent 1",
-            "value": "accent-1"
-            },
-            {
-            "label": "accent 2",
-            "value": "accent-2"
-            },
-            {
-            "label": "Background 1",
-            "value": "background-1"
-            },
-            {
-            "label": "Background 2",
-            "value": "background-2"
-            },
-            {
-            "label": "Inverse",
-            "value": "inverse"
-            }
-         ]
+              {
+                "label": "Accent 1",
+                "value": "accent-1"
+              },
+              {
+                "label": "Accent 2",
+                "value": "accent-2"
+              },
+              {
+                "label": "Background 1",
+                "value": "background-1"
+              },
+              {
+                "label": "Background 2",
+                "value": "background-2"
+              },
+              {
+                "label": "Background 3",
+                "value": "background-3"
+              },
+              {
+                "label": "Background 4",
+                "value": "background-4"
+              },
+              {
+                "label": "Background 5",
+                "value": "background-5" 
+              },
+              {
+                "label": "Inverse",
+                "value": "inverse"
+              }
+         ],
+         "label": "Color Scheme",
+         "default": "background-1"
        }
     ],
     "blocks": [

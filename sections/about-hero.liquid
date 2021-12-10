@@ -1,9 +1,9 @@
 {{ 'about-hero.css' | asset_url | stylesheet_tag }}
 
 <style>
-.hero-image-about {
+/* .hero-image-about {
   background-image: url("{{ section.settings.about_bg_img |  img_url: 'master' }}");
-}
+} */
   @media (max-width: 768px){
     .hero-image-about::after {
       background-image: url("{{ section.settings.about_bg_img_mobile |  img_url: 'master' }}");
@@ -14,7 +14,7 @@
 }
 </style>
 
-<div class="hero-image-about">
+<div class="hero-image-about color-{{ section.settings.about_hero_color_scheme }}">
   <div class="hero-text">
     <h1 class="h1 heading1">{{ section.settings.about_head_text }}</h1>
   </div>
@@ -39,6 +39,47 @@
             "type": "text",
             "label": "Text",
             "default": "About banner heading"
+        },
+        {
+          "type": "select",
+          "id": "about_hero_color_scheme",
+          "info" : "Choose a background",
+          "options": [
+             {
+               "label": "Accent 1",
+               "value": "accent-1"
+             },
+             {
+               "label": "Accent 2",
+               "value": "accent-2"
+             },
+             {
+               "label": "Background 1",
+               "value": "background-1"
+             },
+             {
+               "label": "Background 2",
+               "value": "background-2"
+             },
+             {
+               "label": "Background 3",
+               "value": "background-3"
+             },
+             {
+               "label": "Background 4",
+               "value": "background-4"
+             },
+             {
+               "label": "Background 5",
+               "value": "background-5"
+             },
+             {
+               "label": "Inverse",
+               "value": "inverse"
+             }
+          ],
+          "label": "Color Scheme",
+          "default": "background-1"
         }
     ],
     "presets": [

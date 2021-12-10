@@ -7,7 +7,20 @@
 }
 
 .color-background-2 {
+  --color-foreground: var(--color-base-accent-1);
   --color-background: var(--color-base-background-2);
+}
+.color-background-3 {
+  --color-foreground: var(--color-base-text);
+  --color-background: var(--color-base-background-2);
+}
+.color-background-4 {
+  --color-foreground: var(--color-base-text);
+  --color-background: var(--color-base-background-1);
+}
+.color-background-5 {
+  --color-foreground: var(--color-base-text);
+  --color-background: var(--color-base-solid-button-labels);
 }
 
 .color-inverse {
@@ -222,10 +235,13 @@ html.no-js .no-js-hidden {
 body,
 .color-background-1,
 .color-background-2,
+.color-background-3,
+.color-background-4,
+.color-background-5,
 .color-inverse,
 .color-accent-1,
 .color-accent-2 {
-  color: rgba(var(--color-foreground), 0.75);
+  color: rgba(var(--color-foreground), 1);
   background-color: rgb(var(--color-background));
 }
 

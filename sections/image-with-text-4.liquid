@@ -1,4 +1,4 @@
-<section class="image-with-text-4 {% if section.settings.change_bg %} gray_bg{% endif %}">
+<section class="image-with-text-4 color-{{ section.settings.image_with_text_4_color_scheme }}">
   <div class="container">
     <div class="flex {% if section.settings.reverse_columns %} row-reverse{% endif %} ">
       <div class="column-30">
@@ -54,11 +54,46 @@
             "default": false,
             "label": "Swap image-block and text-block"
         },
- 		{
-            "type": "checkbox",
-            "id": "change_bg",
-            "default": false,
-            "label": "Change background color in mobile screen"
+        {
+          "type": "select",
+          "id": "image_with_text_4_color_scheme",
+          "info" : "Choose a background",
+          "options": [
+             {
+               "label": "Accent 1",
+               "value": "accent-1"
+             },
+             {
+               "label": "Accent 2",
+               "value": "accent-2"
+             },
+             {
+               "label": "Background 1",
+               "value": "background-1"
+             },
+             {
+               "label": "Background 2",
+               "value": "background-2"
+             },
+             {
+               "label": "Background 3",
+               "value": "background-3"
+             },
+             {
+               "label": "Background 4",
+               "value": "background-4"
+             },
+             {
+               "label": "Background 5",
+               "value": "background-5"
+             },
+             {
+               "label": "Inverse",
+               "value": "inverse"
+             }
+          ],
+          "label": "Color Scheme",
+          "default": "background-5"
         }
     ],
     "blocks": [],

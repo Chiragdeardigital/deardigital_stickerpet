@@ -1,6 +1,6 @@
 {{ 'image-banner1.css' | asset_url | stylesheet_tag }}
 
-<section class="gift-image-with-banner color-{{ section.settings.color_scheme }}">
+<section class="gift-image-with-banner color-{{ section.settings.image_banner_color_scheme }}">
   {%- if section.settings.image_2 != blank -%}
   <img srcset="{%- if section.settings.image_2.width >= 375 -%}{{ section.settings.image_2 | img_url: '375x' }} 375w,{%- endif -%}
                {%- if section.settings.image_2.width >= 750 -%}{{ section.settings.image_2 | img_url: '750x' }} 750w,{%- endif -%}
@@ -64,27 +64,47 @@
 {
     "name": "Image Banner",
     "settings": [
-          {
-            "type": "select",
-            "id": "color_scheme",
-            "label": "Color Scheme",
-            "default": "banner-background-1",
-            "info" : "choose a background",
-            "options": [
-            {
-              "label": "Background 1",
-              "value": "banner-background-1"
-              },
-              {
-              "label": "Background 2",
-              "value": "banner-background-2"
-              },
-              {
-              "label": "Background 3",
-              "value": "banner-background-3"
-              }
-          ]
-        },
+    {
+      "type": "select",
+      "id": "image_banner_color_scheme",
+      "info" : "Choose a background",
+      "options": [
+         {
+           "label": "Accent 1",
+           "value": "accent-1"
+         },
+         {
+           "label": "Accent 2",
+           "value": "accent-2"
+         },
+         {
+           "label": "Background 1",
+           "value": "background-1"
+         },
+         {
+           "label": "Background 2",
+           "value": "background-2"
+         },
+         {
+           "label": "Background 3",
+           "value": "background-3"
+         },
+         {
+           "label": "Background 4",
+           "value": "background-4"
+         },
+         {
+           "label": "Background 5",
+           "value": "background-5"
+         },
+         {
+           "label": "Inverse",
+           "value": "inverse"
+         }
+      ],
+      "label": "Color Scheme",
+      "default": "background-1"
+    },
         {
             "type": "image_picker",
             "id": "image",

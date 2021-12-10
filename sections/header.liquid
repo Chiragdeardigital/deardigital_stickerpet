@@ -10,7 +10,7 @@
 </div>
 <div class="header-container">
 
-  <div class="announcement-bar">
+  <div class="announcement-bar color-{{ section.settings.announcement_color_scheme }}">
     <ul class="topbar-usp-list" data-slide-speed="4000">
 
       {%- for block in section.blocks -%}
@@ -25,7 +25,7 @@
     </ul>
   </div>
 
-  <header class="site-header">
+  <header class="site-header color-{{ section.settings.header_color_scheme }}">
     <div class="container">
       <div class="flex {% if section.settings.menu_position == 'space-evenly' %} space-evenly {% elsif section.settings.menu_position == 'space-around' %} space-around {% else %} {% endif %}">
         <div id="menu-btn" class="menu-btn no-d js-drawer-open-button-left" aria-expanded="false">
@@ -141,7 +141,7 @@
           {%- when 'Menu' -%}
           {%- for link in linklists[block.settings.header_menu].links -%}
           {%- if link.links != blank -%}
-          <div class="dropdown-menu announcement-bar" aria-labelledby="dropdownMenuButton" id="dropdown-menu">
+          <div class="dropdown-menu announcement-bar color-{{ section.settings.dropdownmenu_color_scheme }}" aria-labelledby="dropdownMenuButton" id="dropdown-menu">
             <span class="hover-assist"></span>
             <div id="dropdownMenuButton" class="container">
               <div class="row flex" style="align-items: start;">
@@ -259,6 +259,129 @@
             ],
             "default": "space-between",
             "label": "Menu position"
+          },
+          {
+             "type": "select",
+             "id": "announcement_color_scheme",
+             "info" : "Floating text may load after save",
+             "options": [
+             {
+              "label": "Accent 1",
+              "value": "accent-1"
+            },
+            {
+              "label": "Accent 2",
+              "value": "accent-2"
+            },
+            {
+              "label": "Background 1",
+              "value": "background-1"
+            },
+            {
+              "label": "Background 2",
+              "value": "background-2"
+            },
+            {
+              "label": "Background 3",
+              "value": "background-3"
+            },
+            {
+              "label": "Background 4",
+              "value": "background-4"
+            },
+            {
+              "label": "Background 5",
+              "value": "background-5"
+            },
+            {
+              "label": "Inverse",
+              "value": "inverse"
+            }
+           ],
+           "label": "Announcement bar color scheme",
+           "default": "background-3"
+         },
+         {
+          "type": "select",
+          "id": "header_color_scheme",
+          "info" : "Text color may load after save.",
+          "options": [
+           {
+             "label": "Accent 1",
+             "value": "accent-1"
+           },
+           {
+             "label": "Accent 2",
+             "value": "accent-2"
+           },
+           {
+             "label": "Background 1",
+             "value": "background-1"
+           },
+           {
+             "label": "Background 2",
+             "value": "background-2"
+           },
+           {
+             "label": "Background 3",
+             "value": "background-3"
+           },
+           {
+             "label": "Background 4",
+             "value": "background-4"
+           },
+           {
+             "label": "Background 5",
+             "value": "background-5"
+           },
+           {
+             "label": "Inverse",
+             "value": "inverse"
+           }
+        ],
+        "label": "Main menu color scheme",
+        "default": "background-1"
+       },
+          {
+             "type": "select",
+             "id": "dropdownmenu_color_scheme",
+             "info" : "Text color may load after save.",
+             "options": [
+              {
+                "label": "Accent 1",
+                "value": "accent-1"
+              },
+              {
+                "label": "Accent 2",
+                "value": "accent-2"
+              },
+              {
+                "label": "Background 1",
+                "value": "background-1"
+              },
+              {
+                "label": "Background 2",
+                "value": "background-2"
+              },
+              {
+                "label": "Background 3",
+                "value": "background-3"
+              },
+              {
+                "label": "Background 4",
+                "value": "background-4"
+              },
+              {
+                "label": "Background 5",
+                "value": "background-5"
+              },
+              {
+                "label": "Inverse",
+                "value": "inverse"
+              }
+           ],
+           "label": "Dropdown menu color scheme",
+           "default": "background-3"
           }
     ],
     "blocks": [

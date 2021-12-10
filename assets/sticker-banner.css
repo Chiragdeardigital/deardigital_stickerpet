@@ -5,7 +5,6 @@
     background-size: cover;
     position: relative;
     min-height: 200px;
-    background-color: #a5dcde;
 }
 
 .hero-text {
@@ -14,11 +13,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    color: #fff;
 }
 
 .heading1 {
-    color: #fff!important;
     font-size: 46px;
 }
 

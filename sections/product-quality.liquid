@@ -1,5 +1,5 @@
 
-<section class="product-quality">
+<section class="product-quality color-{{ section.settings.product_quality_color_scheme }}">
   <div class="container">
     <div class="flex">
       {%- for block in section.blocks -%}
@@ -27,12 +27,47 @@
 {
     "name": "Product quality bar",
     "settings": [
-        {
-            "type": "checkbox",
-            "id": "show_rating_block",
-            "default": true,
-            "label": "Add rating block"
-        }
+      {
+        "type": "select",
+        "id": "product_quality_color_scheme",
+        "info" : "Choose a background",
+        "options": [
+          {
+            "label": "Accent 1",
+            "value": "accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "accent-2"
+          },
+          {
+            "label": "Background 1",
+            "value": "background-1"
+          },
+          {
+            "label": "Background 2",
+            "value": "background-2"
+          },
+          {
+            "label": "Background 3",
+            "value": "background-3"
+          },
+          {
+            "label": "Background 4",
+            "value": "background-4"
+          },
+          {
+            "label": "Background 5",
+            "value": "background-5"
+          },
+          {
+            "label": "Inverse",
+            "value": "inverse"
+          }
+        ],
+        "label": "Color Scheme",
+        "default": "background-3"
+      }
     ],
     "blocks": [
         {

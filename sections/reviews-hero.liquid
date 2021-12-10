@@ -1,9 +1,9 @@
 {{ 'reviews-hero.css' | asset_url | stylesheet_tag }}
 
-<section class="hero-image-reviews color-{{ section.settings.review_bg }}">
+<section class="hero-image-reviews color-{{ section.settings.review_hero_color_scheme }}">
   <div class="review-text-wrapper">
-    <h1 class="review-heading no-m color-{{ section.settings.review_text_color }}">{{ section.settings.desktop_header_text }}</h1>
-    <h1 class="review-heading no-d color-{{ section.settings.review_text_color }}">{{ section.settings.mobile_header_text }}</h1>
+    <h1 class="review-heading no-m">{{ section.settings.desktop_header_text }}</h1>
+    <h1 class="review-heading no-d">{{ section.settings.mobile_header_text }}</h1>
     <div class="review-sub-heading">
       <div class="review-sub-heading-1">
         <p class="hero-sub-text no-m"><b>4.9 score</b></p>
@@ -35,41 +35,44 @@
         },
         {
           "type": "select",
-          "id": "review_bg",
-          "label": "Background",
-          "default": "background-color-1",
-          "info" : "choose a background",
-            "options": [
-            {
-            "label": "Background 1",
-            "value": "background-color-1"
-            },
-            {
-            "label": "Gradient Background 1",
-            "value": "gradient-background-2"
-            },
-            {
-            "label": "Gradient Background 2",
-            "value": "gradient-background"
-            }
-          ]
-        },
-        {
-          "type": "select",
-          "id": "review_text_color",
-          "label": "Heading color",
-          "default": "text-accent-2",
-          "info" : "choose a color",
-            "options": [
-            {
-              "label": "accent 1",
-              "value": "text-accent-1"
-              },
-              {
-              "label": "accent 2",
-              "value": "text-accent-2"
-              }
-          ]
+          "id": "review_hero_color_scheme",
+          "info" : "Choose a background",
+          "options": [
+             {
+               "label": "Accent 1",
+               "value": "accent-1"
+             },
+             {
+               "label": "Accent 2",
+               "value": "accent-2"
+             },
+             {
+               "label": "Background 1",
+               "value": "background-1"
+             },
+             {
+               "label": "Background 2",
+               "value": "background-2"
+             },
+             {
+               "label": "Background 3",
+               "value": "background-3"
+             },
+             {
+               "label": "Background 4",
+               "value": "background-4"
+             },
+             {
+               "label": "Background 5",
+               "value": "background-5"
+             },
+             {
+               "label": "Inverse",
+               "value": "inverse"
+             }
+          ],
+          "label": "Color Scheme",
+          "default": "background-1"
         },
         {
             "id": "desktop_header_text",

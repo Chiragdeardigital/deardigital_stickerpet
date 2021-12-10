@@ -5,7 +5,7 @@
 {{ 'component-badge.css' | asset_url | stylesheet_tag }}
 {{ 'component-product-without-variants.css' | asset_url | stylesheet_tag }}
 {% include "colors-snippet" %}
-<div class="blue-background">
+<div class="blue-background color-{{ section.settings.color_scheme }}">
 <!-- /templates/product.liquid -->
 {% assign current_variant = product.selected_or_first_available_variant %}
 {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
@@ -71,7 +71,7 @@
           {%- case block.type -%}
           {%- when 'text' -%}
           <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
-          <div class="no-d product-vendor  {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">{{- block.settings.text -}}</div>
+          <p class="no-d product-vendor  {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">{{- block.settings.text -}}</p>
           {%- endcase -%}
           {%- endfor -%}
           
@@ -99,7 +99,7 @@
           {%- case block.type -%}
           {%- when 'text' -%}
           <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
-          <div class="product-vendor steps {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">{{- block.settings.text -}}</div>
+          <p class="product-vendor steps {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">{{- block.settings.text -}}</p>
           {%- endcase -%}
           {%- endfor -%}
           <h1 class="product-single__title text-left center-it no-mobile" itemprop="name" style="max-width: 420px;">
@@ -140,7 +140,7 @@
             <div class="steps-box no-mobile">
               <p>steps</p>
               {%- for option in product.options_with_values -%}
-                <span class="steps-swatch step{% if forloop.first %} step-selected{%- endif -%}">{{ forloop.index }}</span>
+                <span class="steps-swatch color-{{ section.settings.steps_color_scheme }} step{% if forloop.first %} step-selected{%- endif -%}">{{ forloop.index }}</span>
                 {%- assign step_number = forloop.index -%}
               {%- endfor -%}
               {% for block in section.blocks %}
@@ -148,12 +148,12 @@
                   {%- when 'image_block' -%}
                     {% if block.settings.image_block %}
                     {%- assign step_number = step_number | plus: 1 -%}
-                      <span class="steps-swatch step">{{ step_number }}</span>
+                      <span class="steps-swatch color-{{ section.settings.steps_color_scheme }} step">{{ step_number }}</span>
                     {% endif %}
                   {%- when 'extra_product' -%}
                     {%- if block.settings.product_handle != blank -%}
                     {%- assign step_number = step_number | plus: 1 -%}
-                      <span class="steps-swatch step">{{ step_number }}</span>
+                      <span class="steps-swatch color-{{ section.settings.steps_color_scheme }} step">{{ step_number }}</span>
                     {%- endif -%}
                 {%- endcase -%}
               {%- endfor -%}
@@ -831,7 +831,77 @@
 {% schema %}
 {
     "name": "Product with steps",
-    "settings": [          
+    "settings": [
+      {
+        "type": "select",
+        "id": "color_scheme",
+        "info" : "choose a background",
+        "options": [
+          {
+            "label": "Accent 1",
+            "value": "accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "accent-2"
+          },
+          {
+            "label": "Background 1",
+            "value": "background-1"
+          },
+          {
+            "label": "Background 2",
+            "value": "background-2"
+          },
+          {
+            "label": "Background 3",
+            "value": "background-3"
+          },
+          {
+            "label": "Background 4",
+            "value": "background-4"
+          },
+          {
+            "label": "Inverse",
+            "value": "inverse"
+          }
+        ],
+        "label": "Color Scheme",
+        "default": "accent-1"
+      },
+      {
+        "type": "select",
+        "id": "steps_color_scheme",
+        "label": "Steps indicator color scheme",
+        "default": "accent-1",
+        "info" : "Choose a background",
+        "options": [
+          {
+            "label": "Accent 1",
+            "value": "accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "accent-2"
+          },
+          {
+            "label": "Background 1",
+            "value": "background-1"
+          },
+          {
+            "label": "Background 2",
+            "value": "background-2"
+          },
+          {
+            "label": "Background 3",
+            "value": "background-3"
+          },
+          {
+            "label": "Inverse",
+            "value": "inverse"
+          }
+        ]
+      }          
     ],
     "blocks": [
       {

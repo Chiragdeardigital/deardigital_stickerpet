@@ -1,4 +1,4 @@
-<section class="products color-{{ section.settings.cards_section_background }}">
+<section class="products color-{{ section.settings.grp_card_background }}">
   <div class="container">
     <div class="flex card-items">
       {%- for block in section.blocks -%}
@@ -34,23 +34,39 @@
 {
     "name": "Home page cards",
     "settings": [
-        {
-          "type": "select",
-          "id": "cards_section_background",
-          "label": "color scheme",
-          "default": "background-color-3",
-          "info" : "choose a background",
-          "options": [
+      {
+        "type": "select",
+        "id": "grp_card_background",
+        "info" : "Background color for the section",
+        "options": [
           {
-          "label": "Background 1",
-          "value": "background-color-2"
+            "label": "Accent 2",
+            "value": "accent-2"
           },
           {
-          "label": "Background 2",
-          "value": "background-color-3"
+            "label": "Background 1",
+            "value": "background-1"
+          },
+          {
+            "label": "Background 2",
+            "value": "background-2"
+          },
+          {
+            "label": "Background 3",
+            "value": "background-3"
+          },
+          {
+            "label": "Background 4",
+            "value": "background-4"
+          },
+          {
+            "label": "Inverse",
+            "value": "inverse"
           }
-        ]
-      }
+      ],
+      "label": "Color Scheme",
+      "default": "background-3"
+    }
     ],
     "blocks": [
         {
