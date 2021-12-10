@@ -46,7 +46,8 @@
         "bbc2966d-b263-4b2f-89ed-3bd970987f31"
       ],
       "settings": {
-        "product_section_type": "default"
+        "product_section_type": "default",
+        "product_main_color_scheme": "background-4"
       }
     },
     "16290966851973846b": {
@@ -72,7 +73,7 @@
         "7ab40d95-4af7-485e-8f26-4d010fe2c9d1"
       ],
       "settings": {
-        "show_rating_block": true
+        "product_quality_color_scheme": "background-3"
       }
     },
     "162909679183423fb6": {
@@ -121,9 +122,9 @@
       "settings": {
         "heading": "You may also like",
         "image_ratio": "adapt",
-        "show_secondary_image": false,
-        "add_image_padding": false,
-        "show_vendor": false
+        "show_secondary_image": true,
+        "add_image_padding": true,
+        "show_vendor": true
       }
     }
   },
