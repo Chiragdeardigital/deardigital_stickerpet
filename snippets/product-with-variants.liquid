@@ -19,7 +19,7 @@
   <link id="ModelViewerOverride" rel="stylesheet" href="{{ 'component-model-viewer-ui.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
 
-<div class="blue-background">
+<div class="blue-background color-{{ section.settings.product_main_color_scheme }}">
 <!-- /templates/product.liquid -->
  
 <div class="wrapper padd-bot-xl min-height-element" itemscope itemtype="http://schema.org/Product" id="ProductSection--product-custom-template"
@@ -332,7 +332,7 @@
             {% endform %}
                             <!-- ---------------------------------------------------- -->
                             <share-button class="share-button " {{ block.shopify_attributes }}>
-                              <button class="share-button__button button button-outline button--tertiary hidden">
+                              <button class="share-button__button button button--secondary hidden">
                                 {% render 'icon-share' %}
                                 {{ 'general.share.share' | t }}
                               </button>

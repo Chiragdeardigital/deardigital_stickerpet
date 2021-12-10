@@ -27,6 +27,11 @@
   --color-foreground: var(--color-base-background-1);
   --color-background: var(--color-base-text);
 }
+.button,
+.shopify-challenge__button,.shopify-payment-button__button--unbranded,
+.customer button{
+--border-size: 6px;
+}
 
 .color-accent-1 {
   --color-foreground: var(--color-base-solid-button-labels);
@@ -81,8 +86,9 @@
 }
 
 .button--secondary {
+  --border-size: 2px;
   --color-button: var(--color-base-outline-button-labels);
-  --color-button-text: var(--color-base-outline-button-labels);
+  --color-button-text: var(--color-base-accent-1);
   --alpha-button-background: 0;
 }
 
@@ -1108,13 +1114,13 @@ deferred-media {
   align-items: center;
   box-sizing: border-box;
   font: inherit;
-  /* padding: 0.9rem 3rem 1.1rem; */
+  padding: 0.9rem 3rem 1.1rem;
   text-decoration: none;
   border: 0;
   border-radius: 0;
   background-color: rgba(var(--color-button), var(--alpha-button-background));
-  /* box-shadow: 0 0 0 0.1rem rgba(var(--color-button), var(--alpha-button-border)); */
-  /* color: rgb(var(--color-button-text)); */
+  box-shadow: 0 0 0 var(--border-size) rgba(var(--color-button-text), var(--alpha-button-border));
+  color: rgb(var(--color-button-text));
   /* min-width: 12rem;
   min-height: 4.5rem; */
   transition: box-shadow var(--duration-short) ease;
@@ -1123,13 +1129,13 @@ deferred-media {
 }
 
 .button:focus-visible {
-  box-shadow: 0 0 0 0.1rem rgba(var(--color-button), var(--alpha-button-border)),
+  box-shadow: 0 0 0 0.1rem rgba(var(--color-button-text), var(--alpha-button-border)),
     0 0 0 0.3rem rgb(var(--color-background)),
     0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
 }
 
 .button:focus {
-  box-shadow: 0 0 0 0.1rem rgba(var(--color-button), var(--alpha-button-border)),
+  box-shadow: 0 0 0 0.1rem rgba(var(--color-button-text), var(--alpha-button-border)),
     0 0 0 0.3rem rgb(var(--color-background)),
     0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
 }
@@ -1159,7 +1165,7 @@ deferred-media {
 .button:not([disabled]):hover,
 .shopify-challenge__button:hover,
 .customer button:hover {
-  box-shadow: 0 0 0 0.2rem rgba(var(--color-button), var(--alpha-button-border));
+  box-shadow: 0 0 0 0.2rem rgba(var(--color-button-text), var(--alpha-button-border));
 }
 
 /* Button - other */
@@ -1506,7 +1512,7 @@ input[type="checkbox"] {
 
 /* component-quantity */
 .quantity {
-  border: 0.15rem solid var(--solid-button-labels);
+  border: 0.1rem solid rgba(var(--color-foreground), 0.55);
   position: relative;
   width: 14rem;
   display: flex;

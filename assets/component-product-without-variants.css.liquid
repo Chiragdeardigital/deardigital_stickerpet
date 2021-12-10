@@ -3,7 +3,7 @@ PRODUCTS STYLING
 ================================*/
 
 .product-hero {
-  background-color: var(--background-color-1);
+  /* background-color: var(--background-color-1); */
 }
 
 .product-hero .container {
@@ -124,12 +124,39 @@ PRODUCTS STYLING
   width: auto;
 }
 
-.shopify-payment-button .shopify-payment-button__button--unbranded{
+/* .shopify-payment-button .shopify-payment-button__button--unbranded{
   font-family: var(--font-family-headers);
   border-radius: 50px;
   width: 100%;
   border: 6px solid #fff;
   padding: 15px;
+}  */
+.shopify-payment-button__button--unbranded {
+  background-color: rgba(var(--color-button), var(--alpha-button-background));
+  box-shadow: 0 0 0 var(--border-size) rgba(var(--color-button-text), var(--alpha-button-border));
+  font-size: 1.4rem;
+  line-height: 1.2;
+  letter-spacing: 0.07rem;
+}
+
+.shopify-payment-button__button--unbranded:hover,
+.shopify-payment-button__button--unbranded:hover:not([disabled]) {
+  background-color: rgba(var(--color-button), var(--alpha-button-background));
+  box-shadow: 0 0 0 0.2rem rgba(var(--color-button-text), var(--alpha-button-border));
+}
+
+.shopify-payment-button__button--unbranded:focus {
+  outline: 0.3rem solid rgb(var(--color-foreground));
+  outline-offset: 0.3rem;
+}
+
+.shopify-payment-button__button--unbranded:focus-visible {
+  outline: 0.3rem solid rgb(var(--color-foreground));
+  outline-offset: 0.3rem;
+} 
+
+.shopify-payment-button__button--unbranded:focus:not(:focus-visible) {
+  outline: 0;
 }
 
 @media (max-width: 767px){

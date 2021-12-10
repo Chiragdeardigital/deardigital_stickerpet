@@ -12,7 +12,7 @@
   <link id="ModelViewerOverride" rel="stylesheet" href="{{ 'component-model-viewer-ui.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
 
-<section class="product-hero">
+<section class="product-hero color-{{ section.settings.product_main_color_scheme }}">
   <div class="container">
     <div class="product-wrapper">
       <div class="slider left">
@@ -200,7 +200,7 @@
 
                             <!-- ---------------------------------------------------- -->
                             <share-button class="share-button " {{ block.shopify_attributes }}>
-                              <button class="share-button__button button button-outline button--tertiary hidden">
+                              <button class="share-button__button button button--secondary hidden">
                                 {% render 'icon-share' %}
                                 {{ 'general.share.share' | t }}
                               </button>

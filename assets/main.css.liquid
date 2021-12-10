@@ -122,10 +122,9 @@ img,
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 12px 20px;
-  background-color: rgb(var(--color-base-accent-1));
+  /* background-color: rgb(var(--color-base-accent-1)); */
   cursor: pointer;
   user-select: none;
-  /* color: rgb(var(--color-button-text)); */
   transition: all 0.4s ease-out;
 }
 
@@ -133,11 +132,11 @@ img,
   background-color: var(--solid-button-bg-color);
 }
 
-.button.button-outline {
+/* .button.button-outline {
   background: 0 0;
   color: var(--solid-button-bg-color);
   border: 2px solid var(--solid-button-bg-color);
-}
+} */
 
 .button.button-outline:hover {
   background: var(--solid-button-bg-color);
@@ -153,9 +152,9 @@ img,
   margin: 10px 0;
 }
 
-.button:hover, .shopify-payment-button .shopify-payment-button__button--unbranded:hover {
+/* .button:hover, .shopify-payment-button .shopify-payment-button__button--unbranded:hover {
   opacity: 0.8;
-}
+} */
 
 .required-file {
   background-color: #fff;
@@ -163,7 +162,7 @@ img,
 }
 
 .border-button {
-  border: 6px solid #fff;
+  /* border: 6px solid #fff; */
 }
 
 .self-center {
@@ -641,7 +640,7 @@ HOME PAGE HERO STYLING
 
 @media (min-width: 1024px) {
   .homepage-hero {
-    height: calc(100vh - 139px);
+    min-height: calc(100vh - 139px);
     max-height: 57vw;
   }
 }
