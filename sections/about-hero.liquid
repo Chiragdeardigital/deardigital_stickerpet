@@ -1,20 +1,41 @@
 {{ 'about-hero.css' | asset_url | stylesheet_tag }}
 
 <style>
-/* .hero-image-about {
-  background-image: url("{{ section.settings.about_bg_img |  img_url: 'master' }}");
-} */
+
   @media (max-width: 768px){
-    .hero-image-about::after {
-      background-image: url("{{ section.settings.about_bg_img_mobile |  img_url: 'master' }}");
-    }
     .hero-image-about {
     background-image: none;
-  }
+    }
 }
 </style>
 
 <div class="hero-image-about color-{{ section.settings.about_hero_color_scheme }}">
+  {% if section.settings.about_bg_img != blank %}
+      <img srcset="{%- if section.settings.about_bg_img.width >= 165 -%}{{ section.settings.about_bg_img | img_url: '165x' }} 165w,{%- endif -%}
+                    {%- if section.settings.about_bg_img.width >= 360 -%}{{ section.settings.about_bg_img | img_url: '360x' }} 360w,{%- endif -%}
+                    {%- if section.settings.about_bg_img.width >= 535 -%}{{ section.settings.about_bg_img | img_url: '535x' }} 535w,{%- endif -%}
+                    {%- if section.settings.about_bg_img.width >= 720 -%}{{ section.settings.about_bg_img | img_url: '720x' }} 720w,{%- endif -%}"
+            src="{{ section.settings.about_bg_img | img_url: '533x' }}" 
+            alt="{{ section.settings.about_bg_img.alt }}" 
+            class="full-image about-no-mobile" 
+            loading="lazy">
+        {% else %}
+        <div class="placeholder about-no-mobile"> {{'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+  {% endif %}
+
+  {% if section.settings.about_bg_img_mobile != blank %}
+      <img srcset="{%- if section.settings.about_bg_img_mobile.width >= 165 -%}{{ section.settings.about_bg_img_mobile | img_url: '165x' }} 165w,{%- endif -%}
+                    {%- if section.settings.about_bg_img_mobile.width >= 360 -%}{{ section.settings.about_bg_img_mobile | img_url: '360x' }} 360w,{%- endif -%}
+                    {%- if section.settings.about_bg_img_mobile.width >= 535 -%}{{ section.settings.about_bg_img_mobile | img_url: '535x' }} 535w,{%- endif -%}
+                    {%- if section.settings.about_bg_img_mobile.width >= 720 -%}{{ section.settings.about_bg_img_mobile | img_url: '720x' }} 720w,{%- endif -%}"
+            src="{{ section.settings.about_bg_img_mobile | img_url: '533x' }}" 
+            alt="{{ section.settings.about_bg_img_mobile.alt }}" 
+            class="full-image about-no-desktop" 
+            loading="lazy">
+        {% else %}
+        <div class="placeholder about-no-desktop"> {{'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+  {% endif %}
+   
   <div class="hero-text">
     <h1 class="h1 heading1">{{ section.settings.about_head_text }}</h1>
   </div>

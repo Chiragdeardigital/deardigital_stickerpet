@@ -38,7 +38,7 @@
 
 .currency .disclosure__list{
   bottom: 0;
-  background-color: var(--background-color-2);
+  background-color: rgb(var(--color-base-background-2));
   bottom: 0;
   top: 50px;
   margin-top: 1.3rem;

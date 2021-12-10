@@ -58,7 +58,7 @@
                            alt="{{ block.settings.collage_image.alt }}" 
                            loading="lazy">
                       {% else %}
-                      {{ 'lifestyle-2' | placeholder_svg_tag }}
+                      <div class="placeholder"> {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
                       {% endif %}
           			</div>
           	{%- endcase -%}

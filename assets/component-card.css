@@ -182,19 +182,21 @@
 
 .card-information__wrapper {
   width: 100%;
+  text-align: center;
 }
 
 .card-information__wrapper > * {
   line-height: 1.4;
-  color: rgb(var(--color-foreground));
+  color: rgb(var(--color-base-text));
 }
 
 .card-information__wrapper > .price {
-  color: rgb(var(--color-foreground));
+  color: rgb(var(--color-base-text));
 }
 
 .card-information__wrapper > *:not(.visually-hidden:first-child) + * {
   margin-top: 1.1rem;
+  justify-content: center;
 }
 
 .card-information__wrapper .caption {
@@ -223,7 +225,7 @@
 }
 
 .card__media-full-spacer {
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .card-article-info {
@@ -233,7 +235,7 @@
 }
 
 .card__badge {
-  bottom: 1rem;
+  top: 1rem;
   display: flex;
   flex-wrap: wrap;
   left: 1rem;

@@ -16,9 +16,9 @@ input::-webkit-search-decoration {
 }
 
 .sticker__search .page-width {
-  background-color: var(--background-color-1);
+  background-color: rgb(var(--color-base-background-1));
   max-width: 100%;
-  padding: 2rem 5rem 5rem;
+  padding: 2rem 1.2rem 5rem;
 }
 
 .sticker__search .template-search__results{
@@ -33,9 +33,9 @@ input::-webkit-search-decoration {
 }
 
 .card--product .badge , .card--search .badge{
-  background-color: var(--solid-button-bg-color);
-  border-color: var(--solid-button-bg-color);
-  color: var(--nav-link-color);
+  background-color: rgb(var(--color-base-accent-1));
+  border-color: rgb(var(--color-base-accent-1));
+  color: rgb(var(--color-base-solid-button-labels));
 }
 
 .sticker__search .card-information .price , .sticker__search .card-information__text.h5{

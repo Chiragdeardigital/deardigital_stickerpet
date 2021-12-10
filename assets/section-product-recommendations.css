@@ -9,7 +9,7 @@
 }
 
 .related-product-grid .media.media--transparent.media--adapt.media--hover-effect{
-  padding-bottom: 250px !important;
+  padding-bottom: 100% !important;
 }
 
 .related-product-grid .col-md-4 {
@@ -18,7 +18,7 @@
 }
 
 .related-product-grid .media.media--transparent.media--adapt.media--hover-effect img{
-  height: auto;
+  height: 100%;
   max-height: 250px;
   width: auto;
   margin: 0 auto;
@@ -67,7 +67,7 @@
     width: 100%;
   }
   .related-product-grid .media.media--transparent.media--adapt.media--hover-effect{
-    padding-bottom: 150px !important;
+    padding-bottom: 120% !important;
   }
 }
 
