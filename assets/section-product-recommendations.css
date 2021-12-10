@@ -35,8 +35,8 @@
 }
 
 .related-product-grid .badge{
-  background-color: var(--solid-button-bg-color);
-  border-color: var(--solid-button-bg-color);
+  background-color: rgb(var(--color-base-accent-1));
+  border-color: rgb(var(--color-base-accent-1));
 }
 
 .related-product-grid .card-wrapper:hover .card-information__text{
