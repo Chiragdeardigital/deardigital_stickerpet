@@ -3,7 +3,7 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
 
-<div class="page-width{% if cart == empty %} is-empty{% endif %}" id="main-cart-footer" data-id="{{ section.id }}">
+<div class="page-width{% if cart == empty %} is-empty{% endif %} color-{{ section.settings.main_cart_footer_color_scheme }}" id="main-cart-footer" data-id="{{ section.id }}">
   <div>
     <div class="cart__footer">
       {%- if section.settings.show_cart_note -%}
@@ -103,6 +103,47 @@
       "id": "show_cart_note",
       "default": false,
       "label": "t:sections.main-cart-footer.settings.show_cart_note.label"
+    },
+    {
+      "type": "select",
+      "id": "main_cart_footer_color_scheme",
+      "info" : "Choose a background",
+      "options": [
+         {
+           "label": "Accent 1",
+           "value": "accent-1"
+         },
+         {
+           "label": "Accent 2",
+           "value": "accent-2"
+         },
+         {
+           "label": "Background 1",
+           "value": "background-1"
+         },
+         {
+           "label": "Background 2",
+           "value": "background-2"
+         },
+         {
+           "label": "Background 3",
+           "value": "background-3"
+         },
+         {
+           "label": "Background 4",
+           "value": "background-4"
+         },
+         {
+           "label": "Background 5",
+           "value": "background-5"
+         },
+         {
+           "label": "Inverse",
+           "value": "inverse"
+         }
+      ],
+      "label": "Color Scheme",
+      "default": "background-4"
     }
   ],
   "blocks": [

@@ -6,7 +6,7 @@
 {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
 
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
-<div class="cart-form-wrapper">
+<div class="cart-form-wrapper color-{{ section.settings.main_cart_color_scheme }}">
 
   <cart-items class="page-width{% if cart == empty %} is-empty{% endif %}">
     <div class="title-wrapper-with-link">
@@ -202,7 +202,7 @@
                       </div>
   
                       <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
-                        <a href="{{ item.url_to_remove }}" class="button button--tertiary border-button" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
+                        <a href="{{ item.url_to_remove }}" class="button" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
                           {% render 'icon-remove' %}
                         </a>
                       </cart-remove-button>
@@ -230,6 +230,47 @@
       "id": "show_vendor",
       "default": false,
       "label": "t:sections.main-cart-items.settings.show_vendor.label"
+    },
+    {
+      "type": "select",
+      "id": "main_cart_color_scheme",
+      "info" : "Choose a background",
+      "options": [
+         {
+           "label": "Accent 1",
+           "value": "accent-1"
+         },
+         {
+           "label": "Accent 2",
+           "value": "accent-2"
+         },
+         {
+           "label": "Background 1",
+           "value": "background-1"
+         },
+         {
+           "label": "Background 2",
+           "value": "background-2"
+         },
+         {
+           "label": "Background 3",
+           "value": "background-3"
+         },
+         {
+           "label": "Background 4",
+           "value": "background-4"
+         },
+         {
+           "label": "Background 5",
+           "value": "background-5"
+         },
+         {
+           "label": "Inverse",
+           "value": "inverse"
+         }
+      ],
+      "label": "Color Scheme",
+      "default": "background-4"
     }
   ]
 }

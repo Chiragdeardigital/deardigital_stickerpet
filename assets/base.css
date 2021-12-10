@@ -172,11 +172,11 @@ html.no-js .no-js-hidden {
   max-width: 120rem;
   margin: 0 auto;
   padding: 6rem .5rem 0;
-  background-color: var(--solid-button-labels);
+  /* background-color: var(--solid-button-labels); */
 }
 
 .cart-form-wrapper , .cart-form-wrapper .page-width , #main-cart-footer , .cart__footer-wrapper{ 
-  background-color: var(--background-color-1);
+  /* background-color: var(--background-color-1); */
 }
 
 .page-width-desktop {
