@@ -3,8 +3,9 @@ html{
 }
 
 .form-wrapper {
-  background: var(--background-color-1);
+  background-color: rgb(var(--color-base-background-1));
   padding: 6rem 0 9rem;
+  color: rgb(var(--color-base-text));
 }
 
 .customer:not(.account, .order) {
@@ -41,7 +42,7 @@ html{
 
 .customer strong {
   font-weight: normal;
-  color: rgb(var(--color-foreground));
+  color: currentColor;
 }
 
 .customer h2.form__message {
@@ -72,17 +73,18 @@ html{
   width: 100%;
   font-size: 1.6rem;
   position: relative;
+  border-radius: 10px;
 }
 
 @media screen and (min-width: 750px) {
   .customer table {
     border: none;
-    box-shadow: 0 0 0 0.1rem var(--solid-button-labels);
+    box-shadow:0 0 0 .1rem currentColor;
   }
 }
 
 .customer tbody {
-  color: rgb(var(--color-foreground));
+  color: currentColor;
 }
 
 .customer th, .customer td {
@@ -159,7 +161,7 @@ html{
 }
 
 .customer tbody tr {
-  border-top: 0.01rem solid rgba(var(--color-foreground), 0.2);
+  border-top: 0.01rem solid currentColor;
 }
 
 @media screen and (min-width: 750px) {
@@ -206,7 +208,7 @@ html{
   display: block;
   position: absolute;
   left: 0;
-  background: var(--solid-button-labels);
+  background: rgba(var(--color-base-text),0.7);
 }
 
 /* mobile table overrides */
@@ -311,6 +313,7 @@ html{
   display: block;
   margin: 0 auto;
   width: fit-content;
+  color: rgb(var(--color-base-text));
 }
 
 .login a[href='#recover'] {
@@ -353,13 +356,13 @@ html{
 }
 
 .activate button[name='decline'], .addresses li>button, .addresses form button[type] {
-  /* background-color: transparent;
-  box-shadow: 0 0 0 0.1rem rgb(var(--color-link));
-  color: rgb(var(--color-link)); */
+  background-color: rgba(var(--color-button),var(--alpha-button-background));;
+  box-shadow: 0 0 0 0.1rem rgba(var(--color-base-accent-1),var(--alpha-button-border));
+  color: rgb(var(--color-button-text));
 }
 
 .activate button[name='decline']:hover, .addresses li>button:hover, .addresses form button[type]:hover {
-  box-shadow: 0 0 0 0.2rem rgb(var(--color-link));
+  box-shadow: 0 0 0 0.2rem rgb(var(--color-base-accent-1));
 }
 
 @media only screen and (min-width: 750px) {
@@ -449,13 +452,14 @@ html{
 .account table td:first-of-type a {
   padding: 1.1rem 1.5rem;
   text-decoration: none;
-  box-shadow: 0 0 0 0.1rem var(--solid-button-labels);
+  box-shadow: 0 0 0 0.1rem currentColor;
   font-size: 1.2rem;
+  border-radius: 10px;
 }
 
 .account table td:first-of-type a:hover {
-  box-shadow: 0 0 0 0.2rem var(--solid-button-labels);
-  color: var(--text-color);
+  box-shadow: 0 0 0 0.2rem currentColor;
+  color:  rgba(var(--color-base-text),0.8);
 }
 
 .order td:first-of-type {
@@ -564,12 +568,12 @@ html{
 }
 
 .order table a {
-  color: var(--color-foreground-85);
+  color: rgb(var(--color-base-text));
   line-height: 1.2;
 }
 
 .order table a:hover {
-  color: rgba(var(--color-foreground), 0.75);
+  color: rgba(var(--color-base-text), 0.75);
 }
 
 .order tbody tr:first-of-type td:first-of-type>div {
