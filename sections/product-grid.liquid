@@ -18,26 +18,24 @@
             {% endif %}
           </div>
           <div class="product-detail justify-text">
-  
+              
             <div class="row space-around">
               <p class="col-9 product-title">
-                  1x {{ product.title | escape  }}
+                <a href="{{product.url}}"> 1x {{ product.title | escape  }}</a>
               </p>
               <p class="col-3 product-price">
-                {{ product.price | money }}
+                  {% render 'price', product: product , price_class: '' %}
               </p>
             </div>
   
             <div class="row">
               <p class="col-9 product-description">
                 {{ product.description | escape  }}
+                
               </p>
               <p class="col-3 product-size">
               </p>
             </div>
-            <button class="button button-outline no-mobile direct-cart" data-variant-id="{{ product.first_available_variant.id }}" style="margin: 0 auto;">ADD TO CART</button>
-            <button class="button button-outline no-desktop btn-mobile direct-cart" data-variant-id="{{ product.first_available_variant.id }}" style="margin: 0 auto;">{{ product.price | money }}</button>
-
           </div>
         </div>
       </div>

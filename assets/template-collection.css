@@ -49,7 +49,7 @@
   justify-content: center;
   width: 100%;
   padding: 0 5rem;
-  background-color: var(--solid-button-labels);
+  background-color: rgb(var(--color-base-solid-button-labels));
   opacity: 0.7;
 }
 
@@ -80,13 +80,13 @@
 
 @media screen and (max-width : 767px) {
   .collection-filters{
-    background: var(--solid-button-labels);
+    background: rgb(var(--color-base-solid-button-labels));
   }
 }
 
 .collection-filters__label {
   display: block;
-  color: var(--color-foreground-85);
+  color: var(--color-base-text);
   font-size: 1.4rem;
   line-height: 1;
   margin: 0 0 1rem;
@@ -174,7 +174,7 @@
 
 .facets__heading {
   display: block;
-  color: rgba(var(--color-foreground), 0.85);
+  color: rgba(var(--color-base-text), 0.85);
   font-size: 1.4rem;
   line-height: 1;
   margin: 0 0 1rem 0.5rem;
@@ -199,7 +199,7 @@
 .facets__summary {
   padding: 1.2rem 4rem 1.2rem 1.5rem;
   font-size: 1.2rem;
-  color: rgba(var(--color-foreground), 0.75);
+  color: rgba(var(--color-base-text), 0.75);
 }
 
 .disclosure-has-popup[open] > .facets__summary::before {
@@ -211,9 +211,9 @@
 }
 
 .facets__display {
-  background-color: var(--solid-button-labels);
+  background-color: rgb(var(--color-base-solid-button-labels));
   position: absolute;
-  border: 1px solid var(--text-color);
+  border: 1px solid rgb(var(--color-base-text));
   top: calc(100% + 0.5rem);
   left: -0.1rem;
   width: 27rem;
@@ -222,18 +222,18 @@
 }
 
 .facets__display .field__input{
-  border: 1px solid var(--text-color);
+  border: 1px solid rgb(var(--color-base-text));
 }
 
 .facets__header {
-  border-bottom: 1px solid rgba(var(--color-foreground), 0.2);
+  border-bottom: 1px solid rgba(var(--color-base-text), 0.75);
   padding: 0rem 2rem;
   display: flex;
   justify-content: space-between;
   font-size: 1.3rem;
   position: sticky;
   top: 0;
-  background-color: rgb(var(--color-background));
+  background-color: rgb(var(--color-base-solid-button-labels));
   z-index: 1;
 }
 
@@ -274,7 +274,7 @@
 }
 
 .facet-checkbox > svg {
-  background-color: rgb(var(--color-background));
+  background-color: rgb(var(--color-base-solid-button-labels));
   margin-right: 1.2rem;
   flex-shrink: 0;
 }
@@ -446,9 +446,9 @@ a.active-facets__button:focus .active-facets__button-inner {
   width: 1.7rem;
   height: 1.7rem;
   border-radius: 50%;
-  background-color: var(--text-color);
-  color: var(--nav-link-color);
-  border: 1px solid var(--text-color);
+  background-color: rgb(var(--color-base-text));
+  color: rgb(var(--color-base-solid-button-labels));
+  border: 1px solid rgb(var(--color-base-text));
   margin-left: 0.7rem;
 }
 
@@ -498,7 +498,7 @@ a.active-facets__button:focus .active-facets__button-inner {
 } */
 
 .mobile-facets__inner {
-  background-color: var(--background-color-1);
+  background-color: rgb(var(--color-base-background-1));
   width: 100%;
   margin-left: auto;
   height: 100%;
@@ -565,7 +565,7 @@ a.active-facets__button:focus .active-facets__button-inner {
 
 .mobile-facets__open line,
 .mobile-facets__open circle {
-  stroke: var(--text-color);
+  stroke: rgb(var(--color-base-text));
 }
 
 details[open] .mobile-facets__open {
@@ -656,13 +656,13 @@ details.menu-opening .mobile-facets__close svg {
   padding: 1.3rem 2.5rem;
 }
 #CollectionFiltersForm .facets__summary{
-  background-color: var(--solid-button-labels);
+  background-color: rgb(var(--color-base-solid-button-labels));
   border-radius: 5px;
-  border: 1px solid var(--text-color);
+  border: 1px solid rgb(var(--color-base-text));
 }
 
 #CollectionFiltersForm .select__select{
-  border: 1px solid var(--text-color);
+  border: 1px solid  rgb(var(--color-base-text));
 }
 
 #CollectionFiltersForm .facets__summary svg{
@@ -704,7 +704,7 @@ details.menu-opening .mobile-facets__close svg {
 .js details[open].menu-opening > .mobile-facets__submenu {
   transform: translateX(0);
   visibility: visible;
-  background-color: var(--background-color-2);
+  background-color: rgb(var(--color-base-background-1));
 }
 
 .js .menu-drawer__submenu .mobile-facets__submenu {
@@ -818,4 +818,18 @@ input.mobile-facets__checkbox {
 .mobile-facets__sort .select__select {
   box-shadow: none;
   height: 50px;
+}
+
+
+@media screen and (max-width : 767px) {
+   .mobile-facets__header{
+    padding: 1rem !important;
+  }
+  .mobile-facets__close svg{
+    width: 1.3rem;
+  }
+  .mobile-facets__close{
+    top: 0;
+    right: 0.5rem;
+  }
 }

@@ -39,7 +39,7 @@
   stroke-dasharray: 280;
   stroke-dashoffset: 0;
   transform-origin: center;
-  stroke: var(--text-color);
+  stroke: rgb(var(--color-base-text));
   animation: dash 1.4s ease-in-out infinite;
 }
 

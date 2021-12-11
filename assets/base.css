@@ -554,7 +554,7 @@ h6:empty {
   box-shadow: none;
   text-decoration: underline;
   text-underline-offset: 0.3rem;
-  color: rgb(var(--color-link));
+  color: rgb(var(--color-base-text));
   background-color: transparent;
   font-size: 1.4rem;
 }
@@ -643,14 +643,14 @@ details > * {
 }
 
 .underlined-link {
-  color: rgba(var(--color-link), var(--alpha-link));
+  color: rgba(var(--color-base-text), var(--alpha-link));
   text-underline-offset: 0.3rem;
   text-decoration-thickness: 0.1rem;
   transition: text-decoration-thickness ease 100ms;
 }
 
 .underlined-link:hover {
-  color: rgb(var(--color-link));
+  color: rgb(var(--color-base-text));
   text-decoration-thickness: 0.2rem;
 }
 
@@ -1288,7 +1288,7 @@ deferred-media {
   font-style: var(--font-body-style);
   font-weight: var(--font-body-weight);
   font-size: 1.2rem;
-  color: rgba(var(--color-foreground), 0.75);
+  color: rgba(var(--color-base-text), 0.75);
 }
 
 .field__input:hover,

@@ -160,6 +160,7 @@
 
 .card__text-spacing > * {
   margin: 0;
+  color: rgb(var(--color-base-text));
 }
 
 .card__text-spacing > *:not(.overlay-card) + * {
