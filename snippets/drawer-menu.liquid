@@ -170,7 +170,20 @@
         </li>
       </ul>
     </li>
-
+    <li class="mobile-nav__item customer-account">
+      {% if customer %}
+        <a href="{{ routes.account_url }}">
+          {{ customer.first_name }}
+          {% render 'icon-account' %}
+        </a>
+      
+      {% else %}
+        <a href="{{ routes.account_login_url }}">
+          Login
+          {% render 'icon-account' %}
+        </a>
+      {% endif %}
+    </li>
     <li class="mobile-nav__spacer"></li>
   </ul>
   <!-- //mobile-nav -->

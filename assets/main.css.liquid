@@ -1345,8 +1345,19 @@ footer li:last-child {
   list-style: none;
 }
 
+.customer-account, .customer-account .user-icon{
+  display: flex;
+  align-items: center;
+}
+
+.customer-account svg{
+  width: 25px;
+    height: 25px;
+}
+
 .mobile-nav>.mobile-nav__item {
   background-color: #f2f2f3;
+  text-transform: capitalize;
 }
 
 .mobile-nav__item a {
@@ -1354,16 +1365,22 @@ footer li:last-child {
   font-size: 22px;
 }
 
+.customer-account a{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .mobile-nav__item a,
 .mobile-nav__toggle button {
-  color: #062322;
+  color: rgb(var(--color-base-text));
   padding: 15px;
   text-decoration: none;
   background-color: inherit;
 }
 
 .mobile-nav__toggle button .icon-chevron {
-  fill: #062322;
+  fill: rgb(var(--color-base-text));
 }
 
 .mobile-nav__item:after {
@@ -1500,7 +1517,7 @@ border-bottom: 0;
 .plus-icon-wrap .toggle {
   width: 100%;
   height: 3px;
-  background: var(--text-color);
+  background: currentColor;
   position: relative;
   transition: 0.25s all cubic-bezier(0.17, 0.67, 0.09, 0.97);
 }
@@ -1523,7 +1540,7 @@ border-bottom: 0;
   position: absolute;
   left: 0;
   opacity: 0;
-  background: var(--text-color);
+  background: currentColor;
 }
 
 /* -----------------------------------------------------
@@ -1810,6 +1827,7 @@ FAQ STYLING
   .homepage-products {
     overflow-x: auto;
     overflow-y: hidden;
+    padding: 0 0 2rem 0;
   }
 
   .hero-products {
