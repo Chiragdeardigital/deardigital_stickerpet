@@ -117,8 +117,28 @@
           </li>
           
           <li>
-            <a href="{{ routes.search_url }}" >{% render 'search-icon' %}</a>
+            <a href="{{ routes.search_url }}" >
+              {% render 'search-icon' %}
+              <span class="visually-hidden">search</span>
+            </a>
           </li>
+          {%- if shop.customer_accounts_enabled -%}
+          <li>
+
+            <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link link--text focus-inset">
+              {% render 'icon-account' %}
+              <span class="visually-hidden">
+                {%- liquid
+                  if customer
+                    echo 'customer.account_fallback' | t
+                  else
+                    echo 'customer.log_in' | t
+                  endif
+                -%}
+              </span>
+            </a>
+          </li>
+        {%- endif -%}
 
           {%- unless template contains 'cart' -%}
             <li id="cartBtn" class="nav-item cart" aria-controls="CartDrawer" aria-expanded="true">

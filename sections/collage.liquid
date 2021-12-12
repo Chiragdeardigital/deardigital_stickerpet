@@ -11,9 +11,11 @@
           {%- for block in section.blocks -%}
           {% case block.type %}
           {%- when 'grp_buttons' -%}
-          <a href="{{ block.settings.btn_url }}" class="button">
-           {{ block.settings.btn_text }}
-          </a>
+            {%- if block.settings.btn_text != blank -%}
+              <a{% if block.settings.btn_url != blank %} href="{{ block.settings.btn_url }}" {% else %}href="#" {% endif %} class="button">
+              {{ block.settings.btn_text }}
+              </a>
+            {%- endif -%}
           {%- endcase -%}
           {%- endfor -%}
 

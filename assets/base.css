@@ -1853,7 +1853,7 @@ input[type="checkbox"] {
 }
 
 .header__icon span {
-  height: 100%;
+  /* height: 100%; */
 }
 
 .header__icon::after {
@@ -1866,16 +1866,16 @@ input[type="checkbox"] {
 }
 
 .header__icon .icon {
-  height: 2rem;
-  width: 2rem;
+  height: 1.5rem;
+  width: 1.5rem;
   fill: none;
   vertical-align: middle;
 }
 
 .header__icon,
 .header__icon--cart .icon {
-  height: 4.4rem;
-  width: 4.4rem;
+  /* height: 4.4rem; */
+  width: 3.4rem;
 }
 
 .header__icon--cart {
