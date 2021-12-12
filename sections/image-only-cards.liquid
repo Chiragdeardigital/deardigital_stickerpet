@@ -15,7 +15,7 @@
         {% if block.settings.original_image != blank %}
         	<img src="{{ block.settings.original_image | img_url: '533x' }}" alt="{{ block.settings.image.alt }}" loading="lazy">
         {% else %}
-        	{{ 'collection-2' | placeholder_svg_tag }}
+        <div class="placeholder">{{ 'image' | placeholder_svg_tag }}</div>
         {% endif %}
         
       </div>
@@ -24,7 +24,7 @@
         {% if block.settings.hover_image != blank %}
         	<img src="{{ block.settings.hover_image | img_url: '533x' }}" alt="{{ block.settings.image.alt }}" loading="lazy">
         {% else %}
-        	{{ 'collection-2' | placeholder_svg_tag }}
+        <div class="placeholder">{{ 'image' | placeholder_svg_tag  }}</div>
         {% endif %}
         
       </div>
@@ -44,14 +44,14 @@
          {% if block.settings.original_image != blank %}
         	<img src="{{ block.settings.original_image | img_url: '533x' }}" alt="{{ block.settings.original_image.alt }}" loading="lazy">
         {% else %}
-        	{{ 'collection-2' | placeholder_svg_tag }}
+        <div class="placeholder">{{ 'image' | placeholder_svg_tag : 'placeholder-svg' }}</div>
         {% endif %}
       </div>
       <div class="cutout-img no-disp">
         {% if block.settings.hover_image != blank %}
         	<img src="{{ block.settings.hover_image | img_url: '533x' }}" alt="{{ block.settings.hover_image.alt }}" loading="lazy">
         {% else %}
-        	{{ 'collection-2' | placeholder_svg_tag }}
+      <div class="placeholder">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
         {% endif %}
       </div>
     </div>

@@ -3,7 +3,7 @@
 }
 
 .contact.page-width.page-width--narrow{
-  background: var(--background-color-1);
+  background: rgb(var(--color-base-background-1));
 }
 
 .contact .form__message {

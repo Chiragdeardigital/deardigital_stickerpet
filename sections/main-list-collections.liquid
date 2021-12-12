@@ -52,7 +52,7 @@
             {%- else -%}
               <div class="media media--{{ section.settings.image_ratio }} media--hover-effect overflow-hidden"
                     {% if section.settings.image_ratio == 'adapt' %}style="padding-bottom: {{ 1 | divided_by: collection.image.aspect_ratio | times: 100 }}%;"{% endif %}>
-
+                  {% if collection.products.first != blank %}
                     <img srcset="{%- if  collection.products.first.width >= 165 -%}{{  collection.products.first | img_url: '165x' }} 165w,{%- endif -%}
                       {%- if  collection.products.first.width >= 360 -%}{{  collection.products.first | img_url: '360x' }} 360w,{%- endif -%}
                       {%- if  collection.products.first.width >= 535 -%}{{  collection.products.first | img_url: '535x' }} 535w,{%- endif -%}
@@ -66,6 +66,9 @@
                       width="{{  collection.products.first.width }}"
                       loading="lazy"
                     >
+                    {% else %}
+                    <div class="placeholder">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+                    {% endif %}
                   </div>
               <div class="overlay-card"></div>
               <div class="card__text-spacing card__text-hover">
