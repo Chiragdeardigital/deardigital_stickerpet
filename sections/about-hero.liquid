@@ -37,7 +37,13 @@
   {% endif %}
    
   <div class="hero-text">
-    <h1 class="h1 heading1">{{ section.settings.about_head_text }}</h1>
+    <h1 class="h1 heading1">
+      {%- if section.settings.about_head_text != blank -%}
+        {{ section.settings.about_head_text }}
+      {%- else -%}
+        {{ page.title | escape }}
+      {%- endif -%}
+    </h1>
   </div>
 </div>
 

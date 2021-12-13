@@ -5,9 +5,9 @@
 <noscript>{{ 'section-main-page.css' | asset_url | stylesheet_tag }}</noscript>
 
 <div class="page-title-container page-width page-width--narrow">
-  <h2 class="page-title">
+  {% comment %} <h2 class="page-title">
       {{ page.title | escape }}
-  </h2>
+  </h2> {% endcomment %}
   
   <div class="rte  {% if section.settings.hide_page_content %} disp-no{% endif %}">
     {%- if section.settings.page.content != blank -%}

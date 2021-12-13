@@ -159,7 +159,7 @@ $("body").on("change", "#CartSpecialInstructions", function () {
 });
 
 function shippingCalculator(cartTotalPrice) {
-  let cartDiscountAmt = 45;
+  // let cartDiscountAmt = 45;
   var total_price = cartTotalPrice / 100;
   if (total_price < cartDiscountAmt) {
     $(".ProgressBar__indicator").ready(function () {
@@ -254,7 +254,7 @@ function shippingCalculator(cartTotalPrice) {
     console.log("Cart Total : " + total_price);
     var remainingAmt = cartDiscountAmt - total_price;
     $(".shipping-text").text(
-      `You're  €${remainingAmt.toFixed(2)} away from free shipping`
+      `You're ${currency_symbol}${remainingAmt.toFixed(2)} away from free shipping`
     );
   }
 }

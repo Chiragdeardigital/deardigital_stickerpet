@@ -28,7 +28,6 @@
       <div id="cart-form" class="cart-form {% if upsell_present %} hide-cart{% endif %}">
         <div class="ajaxcart__inner ajaxcart__inner--has-fixed-footer">
           <div class="shipping-text">
-            You're €45 away from free shipping
           </div>
           <div class="ProgressBar__hide">
             <div class="ProgressBar__indicator"></div>
@@ -109,6 +108,7 @@
                       </div>
                       <div class="grid__item one-half text-right">
                         <span class="ajaxcart__price">{{ item.original_price | money }}</span>
+                        <!-- <span class="ajaxcart__price">{{ item.final_line_price | money }}</span> -->
                       </div>
                     </div>
                   </div>
@@ -155,9 +155,8 @@
                       </label>
 
 
-                      <label class="ajaxcart__product-name text-right euro">+ {{ upsellProduct.price | money }}</label>
-                      <!--                       <label class="ajaxcart__product-name text-right pound display-non">+
-£2.00</label> -->
+                      <label class="ajaxcart__product-name text-right">+ {{ upsellProduct.price | money }}</label>
+               
                     </div>
                   </div>
                 </div>
@@ -172,9 +171,22 @@
                 <p class="ajaxcart__subtotal">Subtotal</p>
               </div>
               <div class="grid__item two-thirds text-right">
-                <p class="ajaxcart__subtotal euro">{{ cart.total_price | money }} INCL. VAT</p>
+                <p class="ajaxcart__subtotal">{{ cart.total_price | money }} INCL. VAT</p>
               </div>
             </div>
+            {%- if cart.cart_level_discount_applications.size > 0 -%}
+            {%- for discount in cart.cart_level_discount_applications -%}
+            <div class="grid">
+              <div class="grid__item one-third">
+                <p class="ajaxcart__subtotal">{{ discount.title }}(discount)</p>
+              </div>
+              <div class="grid__item two-thirds text-right">
+                <p class="ajaxcart__subtotal">(-{{ discount.total_allocated_amount | money }})</p>
+              </div>
+            </div>
+            {%- endfor -%}
+            {%- endif -%}
+
             <div class="grid">
 
               <div class="grid__item one-half">
@@ -190,10 +202,7 @@
                     name="checkout" >
               Checkout
             </a>
-            <a href="/checkout" id="poundcheckout" class="btn upload-btn-xl pound display-non"
-               style="color: #fff;width: 100%;border-radius: 5px;">
-              Checkout
-            </a>
+
             <p></p>
 
             <a href="/" class="continue-shopping button euro"
@@ -221,6 +230,10 @@
 $( document ).ready(function() {
   shippingCalculator(parseInt(`{{ cart.total_price }}`));
 });
+console.log(Shopify.currency.rate);
+var cartDiscountAmt = {{ section.settings.free_shipping_amount }};
+cartDiscountAmt = cartDiscountAmt * Shopify.currency.rate;
+var currency_symbol = `{{ localization.country.currency.symbol }}`;
   </script>
 
 {% schema %}
@@ -232,7 +245,14 @@ $( document ).ready(function() {
       "id": "upsell_product",
       "label": "Upsell product",
       "info": "Select a product for upsell"
+    },
+    {
+      "type": "number",
+      "id": "free_shipping_amount",
+      "label": "Enter minimum price for free shipping",
+      "default": 45
     }
+    
   ]
 }
 {% endschema %}
