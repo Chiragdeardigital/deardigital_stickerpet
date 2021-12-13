@@ -4,6 +4,11 @@
     "type_header_font": "ubuntu_n7",
     "type_body_font": "lato_n5",
     "favicon": "shopify:\/\/shop_images\/cropped-Stella-2-1-1-32x32_32x32_7ee6eb73-4649-4d99-bf15-17ab70fb1870.png",
+    "image_name_1": "one",
+    "image_1": "shopify:\/\/shop_images\/mila-kader-1.png",
+    "image_name_2": "two",
+    "image_2": "shopify:\/\/shop_images\/double-pets-3-01.png",
+    "color_name_3": "Light Blue",
     "upsell_product": "gift-bag",
     "sections": {
       "cart-items-template": {
