@@ -30,7 +30,7 @@
           "6f41fa6e-b753-47fb-bbd7-a858e3f1efea": {
             "type": "announcement",
             "settings": {
-              "announcement_text": "🌴 Some text 🌴"
+              "announcement_text": "🌴 Stickers🌴"
             }
           },
           "752f24c0-7bef-4d7d-9758-6e9d82a99daa": {
@@ -54,11 +54,17 @@
           "7fb949de-22ca-4bf3-bef1-3ff3ef4ce6cf"
         ],
         "settings": {
+          "brand_img": "shopify:\/\/shop_images\/cat1.png",
+          "menu_position": "space-between",
+          "announcement_color_scheme": "background-3",
+          "header_color_scheme": "background-1",
+          "dropdownmenu_color_scheme": "background-3"
         }
       },
       "footer": {
         "type": "footer",
         "settings": {
+          "footer_color_scheme": "background-3",
           "top_header_text": "Receive our latest updates ❤️",
           "bottom_header_text": "Shipped from Belgium 🇧🇪 straight to your mailbox",
           "footer_image": "shopify:\/\/shop_images\/charity_logo_bg_1_150x_a29c410c-9787-4c65-955f-98b0a95f5418.png"

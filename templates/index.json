@@ -6,7 +6,7 @@
         "6062bad8-24b8-46c3-b5e1-b51f755bdf99": {
           "type": "typed_text",
           "settings": {
-            "typed_text": "text1,text2,text3,text4",
+            "typed_text": "sticker,frames,portraits",
             "type_text_color": "text-accent-2"
           }
         }
@@ -19,12 +19,13 @@
         "text_1": "For the",
         "text_2": "lovers.",
         "type_text": "center",
-        "color_scheme": "gradient-background"
+        "hero_color_scheme": "background-1"
       }
     },
     "16269316720393125d": {
       "type": "partner",
       "settings": {
+        "partner_image": "shopify:\/\/shop_images\/dog-face-3.png",
         "text": "partner of",
         "btn_text": "learn more",
         "btn_url": "shopify:\/\/collections"
@@ -36,19 +37,22 @@
         "6ad4815b-6b4b-47c2-9b94-eab72d32e7d4": {
           "type": "cards",
           "settings": {
-            "text": "Some Text"
+            "card_image": "shopify:\/\/shop_images\/red-t-shirt.jpg",
+            "text": "Personalised organic t-shirts."
           }
         },
         "71f9e04b-d0cb-4131-bf31-464bf0063525": {
           "type": "cards",
           "settings": {
-            "text": "Some Text"
+            "card_image": "shopify:\/\/shop_images\/headphones-and-laptop-on-bed.jpg",
+            "text": "Customized stickers"
           }
         },
         "7d851630-17a9-4d9f-b3b7-5eba201c98a9": {
           "type": "cards",
           "settings": {
-            "text": "Some Text"
+            "card_image": "shopify:\/\/shop_images\/dog-face-3.png",
+            "text": "Personalised pet portraits."
           }
         }
       },
@@ -58,7 +62,7 @@
         "7d851630-17a9-4d9f-b3b7-5eba201c98a9"
       ],
       "settings": {
-        "cards_section_background": "background-color-3"
+        "grp_card_background": "background-3"
       }
     },
     "16269320911dc86b20": {
@@ -109,8 +113,10 @@
       "settings": {
         "video_checkbox": false,
         "video_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0268\/5580\/0887\/files\/custom-pet-sticker-from-sticker-pet.mp4?v=1606812993",
+        "desktop_image": "shopify:\/\/shop_images\/headphones-and-laptop-on-bed.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/silver-laptop-with-a-pink-sticker-thats-says-get-busy.jpg",
         "height": "adapt",
-        "image_with_text_bg": "solid-button-labels",
+        "image_with_text_color_scheme": "background-5",
         "layout": "text_first",
         "change_bg": false
       }
@@ -163,8 +169,10 @@
       "settings": {
         "video_checkbox": false,
         "video_url": "",
+        "desktop_image": "shopify:\/\/shop_images\/silver-laptop-with-a-pink-sticker-thats-says-get-busy.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/headphones-and-laptop-on-bed.jpg",
         "height": "adapt",
-        "image_with_text_bg": "solid-button-labels",
+        "image_with_text_color_scheme": "background-5",
         "layout": "image_first",
         "change_bg": true
       }
@@ -217,8 +225,10 @@
       "settings": {
         "video_checkbox": false,
         "video_url": "",
+        "desktop_image": "shopify:\/\/shop_images\/torso-of-a-person-in-a-plain-grey-shirt.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/green-t-shirt.jpg",
         "height": "adapt",
-        "image_with_text_bg": "solid-button-labels",
+        "image_with_text_color_scheme": "background-5",
         "layout": "text_first",
         "change_bg": false
       }
@@ -229,6 +239,7 @@
         "34229b2e-c551-4c47-857e-36f2edb5d789": {
           "type": "human_review",
           "settings": {
+            "review_image": "shopify:\/\/shop_images\/dog-face-3.png",
             "review_text": "<i>“Text Reivew of customers or a sticker review”<br><i>- Name, human<\/i><\/i>",
             "typed_text_human": "human"
           }
@@ -236,6 +247,7 @@
         "af4c9ed6-8e44-44ff-b855-637603227414": {
           "type": "pet_review",
           "settings": {
+            "review_image": "shopify:\/\/shop_images\/dog-face-3.png",
             "review_text": "<i>“Text Reivew of customers or a sticker review”<br><i>- Name, sticker <\/i><\/i>",
             "typed_text_pet": "sticker"
           }
@@ -246,29 +258,34 @@
         "af4c9ed6-8e44-44ff-b855-637603227414"
       ],
       "settings": {
+        "customer_reviews_color_scheme": "background-3"
       }
     },
     "16386946011612d69e": {
       "type": "collage",
       "blocks": {
-        "f08d5b0b-a73a-4d60-808a-044a6844ade7": {
-          "type": "collage_image",
-          "settings": {
-          }
-        },
         "0f5b1bc7-e6d3-4b00-ba04-b0382d2b2797": {
           "type": "collage_image",
           "settings": {
+            "collage_image": "shopify:\/\/shop_images\/dog-face-2.jpg"
           }
         },
-        "5bd8086b-db0a-46a5-a35a-a9df273497c5": {
+        "f08d5b0b-a73a-4d60-808a-044a6844ade7": {
           "type": "collage_image",
           "settings": {
+            "collage_image": "shopify:\/\/shop_images\/green-t-shirt.jpg"
           }
         },
         "8274ace7-b17b-4a21-adc2-00fe0d9dc7f7": {
           "type": "collage_image",
           "settings": {
+            "collage_image": "shopify:\/\/shop_images\/blue-t-shirt.jpg"
+          }
+        },
+        "5bd8086b-db0a-46a5-a35a-a9df273497c5": {
+          "type": "collage_image",
+          "settings": {
+            "collage_image": "shopify:\/\/shop_images\/dog-face-2.jpg"
           }
         },
         "506faf45-3804-4964-84e9-a474768308e1": {
@@ -301,10 +318,10 @@
         }
       },
       "block_order": [
-        "f08d5b0b-a73a-4d60-808a-044a6844ade7",
         "0f5b1bc7-e6d3-4b00-ba04-b0382d2b2797",
-        "5bd8086b-db0a-46a5-a35a-a9df273497c5",
+        "f08d5b0b-a73a-4d60-808a-044a6844ade7",
         "8274ace7-b17b-4a21-adc2-00fe0d9dc7f7",
+        "5bd8086b-db0a-46a5-a35a-a9df273497c5",
         "506faf45-3804-4964-84e9-a474768308e1",
         "e5b49fb6-f2e9-4f77-842a-236aff6b55a3",
         "9cdb4aec-15ab-42a3-a2c7-341fb07cef4d",
@@ -312,7 +329,7 @@
       ],
       "settings": {
         "layout": "image_first",
-        "collage_bg": "solid-button-labels",
+        "collage_color_scheme": "background-5",
         "header_text": "Multimedia collage with 4 Images",
         "para_text": "Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.\n<br><br><br>\nPair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.",
         "mobile_header_text": "Multimedia collage",
@@ -325,36 +342,42 @@
         "1f81e4a3-0721-4f46-b241-5ea832c1b48b": {
           "type": "feed",
           "settings": {
+            "social_feed_image": "shopify:\/\/shop_images\/model-in-yellow-room-with-cactus-stickers.jpg",
             "link_url": "https:\/\/www.instagram.com"
           }
         },
         "147b6577-3542-4e4d-b913-44bd55a24c29": {
           "type": "feed",
           "settings": {
+            "social_feed_image": "shopify:\/\/shop_images\/green-t-shirt.jpg",
             "link_url": "https:\/\/www.instagram.com"
           }
         },
         "979e9fa8-0d09-4d0c-bdc7-57cebb4a2c33": {
           "type": "feed",
           "settings": {
+            "social_feed_image": "shopify:\/\/shop_images\/poochie-party-treats_949f9b06-5113-4f9d-8921-29ccc4117804.jpg",
             "link_url": "https:\/\/www.instagram.com"
           }
         },
         "dffbd1de-4eed-4833-9fe7-ac74813012e7": {
           "type": "feed",
           "settings": {
+            "social_feed_image": "shopify:\/\/shop_images\/laptop-with-shopify-sticker.jpg",
             "link_url": "https:\/\/www.instagram.com"
           }
         },
         "1723ffd5-ffa9-4c37-8f52-f8ae4dcd69e8": {
           "type": "feed",
           "settings": {
+            "social_feed_image": "shopify:\/\/shop_images\/dog-face-3.png",
             "link_url": "https:\/\/www.instagram.com"
           }
         },
         "f65dbc12-517f-4937-8352-5785c90dd0b1": {
           "type": "feed",
           "settings": {
+            "social_feed_image": "shopify:\/\/shop_images\/blue-t-shirt.jpg",
             "link_url": "https:\/\/www.instagram.com"
           }
         }
