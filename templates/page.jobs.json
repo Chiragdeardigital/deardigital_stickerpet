@@ -15,7 +15,7 @@
     "1628001025ce238fa9": {
       "type": "plain-hero-with-header",
       "settings": {
-        "color_scheme": "gradient-background",
+        "color_scheme": "gradient-background-1",
         "hero_text_color": "text-accent-2",
         "header_text": "Job page banner heading"
       }
@@ -51,16 +51,17 @@
         "631710e3-d921-45d6-a9de-bde3b533fd4d"
       ],
       "settings": {
-        "show_rating_block": false
+        "product_quality_color_scheme": "background-3"
       }
     },
     "1628004178abf22af9": {
       "type": "image-with-text-4",
       "settings": {
+        "image": "shopify:\/\/shop_images\/dog-face-2.jpg",
         "header_text": "Image with text",
         "para_text": "Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.",
         "reverse_columns": false,
-        "change_bg": false
+        "image_with_text_4_color_scheme": "background-5"
       }
     },
     "16280012106c417d45": {

@@ -9,7 +9,10 @@
     "162791309145580b1f": {
       "type": "about-hero",
       "settings": {
-        "about_head_text": "About banner heading"
+        "about_bg_img": "shopify:\/\/shop_images\/headphones-and-laptop-on-bed.jpg",
+        "about_bg_img_mobile": "shopify:\/\/shop_images\/silver-laptop-with-a-pink-sticker-thats-says-get-busy.jpg",
+        "about_head_text": "About banner heading",
+        "about_hero_color_scheme": "background-1"
       }
     },
     "1627914162f262a055": {
@@ -35,7 +38,7 @@
         "21a5c6c6-228d-4660-b6b0-1659c12a5f21"
       ],
       "settings": {
-        "show_rating_block": true
+        "product_quality_color_scheme": "background-3"
       }
     },
     "1627920281e19dd611": {
@@ -61,7 +64,8 @@
       "settings": {
         "video_checkbox": false,
         "video_script": "",
-        "change_bg": false,
+        "desktop_image": "shopify:\/\/shop_images\/pexels-karolina-grabowska-4207785.jpg",
+        "image_with_text_60_40_color_scheme": "background-5",
         "layout": "image_first"
       }
     },
@@ -105,7 +109,8 @@
       "settings": {
         "video_checkbox": false,
         "video_script": "",
-        "change_bg": false,
+        "desktop_image": "shopify:\/\/shop_images\/headphones-and-laptop-on-bed.jpg",
+        "image_with_text_60_40_color_scheme": "background-5",
         "layout": "text_first"
       }
     },
@@ -140,7 +145,8 @@
       "settings": {
         "video_checkbox": false,
         "video_script": "",
-        "change_bg": false,
+        "desktop_image": "shopify:\/\/shop_images\/torso-of-a-person-in-a-plain-grey-shirt.jpg",
+        "image_with_text_60_40_color_scheme": "background-5",
         "layout": "image_first"
       }
     }

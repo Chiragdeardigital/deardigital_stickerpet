@@ -4,7 +4,11 @@
       "type": "sticker-banner",
       "settings": {
         "sticker_banner_heading": "Rich Banner<br> Heading🤘🏼",
-        "sticker_banner_bg": "background-color-1"
+        "banner_overlay_image_1": "shopify:\/\/shop_images\/Maurice_1_x200_f27796e3-1c67-4f48-a31a-9a6b3bbd06d8.png",
+        "banner_overlay_image_2": "shopify:\/\/shop_images\/Lene_x200_f9e76529-9b5c-4520-86a9-a8a560483a5e.png",
+        "banner_overlay_image_3": "shopify:\/\/shop_images\/dog-face-3.png",
+        "banner_overlay_image_4": "shopify:\/\/shop_images\/dog-face-3.png",
+        "sticker_banner_color_scheme": "background-1"
       }
     },
     "1637085621f0de8ee9": {
@@ -30,7 +34,7 @@
         "46ce85c0-94f4-4cf3-a904-f4dc4b9cd3ff"
       ],
       "settings": {
-        "show_rating_block": true
+        "product_quality_color_scheme": "background-3"
       }
     },
     "16370857413564dd6d": {
@@ -55,7 +59,7 @@
       ],
       "settings": {
         "layout": "text_first",
-        "single_product": ""
+        "single_product": "portraits"
       }
     },
     "product-grid": {

@@ -29,7 +29,9 @@
         "837463c1-2ea5-4e9b-b16d-ce3a6a07b2f3"
       ],
       "settings": {
-        "color_scheme": "banner-background-1"
+        "image_banner_color_scheme": "background-1",
+        "image": "shopify:\/\/shop_images\/pexels-karolina-grabowska-4207785.jpg",
+        "image_2": "shopify:\/\/shop_images\/dog-face-3.png"
       }
     },
     "16277437539db10743": {
@@ -55,7 +57,7 @@
         "94a15f01-1428-4519-b3c1-8fbc412ea7a8"
       ],
       "settings": {
-        "show_rating_block": true
+        "product_quality_color_scheme": "background-3"
       }
     },
     "16278030249c3fd9e9": {
@@ -87,6 +89,10 @@
         "0525d500-e199-4f0c-8438-e6311fb59235"
       ],
       "settings": {
+        "image_with_text_2_color_scheme": "background-5",
+        "desktop_image": "shopify:\/\/shop_images\/green-t-shirt.jpg",
+        "mobile_image_1": "shopify:\/\/shop_images\/red-t-shirt.jpg",
+        "mobile_image_2": "shopify:\/\/shop_images\/headphones-and-laptop-on-bed.jpg",
         "layout": "text_first"
       }
     },
@@ -96,6 +102,7 @@
         "965bd64f-933c-4226-86cd-3802e175efc5": {
           "type": "human_review",
           "settings": {
+            "review_image": "shopify:\/\/shop_images\/dog-face-3.png",
             "review_text": "<i>“The comment by the reviewer goes here <\/i>🐶”<br><i>- name goes here, human<\/i>",
             "typed_text_human": "human"
           }
@@ -103,6 +110,7 @@
         "782a801b-296f-4e7c-bcfe-ac0edcd89cf8": {
           "type": "pet_review",
           "settings": {
+            "review_image": "shopify:\/\/shop_images\/dog-face-3.png",
             "review_text": "<i>“The comment by the reviewer goes here <\/i>🐶”<br><i>- name goes here, pet<\/i>",
             "typed_text_pet": "pet"
           }
@@ -113,6 +121,7 @@
         "782a801b-296f-4e7c-bcfe-ac0edcd89cf8"
       ],
       "settings": {
+        "customer_reviews_color_scheme": "background-3"
       }
     },
     "1627822118441f8612": {
@@ -144,6 +153,10 @@
         "fa3da896-22d3-4ffc-bdfb-de96cf274906"
       ],
       "settings": {
+        "image_with_text_2_color_scheme": "background-5",
+        "desktop_image": "shopify:\/\/shop_images\/pexels-karolina-grabowska-4207785.jpg",
+        "mobile_image_1": "shopify:\/\/shop_images\/red-t-shirt.jpg",
+        "mobile_image_2": "shopify:\/\/shop_images\/green-t-shirt.jpg",
         "layout": "image_first"
       }
     }
