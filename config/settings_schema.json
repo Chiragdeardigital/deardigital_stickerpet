@@ -239,5 +239,246 @@
                 "info": "t:settings_schema.favicon.settings.favicon.info"
             }
         ]
+    },
+    {
+        "name": "Product colors",
+        "settings": [
+            {
+                
+                "type": "text",
+                "id": "image_name_1",
+                "label": "Image name 1",
+                "info": "Enter the name of the image that matches the name of the product variants."
+            },
+            {
+                "type": "image_picker",
+                "id": "image_1",
+                "label": "Image 1"
+            },
+            {
+                
+                "type": "text",
+                "id": "image_name_2",
+                "label": "Image name 2",
+                "info": "Enter the name of the image that matches the name of the product variants."
+            },
+            {
+                "type": "image_picker",
+                "id": "image_2",
+                "label": "Image 2"
+            },
+            {
+                
+                "type": "text",
+                "id": "image_name_3",
+                "label": "Image name 3",
+                "info": "Enter the name of the image that matches the name of the product variants."
+            },
+            {
+                "type": "image_picker",
+                "id": "image_3",
+                "label": "Image 3"
+            },
+            {
+                
+                "type": "text",
+                "id": "image_name_4",
+                "label": "Image name 4",
+                "info": "Enter the name of the image that matches the name of the product variants."
+            },
+            {
+                "type": "image_picker",
+                "id": "image_4",
+                "label": "Image 4"
+            },
+            {
+                
+                "type": "text",
+                "id": "image_name_5",
+                "label": "Image name 5",
+                "info": "Enter the name of the image that matches the name of the product variants."
+            },
+            {
+                "type": "image_picker",
+                "id": "image_5",
+                "label": "Image 5"
+            },
+            {
+                
+                "type": "text",
+                "id": "image_name_6",
+                "label": "Image name 6",
+                "info": "Enter the name of the image that matches the name of the product variants."
+            },
+            {
+                "type": "image_picker",
+                "id": "image_6",
+                "label": "Image 6"
+            },
+            {
+                
+                "type": "text",
+                "id": "color_name_1",
+                "label": "Color 1 name",
+                "default": "Blue",
+                "info": "Enter the name of the color that matches the name of the product variants."
+            },
+            {
+                "type": "color",
+                "id": "color_1",
+                "label": "Pick a color for Color 1",
+                "default": "#00008b"
+            },
+            {
+                
+                "type": "text",
+                "id": "color_name_2",
+                "label": "Color 2 name",
+                "default": "Green",
+                "info": "Enter the name of the color that matches the name of the product variants."
+            },
+            {
+                "type": "color",
+                "id": "color_2",
+                "label": "Pick a color for Color 2",
+                "default": "#2e8b57"
+            },
+            {
+                
+                "type": "text",
+                "id": "color_name_3",
+                "label": "Color 3 name",
+                "default": "Light BluePurple",
+                "info": "Enter the name of the color that matches the name of the product variants."
+            },
+            {
+                "type": "color",
+                "id": "color_3",
+                "label": "Pick a color for Color 3",
+                "default": "#add8e6"
+            },
+            {
+                
+                "type": "text",
+                "id": "color_name_4",
+                "label": "Color 4 name",
+                "default": "Purple",
+                "info": "Enter the name of the color that matches the name of the product variants."
+            },
+            {
+                "type": "color",
+                "id": "color_4",
+                "label": "Pick a color for Color 4",
+                "default": "#800080"
+            },
+            {
+                
+                "type": "text",
+                "id": "color_name_5",
+                "label": "Color 5 name",
+                "default": "Light beige",
+                "info": "Enter the name of the color that matches the name of the product variants."
+            },
+            {
+                "type": "color",
+                "id": "color_5",
+                "label": "Pick a color for Color 5",
+                "default": "#FBF6EE"
+            },
+            {
+                
+                "type": "text",
+                "id": "color_name_6",
+                "label": "Color 6 name",
+                "default": "Prussian blue",
+                "info": "Enter the name of the color that matches the name of the product variants."
+            },
+            {
+                "type": "color",
+                "id": "color_6",
+                "label": "Pick a color for Color 6",
+                "default": "#0B3954"
+            },
+            {
+                
+                "type": "text",
+                "id": "color_name_7",
+                "label": "Color 7 name",
+                "default": "Tumbleweed",
+                "info": "Enter the name of the color that matches the name of the product variants."
+            },
+            {
+                "type": "color",
+                "id": "color_7",
+                "label": "Pick a color for Color 7",
+                "default": "#DEAA88"
+            },
+            {
+                
+                "type": "text",
+                "id": "color_name_8",
+                "label": "Color 8 name",
+                "info": "Enter the name of the color that matches the name of the product variants."
+            },
+            {
+                "type": "color",
+                "id": "color_8",
+                "label": "Pick a color for Color 8",
+                "default": "#000000"
+            },
+            {
+                
+                "type": "text",
+                "id": "color_name_9",
+                "label": "Color 9 name",
+                "info": "Enter the name of the color that matches the name of the product variants."
+            },
+            {
+                "type": "color",
+                "id": "color_9",
+                "label": "Pick a color for Color 9",
+                "default": "#000000"
+            },
+            {
+                
+                "type": "text",
+                "id": "color_name_10",
+                "label": "Color 10 name",
+                "info": "Enter the name of the color that matches the name of the product variants."
+            },
+            {
+                "type": "color",
+                "id": "color_10",
+                "label": "Pick a color for Color 10",
+                "default": "#000000"
+            },
+            {
+                
+                "type": "text",
+                "id": "color_name_11",
+                "label": "Color 11 name",
+                "info": "Enter the name of the color that matches the name of the product variants."
+            },
+            {
+                "type": "color",
+                "id": "color_11",
+                "label": "Pick a color for Color 11",
+                "default": "#000000"
+            },
+            {
+                
+                "type": "text",
+                "id": "color_name_12",
+                "label": "Color 12 name",
+                "info": "Enter the name of the color that matches the name of the product variants."
+            },
+            {
+                "type": "color",
+                "id": "color_12",
+                "label": "Pick a color for Color 12",
+                "default": "#000000"
+            }
+        ]
     }
+    
 ]
