@@ -178,7 +178,7 @@
             {%- for discount in cart.cart_level_discount_applications -%}
             <div class="grid">
               <div class="grid__item one-third">
-                <p class="ajaxcart__subtotal">{{ discount.title }}(discount)</p>
+                <p class="ajaxcart__subtotal">discount({{ discount.title }})</p>
               </div>
               <div class="grid__item two-thirds text-right">
                 <p class="ajaxcart__subtotal">(-{{ discount.total_allocated_amount | money }})</p>
