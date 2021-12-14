@@ -14,7 +14,8 @@
       "cart-items-template": {
         "type": "cart-items-template",
         "settings": {
-          "upsell_product": "gift-bag"
+          "upsell_product": "gift-bag",
+          "free_shipping_amount": 45
         }
       },
       "header": {
@@ -59,11 +60,14 @@
           "7fb949de-22ca-4bf3-bef1-3ff3ef4ce6cf"
         ],
         "settings": {
-          "brand_img": "shopify:\/\/shop_images\/dog-face-3.png",
+          "brand_img": "shopify:\/\/shop_images\/name.png",
           "menu_position": "space-between",
           "announcement_color_scheme": "background-3",
           "header_color_scheme": "background-1",
-          "dropdownmenu_color_scheme": "background-3"
+          "dropdownmenu_color_scheme": "background-3",
+          "show_multiple_language": false,
+          "show_currency": false,
+          "show_search_icon": true
         }
       },
       "footer": {
