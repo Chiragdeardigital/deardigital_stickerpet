@@ -64,6 +64,8 @@
             {%- endcase -%}
             {%- endfor -%}
 
+
+            {% if section.settings.show_multiple_language %}
             <li class="nav-item lang">
               <details-disclosure>
                 <details>
@@ -87,9 +89,10 @@
               </details-disclosure>
 
             </li>
-            
-            
+            {% endif %}
 
+            
+          {% if section.settings.show_currency %}
           <li class="nav-item currency">
             <localization-form>
               {%- form 'localization', id: 'FooterCountryForm', class: 'localization-form' -%}
@@ -115,13 +118,18 @@
               {%- endform -%}
             </localization-form>
           </li>
-          
+          {% endif %}
+
+          {% if section.settings.show_search_icon %}
           <li class="no-m">
             <a href="{{ routes.search_url }}" >
               {% render 'search-icon' %}
               <span class="visually-hidden">search</span>
             </a>
           </li>
+          {% endif %}
+
+
           {%- if shop.customer_accounts_enabled -%}
           <li class="no-m">
 
@@ -402,6 +410,24 @@
            ],
            "label": "Dropdown menu color scheme",
            "default": "background-3"
+          },
+          {
+            "id": "show_multiple_language",
+            "type": "checkbox",
+            "label": "Show Multiple language",
+            "default": false
+          },
+          {
+            "id": "show_currency",
+            "type": "checkbox",
+            "label": "Show currency",
+            "default": false
+          },
+          {
+            "id": "show_search_icon",
+            "type": "checkbox",
+            "label": "Show search icon",
+            "default": true
           }
     ],
     "blocks": [
