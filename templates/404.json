@@ -3,8 +3,8 @@
     "main": {
       "type": "main-404",
       "settings": {
-        "header_404": "404",
-        "text_404": "Sorry.\n<br>The page you are looking for cannot be found.\n<br>Please try the links above in our menu or contact us <a href=\"mailto:info@stickerpet.com\">info@stickerpet.com\n<\/a><br>",
+        "header_404": "<p>404<\/p>",
+        "text_404": "<p>Sorry.<br\/><br\/>The page you are looking for cannot be found.<br\/>Please try the links above in our menu or contact us <a href=\"mailto:info@yourmail.com\" title=\"mailto:info@yourmail.com\">info@yourmail.com<\/a>.<\/p><p><a href=\"\/collections\" title=\"All collections\"><em>Continue shopping<\/em><\/a><a href=\"mailto:info@stickerpet.com\"><br\/><\/a><\/p>",
         "image_404": "shopify:\/\/shop_images\/cactus-01.gif"
       }
     }
