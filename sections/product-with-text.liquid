@@ -39,65 +39,65 @@
 
 {% schema %}
 {
-    "name": "Product with text",
-    "settings": [
+  "name": "t:sections.product-with-text.name",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
         {
-          "type": "select",
-          "id": "layout",
-          "options": [
-            {
-              "value": "image_first",
-              "label": "Image First"
-            },
-            {
-              "value": "text_first",
-              "label": "Text First"
-            }
-          ],
-          "default": "image_first",
-          "label": "Desktop Layout",
-          "info" : "Text first is the default mobile layout."
+          "value": "image_first",
+          "label": "t:sections.product-with-text.settings.layout.options__1.label"
         },
         {
-            "type": "product",
-            "id": "single_product",
-            "label": "Product",
-            "info": "Select a product to display."
+          "value": "text_first",
+          "label": "t:sections.product-with-text.settings.layout.options__2.label"
         }
-    ],
-    "blocks": [
-          {
-            "type": "heading",
-            "name": "Image with text",
-            "limit": 1,
-            "settings": [
-              {
-                "type": "text",
-                "id": "heading",
-                "default": "Product of the month 🤩",
-                "label": "Heading"
-              }
-            ]
-          },
-          {
-            "type": "text",
-            "name": "description",
-            "limit": 1,
-            "settings": [
-              {
-                "type": "html",
-                "id": "text",
-                "label": "Description",
-                "default" : "Description for Best product of the month with a direct add to cart button."
-              }
-            ]
-          }
-    ],
-    "presets": [
+      ],
+      "default": "image_first",
+      "label": "t:sections.product-with-text.settings.layout.label",
+      "info": "t:sections.product-with-text.settings.layout.info"
+    },
+    {
+      "type": "product",
+      "id": "single_product",
+      "label": "t:sections.product-with-text.settings.single_product.label",
+      "info": "t:sections.product-with-text.settings.single_product.info"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.product-with-text.blocks.heading.name",
+      "limit": 1,
+      "settings": [
         {
-            "name": "Product with text",
-            "category": "ADVANCED LAYOUT"
+          "type": "text",
+          "id": "heading",
+          "default": "Product of the month 🤩",
+          "label": "t:sections.product-with-text.blocks.heading.settings.heading.label"
         }
-    ]
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.product-with-text.blocks.description.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "html",
+          "id": "text",
+          "label": "t:sections.product-with-text.blocks.description.settings.text.label",
+          "default": "Description for Best product of the month with a direct add to cart button."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.product-with-text.presets.name",
+      "category": "ADVANCED LAYOUT"
+    }
+  ]
 }
 {% endschema %}

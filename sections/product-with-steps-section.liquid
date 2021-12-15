@@ -830,174 +830,174 @@
 
 {% schema %}
 {
-    "name": "Product with steps",
-    "settings": [
-      {
-        "type": "select",
-        "id": "product_steps_color_scheme",
-        "info" : "choose a background",
-        "options": [
-          {
-            "label": "Accent 1",
-            "value": "accent-1"
-          },
-          {
-            "label": "Accent 2",
-            "value": "accent-2"
-          },
-          {
-            "label": "Background 1",
-            "value": "background-1"
-          },
-          {
-            "label": "Background 2",
-            "value": "background-2"
-          },
-          {
-            "label": "Background 3",
-            "value": "background-3"
-          },
-          {
-            "label": "Background 4",
-            "value": "background-4"
-          },
-          {
-            "label": "Background 5",
-            "value": "background-5"
-          },
-          {
-            "label": "Inverse",
-            "value": "inverse"
-          }
-        ],
-        "label": "Color Scheme",
-        "default": "background-4"
-      },
-      {
-        "type": "select",
-        "id": "steps_color_scheme",
-        "label": "Steps indicator color scheme",
-        "default": "background-3",
-        "info" : "Choose a background",
-        "options": [
-          {
-            "label": "Accent 1",
-            "value": "accent-1"
-          },
-          {
-            "label": "Accent 2",
-            "value": "accent-2"
-          },
-          {
-            "label": "Background 1",
-            "value": "background-1"
-          },
-          {
-            "label": "Background 2",
-            "value": "background-2"
-          },
-          {
-            "label": "Background 3",
-            "value": "background-3"
-          },
-          {
-            "label": "Background 4",
-            "value": "background-4"
-          },
-          {
-            "label": "Background 5",
-            "value": "background-5"
-          },
-          {
-            "label": "Inverse",
-            "value": "inverse"
-          }
-        ]
-      }          
-    ],
-    "blocks": [
-      {
-        "type": "@app" 
-      },
-      {
-        "type": "image_block",
-        "name": "Image block",
-        "limit":1,
-        "settings": [
-          {
-            "type": "checkbox",
-            "id": "image_block",
-            "default": true,
-            "label": "Add a image block",
-            "info":"This block helps to upload images for the product. It will be added as an extra step after the variants. Only available for product-with-steps template."
-          }
-        ]
-      },
-      {
-        "type": "extra_product",
-        "name": "Extra Product",
-        "limit":1,
-        "settings": [
-          {
-            "type": "product",
-            "id": "product_handle",
-            "label": "Product",
-            "info": "Select a upsell/extra product to sell."
-          }
-        ]
-      },
-      {
-        "type": "text",
-        "name": "text",
-        "settings": [
-          {
-            "type": "text",
-            "id": "text",
-            "label": "text block"
-          },
-          {
-            "type": "select",
-            "id": "text_style",
-            "options": [
-              {
-                "value": "body",
-                "label": "body"
-              },
-              {
-                "value": "subtitle",
-                "label": "subtitle"
-              },
-              {
-                "value": "uppercase",
-                "label": "uppercase"
-              }
-            ],
-            "default": "body",
-            "label": "Text style"
-          }
-        ]
-      },
-      {
-        "type": "title",
-        "name": "Title",
-        "limit": 1
-      },
-      {
-        "type": "price",
-        "name": "Price",
-        "limit": 1
-      },
-      {
-        "type": "description",
-        "name": "Description",
-        "limit": 1
-      }
-    ],
-    "presets": [
+  "name": "t:sections.product-with-steps.name",
+  "settings": [
+    {
+      "type": "select",
+      "id": "product_steps_color_scheme",
+      "info": "t:sections.product-with-steps.settings.color_scheme.info",
+      "options": [
         {
-            "name": "Product with steps",
-            "category": "ADVANCED LAYOUT"
+          "label": "t:sections.product-with-steps.settings.color_scheme.options__1.label",
+          "value": "accent-1"
+        },
+        {
+          "label": "t:sections.product-with-steps.settings.color_scheme.options__2.label",
+          "value": "accent-2"
+        },
+        {
+          "label": "t:sections.product-with-steps.settings.color_scheme.options__3.label",
+          "value": "background-1"
+        },
+        {
+          "label": "t:sections.product-with-steps.settings.color_scheme.options__4.label",
+          "value": "background-2"
+        },
+        {
+          "label": "t:sections.product-with-steps.settings.color_scheme.options__5.label",
+          "value": "background-3"
+        },
+        {
+          "label": "t:sections.product-with-steps.settings.color_scheme.options__6.label",
+          "value": "background-4"
+        },
+        {
+          "label": "t:sections.product-with-steps.settings.color_scheme.options__7.label",
+          "value": "background-5"
+        },
+        {
+          "label": "t:sections.product-with-steps.settings.color_scheme.options__8.label",
+          "value": "inverse"
         }
-    ]
+      ],
+      "label": "t:sections.product-with-steps.settings.color_scheme.label",
+      "default": "background-4"
+    },
+    {
+      "type": "select",
+      "id": "steps_color_scheme",
+      "options": [
+        {
+          "label": "t:sections.product-with-steps.settings.steps_color_scheme.options__1.label",
+          "value": "accent-1"
+        },
+        {
+          "label": "t:sections.product-with-steps.settings.steps_color_scheme.options__2.label",
+          "value": "accent-2"
+        },
+        {
+          "label": "t:sections.product-with-steps.settings.steps_color_scheme.options__3.label",
+          "value": "background-1"
+        },
+        {
+          "label": "t:sections.product-with-steps.settings.steps_color_scheme.options__4.label",
+          "value": "background-2"
+        },
+        {
+          "label": "t:sections.product-with-steps.settings.steps_color_scheme.options__5.label",
+          "value": "background-3"
+        },
+        {
+          "label": "t:sections.product-with-steps.settings.steps_color_scheme.options__6.label",
+          "value": "background-4"
+        },
+        {
+          "label": "t:sections.product-with-steps.settings.steps_color_scheme.options__7.label",
+          "value": "background-5"
+        },
+        {
+          "label": "t:sections.product-with-steps.settings.steps_color_scheme.options__8.label",
+          "value": "inverse"
+        }
+      ],
+      "label": "t:sections.product-with-steps.settings.steps_color_scheme.label",
+      "info": "t:sections.product-with-steps.settings.steps_color_scheme.info"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "image_block",
+      "name": "t:sections.product-with-steps.blocks.image_block.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "image_block",
+          "default": true,
+          "label": "t:sections.product-with-steps.blocks.image_block.settings.checkbox.label",
+          "info": "t:sections.product-with-steps.blocks.image_block.settings.checkbox.info"
+        }
+      ]
+    },
+    {
+      "type": "extra_product",
+      "name": "t:sections.product-with-steps.blocks.extra_product.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "product",
+          "id": "product_handle",
+          "label": "t:sections.product-with-steps.blocks.extra_product.settings.product.label",
+          "info": "t:sections.product-with-steps.blocks.extra_product.settings.product.info"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.product-with-steps.blocks.text.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Text block",
+          "label": "t:sections.product-with-steps.blocks.text.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "body",
+              "label": "t:sections.product-with-steps.blocks.text.settings.text_style.options__1.label"
+            },
+            {
+              "value": "subtitle",
+              "label": "t:sections.product-with-steps.blocks.text.settings.text_style.options__2.label"
+            },
+            {
+              "value": "uppercase",
+              "label": "t:sections.product-with-steps.blocks.text.settings.text_style.options__3.label"
+            }
+          ],
+          "default": "body",
+          "label": "t:sections.product-with-steps.blocks.text.settings.text_style.label"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "t:sections.product-with-steps.blocks.title.name",
+      "limit": 1
+    },
+    {
+      "type": "price",
+      "name": "t:sections.product-with-steps.blocks.price.name",
+      "limit": 1
+    },
+    {
+      "type": "description",
+      "name": "t:sections.product-with-steps.blocks.description.name",
+      "limit": 1
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.product-with-steps.presets.name",
+      "category": "ADVANCED LAYOUT"
+    }
+  ]
 }
 {% endschema %} 
