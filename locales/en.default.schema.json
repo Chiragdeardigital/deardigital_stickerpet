@@ -704,11 +704,21 @@
         "name": "Image banner"
       }
     },
-    "image-with-text": {
-      "name": "Image with text",
+    "image-with-text-list": {
+      "name": "Image with text list",
       "settings": {
-        "image": {
-          "label": "Image"
+        "desktop_image": {
+          "label": "Desktop image"
+        },
+        "mobile_image": {
+          "label": "Mobile image"
+        },
+        "video_checkbox": {
+          "label": "Include video instead of an image",
+          "info" : "Tick this checkbox to show a video rather than an image. Desktop image is not needed in this case. Note: For mobile devices video will be hidden. Upload image for mobile devices as an alternative"
+        },
+        "video_url": {
+          "label": "Video url"
         },
         "height": {
           "options__1": {
@@ -724,21 +734,31 @@
         },
         "color_scheme": {
           "options__1": {
-            "label": "Background 1"
-          },
-          "options__2": {
-            "label": "Background 2"
-          },
-          "options__3": {
-            "label": "Inverse"
-          },
-          "options__4": {
             "label": "Accent 1"
           },
-          "options__5": {
+          "options__2": {
             "label": "Accent 2"
           },
-          "label": "Color scheme"
+          "options__3": {
+            "label": "Background 1"
+          },
+          "options__4": {
+            "label": "Background 2"
+          },
+          "options__5": {
+            "label": "Background 3"
+          },
+          "options__6": {
+            "label": "Background 4"
+          },
+          "options__7": {
+            "label": "Background 5"
+          },
+          "options__8": {
+            "label": "Inverse"
+          },
+          "label": "Color scheme",
+          "info" : "Choose a background"
         },
         "layout": {
           "options__1": {
@@ -760,7 +780,95 @@
             }
           }
         },
-        "text": {
+        "text_list": {
+          "name": "Text List",
+          "settings": {
+            "icon_text": {
+              "label": "Icon Text"
+            },
+            "list_text": {
+              "label": "Text"
+            }
+          }
+        },
+        "button": {
+          "name": "Button",
+          "settings": {
+            "button_label": {
+              "label": "Button label",
+              "info": "Leave the label blank to hide the button."
+            },
+            "button_link": {
+              "label": "Button link"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Image with text list"
+      }
+    },
+    "image-with-text": {
+      "name": "Image with text",
+      "settings": {
+        "desktop_image": {
+          "label": "Desktop image"
+        },
+        "mobile_image_1": {
+          "label": "Mobile image 1"
+        },
+        "mobile_image_2": {
+          "label": "Mobile image 2"
+        },
+        "color_scheme": {
+          "options__1": {
+            "label": "Accent 1"
+          },
+          "options__2": {
+            "label": "Accent 2"
+          },
+          "options__3": {
+            "label": "Background 1"
+          },
+          "options__4": {
+            "label": "Background 2"
+          },
+          "options__5": {
+            "label": "Background 3"
+          },
+          "options__6": {
+            "label": "Background 4"
+          },
+          "options__7": {
+            "label": "Background 5"
+          },
+          "options__8": {
+            "label": "Inverse"
+          },
+          "label": "Color scheme",
+          "info" : "Choose a background"
+        },
+        "layout": {
+          "options__1": {
+            "label": "Image first"
+          },
+          "options__2": {
+            "label": "Text first"
+          },
+          "label": "Desktop layout",
+          "info": "Image first is the default mobile layout."
+        }
+      },
+      "blocks": {
+        "heading": {
+          "name": "Heading",
+          "settings": {
+            "heading": {
+              "label": "Heading"
+            }
+          }
+        },
+        "description": {
           "name": "Text",
           "settings": {
             "text": {
@@ -783,6 +891,164 @@
       },
       "presets": {
         "name": "Image with text"
+      }
+    },
+    "plain-image-with-text": {
+      "name": "Plain image with text",
+      "settings": {
+        "image": {
+          "label": "Desktop image"
+        },
+        "heading": {
+          "label": "Heading"
+        },
+        "description": {
+          "label": "Description"
+        },
+        "reverse_columns": {
+          "label": "Swap image-block and text-block"
+        },
+        "color_scheme": {
+          "options__1": {
+            "label": "Accent 1"
+          },
+          "options__2": {
+            "label": "Accent 2"
+          },
+          "options__3": {
+            "label": "Background 1"
+          },
+          "options__4": {
+            "label": "Background 2"
+          },
+          "options__5": {
+            "label": "Background 3"
+          },
+          "options__6": {
+            "label": "Background 4"
+          },
+          "options__7": {
+            "label": "Background 5"
+          },
+          "options__8": {
+            "label": "Inverse"
+          },
+          "label": "Color scheme",
+          "info" : "Choose a background"
+        },
+        "layout": {
+          "options__1": {
+            "label": "Image first"
+          },
+          "options__2": {
+            "label": "Text first"
+          },
+          "label": "Desktop layout",
+          "info": "Image first is the default mobile layout."
+        }
+      },
+      "blocks": {
+        
+      },
+      "presets": {
+        "name": "Plain image with text"
+      }
+    },
+    "image-with-text-sixty-forty": {
+      "name": "Image with text sixty forty",
+      "settings": {
+        "image": {
+          "label": "Image"
+        },
+        "video_checkbox": {
+          "label": "Include video instead of an image",
+          "info" : "Tick this checkbox to show a video rather than an image. Desktop image is not needed in this case. Note: For mobile devices video will be hidden. Upload image for mobile devices as an alternative"
+        },
+        "video_url": {
+          "label": "Video script(optional)"
+        },
+        "color_scheme": {
+          "options__1": {
+            "label": "Accent 1"
+          },
+          "options__2": {
+            "label": "Accent 2"
+          },
+          "options__3": {
+            "label": "Background 1"
+          },
+          "options__4": {
+            "label": "Background 2"
+          },
+          "options__5": {
+            "label": "Background 3"
+          },
+          "options__6": {
+            "label": "Background 4"
+          },
+          "options__7": {
+            "label": "Background 5"
+          },
+          "options__8": {
+            "label": "Inverse"
+          },
+          "label": "Color scheme",
+          "info" : "Choose a background"
+        },
+        "layout": {
+          "options__1": {
+            "label": "Image first"
+          },
+          "options__2": {
+            "label": "Text first"
+          },
+          "label": "Desktop layout",
+          "info": "Image first is the default mobile layout."
+        }
+      },
+      "blocks": {
+        "heading": {
+          "name": "Heading",
+          "settings": {
+            "heading": {
+              "label": "Heading"
+            }
+          }
+        },
+        "description": {
+          "name": "Description",
+          "settings": {
+            "text": {
+              "label": "Text"
+            }
+          }
+        },
+        "text_list": {
+          "name": "Text List",
+          "settings": {
+            "icon_text": {
+              "label": "Icon Text"
+            },
+            "list_text": {
+              "label": "Text"
+            }
+          }
+        },
+        "button": {
+          "name": "Button",
+          "settings": {
+            "button_label": {
+              "label": "Button label",
+              "info": "Leave the label blank to hide the button."
+            },
+            "button_link": {
+              "label": "Button link"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Image with text sixty forty"
       }
     },
     "main-article": {
@@ -1537,6 +1803,64 @@
       },
       "presets": {
         "name": "Rich text"
+      }
+    },
+    "hero-banner": {
+      "name": "Hero Banner",
+      "settings": {
+        "desktop_image": {
+          "label": "Desktop image"
+        },
+        "mobile_image": {
+          "label": "Mobile image"
+        },
+        "heading": {
+          "label": "Heading"
+        },
+        "color_scheme": {
+          "options__1": {
+            "label": "Accent 1"
+          },
+          "options__2": {
+            "label": "Accent 2"
+          },
+          "options__3": {
+            "label": "Background 1"
+          },
+          "options__4": {
+            "label": "Background 2"
+          },
+          "options__5": {
+            "label": "Background 3"
+          },
+          "options__6": {
+            "label": "Background 4"
+          },
+          "options__7": {
+            "label": "Background 5"
+          },
+          "options__8": {
+            "label": "Inverse"
+          },
+          "label": "Color scheme",
+          "info" : "Choose a background"
+        },
+        "layout": {
+          "options__1": {
+            "label": "Image first"
+          },
+          "options__2": {
+            "label": "Text first"
+          },
+          "label": "Desktop layout",
+          "info": "Image first is the default mobile layout."
+        }
+      },
+      "blocks": {
+        
+      },
+      "presets": {
+        "name": "Hero Banner"
       }
     }
   }

@@ -49,69 +49,69 @@
 
 {% schema %}
 {
-    "name": "About Hero",
+    "name": "t:sections.hero-banner.name",
     "settings": [
         {
             "id": "about_bg_img",
             "type": "image_picker",
-            "label": "Desktop background image"
+            "label": "t:sections.hero-banner.settings.desktop_image.label"
         },
-		{
+		    {
             "id": "about_bg_img_mobile",
             "type": "image_picker",
-            "label": "Mobile background image"
+            "label": "t:sections.hero-banner.settings.mobile_image.label"
         },
         {
             "id": "about_head_text",
             "type": "text",
-            "label": "Text",
-            "default": "About banner heading"
+            "label": "t:sections.hero-banner.settings.heading.label",
+            "default": "Banner heading"
         },
         {
           "type": "select",
           "id": "about_hero_color_scheme",
-          "info" : "Choose a background",
+          "info" : "t:sections.hero-banner.settings.color_scheme.info",
           "options": [
              {
-               "label": "Accent 1",
+               "label": "t:sections.hero-banner.settings.color_scheme.options__1.label",
                "value": "accent-1"
              },
              {
-               "label": "Accent 2",
+               "label": "t:sections.hero-banner.settings.color_scheme.options__2.label",
                "value": "accent-2"
              },
              {
-               "label": "Background 1",
+               "label": "t:sections.hero-banner.settings.color_scheme.options__3.label",
                "value": "background-1"
              },
              {
-               "label": "Background 2",
+               "label": "t:sections.hero-banner.settings.color_scheme.options__4.label",
                "value": "background-2"
              },
              {
-               "label": "Background 3",
+               "label": "t:sections.hero-banner.settings.color_scheme.options__5.label",
                "value": "background-3"
              },
              {
-               "label": "Background 4",
+               "label": "t:sections.hero-banner.settings.color_scheme.options__6.label",
                "value": "background-4"
              },
              {
-               "label": "Background 5",
+               "label": "t:sections.hero-banner.settings.color_scheme.options__7.label",
                "value": "background-5"
              },
              {
-               "label": "Inverse",
+               "label": "t:sections.hero-banner.settings.color_scheme.options__8.label",
                "value": "inverse"
              }
           ],
-          "label": "Color Scheme",
+          "label": "t:sections.hero-banner.settings.color_scheme.label",
           "default": "background-1"
         }
     ],
     "presets": [
         {
-            "name": "About Hero",
+            "name": "t:sections.hero-banner.presets.name",
             "category": "ADVANCED LAYOUT"
         }
     ]
