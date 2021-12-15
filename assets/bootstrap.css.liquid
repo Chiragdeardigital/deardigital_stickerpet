@@ -1452,9 +1452,9 @@ html {
     z-index: 1070;
     display: block;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-style: normal;
-    font-weight: 400;
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
     line-height: 1.5;
     text-align: left;
     text-align: start;
@@ -1565,9 +1565,9 @@ html {
     z-index: 1060;
     display: block;
     max-width: 276px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-style: normal;
-    font-weight: 400;
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
     line-height: 1.5;
     text-align: left;
     text-align: start;
@@ -2028,16 +2028,17 @@ html {
     padding: 50px 10px;
     position: relative;
 }
-
+/* 
 .one::before {
     content: "1";
-    font-family: Ubuntu, sans-serif;
+    font-family: var(--font-heading-family);
+    font-weight: var(--font-heading-weight);
+    font-style: var(--font-heading-style);
     font-size: 70px;
     color: #F9AE37;
     position: absolute;
     left: 45%;
     top: -100px;
-    font-weight: 700 !important;
 }
 
 .two::before {
@@ -2060,7 +2061,7 @@ html {
     left: 45%;
     top: -100px;
     font-weight: 700 !important;
-}
+} */
 
 @media (max-width: 991px) and (min-width: 768px) {
     .one img, .two img, .three img {
@@ -2073,9 +2074,9 @@ html {
 }
 
 .headings {
-    font-family: Ubuntu, sans-serif !important;
-    font-weight: 700 !important;
-    font-style: normal;
+    font-family: var(--font-heading-family);
+    font-weight: var(--font-heading-weight);
+    font-style: var(--font-heading-style);
     text-rendering: optimizeLegibility;
     font-size: 46px !important;
     word-break: break-word;
@@ -2083,9 +2084,9 @@ html {
 }
 
 .headings-2 {
-    font-family: Lato, sans-serif;
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
     font-weight: 700 !important;
-    font-style: normal;
     text-rendering: optimizeLegibility;
     font-size: 26px !important;
     letter-spacing: 1px;
@@ -2268,13 +2269,15 @@ html {
 
 .product-single__price {
     font-size: 22px !important;
-    font-family: Ubuntu, sans-serif;
-    font-weight: 700 !important;
+    font-family: var(--font-heading-family);
+    font-weight: var(--font-heading-weight);
+    font-style: var(--font-heading-style);
 }
 
 .product-single__description {
     font-size: 20px !important;
-    font-family: Lato, sans-serif;
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
 }
 
 @media (max-width: 767px) {
@@ -2858,7 +2861,9 @@ div[class^='insta-'], div[class*=' insta-'] {
         width: 60%;
         font-size: 18px;
         margin: 30px auto 10px;
-        font-family: Lato, sans-serif;
+        font-family: var(--font-body-family);
+        font-style: var(--font-body-style);
+        font-weight: var(--font-body-weight);
         text-align: center;
     }
 
@@ -2868,11 +2873,12 @@ div[class^='insta-'], div[class*=' insta-'] {
         bottom: 0;
         width: 100%;
         background-color: #F1F1F2;
-        color: #062322;
+        color: var(--color-base-text);
         text-align: center;
-        font-family: Ubuntu, sans-serif;
+        font-family: var(--font-heading-family);
+        font-weight: var(--font-heading-weight);
+        font-style: var(--font-heading-style);
         font-size: 15px;
-        font-weight: 700 !important;
         z-index: 1000;
     }
 

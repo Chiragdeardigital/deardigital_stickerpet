@@ -67,7 +67,9 @@
     width: 30px;
     border: 1px solid;
     /* color: #ffffff; */
-    font-family: 'Ubuntu';
+    font-family: var(--font-heading-family);
+    font-weight: var(--font-heading-weight);
+    font-style: var(--font-heading-style);
     text-transform: uppercase;
     justify-content: center;
     align-items: center;
@@ -76,9 +78,10 @@
 .currency .disclosure__link{
   padding: 0.5rem 10px;
   font-size: 14px;
-  font-family: 'Lato';
-  color: #000;
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
   font-weight: 700;
+  color: #000;
 }
 
 .currency .disclosure__link:hover{

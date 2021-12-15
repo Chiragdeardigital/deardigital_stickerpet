@@ -4528,14 +4528,14 @@ label.error {
 
 .product-single__price,
 .product-single__price--compare-at {
-  font-family: Lato, sans-serif;
+  text-transform: uppercase;
+  /* font-family: Lato, sans-serif;
   font-weight: 700;
   font-style: normal;
   letter-spacing: 0.1em;
-  text-transform: uppercase;
   color: #062322;
   font-size: 1.05882em;
-  font-weight: 700;
+  font-weight: 700; */
 }
 
 .product-single__price.on-sale,
@@ -4890,7 +4890,9 @@ a {
   display: inline-block;
   overflow: hidden;
   color: #F1F1F2;
-  font-family: Ubuntu, sans-serif;
+  font-family: var(--font-heading-family);
+    font-weight: var(--font-heading-weight);
+    font-style: var(--font-heading-style);
   letter-spacing: 1px;
   font-size: 30px;
 }

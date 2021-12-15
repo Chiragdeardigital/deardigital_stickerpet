@@ -60,7 +60,8 @@
 .article-template__title {
   margin: 0;
   font-size: 32px;
-  font-family: 'Ubuntu';
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
   text-transform: uppercase;
 }
 

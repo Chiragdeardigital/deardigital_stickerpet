@@ -49,6 +49,7 @@
         </div>
         <nav class="nav-wrapper">
           <ul class="nav-items site-nav site-nav--init" id="AccessibleNav">
+            {%- unless template == "404" -%}
             {%- for block in section.blocks -%}
             {% case block.type %}
             {%- when 'Menu' -%}
@@ -59,10 +60,11 @@
                 {% if link.links != blank %}{% include "icon-chevron" %}{% endif %}
                 {{ link.title }}
               </a>
-            </li>
-            {%- endfor -%}
+            </li> 
+            {%- endfor -%} 
             {%- endcase -%}
             {%- endfor -%}
+            {%- endunless -%}
 
 
             {% if section.settings.show_multiple_language %}
@@ -148,7 +150,7 @@
           </li>
         {%- endif -%}
 
-          {%- unless template contains 'cart' -%}
+          {%- unless template contains 'cart' or template contains '404' -%}
             <li id="cartBtn" class="nav-item cart" aria-controls="CartDrawer" aria-expanded="true">
 
               <div class="nav-link site-nav__link site-nav__link--icon cart-link js-drawer-open-button-right">
@@ -160,10 +162,11 @@
                 {% endif %}
               </div>
             </li>
-            {%- endunless -%}
+          {%- endunless -%}
           </ul>
 
           <!-- ---------------------------DROPDOWN MENU-------------- -->
+          {%- unless template contains '404' -%}
           {%- for block in section.blocks -%}
           {%- case block.type -%}
           {%- when 'Menu' -%}
@@ -253,6 +256,7 @@
           {%- endfor -%}
           {%- endcase -%}
           {%- endfor -%}
+          {%- endunless -%}  
         </nav>
       </div>
     </div>

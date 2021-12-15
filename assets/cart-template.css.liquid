@@ -75,9 +75,9 @@ input.input-full, select.input-full, textarea.input-full {
   left: 0;
   top: 20px;
   text-align: center;
-  font-family: Ubuntu, sans-serif;
-  font-weight: 700;
-  font-style: normal;
+  font-family: var(--font-heading-family);
+  font-weight: var(--font-heading-weight);
+  font-style: var(--font-heading-style);
   font-size: 20px;
 }
 
@@ -400,30 +400,30 @@ px
 }
 
 .drawer .ajaxcart__qty-num[type=text] {
-  font-family: Lato, sans-serif;
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
   letter-spacing: .1em;
   text-transform: uppercase;
-  font-style: normal;
-  font-weight: 400;
   display: block;
   background: 0 0;
   text-align: center;
   width: 100%;
   padding: 2px 20px;
-  border: 1px solid #062322;
+  border: 1px solid rgb(var(--color-base-text));
 }
 
 .ajaxcart__qty-adjust:hover {
-  background-color: #062322;
+  background-color: rgb(var(--color-base-text));
   color: #fff;
 }
 
 .ajaxcart__price, .cart__price, .cart__subtotal {
-  font-family: Lato, sans-serif;
-  font-style: normal;
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
   letter-spacing: .1em;
   text-transform: uppercase;
-  font-weight: 400;
   font-size: .88235em;
   display: block;
 }
@@ -435,7 +435,7 @@ px
   padding-top: 8px;
   margin-top: 8px;
   flex: 0 0 auto;
-  border-top: 1px solid #062322;
+  border-top: 1px solid rgb(var(--color-base-text));
 }
 
 #add-gift {
@@ -460,9 +460,9 @@ px
 }
 
 .ajaxcart__subtotal {
-  font-family: Lato, sans-serif;
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
   font-weight: 700;
-  font-style: normal;
   letter-spacing: .5px;
   text-transform: capitalize;
   font-size: 12px;
@@ -479,9 +479,9 @@ px
 
 .ajaxcart__ship {
   font-size: 12px;
-  font-family: Lato, sans-serif;
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
   font-weight: 700;
-  font-style: normal;
   letter-spacing: .5px;
   text-transform: none;
   margin-bottom: 5px;
@@ -506,9 +506,11 @@ px
 }
 
 .continue-shopping {
-  background-color: #fff;
+  /* background-color: #fff;
   color: #f9ae37;
-  border: 2px solid #f9ae37;
+  border: 2px solid #f9ae37; */
+  width: 100%;
+  border-radius: 5px;
 }
 
 .ajaxcart__note {

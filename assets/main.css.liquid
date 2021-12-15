@@ -16,8 +16,10 @@ html {
 body {
   font-size: 14.45px;
   line-height: 1.6;
-  font-family: var(--font-heading-family);
-  color: var(--text-color);
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
+  color: rgb(var(--color-base-text));
   font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -74,8 +76,8 @@ h5,
 h6 {
   display: block;
   font-family: var(--font-heading-family);
-  font-weight: 700;
-  font-style: normal;
+  font-weight: var(--font-heading-weight);
+  font-style: var(--font-heading-style);
   line-height: 1.4;
   text-rendering: optimizeLegibility;
   margin-bottom: 0.425em;
@@ -111,14 +113,14 @@ img,
 
 
 .button, .shopify-payment-button .shopify-payment-button__button--unbranded {
-  font-family: var(--font-family-headers);
+  font-family: var(--font-heading-family);
+  font-weight: var(--font-heading-weight);
+  font-style: var(--font-heading-style);
   text-align: center;
   display: block;
   width: fit-content;
   font-size: 15.3px;
   border-radius: 50px;
-  font-weight: 700;
-  font-style: normal;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 12px 20px;
@@ -170,8 +172,9 @@ img,
 }
 
 .logo a{
-  font-family: 'ubuntu';
-  font-weight: 700;
+  font-family: var(--font-heading-family);
+  font-weight: var(--font-heading-weight);
+  font-style: var(--font-heading-style);
   font-size: 15px;
 }
 
@@ -273,8 +276,8 @@ HEADER STYLING
   display: inline-block;
   padding: 15px;
   font-family: var(--font-heading-family);
-  font-weight: 700;
-  font-style: normal;
+  font-weight: var(--font-heading-weight);
+  font-style: var(--font-heading-style);
   transition: color 0.2s;
   text-transform: uppercase;
   font-size: 13.6px;
@@ -758,13 +761,14 @@ PRODUCTS STYLING
 }
 
 .card-item::before {
-  font-family: Ubuntu, sans-serif;
+  font-family: var(--font-heading-family);
+  font-weight: var(--font-heading-weight);
+  font-style: var(--font-heading-style);
   font-size: 59.5px;
   color: rgb(var(--color-base-accent-1));
   position: absolute;
   left: 45%;
   top: -85px;
-  font-weight: 700;
 }
 
 .card-item:nth-child(1)::before {
@@ -819,12 +823,12 @@ IMAGE-WITH-TEXT STYLING
 }
 
 .headings {
-  font-family: var(--font-family-headers);
-  font-style: normal;
+  font-family: var(--font-heading-family);
+  font-weight: var(--font-heading-weight);
+  font-style: var(--font-heading-style);
   text-rendering: optimizeLegibility;
   font-size: 39.1px;
   word-break: break-word;
-  font-weight: 700;
 }
 
 .spacing {
@@ -992,9 +996,9 @@ INSTA-FEED STYLING
 ----------------------------------------------------- */
 
 .insta-feed h2 {
-  font-family: var(--font-family-body);
+  /* font-family: var(--font-family-body);
+  font-weight: 400; */
   text-align: center;
-  font-weight: 400;
 }
 
 .insta-feed .button {
@@ -1121,12 +1125,12 @@ footer .input-group {
 
 .footer-newsletter-input-btn button {
   width: 100%;
-  color: var(--text-color);
+  color: currentColor;
   background-color: transparent;
   height: 45px;
-  font-family: Lato, sans-serif;
-  font-weight: 700;
-  font-style: normal;
+  font-family: var(--font-heading-family);
+  font-weight: var(--font-heading-weight);
+  font-style: var(--font-heading-style);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 12px 10px;
@@ -1565,7 +1569,9 @@ PRODUCT STYLING
 .product-vendor{
   max-width: 380px;
   font-weight: 400;
-  font-family: 'ubuntu';
+  font-family: var(--font-heading-family);
+  font-weight: var(--font-heading-weight);
+  font-style: var(--font-heading-style);
   margin: 0 auto;
   text-align: left;
 }
@@ -1635,13 +1641,13 @@ VIDEO IFRAME STYLING
 }
 
 .iframe-heading {
-  font-family: Lato, sans-serif;
-  font-style: normal;
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
   text-rendering: optimizeLegibility;
   font-size: 26px;
   letter-spacing: 1px;
-  font-weight: 400;
-  color: #062322;
+  color: rgb(var(--color-base-text));
 }
 
 iframe {
@@ -2131,8 +2137,12 @@ FAQ STYLING
     font-size: 12px;
   }
 
+  .hero-title{
+    font-size: 32px;
+  }
+
   .hero-products {
-    min-width: 75%;
+    min-width: auto;
   }
 
   .product-quality .headings {
