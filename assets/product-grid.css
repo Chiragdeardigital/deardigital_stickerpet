@@ -75,11 +75,11 @@
     width: 130px;
 }
 
-@media (max-width: 1024px){
+/* @media (max-width: 1024px){
     .btn {
         letter-spacing: 0;
     }
-}
+} */
 
 @media (max-width: 767px){
     .no-mobile {
