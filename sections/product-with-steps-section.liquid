@@ -54,7 +54,7 @@
             {%- for block in section.blocks -%}
             {%- case block.type -%}
             {%- when 'description' -%}
-            {{ product.metafields.my_fields.mobile_description}}
+            {{ product.description }}
             {%- endcase -%}
             {%- endfor -%}
             <br>
@@ -130,7 +130,7 @@
             {%- case block.type -%}
             {%- when 'description' -%}
             <div class="product-description product-single__description rte no-mobile" itemprop="description">
-              {{product.metafields.my_fields.description}}
+              {{ product.description }}
             </div>
             {%- endcase -%}
             {%- endfor -%}
