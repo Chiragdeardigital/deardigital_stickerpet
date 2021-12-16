@@ -24,35 +24,35 @@
 
 {% schema %}
 {
-    "name": "Faq or plain header/text",
+    "name": "t:sections.faq.name",
     "settings": [
         {
             "id": "title_text",
             "type": "html",
-            "label": "Title(optional)"
+            "label": "t:sections.faq.settings.heading.label"
         }
     ],
     "blocks": [
         {
             "type": "faq_list",
-            "name": "Text",
+            "name": "t:sections.faq.blocks.faq_list.name",
             "settings": [
                 {
                     "id": "header_text",
                     "type": "html",
-                    "label": "Header/Question"
+                    "label": "t:sections.faq.blocks.faq_list.settings.heading.label"
                 },
                 {
                     "id": "para_text",
                     "type": "html",
-                    "label": "Text/Answer"
+                    "label": "t:sections.faq.blocks.faq_list.settings.description.label"
                 }
             ]
         }
     ],
     "presets": [
         {
-            "name": "Faq or plain header/text",
+            "name": "t:sections.faq.presets.name",
             "category": "ADVANCED LAYOUT"
         }
     ]

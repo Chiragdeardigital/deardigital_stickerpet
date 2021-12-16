@@ -66,37 +66,37 @@
 
 {% schema %}
 {
-    "name": "Cutout images",
+    "name": "t:sections.cards-with-hover-effect.name",
     "settings": [
         {
             "id": "title",
             "type": "html",
-            "label": "Title"
+            "label": "t:sections.cards-with-hover-effect.settings.heading.label"
         }
     ],
     "blocks": [
         {
             "type": "cutout_image",
-            "name": "Block",
+            "name": "t:sections.cards-with-hover-effect.blocks.cards.name",
             "settings": [
                 {
                     "id": "original_image",
                     "type": "image_picker",
-                    "label": "Original image",
-                    "info": "This image will be shown by default."
+                    "label": "t:sections.cards-with-hover-effect.blocks.cards.settings.normal_image.label",
+                    "info": "t:sections.cards-with-hover-effect.blocks.cards.settings.normal_image.info"
                 },
                 {
                     "id": "hover_image",
                     "type": "image_picker",
-                    "label": "Hover image",
-                    "info": "This image will be shown on hover."
+                    "label": "t:sections.cards-with-hover-effect.blocks.cards.settings.hover_image.label",
+                    "info": "t:sections.cards-with-hover-effect.blocks.cards.settings.hover_image.info"
                 }
             ]
         }
     ],
     "presets": [
         {
-            "name": "Cutout images",
+            "name": "t:sections.cards-with-hover-effect.presets.name",
             "category": "ADVANCED LAYOUT"
         }
     ]

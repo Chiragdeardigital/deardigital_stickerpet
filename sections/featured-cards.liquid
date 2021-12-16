@@ -32,64 +32,72 @@
 
 {% schema %}
 {
-    "name": "Home page cards",
+    "name": "Featured cards",
     "settings": [
       {
         "type": "select",
         "id": "grp_card_background",
-        "info" : "Background color for the section",
-        "options": [
-          {
-            "label": "Accent 2",
-            "value": "accent-2"
-          },
-          {
-            "label": "Background 1",
-            "value": "background-1"
-          },
-          {
-            "label": "Background 2",
-            "value": "background-2"
-          },
-          {
-            "label": "Background 3",
-            "value": "background-3"
-          },
-          {
-            "label": "Background 4",
-            "value": "background-4"
-          },
-          {
-            "label": "Inverse",
-            "value": "inverse"
-          }
-      ],
-      "label": "Color Scheme",
-      "default": "background-3"
+        "info" : "t:sections.featured-cards.settings.color_scheme.info",
+          "options": [
+             {
+               "label": "t:sections.featured-cards.settings.color_scheme.options__1.label",
+               "value": "accent-1"
+             },
+             {
+               "label": "t:sections.featured-cards.settings.color_scheme.options__2.label",
+               "value": "accent-2"
+             },
+             {
+               "label": "t:sections.featured-cards.settings.color_scheme.options__3.label",
+               "value": "background-1"
+             },
+             {
+               "label": "t:sections.featured-cards.settings.color_scheme.options__4.label",
+               "value": "background-2"
+             },
+             {
+               "label": "t:sections.featured-cards.settings.color_scheme.options__5.label",
+               "value": "background-3"
+             },
+             {
+               "label": "t:sections.featured-cards.settings.color_scheme.options__6.label",
+               "value": "background-4"
+             },
+             {
+               "label": "t:sections.featured-cards.settings.color_scheme.options__7.label",
+               "value": "background-5"
+             },
+             {
+               "label": "t:sections.featured-cards.settings.color_scheme.options__8.label",
+               "value": "inverse"
+             }
+          ],
+          "label": "t:sections.featured-cards.settings.color_scheme.label",
+        "default": "background-3"
     }
     ],
     "blocks": [
         {
             "type": "cards",
-            "name": "Card",
+            "name": "t:sections.featured-cards.blocks.Cards.name",
             "limit": 3,
             "settings": [
                 {
                     "id": "card_image",
                     "type": "image_picker",
-                    "label": "Add image"
+                    "label": "t:sections.featured-cards.blocks.Cards.settings.image.label"
                 },
                 {
                     "id": "text",
                     "type": "text",
-                    "label": "Card text"
+                    "label": "t:sections.featured-cards.blocks.Cards.settings.card_text.label"
                 }
             ]
         }
     ],
     "presets": [
         {
-            "name": "Cards",
+            "name": "t:sections.featured-cards.presets.name",
             "category": "ADVANCED LAYOUT"
         }
     ]

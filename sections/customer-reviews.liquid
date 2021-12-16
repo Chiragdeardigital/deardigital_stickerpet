@@ -64,98 +64,98 @@
 </div>
 {% schema %}
 {
-    "name": "Customer Reviews",
+    "name": "t:sections.customer-review.name",
     "settings": [
     {
       "type": "select",
       "id": "customer_reviews_color_scheme",
-      "info" : "Choose a background",
-      "options": [
-         {
-           "label": "Accent 1",
-           "value": "accent-1"
-         },
-         {
-           "label": "Accent 2",
-           "value": "accent-2"
-         },
-         {
-           "label": "Background 1",
-           "value": "background-1"
-         },
-         {
-           "label": "Background 2",
-           "value": "background-2"
-         },
-         {
-           "label": "Background 3",
-           "value": "background-3"
-         },
-         {
-           "label": "Background 4",
-           "value": "background-4"
-         },
-         {
-           "label": "Background 5",
-           "value": "background-5"
-         },
-         {
-           "label": "Inverse",
-           "value": "inverse"
-         }
-      ],
-      "label": "Color Scheme",
-      "default": "background-3"
-    }
+      "info" : "t:sections.customer-review.settings.color_scheme.info",
+          "options": [
+             {
+               "label": "t:sections.customer-review.settings.color_scheme.options__1.label",
+               "value": "accent-1"
+             },
+             {
+               "label": "t:sections.customer-review.settings.color_scheme.options__2.label",
+               "value": "accent-2"
+             },
+             {
+               "label": "t:sections.customer-review.settings.color_scheme.options__3.label",
+               "value": "background-1"
+             },
+             {
+               "label": "t:sections.customer-review.settings.color_scheme.options__4.label",
+               "value": "background-2"
+             },
+             {
+               "label": "t:sections.customer-review.settings.color_scheme.options__5.label",
+               "value": "background-3"
+             },
+             {
+               "label": "t:sections.customer-review.settings.color_scheme.options__6.label",
+               "value": "background-4"
+             },
+             {
+               "label": "t:sections.customer-review.settings.color_scheme.options__7.label",
+               "value": "background-5"
+             },
+             {
+               "label": "t:sections.customer-review.settings.color_scheme.options__8.label",
+               "value": "inverse"
+             }
+          ],
+          "label": "t:sections.customer-review.settings.color_scheme.label",
+          "default": "background-3"
+      }
     ],
     "blocks": [
         {
             "type": "human_review",
-            "name": "Human Review",
+            "name": "t:sections.customer-review.blocks.human_review.name",
             "settings": [
                 {
                     "id": "review_image",
                     "type": "image_picker",
-                    "label": "Add image"
+                    "label": "t:sections.customer-review.blocks.human_review.settings.image.label"
                 },
                 {
                     "id": "review_text",
                     "type": "html",
-                    "label": "Text",
+                    "label": "t:sections.customer-review.blocks.human_review.settings.review.label",
                     "default": "<i>“The comment by the reviewer goes here </i>🐶”<br><i>- name goes here, human</i>",
-                    "info": "Change the text only and don't remove the tags i.e., '<i>,<br>', if you don't know what they are."
+                    "info": "t:sections.customer-review.blocks.human_review.settings.review.info"
                 },
                 {
                   "id": "typed_text_human",
                   "type": "text",
-                  "label": "Text",
+                  "label": "t:sections.customer-review.blocks.human_review.settings.typed_text_human.label",
                   "default" : "any text",
-                  "info": "Enter the words for typing effect separated with comma(,) eg. text1,text2"
+                  "info": "t:sections.customer-review.blocks.human_review.settings.typed_text_human.info"
                 }
             ]
         },
         {
           "type": "pet_review",
-          "name": "Pet Review",
+          "name": "t:sections.customer-review.blocks.pet_review.name",
           "settings": [
               {
                   "id": "review_image",
                   "type": "image_picker",
-                  "label": "Add image"
+                  "label": "t:sections.customer-review.blocks.pet_review.settings.image.label"
               },
               {
                   "id": "review_text",
                   "type": "html",
-                  "label": "Text",
+                  "label": "t:sections.customer-review.blocks.pet_review.settings.review.label",
                   "default": "<i>“The comment by the reviewer goes here </i>🐶”<br><i>- name goes here, pet</i>",
-                  "info": "Change the text only and don't remove the tags i.e., '<i>,<br>', if you don't know what they are."
+                  "info": "t:sections.customer-review.blocks.pet_review.settings.review.info"
               },
               {
                 "id": "typed_text_pet",
                 "type": "text",
-                "label": "Text",
+                "label": "t:sections.customer-review.blocks.pet_review.settings.typed_text_human.label",
                 "default" : "any text",
-                "info": "Enter the words for typing effect separated with comma(,) eg. text1,text2"
+                "info": "t:sections.customer-review.blocks.pet_review.settings.typed_text_human.info"
               }
           ]
       }
@@ -163,7 +163,7 @@
     ],
     "presets": [
         {
-            "name": "Reviews",
+            "name": "t:sections.customer-review.presets.name",
             "category": "ADVANCED LAYOUT"
         }
     ]

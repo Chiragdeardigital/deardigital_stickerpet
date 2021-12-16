@@ -74,7 +74,7 @@
 
 {% schema %}
 {
-    "name": "Collage",
+    "name": "t:sections.collage.name",
     "settings": [
         {
           "type": "select",
@@ -82,136 +82,136 @@
           "options": [
             {
               "value": "image_first",
-              "label": "Image First"
+              "label": "t:sections.collage.settings.layout.options__1.label"
             },
             {
               "value": "text_first",
-              "label": "Text First"
+              "label": "t:sections.collage.settings.layout.options__2.label"
             }
           ],
           "default": "image_first",
-          "label": "Desktop Layout",
-          "info" : "Image first is the default mobile layout."
+          "label": "t:sections.collage.settings.layout.label",
+          "info" : "t:sections.collage.settings.layout.info"
         },
         {
           "type": "select",
           "id": "collage_color_scheme",
-          "info" : "Choose a background",
+          "info" : "t:sections.collage.settings.color_scheme.info",
           "options": [
              {
-               "label": "Accent 1",
+               "label": "t:sections.collage.settings.color_scheme.options__1.label",
                "value": "accent-1"
              },
              {
-               "label": "Accent 2",
+               "label": "t:sections.collage.settings.color_scheme.options__2.label",
                "value": "accent-2"
              },
              {
-               "label": "Background 1",
+               "label": "t:sections.collage.settings.color_scheme.options__3.label",
                "value": "background-1"
              },
              {
-               "label": "Background 2",
+               "label": "t:sections.collage.settings.color_scheme.options__4.label",
                "value": "background-2"
              },
              {
-               "label": "Background 3",
+               "label": "t:sections.collage.settings.color_scheme.options__5.label",
                "value": "background-3"
              },
              {
-               "label": "Background 4",
+               "label": "t:sections.collage.settings.color_scheme.options__6.label",
                "value": "background-4"
              },
              {
-               "label": "Background 5",
+               "label": "t:sections.collage.settings.color_scheme.options__7.label",
                "value": "background-5"
              },
              {
-               "label": "Inverse",
+               "label": "t:sections.collage.settings.color_scheme.options__8.label",
                "value": "inverse"
              }
           ],
-          "label": "Color Scheme",
+          "label": "t:sections.collage.settings.color_scheme.label",
           "default": "background-5"
         },
         {
             "id": "header_text",
             "type": "text",
-            "label": "Heading",
+            "label": "t:sections.collage.settings.desktop_heading.label",
             "default": "Multimedia collage"
         },
         {
             "id": "para_text",
             "type": "html",
-            "label": "Text",
+            "label": "t:sections.collage.settings.desktop_description.label",
             "default": "Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review."
         },
         {
             "id": "mobile_header_text",
             "type": "html",
-            "label": "Mobile Heading",
+            "label": "t:sections.collage.settings.mobile_heading.label",
             "default": "Multimedia collage"
         },
         {
             "id": "mobile_para_text",
             "type": "html",
-            "label": "Mobile Text",
+            "label": "t:sections.collage.settings.mobile_description.label",
             "default": "Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review."
         }
     ],
     "blocks": [
         {
             "type": "collage_image",
-            "name": "Image",
+            "name": "t:sections.collage.blocks.image.name",
             "limit": 4,
             "settings": [
                 {
                     "id": "collage_image",
                     "type": "image_picker",
-                    "label": "Add image"
+                    "label": "t:sections.collage.blocks.image.settings.image.label"
                 }
             ]
         },
         {
             "type": "grp_buttons",
-            "name": "Button",
+            "name": "t:sections.collage.blocks.button.name",
             "limit": 3,
             "settings": [
                 {
                     "id": "btn_text",
                     "type": "text",
-                    "label": "Button text",
+                    "label": "t:sections.collage.blocks.button.settings.button_text.label",
                     "default": "Button Label"
                 },
                 {
                     "id": "btn_url",
                     "type": "url",
-                    "label": "Button url"
+                    "label": "t:sections.collage.blocks.button.settings.button_url.label"
                 }
             ]
         },
         {
             "type": "mobilebuttons",
-            "name": "Mobile Button",
+            "name": "t:sections.collage.blocks.mobile_button.name",
             "limit": 1,
             "settings": [
                 {
                     "id": "mobile_btn_text",
                     "type": "text",
-                    "label": "Mobile Button text",
+                    "label": "t:sections.collage.blocks.mobile_button.settings.mobile_button_text.label",
                     "default": "Button Label"
                 },
                 {
                     "id": "mobile_btn_url",
                     "type": "url",
-                    "label": "Mobile Button url"
+                    "label": "t:sections.collage.blocks.mobile_button.settings.mobile_button_url.label"
                 }
             ]
         }
     ],
     "presets": [
         {
-            "name": "Collage",
+            "name": "t:sections.collage.presets.name",
             "category": "ADVANCED LAYOUT"
         }
     ]

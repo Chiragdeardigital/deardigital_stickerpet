@@ -191,95 +191,95 @@
 
 {% schema %}
 {
-    "name": "Footer",
+    "name": "t:sections.footer.name",
     "settings": [
     {
       "type": "select",
       "id": "footer_color_scheme",
-      "info" : "Choose a background",
-      "options": [
-         {
-           "label": "Accent 1",
-           "value": "accent-1"
-         },
-         {
-           "label": "Accent 2",
-           "value": "accent-2"
-         },
-         {
-           "label": "Background 1",
-           "value": "background-1"
-         },
-         {
-           "label": "Background 2",
-           "value": "background-2"
-         },
-         {
-           "label": "Background 3",
-           "value": "background-3"
-         },
-         {
-           "label": "Background 4",
-           "value": "background-4"
-         },
-         {
-           "label": "Background 5",
-           "value": "background-5"
-         },
-         {
-           "label": "Inverse",
-           "value": "inverse"
-         }
-      ],
-      "label": "Color Scheme",
-      "default": "background-3"
-    },
+      "info" : "t:sections.footer.settings.color_scheme.info",
+          "options": [
+             {
+               "label": "t:sections.footer.settings.color_scheme.options__1.label",
+               "value": "accent-1"
+             },
+             {
+               "label": "t:sections.footer.settings.color_scheme.options__2.label",
+               "value": "accent-2"
+             },
+             {
+               "label": "t:sections.footer.settings.color_scheme.options__3.label",
+               "value": "background-1"
+             },
+             {
+               "label": "t:sections.footer.settings.color_scheme.options__4.label",
+               "value": "background-2"
+             },
+             {
+               "label": "t:sections.footer.settings.color_scheme.options__5.label",
+               "value": "background-3"
+             },
+             {
+               "label": "t:sections.footer.settings.color_scheme.options__6.label",
+               "value": "background-4"
+             },
+             {
+               "label": "t:sections.footer.settings.color_scheme.options__7.label",
+               "value": "background-5"
+             },
+             {
+               "label": "t:sections.footer.settings.color_scheme.options__8.label",
+               "value": "inverse"
+             }
+          ],
+          "label": "t:sections.footer.settings.color_scheme.label",
+          "default": "background-3"
+        },
         {
             "id": "top_header_text",
             "type": "text",
-            "label": "Top Header",
+            "label": "t:sections.footer.settings.top_header_text.label",
             "default": "Receive our latest updates and love ❤️"
         },
         {
             "id": "bottom_header_text",
             "type": "text",
-            "label": "Bottom Header",
+            "label": "t:sections.footer.settings.bottom_header_text.label",
             "default": "Shipped from Belgium 🇧🇪 straight to your mailbox © Sticker Life"
         },
         {
             "id": "footer_image",
             "type": "image_picker",
-            "label": "Add image"
+            "label": "t:sections.footer.settings.footer_image.label"
         },
         {
           "type": "checkbox",
           "id": "show_social",
           "default": false,
-          "label": "Show social media icons"
+          "label": "t:sections.footer.settings.show_social.label"
         }
     ],
     "blocks": [
         {
             "type": "text",
-            "name": "Social link",
+            "name": "t:sections.footer.blocks.text.name",
             "settings": [
                 {
                     "id": "link_text",
                     "type": "html",
-                    "label": "Link text",
+                    "label": "t:sections.footer.blocks.text.settings.heading.label",
                     "default": "NEW"
                 },
                 {
                     "id": "link_url",
                     "type": "url",
-                    "label": "Link url"
+                    "label": "t:sections.footer.blocks.text.settings.link_url.label"
                 }
             ]
         }
     ],
     "presets": [
         {
-            "name": "Footer",
+            "name": "t:sections.footer.presets.name",
             "category": "ADVANCED LAYOUT"
         }
     ]

@@ -50,22 +50,22 @@
 
 {% schema %}
 {
-    "name": "Homepage Hero Section",
+    "name": "t:sections.hero-with-products.name",
     "settings": [
         {
             "type": "collection",
             "id": "feature_collection",
-            "label": "Featured collection"
+            "label": "t:sections.hero-with-products.settings.hero_with_text_products_collection.label"
         },
         {
             "id": "text_1",
             "type": "text",
-            "label": "Text before typed text"
+            "label": "t:sections.hero-with-products.settings.text_1.label"
         },
         {
             "id": "text_2",
             "type": "text",
-            "label": "Text after typed text"
+            "label": "t:sections.hero-with-products.settings.text_2.label"
         },
         {
           "type": "select",
@@ -73,98 +73,81 @@
           "options": [
             {
               "value": "left",
-              "label": "left"
+              "label": "t:sections.hero-with-products.settings.hero_text_allignment.left.label"
             },
             {
               "value": "center",
-              "label": "center"
+              "label": "t:sections.hero-with-products.settings.hero_text_allignment.center.label"
             },
             {
               "value": "right",
-              "label": "right"
+              "label": "t:sections.hero-with-products.settings.hero_text_allignment.right.label"
             }
           ],
           "default": "center",
-          "label": "Type Text allignment",
-          "info" : "select any one to align the type text. By default it will be in center."
+          "label": "t:sections.hero-with-products.settings.hero_text_allignment.label",
+          "info" : "t:sections.hero-with-products.settings.hero_text_allignment.info"
         },
         {
            "type": "select",
            "id": "hero_color_scheme",
-           "info" : "choose a background",
-           "options": [
-              {
-                "label": "Accent 1",
-                "value": "accent-1"
-              },
-              {
-                "label": "Accent 2",
-                "value": "accent-2"
-              },
-              {
-                "label": "Background 1",
-                "value": "background-1"
-              },
-              {
-                "label": "Background 2",
-                "value": "background-2"
-              },
-              {
-                "label": "Background 3",
-                "value": "background-3"
-              },
-              {
-                "label": "Background 4",
-                "value": "background-4"
-              },
-              {
-                "label": "Background 5",
-                "value": "background-5" 
-              },
-              {
-                "label": "Inverse",
-                "value": "inverse"
-              }
-         ],
-         "label": "Color Scheme",
+           "info" : "t:sections.hero-with-products.settings.color_scheme.info",
+          "options": [
+             {
+               "label": "t:sections.hero-with-products.settings.color_scheme.options__1.label",
+               "value": "accent-1"
+             },
+             {
+               "label": "t:sections.hero-with-products.settings.color_scheme.options__2.label",
+               "value": "accent-2"
+             },
+             {
+               "label": "t:sections.hero-with-products.settings.color_scheme.options__3.label",
+               "value": "background-1"
+             },
+             {
+               "label": "t:sections.hero-with-products.settings.color_scheme.options__4.label",
+               "value": "background-2"
+             },
+             {
+               "label": "t:sections.hero-with-products.settings.color_scheme.options__5.label",
+               "value": "background-3"
+             },
+             {
+               "label": "t:sections.hero-with-products.settings.color_scheme.options__6.label",
+               "value": "background-4"
+             },
+             {
+               "label": "t:sections.hero-with-products.settings.color_scheme.options__7.label",
+               "value": "background-5"
+             },
+             {
+               "label": "t:sections.hero-with-products.settings.color_scheme.options__8.label",
+               "value": "inverse"
+             }
+          ],
+          "label": "t:sections.hero-with-products.settings.color_scheme.label",
          "default": "background-1"
        }
     ],
     "blocks": [
         {
             "type": "typed_text",
-            "name": "Typed text",
+            "name": "t:sections.hero-with-products.blocks.hero_typed_text.name",
 			      "limit":1,
             "settings": [
                 {
                     "id": "typed_text",
                     "type": "text",
-                    "label": "Text",
-					          "info": "Enter the words for typing effect separated with comma(,) eg. text1,text2"
-                },
-                {
-                  "type": "select",
-                  "id": "type_text_color",
-                  "label": "Color",
-                  "default": "text-accent-2",
-                  "info" : "choose a color",
-                  "options": [
-                  {
-                   "label": "accent 1",
-                   "value": "text-accent-1"
-                   },
-                   {
-                   "label": "accent 2",
-                   "value": "text-accent-2"
-                   }
-                ]
-              }
+                    "label": "t:sections.hero-with-products.blocks.hero_typed_text.settings.typed_text.label",
+					          "info": "t:sections.hero-with-products.blocks.hero_typed_text.settings.typed_text.info"
+                }
             ]
         }
     ],
     "presets": [
         {
-            "name": "Hero Section",
+            "name": "t:sections.hero-with-products.presets.name",
             "category": "ADVANCED LAYOUT"
         }
     ]
