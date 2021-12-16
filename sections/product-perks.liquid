@@ -32,23 +32,23 @@
 
 {% schema %}
 {
-    "name": "Product perks",
+    "name": "t:sections.product-perks.name",
     "settings": [],
     "blocks": [
         {
             "type": "perk",
-            "name": "Perk",
- 			"limit": 4,
+            "name": "t:sections.product-perks.blocks.perk.name",
+ 			      "limit": 4,
             "settings": [
                 {
                     "id": "perk_image",
                     "type": "image_picker",
-                    "label": "Add image"
+                    "label": "t:sections.product-perks.blocks.perk.settings.perk_image.label"
                 },
                 {
                     "id": "perk_text",
                     "type": "text",
-                    "label": "Text",
+                    "label": "t:sections.product-perks.blocks.perk.settings.perk_text.label",
                     "default": "Some text"
                 }
             ]
@@ -56,7 +56,7 @@
     ],
     "presets": [
         {
-            "name": "Product perks",
+            "name": "t:sections.product-perks.presets.name",
             "category": "ADVANCED LAYOUT"
         }
     ]

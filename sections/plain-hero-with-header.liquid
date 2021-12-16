@@ -1,5 +1,5 @@
-<section class="faq-hero color-{{ section.settings.color_scheme }}">
-  <div class="hero-text color-{{ section.settings.hero_text_color}}">
+<section class="faq-hero color-{{ section.settings.plain_hero_color_scheme }}">
+  <div class="hero-text">
     <h1 class="headings">{{ section.settings.header_text }}</h1>
   </div>
 </section>
@@ -7,55 +7,58 @@
 
 {% schema %}
 {
-    "name": "Plain hero with header",
+    "name": "t:sections.plain-hero-with-header.name",
     "settings": [
-            {
-            "type": "select",
-            "id": "color_scheme",
-            "label": "Color Scheme",
-            "default": "gradient-background",
-            "info" : "choose a background",
-            "options": [
-            {
-                "label": "Background 1",
-                "value": "gradient-background"
-                },
-                {
-                "label": "Background 2",
-                "value": "gradient-background-1"
-                },
-                {
-                "label": "Background 3",
-                "value": "gradient-background-2"
-                }
-            ]
-        },
         {
             "type": "select",
-            "id": "hero_text_color",
-            "label": "Color",
-            "default": "text-accent-2",
-            "info" : "choose a color",
+            "id": "plain_hero_color_scheme",
+            "info": "t:sections.plain-hero-with-header.settings.color_scheme.info",
             "options": [
-            {
-            "label": "accent 1",
-            "value": "text-accent-1"
-            },
-            {
-            "label": "accent 2",
-            "value": "text-accent-2"
-            }
-            ]
+              {
+                "label": "t:sections.plain-hero-with-header.settings.color_scheme.options__1.label",
+                "value": "accent-1"
+              },
+              {
+                "label": "t:sections.plain-hero-with-header.settings.color_scheme.options__2.label",
+                "value": "accent-2"
+              },
+              {
+                "label": "t:sections.plain-hero-with-header.settings.color_scheme.options__3.label",
+                "value": "background-1"
+              },
+              {
+                "label": "t:sections.plain-hero-with-header.settings.color_scheme.options__4.label",
+                "value": "background-2"
+              },
+              {
+                "label": "t:sections.plain-hero-with-header.settings.color_scheme.options__5.label",
+                "value": "background-3"
+              },
+              {
+                "label": "t:sections.plain-hero-with-header.settings.color_scheme.options__6.label",
+                "value": "background-4"
+              },
+              {
+                "label": "t:sections.plain-hero-with-header.settings.color_scheme.options__7.label",
+                "value": "background-5"
+              },
+              {
+                "label": "t:sections.plain-hero-with-header.settings.color_scheme.options__8.label",
+                "value": "inverse"
+              }
+            ],
+            "label": "t:sections.plain-hero-with-header.settings.color_scheme.label",
+            "default": "background-4"
         },
         {
             "id": "header_text",
             "type": "text",
-            "label": "Header"
+            "label": "t:sections.plain-hero-with-header.settings.heading.label"
         }
     ],
     "presets": [
         {
-            "name": "Plain hero with header",
+            "name": "t:sections.plain-hero-with-header.presets.name",
             "category": "ADVANCED LAYOUT"
         }
     ]

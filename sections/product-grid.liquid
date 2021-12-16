@@ -4,7 +4,7 @@
     <h2 class="h3 headings text-center no-mobile marg-bot" style="font-size: 35px !important;">{{section.settings.product_grid_heading}}<span class="grid_heading_subtext"> {{section.settings.product_grid_subtext}}</span></h2>
     <h2 class="h3 headings text-center no-desktop marg-bot marg-top-xxl" style="font-size: 30px !important;">{{section.settings.product_grid_heading}}<span style="font-size: 16px;"> {{section.settings.product_grid_subtext}}</span></h2>
     <div class="row">
-      {% for product in collection.products %}
+      {% for product in collections[section.settings.collection_selected_grid].products %}
       {% if product.price > 0 %}
       <div class="col-md-4 flex-center">
         <div class="classic-products products">
@@ -47,34 +47,32 @@
 
   {% schema %}
 {
-    "name": "Product Grid",
+    "name": "t:sections.product-grid.name",
     "settings": [
         {
             "type": "html",
             "id": "product_grid_heading",
             "default": "Product Grid Heading",
-            "label": "Product Grid Heading"
+            "label": "t:sections.product-grid.settings.heading.label"
         },
         {
           "type": "html",
           "id": "product_grid_subtext",
           "default": "product grid subtext",
-          "label": "Product Grid description"
+          "label": "t:sections.product-grid.settings.sub_text.label"
         },
         {
           "type": "collection",
           "id": "collection_selected_grid",
-          "label": "Select a collection"
+          "label": "t:sections.product-grid.settings.collection.label"
         }
-        
-        
     ],
     "blocks": [
       
     ],
     "presets": [
         {
-            "name": "Product Grid",
+            "name": "t:sections.product-grid.presets.name",
             "category": "ADVANCED LAYOUT"
         }
     ]

@@ -703,127 +703,126 @@
 
 {% schema %}
 {
-    "name": "Product template",
-    "settings": [
-          {
-            "type": "select",
-            "id": "product_main_color_scheme",
-            "info" : "choose a background",
-            "options": [
-              {
-                "label": "Accent 1",
-                "value": "accent-1"
-              },
-              {
-                "label": "Accent 2",
-                "value": "accent-2"
-              },
-              {
-                "label": "Background 1",
-                "value": "background-1"
-              },
-              {
-                "label": "Background 2",
-                "value": "background-2"
-              },
-              {
-                "label": "Background 3",
-                "value": "background-3"
-              },
-              {
-                "label": "Background 4",
-                "value": "background-4"
-              },
-              {
-                "label": "Background 5",
-                "value": "background-5"
-              },
-              {
-                "label": "Inverse",
-                "value": "inverse"
-              }
-            ],
-            "label": "Color Scheme",
-            "default": "background-4"
-          }
-          
-    ],
-    "blocks": [
-      {
-        "type": "@app" 
-      },
-      {
-        "type": "quantity_selector",
-        "name": "Quantity selector",
-        "limit": 1
-      },
-      {
-        "type": "text",
-        "name": "text",
-        "settings": [
-          {
-            "type": "text",
-            "id": "text",
-            "label": "text block"
-          },
-          {
-            "type": "select",
-            "id": "text_style",
-            "options": [
-              {
-                "value": "body",
-                "label": "body"
-              },
-              {
-                "value": "subtitle",
-                "label": "subtitle"
-              },
-              {
-                "value": "uppercase",
-                "label": "uppercase"
-              }
-            ],
-            "default": "body",
-            "label": "Text style"
-          }
-        ]
-      },
-      {
-        "type": "buy_buttons",
-        "name": "Buy button",
-        "limit": 1,
-        "settings": [
-          {
-            "type": "checkbox",
-            "id": "show_dynamic_checkout",
-            "default": true,
-            "label": "Show dynamic checkout buttons",
-            "info": "Using the payment methods available on your store, customers see their preferred option, like PayPal or Apple Pay"
-          }
-        ]
-      },
-      {
-        "type": "title",
-        "name": "Title",
-        "limit": 1
-      },
-      {
-        "type": "price",
-        "name": "Price",
-        "limit": 1
-      },
-      {
-        "type": "description",
-        "name": "Description",
-        "limit": 1
-      }
-    ],
-    "presets": [
+  "name": "t:sections.product-main.name",
+  "settings": [
+    {
+      "type": "select",
+      "id": "product_main_color_scheme",
+      "info": "t:sections.product-main.settings.color_scheme.info",
+      "options": [
         {
-            "name": "Product template",
-            "category": "ADVANCED LAYOUT"
+          "label": "t:sections.product-main.settings.color_scheme.options__1.label",
+          "value": "accent-1"
+        },
+        {
+          "label": "t:sections.product-main.settings.color_scheme.options__2.label",
+          "value": "accent-2"
+        },
+        {
+          "label": "t:sections.product-main.settings.color_scheme.options__3.label",
+          "value": "background-1"
+        },
+        {
+          "label": "t:sections.product-main.settings.color_scheme.options__4.label",
+          "value": "background-2"
+        },
+        {
+          "label": "t:sections.product-main.settings.color_scheme.options__5.label",
+          "value": "background-3"
+        },
+        {
+          "label": "t:sections.product-main.settings.color_scheme.options__6.label",
+          "value": "background-4"
+        },
+        {
+          "label": "t:sections.product-main.settings.color_scheme.options__7.label",
+          "value": "background-5"
+        },
+        {
+          "label": "t:sections.product-main.settings.color_scheme.options__8.label",
+          "value": "inverse"
         }
-    ]
+      ],
+      "label": "t:sections.product-main.settings.color_scheme.label",
+      "default": "background-4"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "quantity_selector",
+      "name": "t:sections.product-main.blocks.quantity_selector.name",
+      "limit": 1
+    },
+    {
+      "type": "text",
+      "name": "t:sections.product-main.blocks.text.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:sections.product-main.blocks.text.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "body",
+              "label": "t:sections.product-main.blocks.text.settings.text_style.options__1.label"
+            },
+            {
+              "value": "subtitle",
+              "label": "t:sections.product-main.blocks.text.settings.text_style.options__2.label"
+            },
+            {
+              "value": "uppercase",
+              "label": "t:sections.product-main.blocks.text.settings.text_style.options__3.label"
+            }
+          ],
+          "default": "body",
+          "label": "t:sections.product-main.blocks.text.settings.text_style.label"
+        }
+      ]
+    },
+    {
+      "type": "buy_buttons",
+      "name": "t:sections.product-main.blocks.buy_buttons.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_dynamic_checkout",
+          "default": true,
+          "label": "t:sections.product-main.blocks.buy_buttons.settings.show_dynamic_checkout.label",
+          "info": "t:sections.product-main.blocks.buy_buttons.settings.show_dynamic_checkout.info"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "t:sections.product-main.blocks.title.name",
+      "limit": 1
+    },
+    {
+      "type": "price",
+      "name": "t:sections.product-main.blocks.price.name",
+      "limit": 1
+    },
+    {
+      "type": "description",
+      "name": "t:sections.product-main.blocks.description.name",
+      "limit": 1
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.product-main.presets.name",
+      "category": "ADVANCED LAYOUT"
+    }
+  ]
 }
 {% endschema %} 
 {% javascript %}
