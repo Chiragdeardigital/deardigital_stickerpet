@@ -20,7 +20,7 @@
           {%- for block in section.blocks -%}
             {%- case block.type -%}
             {%- when 'description' -%}
-             {{ product.metafields.my_fields.mobile_description }}
+            {{ product.metafields.my_fields.mobile_description }}
             {%- endcase -%}
             {%- endfor -%}
             <br>
@@ -96,10 +96,11 @@
               {%- for block in section.blocks -%}
               {%- case block.type -%}
               {%- when 'description' -%}
-              <div class="product-single-description" itemprop="description">
-                <p>{{product.metafields.my_fields.description}}</p>
-                <p><em>Delivery time: 4 - 8 days<br></em><em>Shipped from Belgium<br></em></p>
-              </div>
+                {%- if product.description != blank -%}
+                <div class="product-single-description" itemprop="description">
+                  <p>{{ product.description }}</p>
+                </div>
+                {%- endif -%}
               {%- endcase -%}
               {%- endfor -%}
               {% capture "form_classes" %}
@@ -125,14 +126,17 @@
                     {% endif %}
                   {% endfor %}
                 </select>
-            
+
+                {%- for block in section.blocks -%}
+                {%- case block.type -%}
+                {%- when 'upload' -%}
                 <div class="line-item-property__field box has-advanced-upload">
                   <div class="box__input">
                     <input type="hidden" name="sections" value="cart-total-price,cart-items-template">
                     <input id="image" required type="file" class="box__file required" accept="image/*"
                             enctype="multipart/form-data"
-                           name="properties[Image we will cut out ✂️]"
-                           />
+                          name="properties[Image we will cut out ✂️]"
+                          />
                     <label for="image"><strong>UPLOAD</strong><span
                                                                     class="box__dragndrop"></span></label>
                     <label for="image">
@@ -143,11 +147,11 @@
                             loading="lazy">
                       </span>
                     </label>
-                    
-                   
                   </div>
-
                 </div>
+                {%- endcase -%}
+                {%- endfor -%}
+
                 {%- for block in section.blocks -%}
                 {%- case block.type -%}
                 {%- when 'quantity_selector' -%}
@@ -193,7 +197,7 @@
                   {%- endfor -%}
                 </div>
           
-               {% endform %}
+              {% endform %}
               
             </div>
 

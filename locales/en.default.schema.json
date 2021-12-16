@@ -2670,6 +2670,9 @@
         "quantity_selector": {
           "name": "Quantity selector"
         },
+        "upload": {
+          "name": "Upload button"
+        },
         "variant_picker": {
           "name": "Variant picker",
           "settings": {

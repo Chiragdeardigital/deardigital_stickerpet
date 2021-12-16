@@ -21,7 +21,7 @@
 
 <div class="blue-background color-{{ section.settings.product_main_color_scheme }}">
 <!-- /templates/product.liquid -->
- 
+
 <div class="wrapper padd-bot-xl min-height-element" itemscope itemtype="http://schema.org/Product" id="ProductSection--product-custom-template"
   data-section-id="{{ section.id }}"
   data-section-type="product-template"
@@ -45,7 +45,7 @@
           {%- for block in section.blocks -%}
             {%- case block.type -%}
             {%- when 'description' -%}
-              {{ product.metafields.my_fields.mobile_description}}
+            {{ product.description }}
           {%- endcase -%}
           {%- endfor -%}
           <br>
@@ -105,8 +105,8 @@
           </h1>
           
           {% comment %}
-			<span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
-			{% endcomment %}
+      <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
+      {% endcomment %}
           <div class="center-it" style="max-width: 380px;">           
             <div class="no-mobile">
               <div class="no-js-hidden price-{{ section.id }}" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
@@ -250,7 +250,7 @@
                     <option {% if variant == product.selected_or_first_available_variant %}
                       selected="selected" {% endif %}
                       data-sku="{{ variant.sku }}"
-					  data-avaliable="{% if variant.available %}yes{% else %}no{% endif %}"
+            data-avaliable="{% if variant.available %}yes{% else %}no{% endif %}"
                       value="{{ variant.id }}"
                       variant-name="{{ variant.title }}">
                       {{ variant.title }} - {{ variant.price | money_with_currency }}
@@ -258,24 +258,29 @@
                 {% endfor %}
               </select>
             
-            <div class="line-item-property__field box">
-            <div class="box__input">              
-              <input type="hidden" name="properties[Image we will cut out ✂️]" value="No">
-              <input id="image" required  type="file" class="box__file required" data-multiple-caption="Error {count} files selected" accept="image/*" name="properties[Image we will cut out ✂️]" value="Yes" enctype="multipart/form-data" />
-              <label for="image"><strong>UPLOAD</strong><span class="box__dragndrop"></span></label>
-              <button type="submit" class="box__button">Upload</button>
-              <label for="image"><span class="box__icon svg-inline--fa"></span></label>
-            </div>
-            <div class="box__uploading">
-              Uploading&hellip;
-            </div>
-            <div class="box__success">
-              Done!
-            </div>
-            <div class="box__error">
-              Error! <span></span>.
-            </div>
-            </div>
+              {%- for block in section.blocks -%}
+              {%- case block.type -%}
+              {%- when 'upload' -%}
+                  <div class="line-item-property__field box">
+                  <div class="box__input">              
+                    <input type="hidden" name="properties[Image we will cut out ✂️]" value="No">
+                    <input id="image" required  type="file" class="box__file required" data-multiple-caption="Error {count} files selected" accept="image/*" name="properties[Image we will cut out ✂️]" value="Yes" enctype="multipart/form-data" />
+                    <label for="image"><strong>UPLOAD</strong><span class="box__dragndrop"></span></label>
+                    <button type="submit" class="box__button">Upload</button>
+                    <label for="image"><span class="box__icon svg-inline--fa"></span></label>
+                  </div>
+                  <div class="box__uploading">
+                    Uploading&hellip;
+                  </div>
+                  <div class="box__success">
+                    Done!
+                  </div>
+                  <div class="box__error">
+                    Error! <span></span>.
+                  </div>
+                  </div>
+            {%- endcase -%}
+            {%- endfor -%}
             
             {%- for block in section.blocks -%}
             {%- case block.type -%}

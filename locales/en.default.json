@@ -176,6 +176,7 @@
   "sections": {
     "header": {
       "announcement": "Announcement",
+      "upload" : "upload",
       "menu": "Menu",
       "cart_count": {
         "one": "{{ count }} item",
@@ -210,6 +211,11 @@
     "footer": {
       "social_placeholder": "Follow us on social media!",
       "payment": "Payment methods"
+    },
+    "customer-review" : {
+      "review-heading" : "Real,",
+      "initial_typewritter_text" : "human",
+      "review" : "review."
     },
     "featured_blog": {
       "view_all": "View all",
