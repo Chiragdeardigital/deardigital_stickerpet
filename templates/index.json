@@ -1,23 +1,22 @@
 {
   "sections": {
-    "1626930599b34bc97d": {
-      "type": "homepage-hero",
+    "1639636680ca3a00f5": {
+      "type": "hero-wih-products",
       "blocks": {
-        "6062bad8-24b8-46c3-b5e1-b51f755bdf99": {
+        "43fe4df0-08dd-4b7b-bfe2-bc28333a812d": {
           "type": "typed_text",
           "settings": {
-            "typed_text": "sticker,frames,portraits",
-            "type_text_color": "text-accent-2"
+            "typed_text": "sticker , portrait , frame"
           }
         }
       },
       "block_order": [
-        "6062bad8-24b8-46c3-b5e1-b51f755bdf99"
+        "43fe4df0-08dd-4b7b-bfe2-bc28333a812d"
       ],
       "settings": {
         "feature_collection": "pet-stickers",
         "text_1": "For the",
-        "text_2": "lovers.",
+        "text_2": "lovers",
         "type_text": "center",
         "hero_color_scheme": "background-1"
       }
@@ -65,172 +64,166 @@
         "grp_card_background": "background-3"
       }
     },
-    "16269320911dc86b20": {
-      "type": "image-with-text-1",
+    "1639636823632707b4": {
+      "type": "image-with-text-list",
       "blocks": {
-        "7fe46db1-094a-422e-9724-ee0529c37baf": {
+        "42871bf4-1c3f-4235-ac02-1972b1b4d2b7": {
           "type": "heading",
           "settings": {
             "heading": "Image with text"
           }
         },
-        "5aea1296-212f-4d47-8b3f-bddb23f6c558": {
+        "e0ba9c5e-cbb1-4075-88e3-5405b0fc4fb4": {
           "type": "text_list",
           "settings": {
             "icon_text": "🔫",
-            "list_text": "Text for list item"
+            "list_text": "Product specification"
           }
         },
-        "56aa43fe-e246-4b8f-acb8-743acdb78e5c": {
+        "c5b37219-c5d7-4122-abda-3ee8904b36f7": {
           "type": "text_list",
           "settings": {
             "icon_text": "🦎",
-            "list_text": "Text for list item"
+            "list_text": "Product feature"
           }
         },
-        "75203be6-2fec-4e3b-a256-a4fd9a53f8b7": {
+        "da4eb704-789d-4e02-b3c6-b3c8e6ee7161": {
           "type": "text_list",
           "settings": {
             "icon_text": "☀️",
-            "list_text": "Text for list item"
+            "list_text": "Product description"
           }
         },
-        "ea9bccf6-08bb-4d82-b7f1-224f37655427": {
+        "c0f24559-7c93-4d15-b032-d72fda7ea3e5": {
           "type": "button",
           "settings": {
-            "button_label": "Button Label",
-            "button_link": "shopify:\/\/products\/stickers"
+            "button_label": "Button label",
+            "button_link": "shopify:\/\/collections\/all"
           }
         }
       },
       "block_order": [
-        "7fe46db1-094a-422e-9724-ee0529c37baf",
-        "5aea1296-212f-4d47-8b3f-bddb23f6c558",
-        "56aa43fe-e246-4b8f-acb8-743acdb78e5c",
-        "75203be6-2fec-4e3b-a256-a4fd9a53f8b7",
-        "ea9bccf6-08bb-4d82-b7f1-224f37655427"
+        "42871bf4-1c3f-4235-ac02-1972b1b4d2b7",
+        "e0ba9c5e-cbb1-4075-88e3-5405b0fc4fb4",
+        "c5b37219-c5d7-4122-abda-3ee8904b36f7",
+        "da4eb704-789d-4e02-b3c6-b3c8e6ee7161",
+        "c0f24559-7c93-4d15-b032-d72fda7ea3e5"
       ],
       "settings": {
         "video_checkbox": false,
-        "video_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0268\/5580\/0887\/files\/custom-pet-sticker-from-sticker-pet.mp4?v=1606812993",
-        "desktop_image": "shopify:\/\/shop_images\/headphones-and-laptop-on-bed.jpg",
-        "mobile_image": "shopify:\/\/shop_images\/silver-laptop-with-a-pink-sticker-thats-says-get-busy.jpg",
-        "height": "adapt",
+        "video_url": "",
+        "desktop_image": "shopify:\/\/shop_images\/pexels-karolina-grabowska-4207785.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/pexels-mockupeditorcom-205321.jpg",
         "image_with_text_color_scheme": "background-5",
-        "layout": "text_first",
-        "change_bg": false
+        "layout": "text_first"
       }
     },
-    "16269351204e45dc37": {
-      "type": "image-with-text-1",
+    "1639636984a2639ed4": {
+      "type": "image-with-text-list",
       "blocks": {
-        "2f87c105-6ed8-44bf-bce2-340d0f582f6d": {
+        "940827e0-1b13-43b8-a8fe-fabb2ac51467": {
           "type": "heading",
           "settings": {
             "heading": "Image with text"
           }
         },
-        "6467e01d-1997-410b-bcb9-bd403f10abc5": {
+        "b2e2aace-e60a-4a5a-93fd-667f302663ca": {
           "type": "text_list",
           "settings": {
-            "icon_text": "🎨",
-            "list_text": "Text for list item"
+            "icon_text": "🔫",
+            "list_text": "Product specification"
           }
         },
-        "7a5a3591-593a-4409-b6af-e238ffb53814": {
+        "c2c91df7-3d94-496e-add6-a91254e8969d": {
           "type": "text_list",
           "settings": {
-            "icon_text": "👌",
-            "list_text": "Text for list item"
+            "icon_text": "🦎",
+            "list_text": "Product feature"
           }
         },
-        "387a11d9-3ada-4d26-adf8-893025367c8c": {
+        "bb4064fe-a6d0-41ab-9807-766bb2fe0f0e": {
           "type": "text_list",
           "settings": {
-            "icon_text": "💪",
-            "list_text": "Text for list item"
+            "icon_text": "☀️",
+            "list_text": "Product description"
           }
         },
-        "645ff431-205b-4b19-a50c-1939126a41f5": {
+        "3a30611c-e7cc-484d-a53e-5c6ef6805185": {
           "type": "button",
           "settings": {
             "button_label": "Button label",
-            "button_link": "shopify:\/\/products\/portraits"
+            "button_link": "shopify:\/\/collections\/all"
           }
         }
       },
       "block_order": [
-        "2f87c105-6ed8-44bf-bce2-340d0f582f6d",
-        "6467e01d-1997-410b-bcb9-bd403f10abc5",
-        "7a5a3591-593a-4409-b6af-e238ffb53814",
-        "387a11d9-3ada-4d26-adf8-893025367c8c",
-        "645ff431-205b-4b19-a50c-1939126a41f5"
+        "940827e0-1b13-43b8-a8fe-fabb2ac51467",
+        "b2e2aace-e60a-4a5a-93fd-667f302663ca",
+        "c2c91df7-3d94-496e-add6-a91254e8969d",
+        "bb4064fe-a6d0-41ab-9807-766bb2fe0f0e",
+        "3a30611c-e7cc-484d-a53e-5c6ef6805185"
       ],
       "settings": {
         "video_checkbox": false,
         "video_url": "",
         "desktop_image": "shopify:\/\/shop_images\/silver-laptop-with-a-pink-sticker-thats-says-get-busy.jpg",
         "mobile_image": "shopify:\/\/shop_images\/headphones-and-laptop-on-bed.jpg",
-        "height": "adapt",
         "image_with_text_color_scheme": "background-5",
-        "layout": "image_first",
-        "change_bg": true
+        "layout": "image_first"
       }
     },
-    "16269353135dc74fd8": {
-      "type": "image-with-text-1",
+    "163963711089ee6d4e": {
+      "type": "image-with-text-list",
       "blocks": {
-        "392464e9-119b-4487-bac6-df0bc43f524d": {
+        "097a8879-5647-411b-b4b5-8e6cc0703662": {
           "type": "heading",
           "settings": {
             "heading": "Image with text"
           }
         },
-        "af8626c5-1311-403c-8293-1ff8cabde278": {
+        "8fb48a2a-eb05-4114-b0f9-c9d82c5d3a0b": {
           "type": "text_list",
           "settings": {
-            "icon_text": "🦍",
-            "list_text": "Text for list item"
+            "icon_text": "🔫",
+            "list_text": "Product specification"
           }
         },
-        "e9ea1372-490d-4543-800b-1b71f9e9425d": {
+        "7b426aab-503e-43c3-aa49-ce9d1a065526": {
           "type": "text_list",
           "settings": {
-            "icon_text": "☘️",
-            "list_text": "Text for list item"
+            "icon_text": "🦎",
+            "list_text": "Product feature"
           }
         },
-        "f7d5b2ad-aace-4e35-9035-81a900c4edda": {
+        "17b766f0-a8b2-48d7-955b-28465e265e9f": {
           "type": "text_list",
           "settings": {
-            "icon_text": "🤘🏼",
-            "list_text": "Text for list item"
+            "icon_text": "☀️",
+            "list_text": "Product description"
           }
         },
-        "11962a94-054c-4f8b-ad97-6983c901ac05": {
+        "390c1aaa-3a3d-45a8-8db2-92ca38ba5377": {
           "type": "button",
           "settings": {
-            "button_label": "Button Label",
-            "button_link": "shopify:\/\/products\/portraits"
+            "button_label": "Button label",
+            "button_link": "shopify:\/\/collections\/all"
           }
         }
       },
       "block_order": [
-        "392464e9-119b-4487-bac6-df0bc43f524d",
-        "af8626c5-1311-403c-8293-1ff8cabde278",
-        "e9ea1372-490d-4543-800b-1b71f9e9425d",
-        "f7d5b2ad-aace-4e35-9035-81a900c4edda",
-        "11962a94-054c-4f8b-ad97-6983c901ac05"
+        "097a8879-5647-411b-b4b5-8e6cc0703662",
+        "8fb48a2a-eb05-4114-b0f9-c9d82c5d3a0b",
+        "7b426aab-503e-43c3-aa49-ce9d1a065526",
+        "17b766f0-a8b2-48d7-955b-28465e265e9f",
+        "390c1aaa-3a3d-45a8-8db2-92ca38ba5377"
       ],
       "settings": {
         "video_checkbox": false,
         "video_url": "",
-        "desktop_image": "shopify:\/\/shop_images\/torso-of-a-person-in-a-plain-grey-shirt.jpg",
-        "mobile_image": "shopify:\/\/shop_images\/green-t-shirt.jpg",
-        "height": "adapt",
+        "desktop_image": "shopify:\/\/shop_images\/dog-face-2.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/dog-face-2.jpg",
         "image_with_text_color_scheme": "background-5",
-        "layout": "text_first",
-        "change_bg": false
+        "layout": "text_first"
       }
     },
     "16269327587c3cb1a5": {
@@ -398,12 +391,12 @@
     }
   },
   "order": [
-    "1626930599b34bc97d",
+    "1639636680ca3a00f5",
     "16269316720393125d",
     "1638694590e3544213",
-    "16269320911dc86b20",
-    "16269351204e45dc37",
-    "16269353135dc74fd8",
+    "1639636823632707b4",
+    "1639636984a2639ed4",
+    "163963711089ee6d4e",
     "16269327587c3cb1a5",
     "16386946011612d69e",
     "162693353455d4bf27"

@@ -6,12 +6,12 @@
         "hide_page_content": true
       }
     },
-    "162791309145580b1f": {
-      "type": "about-hero",
+    "16396375275872e604": {
+      "type": "hero-banner",
       "settings": {
-        "about_bg_img": "shopify:\/\/shop_images\/headphones-and-laptop-on-bed.jpg",
-        "about_bg_img_mobile": "shopify:\/\/shop_images\/silver-laptop-with-a-pink-sticker-thats-says-get-busy.jpg",
-        "about_head_text": "About banner heading",
+        "about_bg_img": "shopify:\/\/shop_images\/torso-of-a-person-in-a-plain-grey-shirt.jpg",
+        "about_bg_img_mobile": "shopify:\/\/shop_images\/green-t-shirt.jpg",
+        "about_head_text": "",
         "about_hero_color_scheme": "background-1"
       }
     },
@@ -153,7 +153,7 @@
   },
   "order": [
     "1638899866df13c45e",
-    "162791309145580b1f",
+    "16396375275872e604",
     "1627914162f262a055",
     "1627920281e19dd611",
     "162797037618c606d5",

@@ -12,7 +12,7 @@
         "c3024d5a-45fe-4143-9d7a-db0a9ab449ec": {
           "type": "heading",
           "settings": {
-            "heading": "Sticker banner heading❤️"
+            "heading": "Image banner heading❤️"
           }
         },
         "837463c1-2ea5-4e9b-b16d-ce3a6a07b2f3": {
@@ -60,39 +60,39 @@
         "product_quality_color_scheme": "background-3"
       }
     },
-    "16278030249c3fd9e9": {
-      "type": "image-with-text-2",
+    "163963766365c43221": {
+      "type": "image-with-text",
       "blocks": {
-        "e38edc23-4c67-4581-9a75-8490f62932f9": {
+        "aca7c5bb-1b70-4281-be1c-50c6dac4f72e": {
           "type": "heading",
           "settings": {
             "heading": "Image with text"
           }
         },
-        "0a4373e4-822d-4d1f-b45e-dcd67dac5e9b": {
+        "af815aef-f8de-4176-ae99-0c7cc54723fc": {
           "type": "image_2_desc",
           "settings": {
             "para_text": "Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review."
           }
         },
-        "0525d500-e199-4f0c-8438-e6311fb59235": {
+        "20e9ad9d-3e8e-4c68-9e32-fbc38e6cb9f1": {
           "type": "button",
           "settings": {
             "button_label": "Button label",
-            "button_link": "shopify:\/\/products\/portraits"
+            "button_link": "shopify:\/\/collections\/all"
           }
         }
       },
       "block_order": [
-        "e38edc23-4c67-4581-9a75-8490f62932f9",
-        "0a4373e4-822d-4d1f-b45e-dcd67dac5e9b",
-        "0525d500-e199-4f0c-8438-e6311fb59235"
+        "aca7c5bb-1b70-4281-be1c-50c6dac4f72e",
+        "af815aef-f8de-4176-ae99-0c7cc54723fc",
+        "20e9ad9d-3e8e-4c68-9e32-fbc38e6cb9f1"
       ],
       "settings": {
         "image_with_text_2_color_scheme": "background-5",
-        "desktop_image": "shopify:\/\/shop_images\/green-t-shirt.jpg",
-        "mobile_image_1": "shopify:\/\/shop_images\/red-t-shirt.jpg",
-        "mobile_image_2": "shopify:\/\/shop_images\/headphones-and-laptop-on-bed.jpg",
+        "desktop_image": "shopify:\/\/shop_images\/pexels-karolina-grabowska-4466652_1.jpg",
+        "mobile_image_1": "shopify:\/\/shop_images\/pexels-anna-nekrashevich-8532931_1.jpg",
+        "mobile_image_2": "shopify:\/\/shop_images\/pexels-karolina-grabowska-4207785.jpg",
         "layout": "text_first"
       }
     },
@@ -124,39 +124,39 @@
         "customer_reviews_color_scheme": "background-3"
       }
     },
-    "1627822118441f8612": {
-      "type": "image-with-text-2",
+    "1639637710c58448f7": {
+      "type": "image-with-text",
       "blocks": {
-        "cb08cd58-7959-4d91-a48d-32dc32ae02bc": {
+        "777d02f4-72a8-4f87-b17d-8498fcaa88ed": {
           "type": "heading",
           "settings": {
             "heading": "Image with text"
           }
         },
-        "1c952ef0-4e93-4859-b38e-d2f687b5e401": {
+        "4495c587-846a-40dd-a340-59e7c8fe2fb1": {
           "type": "image_2_desc",
           "settings": {
             "para_text": "Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review."
           }
         },
-        "fa3da896-22d3-4ffc-bdfb-de96cf274906": {
+        "00055477-4ef6-440b-a355-db12a85422f9": {
           "type": "button",
           "settings": {
-            "button_label": "Button Label",
-            "button_link": "shopify:\/\/products\/stickers"
+            "button_label": "Button label",
+            "button_link": "shopify:\/\/collections\/all"
           }
         }
       },
       "block_order": [
-        "cb08cd58-7959-4d91-a48d-32dc32ae02bc",
-        "1c952ef0-4e93-4859-b38e-d2f687b5e401",
-        "fa3da896-22d3-4ffc-bdfb-de96cf274906"
+        "777d02f4-72a8-4f87-b17d-8498fcaa88ed",
+        "4495c587-846a-40dd-a340-59e7c8fe2fb1",
+        "00055477-4ef6-440b-a355-db12a85422f9"
       ],
       "settings": {
         "image_with_text_2_color_scheme": "background-5",
-        "desktop_image": "shopify:\/\/shop_images\/pexels-karolina-grabowska-4207785.jpg",
-        "mobile_image_1": "shopify:\/\/shop_images\/red-t-shirt.jpg",
-        "mobile_image_2": "shopify:\/\/shop_images\/green-t-shirt.jpg",
+        "desktop_image": "shopify:\/\/shop_images\/person-reaching-to-hang-a-frame-on-the-wall.jpg",
+        "mobile_image_1": "shopify:\/\/shop_images\/pexels-anna-nekrashevich-8532931_1.jpg",
+        "mobile_image_2": "shopify:\/\/shop_images\/pexels-karolina-grabowska-4466652_1.jpg",
         "layout": "image_first"
       }
     }
@@ -165,8 +165,8 @@
     "163889992975cc7aaf",
     "1638545985c589b7fc",
     "16277437539db10743",
-    "16278030249c3fd9e9",
+    "163963766365c43221",
     "1627819628339a3175",
-    "1627822118441f8612"
+    "1639637710c58448f7"
   ]
 }

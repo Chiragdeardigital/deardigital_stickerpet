@@ -15,8 +15,7 @@
     "1628001025ce238fa9": {
       "type": "plain-hero-with-header",
       "settings": {
-        "color_scheme": "gradient-background-1",
-        "hero_text_color": "text-accent-2",
+        "plain_hero_color_scheme": "background-1",
         "header_text": "Job page banner heading"
       }
     },
@@ -54,10 +53,10 @@
         "product_quality_color_scheme": "background-3"
       }
     },
-    "1628004178abf22af9": {
-      "type": "image-with-text-4",
+    "1639637888890ac42c": {
+      "type": "plain-image-with-text",
       "settings": {
-        "image": "shopify:\/\/shop_images\/dog-face-2.jpg",
+        "image": "shopify:\/\/shop_images\/Cat-PNG.png",
         "header_text": "Image with text",
         "para_text": "Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.",
         "reverse_columns": false,
@@ -88,7 +87,7 @@
     "main",
     "1628001025ce238fa9",
     "162800109101803c02",
-    "1628004178abf22af9",
+    "1639637888890ac42c",
     "16280012106c417d45"
   ]
 }

@@ -41,7 +41,7 @@
       "settings": {
         "type_header_font": {
           "label": "Font",
-          "info": "Selecting a different font can affect the speed of your store. [Learn more about system fonts.](https://help.shopify.com/en/manual/online-store/os/store-speed/improving-speed#fonts)"
+          "info": "Selecting a different font can affect the speed of your store. [Learn more about system fonts.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
         },
         "header__1": {
           "content": "Headings"
@@ -51,7 +51,7 @@
         },
         "type_body_font": {
           "label": "Font",
-          "info": "Selecting a different font can affect the speed of your store. [Learn more about system fonts.](https://help.shopify.com/en/manual/online-store/os/store-speed/improving-speed#fonts)"
+          "info": "Selecting a different font can affect the speed of your store. [Learn more about system fonts.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
         }
       }
     },
@@ -110,39 +110,39 @@
         },
         "social_twitter_link": {
           "label": "Twitter",
-          "info": "https://twitter.com/shopify"
+          "info": "https:\/\/twitter.com\/shopify"
         },
         "social_facebook_link": {
           "label": "Facebook",
-          "info": "https://facebook.com/shopify"
+          "info": "https:\/\/facebook.com\/shopify"
         },
         "social_pinterest_link": {
           "label": "Pinterest",
-          "info": "https://pinterest.com/shopify"
+          "info": "https:\/\/pinterest.com\/shopify"
         },
         "social_instagram_link": {
           "label": "Instagram",
-          "info": "http://instagram.com/shopify"
+          "info": "http:\/\/instagram.com\/shopify"
         },
         "social_tiktok_link": {
           "label": "TikTok",
-          "info": "https://tiktok.com/@shopify"
+          "info": "https:\/\/tiktok.com\/@shopify"
         },
         "social_tumblr_link": {
           "label": "Tumblr",
-          "info": "https://shopify.tumblr.com"
+          "info": "https:\/\/shopify.tumblr.com"
         },
         "social_snapchat_link": {
           "label": "Snapchat",
-          "info": "https://www.snapchat.com/add/shopify"
+          "info": "https:\/\/www.snapchat.com\/add\/shopify"
         },
         "social_youtube_link": {
           "label": "YouTube",
-          "info": "https://www.youtube.com/shopify"
+          "info": "https:\/\/www.youtube.com\/shopify"
         },
         "social_vimeo_link": {
           "label": "Vimeo",
-          "info": "https://vimeo.com/shopify"
+          "info": "https:\/\/vimeo.com\/shopify"
         }
       }
     },
@@ -243,7 +243,7 @@
             "label": "Inverse"
           },
           "label": "Color scheme",
-          "info" : "Choose a background"
+          "info": "Choose a background"
         },
         "layout": {
           "options__1": {
@@ -287,7 +287,6 @@
             }
           }
         }
-
       },
       "presets": {
         "name": "Collage"
@@ -310,7 +309,7 @@
           "options__3": {
             "label": "Square"
           },
-          "info": "To add images, [edit your collections](https://help.shopify.com/en/manual/products/collections)"
+          "info": "To add images, [edit your collections](https:\/\/help.shopify.com\/en\/manual\/products\/collections)"
         },
         "color_scheme": {
           "options__1": {
@@ -485,7 +484,7 @@
             "label": "Inverse"
           },
           "label": "Color scheme",
-          "info" : "Choose a background"
+          "info": "Choose a background"
         },
         "top_header_text": {
           "label": "Top header"
@@ -493,11 +492,11 @@
         "bottom_header_text": {
           "label": "Bottom header"
         },
-        "footer_image" : {
-          "label" : "Add image"
+        "footer_image": {
+          "label": "Add image"
         },
-        "show_social" : {
-          "label" : "Show social media icons"
+        "show_social": {
+          "label": "Show social media icons"
         }
       },
       "blocks": {
@@ -580,7 +579,7 @@
             "label": "Inverse"
           },
           "label": "Color scheme",
-          "info" : "Choose a background"
+          "info": "Choose a background"
         },
         "image_1": {
           "label": "Front image"
@@ -603,7 +602,7 @@
           "settings": {
             "button_text": {
               "label": "Button text",
-              "info" : "Leave the label blank to hide the button."
+              "info": "Leave the label blank to hide the button."
             },
             "button_outline": {
               "label": "Use outline button style"
@@ -629,7 +628,7 @@
         },
         "video_checkbox": {
           "label": "Include video instead of an image",
-          "info" : "Tick this checkbox to show a video rather than an image. Desktop image is not needed in this case. Note: For mobile devices video will be hidden. Upload image for mobile devices as an alternative"
+          "info": "Tick this checkbox to show a video rather than an image. Desktop image is not needed in this case. Note: For mobile devices video will be hidden. Upload image for mobile devices as an alternative"
         },
         "video_url": {
           "label": "Video url"
@@ -672,7 +671,7 @@
             "label": "Inverse"
           },
           "label": "Color scheme",
-          "info" : "Choose a background"
+          "info": "Choose a background"
         },
         "layout": {
           "options__1": {
@@ -760,7 +759,7 @@
             "label": "Inverse"
           },
           "label": "Color scheme",
-          "info" : "Choose a background"
+          "info": "Choose a background"
         },
         "layout": {
           "options__1": {
@@ -848,7 +847,7 @@
             "label": "Inverse"
           },
           "label": "Color scheme",
-          "info" : "Choose a background"
+          "info": "Choose a background"
         },
         "layout": {
           "options__1": {
@@ -862,7 +861,6 @@
         }
       },
       "blocks": {
-        
       },
       "presets": {
         "name": "Plain image with text"
@@ -876,7 +874,7 @@
         },
         "video_checkbox": {
           "label": "Include video instead of an image",
-          "info" : "Tick this checkbox to show a video rather than an image. Desktop image is not needed in this case. Note: For mobile devices video will be hidden. Upload image for mobile devices as an alternative"
+          "info": "Tick this checkbox to show a video rather than an image. Desktop image is not needed in this case. Note: For mobile devices video will be hidden. Upload image for mobile devices as an alternative"
         },
         "video_url": {
           "label": "Video script(optional)"
@@ -907,7 +905,7 @@
             "label": "Inverse"
           },
           "label": "Color scheme",
-          "info" : "Choose a background"
+          "info": "Choose a background"
         },
         "layout": {
           "options__1": {
@@ -1004,10 +1002,10 @@
           "name": "Share",
           "settings": {
             "featured_image_info": {
-              "content": "If you include a link in social media posts, the page’s featured image will be shown as the preview image. [Learn more](https://help.shopify.com/en/manual/online-store/images/showing-social-media-thumbnail-images)."
+              "content": "If you include a link in social media posts, the page’s featured image will be shown as the preview image. [Learn more](https:\/\/help.shopify.com\/en\/manual\/online-store\/images\/showing-social-media-thumbnail-images)."
             },
             "title_info": {
-              "content": "A store title and description are included with the preview image. [Learn more](https://help.shopify.com/en/manual/promoting-marketing/seo/adding-keywords#set-a-title-and-description-for-your-online-store)."
+              "content": "A store title and description are included with the preview image. [Learn more](https:\/\/help.shopify.com\/en\/manual\/promoting-marketing\/seo\/adding-keywords#set-a-title-and-description-for-your-online-store)."
             }
           }
         }
@@ -1030,7 +1028,7 @@
           "label": "Show author"
         },
         "paragraph": {
-          "content": "To change excerpts, edit your [blog posts.](https://help.shopify.com/en/manual/online-store/blogs/writing-blogs#display-an-excerpt-from-a-blog-post)"
+          "content": "To change excerpts, edit your [blog posts.](https:\/\/help.shopify.com\/en\/manual\/online-store\/blogs\/writing-blogs#display-an-excerpt-from-a-blog-post)"
         }
       }
     },
@@ -1062,7 +1060,7 @@
       "name": "Collection banner",
       "settings": {
         "paragraph": {
-          "content": "To change collection descriptions or collection images, [edit your collections.](/admin/collections)"
+          "content": "To change collection descriptions or collection images, [edit your collections.](\/admin\/collections)"
         },
         "show_collection_description": {
           "label": "Show collection description"
@@ -1081,7 +1079,7 @@
         },
         "enable_filtering": {
           "label": "Enable filtering",
-          "info": "[Customize filters](/admin/menus)"
+          "info": "[Customize filters](\/admin\/menus)"
         },
         "enable_sorting": {
           "label": "Enable sorting"
@@ -1115,7 +1113,7 @@
         },
         "enable_tags": {
           "label": "Enable filtering",
-          "info": "[Customize filters](/admin/menus)"
+          "info": "[Customize filters](\/admin\/menus)"
         },
         "enable_sort": {
           "label": "Enable sorting"
@@ -1160,7 +1158,7 @@
           "options__3": {
             "label": "Square"
           },
-          "info": "To add images, [edit your collections](https://help.shopify.com/en/manual/products/collections)"
+          "info": "To add images, [edit your collections](https:\/\/help.shopify.com\/en\/manual\/products\/collections)"
         },
         "color_scheme": {
           "options__1": {
@@ -1292,7 +1290,7 @@
           "settings": {
             "show_dynamic_checkout": {
               "label": "Show dynamic checkout buttons",
-              "info": "Using the payment methods available on your store, customers see their preferred option, like PayPal or Apple Pay. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+              "info": "Using the payment methods available on your store, customers see their preferred option, like PayPal or Apple Pay. [Learn more](https:\/\/help.shopify.com\/manual\/using-themes\/change-the-layout\/dynamic-checkout)"
             }
           }
         },
@@ -1306,10 +1304,10 @@
           "name": "Share",
           "settings": {
             "featured_image_info": {
-              "content": "If you include a link in social media posts, the page’s featured image will be shown as the preview image. [Learn more](https://help.shopify.com/en/manual/online-store/images/showing-social-media-thumbnail-images)."
+              "content": "If you include a link in social media posts, the page’s featured image will be shown as the preview image. [Learn more](https:\/\/help.shopify.com\/en\/manual\/online-store\/images\/showing-social-media-thumbnail-images)."
             },
             "title_info": {
-              "content": "A store title and description are included with the preview image. [Learn more](https://help.shopify.com/en/manual/promoting-marketing/seo/adding-keywords#set-a-title-and-description-for-your-online-store)."
+              "content": "A store title and description are included with the preview image. [Learn more](https:\/\/help.shopify.com\/en\/manual\/promoting-marketing\/seo\/adding-keywords#set-a-title-and-description-for-your-online-store)."
             }
           }
         },
@@ -1418,7 +1416,7 @@
       "settings": {
         "header": {
           "content": "Media",
-          "info": "Learn more about [media types](https://help.shopify.com/manual/products/product-media)"
+          "info": "Learn more about [media types](https:\/\/help.shopify.com\/manual\/products\/product-media)"
         },
         "enable_sticky_info": {
           "label": "Enable sticky product information on large screens"
@@ -1575,7 +1573,7 @@
           "label": "Make section full width"
         },
         "paragraph": {
-          "content": "When customers subscribe to emails, customer accounts are created. [Learn more](https://help.shopify.com/en/manual/customers)"
+          "content": "When customers subscribe to emails, customer accounts are created. [Learn more](https:\/\/help.shopify.com\/en\/manual\/customers)"
         }
       },
       "blocks": {
@@ -1621,7 +1619,7 @@
           "label": "Heading"
         },
         "paragraph__1": {
-          "content": "Dynamic recommendations use order and product information to change and improve over time. [Learn more](https://help.shopify.com/en/themes/development/recommended-products)"
+          "content": "Dynamic recommendations use order and product information to change and improve over time. [Learn more](https:\/\/help.shopify.com\/en\/themes\/development\/recommended-products)"
         },
         "header__2": {
           "content": "Product card"
@@ -1757,7 +1755,7 @@
             "label": "Inverse"
           },
           "label": "Color scheme",
-          "info" : "Choose a background"
+          "info": "Choose a background"
         },
         "layout": {
           "options__1": {
@@ -1771,7 +1769,6 @@
         }
       },
       "blocks": {
-        
       },
       "presets": {
         "name": "Hero Banner"
@@ -1806,7 +1803,7 @@
             "label": "Inverse"
           },
           "label": "Color scheme",
-          "info" : "Choose a background"
+          "info": "Choose a background"
         }
       },
       "blocks": {
@@ -1818,11 +1815,11 @@
             },
             "review": {
               "label": "review",
-              "info" : "Change the text only and don't remove the tags i.e., '<i>,<br>', if you don't know what they are."
+              "info": "Change the text only and don't remove the tags i.e., '<i>,<br>', if you don't know what they are."
             },
             "typed_text_human": {
               "label": "Text",
-              "info" : "Enter the words for typing effect separated with comma(,) eg. text1,text2"
+              "info": "Enter the words for typing effect separated with comma(,) eg. text1,text2"
             }
           }
         },
@@ -1834,11 +1831,11 @@
             },
             "review": {
               "label": "review",
-              "info" : "Change the text only and don't remove the tags i.e., '<i>,<br>', if you don't know what they are."
+              "info": "Change the text only and don't remove the tags i.e., '<i>,<br>', if you don't know what they are."
             },
             "typed_text_human": {
               "label": "Text",
-              "info" : "Enter the words for typing effect separated with comma(,) eg. text1,text2"
+              "info": "Enter the words for typing effect separated with comma(,) eg. text1,text2"
             }
           }
         }
@@ -1848,7 +1845,7 @@
       }
     },
     "faq": {
-      "name": "Faq or plain header/text",
+      "name": "Faq or plain header\/text",
       "settings": {
         "heading": {
           "label": "Heading(optional)"
@@ -1859,16 +1856,16 @@
           "name": "Text",
           "settings": {
             "heading": {
-              "label": "Header/Question"
+              "label": "Header\/Question"
             },
             "description": {
-              "label": "Text/Answer"
+              "label": "Text\/Answer"
             }
           }
         }
       },
       "presets": {
-        "name": "Faq or plain header/text"
+        "name": "Faq or plain header\/text"
       }
     },
     "featured-cards": {
@@ -1900,7 +1897,7 @@
             "label": "Inverse"
           },
           "label": "Color scheme",
-          "info" : "Choose a background"
+          "info": "Choose a background"
         }
       },
       "blocks": {
@@ -1936,7 +1933,7 @@
       "presets": {
         "name": "Video iframe"
       }
-    },    
+    },
     "sticker-banner": {
       "name": "Sticker Banner",
       "settings": {
@@ -1981,7 +1978,7 @@
             "label": "Inverse"
           },
           "label": "Color scheme",
-          "info" : "Choose a background"
+          "info": "Choose a background"
         }
       },
       "blocks": {
@@ -1989,7 +1986,7 @@
       "presets": {
         "name": "Sticker Banner"
       }
-    },    
+    },
     "reviews-hero": {
       "name": "Reviews hero",
       "settings": {
@@ -2028,7 +2025,7 @@
             "label": "Inverse"
           },
           "label": "Color scheme",
-          "info" : "Choose a background"
+          "info": "Choose a background"
         }
       },
       "blocks": {
@@ -2070,7 +2067,7 @@
             "label": "Inverse"
           },
           "label": "Color scheme",
-          "info" : "Choose a background"
+          "info": "Choose a background"
         },
         "layout": {
           "options__1": {
@@ -2122,7 +2119,7 @@
           "settings": {
             "product": {
               "label": "Product",
-              "info": "Select a upsell/extra product to sell."
+              "info": "Select a upsell\/extra product to sell."
             }
           }
         },
@@ -2174,7 +2171,7 @@
           "settings": {
             "show_dynamic_checkout": {
               "label": "Show dynamic checkout buttons",
-              "info": "Using the payment methods available on your store, customers see their preferred option, like PayPal or Apple Pay. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+              "info": "Using the payment methods available on your store, customers see their preferred option, like PayPal or Apple Pay. [Learn more](https:\/\/help.shopify.com\/manual\/using-themes\/change-the-layout\/dynamic-checkout)"
             }
           }
         },
@@ -2188,10 +2185,10 @@
           "name": "Share",
           "settings": {
             "featured_image_info": {
-              "content": "If you include a link in social media posts, the page’s featured image will be shown as the preview image. [Learn more](https://help.shopify.com/en/manual/online-store/images/showing-social-media-thumbnail-images)."
+              "content": "If you include a link in social media posts, the page’s featured image will be shown as the preview image. [Learn more](https:\/\/help.shopify.com\/en\/manual\/online-store\/images\/showing-social-media-thumbnail-images)."
             },
             "title_info": {
-              "content": "A store title and description are included with the preview image. [Learn more](https://help.shopify.com/en/manual/promoting-marketing/seo/adding-keywords#set-a-title-and-description-for-your-online-store)."
+              "content": "A store title and description are included with the preview image. [Learn more](https:\/\/help.shopify.com\/en\/manual\/promoting-marketing\/seo\/adding-keywords#set-a-title-and-description-for-your-online-store)."
             }
           }
         },
@@ -2324,7 +2321,7 @@
             "label": "Inverse"
           },
           "label": "Color scheme",
-          "info" : "Choose a background"
+          "info": "Choose a background"
         },
         "steps_color_scheme": {
           "options__1": {
@@ -2352,7 +2349,7 @@
             "label": "Inverse"
           },
           "label": "Steps indicator color scheme",
-          "info" : "Choose a background"
+          "info": "Choose a background"
         }
       },
       "presets": {
@@ -2388,7 +2385,7 @@
             "label": "Inverse"
           },
           "label": "Color scheme",
-          "info" : "Choose a background"
+          "info": "Choose a background"
         },
         "heading": {
           "label": "Heading"
@@ -2440,7 +2437,7 @@
             "label": "Inverse"
           },
           "label": "Color scheme",
-          "info" : "Choose a background"
+          "info": "Choose a background"
         },
         "hero_with_text_products_collection": {
           "label": "Featured collection"
@@ -2471,7 +2468,7 @@
           "settings": {
             "typed_text": {
               "label": "Text",
-              "info" : "Enter the words for typing effect separated with comma(,) eg. text1,text2"
+              "info": "Enter the words for typing effect separated with comma(,) eg. text1,text2"
             }
           }
         }
@@ -2535,7 +2532,7 @@
             "label": "Inverse"
           },
           "label": "Color scheme",
-          "info" : "Choose a background"
+          "info": "Choose a background"
         }
       },
       "blocks": {
@@ -2636,7 +2633,7 @@
           "settings": {
             "show_dynamic_checkout": {
               "label": "Show dynamic checkout buttons",
-              "info": "Using the payment methods available on your store, customers see their preferred option, like PayPal or Apple Pay. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+              "info": "Using the payment methods available on your store, customers see their preferred option, like PayPal or Apple Pay. [Learn more](https:\/\/help.shopify.com\/manual\/using-themes\/change-the-layout\/dynamic-checkout)"
             }
           }
         },
@@ -2650,10 +2647,10 @@
           "name": "Share",
           "settings": {
             "featured_image_info": {
-              "content": "If you include a link in social media posts, the page’s featured image will be shown as the preview image. [Learn more](https://help.shopify.com/en/manual/online-store/images/showing-social-media-thumbnail-images)."
+              "content": "If you include a link in social media posts, the page’s featured image will be shown as the preview image. [Learn more](https:\/\/help.shopify.com\/en\/manual\/online-store\/images\/showing-social-media-thumbnail-images)."
             },
             "title_info": {
-              "content": "A store title and description are included with the preview image. [Learn more](https://help.shopify.com/en/manual/promoting-marketing/seo/adding-keywords#set-a-title-and-description-for-your-online-store)."
+              "content": "A store title and description are included with the preview image. [Learn more](https:\/\/help.shopify.com\/en\/manual\/promoting-marketing\/seo\/adding-keywords#set-a-title-and-description-for-your-online-store)."
             }
           }
         }
@@ -2685,7 +2682,7 @@
             "label": "Inverse"
           },
           "label": "Color scheme",
-          "info" : "Choose a background"
+          "info": "Choose a background"
         }
       },
       "presets": {
@@ -2705,7 +2702,7 @@
           "label": "Select a collection"
         }
       },
-      "blocks": { 
+      "blocks": {
       },
       "presets": {
         "name": "Product grid"
@@ -2743,10 +2740,10 @@
             "label": "Inverse"
           },
           "label": "Color scheme",
-          "info" : "Choose a background"
+          "info": "Choose a background"
         }
       },
-      "blocks": { 
+      "blocks": {
       },
       "presets": {
         "name": "Plain hero with header"
@@ -2768,7 +2765,7 @@
           "label": "Button url"
         }
       },
-      "blocks": { 
+      "blocks": {
       },
       "presets": {
         "name": "Partner section"
