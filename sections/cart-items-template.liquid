@@ -18,7 +18,7 @@
                >
         </button>
       </div>
-      <div class="drawer__title">Your cart</div>
+      <div class="drawer__title">{{ 'sections.cart.title' | t }}</div>
     </div>
   </div>
   <div class="drawer__inner">
@@ -169,7 +169,7 @@
 
             <div class="grid">
               <div class="grid__item one-third">
-                <p class="ajaxcart__subtotal">Subtotal</p>
+                <p class="ajaxcart__subtotal">{{ 'sections.cart.subtotal' | t }}</p>
               </div>
               <div class="grid__item two-thirds text-right">
                 <p class="ajaxcart__subtotal">{{ cart.total_price | money }} INCL. VAT</p>
@@ -191,29 +191,28 @@
             <div class="grid">
 
               <div class="grid__item one-half">
-                <p class="ajaxcart__ship">Shipping</p>
+                <p class="ajaxcart__ship">{{ 'sections.cart.headings.shipping' | t }}</p>
               </div>
               <div class="grid__item one-half text-right">
-                <p class="ajaxcart__ship">Calc. at next step</p>
+                <p class="ajaxcart__ship">{{ 'sections.cart.shipping_info' | t }}</p>
               </div>
             </div>
 
             <p></p>
             <a href="/checkout" class="button cart__checkout"
                     name="checkout" >
-              Checkout
+                    {{ 'sections.cart.checkout' | t }}
             </a>
 
             <p></p>
 
-            <a href="/" class="continue-shopping button button--secondary">
-              Continue Shopping
+            <a href="{{ routes.all_products_collection_url }}" class="continue-shopping button button--secondary">
+              {{ 'general.continue_shopping' | t }}
             </a>
             <p></p>
             <p style="padding-top: 15px;border-bottom: 1px solid;margin: 0 0 12px 0;"></p>
             <div>
-              <label for="CartSpecialInstructions" class="ajaxcart__note">woof, anything special we
-                can do for you?</label>
+              <label for="CartSpecialInstructions" class="ajaxcart__note">{{ 'sections.cart.note' | t }}</label>
               <textarea name="note" class="input-full" id="CartSpecialInstructions"
                         style="border-radius: 5px;min-height: 40px;">{{ cart.note }}</textarea>
             </div>

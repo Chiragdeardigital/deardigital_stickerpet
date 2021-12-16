@@ -201,8 +201,10 @@
         "product": "Product",
         "price": "Price",
         "total": "Total",
-        "quantity": "Quantity"
+        "quantity": "Quantity",
+        "shipping": "Shipping"
       },
+      "shipping_info": "Calc. at next step",
       "update": "Update"
     },
     "footer": {

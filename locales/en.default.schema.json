@@ -1037,6 +1037,34 @@
       "settings": {
         "show_cart_note": {
           "label": "Enable cart note"
+        },
+        "color_scheme": {
+          "options__1": {
+            "label": "Accent 1"
+          },
+          "options__2": {
+            "label": "Accent 2"
+          },
+          "options__3": {
+            "label": "Background 1"
+          },
+          "options__4": {
+            "label": "Background 2"
+          },
+          "options__5": {
+            "label": "Background 3"
+          },
+          "options__6": {
+            "label": "Background 4"
+          },
+          "options__7": {
+            "label": "Background 5"
+          },
+          "options__8": {
+            "label": "Inverse"
+          },
+          "label": "Color scheme",
+          "info": "Choose a background"
         }
       },
       "blocks": {
@@ -1053,6 +1081,34 @@
       "settings": {
         "show_vendor": {
           "label": "Show vendor"
+        },
+        "color_scheme": {
+          "options__1": {
+            "label": "Accent 1"
+          },
+          "options__2": {
+            "label": "Accent 2"
+          },
+          "options__3": {
+            "label": "Background 1"
+          },
+          "options__4": {
+            "label": "Background 2"
+          },
+          "options__5": {
+            "label": "Background 3"
+          },
+          "options__6": {
+            "label": "Background 4"
+          },
+          "options__7": {
+            "label": "Background 5"
+          },
+          "options__8": {
+            "label": "Inverse"
+          },
+          "label": "Color scheme",
+          "info": "Choose a background"
         }
       }
     },
@@ -2769,6 +2825,23 @@
       },
       "presets": {
         "name": "Partner section"
+      }
+    },
+    "main-404": {
+      "name": "Main 404",
+      "settings": {
+        "heading": {
+          "label": "Heading"
+        },
+        "text": {
+          "label": "Message"
+        },
+        "image": {
+          "label": "Image"
+        }
+      },
+      "presets": {
+        "name": "Main 404"
       }
     }
   }
