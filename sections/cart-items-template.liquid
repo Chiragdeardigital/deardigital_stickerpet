@@ -7,7 +7,7 @@
 {% endif %}
 {% endfor %}
 
-<div id="CartDrawer" class="drawer drawer--right drawer--has-fixed-footer ">
+<div id="CartDrawer" class="drawer drawer--right drawer--has-fixed-footer color-{{ section.settings.cart_drawer_color_scheme }}">
   <div class="drawer__fixed-header">
     <div class="drawer__header">
       <div class="drawer__close">
@@ -237,19 +237,60 @@ var currency_symbol = `{{ localization.country.currency.symbol }}`;
 
 {% schema %}
 {
-  "name": "Cart",
+  "name": "t:sections.cart-drawer.name",
   "settings": [
     {
       "type": "product",
       "id": "upsell_product",
-      "label": "Upsell product",
-      "info": "Select a product for upsell"
+      "label": "t:sections.cart-drawer.settings.product.label",
+      "info": "t:sections.cart-drawer.settings.product.info"
     },
     {
       "type": "number",
       "id": "free_shipping_amount",
-      "label": "Enter minimum price for free shipping",
+      "label": "t:sections.cart-drawer.settings.number.label",
       "default": 45
+    },
+    {
+      "type": "select",
+      "id": "cart_drawer_color_scheme",
+      "info": "t:sections.cart-drawer.settings.color_scheme.info",
+      "options": [
+        {
+          "label": "t:sections.cart-drawer.settings.color_scheme.options__1.label",
+          "value": "accent-1"
+        },
+        {
+          "label": "t:sections.cart-drawer.settings.color_scheme.options__2.label",
+          "value": "accent-2"
+        },
+        {
+          "label": "t:sections.cart-drawer.settings.color_scheme.options__3.label",
+          "value": "background-1"
+        },
+        {
+          "label": "t:sections.cart-drawer.settings.color_scheme.options__4.label",
+          "value": "background-2"
+        },
+        {
+          "label": "t:sections.cart-drawer.settings.color_scheme.options__5.label",
+          "value": "background-3"
+        },
+        {
+          "label": "t:sections.cart-drawer.settings.color_scheme.options__6.label",
+          "value": "background-4"
+        },
+        {
+          "label": "t:sections.cart-drawer.settings.color_scheme.options__7.label",
+          "value": "background-5"
+        },
+        {
+          "label": "t:sections.cart-drawer.settings.color_scheme.options__8.label",
+          "value": "inverse"
+        }
+      ],
+      "label": "t:sections.cart-drawer.settings.color_scheme.label",
+      "default": "background-3"
     }
     
   ]
