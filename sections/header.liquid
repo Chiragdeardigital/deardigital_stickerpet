@@ -265,12 +265,12 @@
 
 {% schema %}
   {
-    "name": "Header",
+    "name": "t:sections.header.name",
     "settings": [
           {
           "id": "brand_img",
           "type": "image_picker",
-          "label": "Header Brand Image"
+          "label": "t:sections.header.settings.logo.label"
           },
           {
             "type": "select",
@@ -278,195 +278,195 @@
             "options": [
               {
                 "value": "space-between",
-                "label": "space between"
+                "label": "t:sections.header.settings.logo_position.options__1.label"
               },
               {
                 "value": "space-evenly",
-                "label": "space evenly"
+                "label": "t:sections.header.settings.logo_position.options__2.label"
               },
               {
                 "value": "space-around",
-                "label": "space around"
+                "label": "t:sections.header.settings.logo_position.options__3.label"
               }
             ],
             "default": "space-between",
-            "label": "Menu position"
+            "label": "t:sections.header.settings.logo_position.label"
           },
           {
              "type": "select",
              "id": "announcement_color_scheme",
-             "info" : "Floating text may load after save",
-             "options": [
+             "info" : "t:sections.header.settings.announcement_color_scheme.info",
+          "options": [
              {
-              "label": "Accent 1",
-              "value": "accent-1"
-            },
-            {
-              "label": "Accent 2",
-              "value": "accent-2"
-            },
-            {
-              "label": "Background 1",
-              "value": "background-1"
-            },
-            {
-              "label": "Background 2",
-              "value": "background-2"
-            },
-            {
-              "label": "Background 3",
-              "value": "background-3"
-            },
-            {
-              "label": "Background 4",
-              "value": "background-4"
-            },
-            {
-              "label": "Background 5",
-              "value": "background-5"
-            },
-            {
-              "label": "Inverse",
-              "value": "inverse"
-            }
-           ],
-           "label": "Announcement bar color scheme",
+               "label": "t:sections.header.settings.announcement_color_scheme.options__1.label",
+               "value": "accent-1"
+             },
+             {
+               "label": "t:sections.header.settings.announcement_color_scheme.options__2.label",
+               "value": "accent-2"
+             },
+             {
+               "label": "t:sections.header.settings.announcement_color_scheme.options__3.label",
+               "value": "background-1"
+             },
+             {
+               "label": "t:sections.header.settings.announcement_color_scheme.options__4.label",
+               "value": "background-2"
+             },
+             {
+               "label": "t:sections.header.settings.announcement_color_scheme.options__5.label",
+               "value": "background-3"
+             },
+             {
+               "label": "t:sections.header.settings.announcement_color_scheme.options__6.label",
+               "value": "background-4"
+             },
+             {
+               "label": "t:sections.header.settings.announcement_color_scheme.options__7.label",
+               "value": "background-5"
+             },
+             {
+               "label": "t:sections.header.settings.announcement_color_scheme.options__8.label",
+               "value": "inverse"
+             }
+          ],
+            "label": "t:sections.header.settings.announcement_color_scheme.label",
            "default": "background-3"
          },
          {
           "type": "select",
           "id": "header_color_scheme",
-          "info" : "Text color may load after save.",
+          "info" : "t:sections.header.settings.menu_color_scheme.info",
           "options": [
-           {
-             "label": "Accent 1",
-             "value": "accent-1"
-           },
-           {
-             "label": "Accent 2",
-             "value": "accent-2"
-           },
-           {
-             "label": "Background 1",
-             "value": "background-1"
-           },
-           {
-             "label": "Background 2",
-             "value": "background-2"
-           },
-           {
-             "label": "Background 3",
-             "value": "background-3"
-           },
-           {
-             "label": "Background 4",
-             "value": "background-4"
-           },
-           {
-             "label": "Background 5",
-             "value": "background-5"
-           },
-           {
-             "label": "Inverse",
-             "value": "inverse"
-           }
-        ],
-        "label": "Main menu color scheme",
-        "default": "background-1"
+             {
+               "label": "t:sections.header.settings.menu_color_scheme.options__1.label",
+               "value": "accent-1"
+             },
+             {
+               "label": "t:sections.header.settings.menu_color_scheme.options__2.label",
+               "value": "accent-2"
+             },
+             {
+               "label": "t:sections.header.settings.menu_color_scheme.options__3.label",
+               "value": "background-1"
+             },
+             {
+               "label": "t:sections.header.settings.menu_color_scheme.options__4.label",
+               "value": "background-2"
+             },
+             {
+               "label": "t:sections.header.settings.menu_color_scheme.options__5.label",
+               "value": "background-3"
+             },
+             {
+               "label": "t:sections.header.settings.menu_color_scheme.options__6.label",
+               "value": "background-4"
+             },
+             {
+               "label": "t:sections.header.settings.menu_color_scheme.options__7.label",
+               "value": "background-5"
+             },
+             {
+               "label": "t:sections.header.settings.menu_color_scheme.options__8.label",
+               "value": "inverse"
+             }
+          ],
+          "label": "t:sections.header.settings.menu_color_scheme.label",
+          "default": "background-1"
        },
           {
              "type": "select",
              "id": "dropdownmenu_color_scheme",
-             "info" : "Text color may load after save.",
-             "options": [
-              {
-                "label": "Accent 1",
-                "value": "accent-1"
+             "info" : "t:sections.header.settings.dropdown_menu_color_scheme.info",
+              "options": [
+                {
+                  "label": "t:sections.image-with-text-list.settings.dropdown_menu_color_scheme.options__1.label",
+                  "value": "accent-1"
+                },
+                {
+                  "label": "t:sections.header.settings.dropdown_menu_color_scheme.options__2.label",
+                  "value": "accent-2"
+                },
+                {
+                  "label": "t:sections.header.settings.dropdown_menu_color_scheme.options__3.label",
+                  "value": "background-1"
+                },
+                {
+                  "label": "t:sections.header.settings.dropdown_menu_color_scheme.options__4.label",
+                  "value": "background-2"
+                },
+                {
+                  "label": "t:sections.header.settings.dropdown_menu_color_scheme.options__5.label",
+                  "value": "background-3"
+                },
+                {
+                  "label": "t:sections.header.settings.dropdown_menu_color_scheme.options__6.label",
+                  "value": "background-4"
+                },
+                {
+                  "label": "t:sections.header.settings.dropdown_menu_color_scheme.options__7.label",
+                  "value": "background-5"
+                },
+                {
+                  "label": "t:sections.header.settings.dropdown_menu_color_scheme.options__8.label",
+                  "value": "inverse"
+                }
+              ],
+              "label": "t:sections.header.settings.dropdown_menu_color_scheme.label",
+              "default": "background-3"
               },
               {
-                "label": "Accent 2",
-                "value": "accent-2"
+                "id": "show_multiple_language",
+                "type": "checkbox",
+                "label": "t:sections.header.settings.multiple_language.label",
+                "default": false
               },
               {
-                "label": "Background 1",
-                "value": "background-1"
+                "id": "show_currency",
+                "type": "checkbox",
+                "label": "t:sections.header.settings.currency.label",
+                "default": false
               },
               {
-                "label": "Background 2",
-                "value": "background-2"
-              },
-              {
-                "label": "Background 3",
-                "value": "background-3"
-              },
-              {
-                "label": "Background 4",
-                "value": "background-4"
-              },
-              {
-                "label": "Background 5",
-                "value": "background-5"
-              },
-              {
-                "label": "Inverse",
-                "value": "inverse"
+                "id": "show_search_icon",
+                "type": "checkbox",
+                "label": "t:sections.header.settings.search.label",
+                "default": true
               }
-           ],
-           "label": "Dropdown menu color scheme",
-           "default": "background-3"
-          },
-          {
-            "id": "show_multiple_language",
-            "type": "checkbox",
-            "label": "Show Multiple language",
-            "default": false
-          },
-          {
-            "id": "show_currency",
-            "type": "checkbox",
-            "label": "Show currency",
-            "default": false
-          },
-          {
-            "id": "show_search_icon",
-            "type": "checkbox",
-            "label": "Show search icon",
-            "default": true
-          }
     ],
     "blocks": [
         {
         "type": "Menu",
-        "name": "Header Menu",
+        "name": "t:sections.header.blocks.header_menu.name",
         "limit":1,
         "settings": [
             {
             "id": "header_menu",
             "type": "link_list",
-            "label": "Menu"
+            "label": "t:sections.header.blocks.header_menu.settings.menu.label"
             }
         ]
         },
         {
         "type": "mobile_menu",
-        "name": "Mobile menu",
+        "name": "t:sections.header.blocks.mobile_menu.name",
         "limit":1,
         "settings": [
             {
             "id": "mobile_menu",
             "type": "link_list",
-            "label": "Mobile menu"
+            "label": "t:sections.header.blocks.mobile_menu.settings.mobile_menu_label.label"
             }
         ]
         },
         {
         "type": "announcement",
-        "name": "Announcement Text",
+        "name": "t:sections.header.blocks.announcement_text.name",
         "settings": [
             {
             "id": "announcement_text",
             "type": "text",
-            "label": "Text",
+            "label": "t:sections.header.blocks.announcement_text.settings.announcement.label",
             "default": "🌴 Some text 🌴"
             }
           ]

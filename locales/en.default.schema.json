@@ -522,31 +522,136 @@
         "logo": {
           "label": "Logo image"
         },
-        "logo_width": {
-          "unit": "px",
-          "label": "Custom logo width"
-        },
         "logo_position": {
-          "label": "Logo position on large screen",
+          "label": "Menu position",
           "options__1": {
-            "label": "Middle left"
+            "label": "space between"
           },
           "options__2": {
-            "label": "Top left"
+            "label": "space evenly"
           },
           "options__3": {
-            "label": "Top center"
+            "label": "space around"
           }
         },
-        "menu": {
-          "label": "Menu"
+        "announcement_color_scheme": {
+          "options__1": {
+            "label": "Accent 1"
+          },
+          "options__2": {
+            "label": "Accent 2"
+          },
+          "options__3": {
+            "label": "Background 1"
+          },
+          "options__4": {
+            "label": "Background 2"
+          },
+          "options__5": {
+            "label": "Background 3"
+          },
+          "options__6": {
+            "label": "Background 4"
+          },
+          "options__7": {
+            "label": "Background 5"
+          },
+          "options__8": {
+            "label": "Inverse"
+          },
+          "label": "Announcement bar color scheme",
+          "info": "Floating text may load after save"
         },
-        "show_line_separator": {
-          "label": "Show separator line"
+        "menu_color_scheme": {
+          "options__1": {
+            "label": "Accent 1"
+          },
+          "options__2": {
+            "label": "Accent 2"
+          },
+          "options__3": {
+            "label": "Background 1"
+          },
+          "options__4": {
+            "label": "Background 2"
+          },
+          "options__5": {
+            "label": "Background 3"
+          },
+          "options__6": {
+            "label": "Background 4"
+          },
+          "options__7": {
+            "label": "Background 5"
+          },
+          "options__8": {
+            "label": "Inverse"
+          },
+          "label": "Main menu color scheme",
+          "info": "Text color may load after save."
         },
-        "enable_sticky_header": {
-          "label": "Enable sticky header",
-          "info": "Header shows on the screen as customers scroll up."
+        "dropdown_menu_color_scheme": {
+          "options__1": {
+            "label": "Accent 1"
+          },
+          "options__2": {
+            "label": "Accent 2"
+          },
+          "options__3": {
+            "label": "Background 1"
+          },
+          "options__4": {
+            "label": "Background 2"
+          },
+          "options__5": {
+            "label": "Background 3"
+          },
+          "options__6": {
+            "label": "Background 4"
+          },
+          "options__7": {
+            "label": "Background 5"
+          },
+          "options__8": {
+            "label": "Inverse"
+          },
+          "label": "Dropdown menu color scheme",
+          "info": "Text color may load after save."
+        },
+        "multiple_language": {
+          "label": "Show Multiple language"
+        },
+        "currency": {
+          "label": "Show currency"
+        },
+        "search": {
+          "label": "Show search icon"
+        }
+      },
+      "blocks": {
+        "header_menu": {
+          "name": "Header Menu",
+          "settings": {
+            "menu": {
+              "label": "Menu"
+            }
+          }
+        },
+        "mobile_menu": {
+          "name": "Mobile menu",
+          "settings": {
+            "mobile_menu_label": {
+              "label": "Mobile menu"
+            }
+          }
+        },
+        "announcement_text": {
+          "name": "Announcement Text",
+          "settings": {
+            "announcement": {
+              "label": "Announcement text"
+            }
+          }
         }
       }
     },
