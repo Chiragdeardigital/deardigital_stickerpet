@@ -2751,7 +2751,28 @@
       "presets": {
         "name": "Plain hero with header"
       }
+    },
+    "partner": {
+      "name": "Partner section",
+      "settings": {
+        "partner_image": {
+          "label": "Add image"
+        },
+        "text": {
+          "label": "Text"
+        },
+        "btn_text": {
+          "label": "Button text"
+        },
+        "btn_url": {
+          "label": "Button url"
+        }
+      },
+      "blocks": { 
+      },
+      "presets": {
+        "name": "Partner section"
+      }
     }
-
   }
 }
