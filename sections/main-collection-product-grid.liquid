@@ -14,7 +14,7 @@
 
 
 {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
-<h2 class="h3 headings text-center marg-bot" style="font-size: 35px !important;">{{section.settings.product_grid_heading}}<span class="grid_heading_subtext"> {{section.settings.product_grid_subtext}}</span></h2>
+<h2 class="h3 headings text-center marg-bot">{{section.settings.product_grid_heading}}<span class="grid_heading_subtext"> {{section.settings.product_grid_subtext}}</span></h2>
 <div class="page-width collection-filters" id="main-collection-filters" data-id="{{ section.id }}">
   {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
     {%- assign total_active_values = 0 -%}
@@ -473,43 +473,17 @@
 
           <div id="main-collection-product-grid" data-id="{{ section.id }}" class="wrapper marg-bot-xl">
             <div class="row">
-              {% for product in collection.products %}
-                  {% if product.price > 0 %}
-                  <div class="col-md-4 flex-center">
-                    <div class="classic-products products">
-                      <div class="about-us middle-text image-section">
-                        {% if product.selected_or_first_available_variant.featured_media != blank %}
-                        <a href="{{product.url}}"><img src="{{ product.selected_or_first_available_variant.featured_media | img_url: 'master' }}" alt="Classic Product Image" loading = "lazy" /></a>
-                        {%- elsif product.selected_or_first_available_variant.featured_media == blank and product.featured_media != blank -%}
-                        <a href="{{product.url}}"><img src="{{ product.featured_media | img_url: 'master' }}" alt="Classic Product Image" loading = "lazy" /></a>
-                        {%- else -%}
-                         {{ 'product-1' | placeholder_svg_tag }}
-                        {% endif %}
-                          </div>
-                          <div class="product-detail justify-text">
-              
-                        <div class="row space-around">
-                          <p class="col-9 product-title">
-                            <a href="{{product.url}}"> 1x {{ product.title | escape  }}</a>
-                          </p>
-                          <p class="col-3 product-price">
-                              {% render 'price', product: product , price_class: '' %}
-                          </p>
-                        </div>
-              
-                        <div class="row">
-                          <p class="col-9 product-description">
-                            {{ product.description | escape  }}
-                            
-                          </p>
-                          <p class="col-3 product-size">
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {% endif %}
-                {% endfor %}
+              {%- for product in collection.products -%}
+                <li class="col-md-4 flex-center">
+                  {% render 'product-card',
+                    product_card_product: product,
+                    media_size: section.settings.image_ratio,
+                    show_secondary_image: section.settings.show_secondary_image,
+                    add_image_padding: section.settings.add_image_padding,
+                    show_vendor: section.settings.show_vendor
+                  %}
+                </li>
+              {%- endfor -%}
                 </div>
               </div>
 

@@ -727,6 +727,12 @@ PARTNER STYLING
 /* -----------------------------------------------------
 PRODUCTS STYLING
 ----------------------------------------------------- */
+
+.classic-products.products.collection__-grid .image-section img{
+  width: 100%;
+  min-height: 300px;
+}
+
 .option-title-wrapper {
   gap: 20px;
 }
@@ -1762,11 +1768,32 @@ FAQ STYLING
   }
 }
 
+@media (max-width: 479px) {
+  #main-collection-product-grid .col-md-4{
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+}
+
+.collection__-grid .price{
+  font-size: 16px;
+}
+
+.classic-products.products.collection__-grid .image-section{
+  height: 300px;
+}
+
 @media (max-width: 768px) {
+  .classic-products.products.collection__-grid .image-section img{
+    position: relative;
+  }
+  .media.media--hover-effect > img + img {
+    display: none !important;
+  }
   main {
     overflow-x: hidden;
   }
-
   .mobile-container {
     width: 100%;
     padding: 30px 15px;
@@ -1927,7 +1954,7 @@ FAQ STYLING
   }
 
   h2.headings {
-    font-size: 34px;
+    font-size: 28px;
     text-align: center;
   }
 
