@@ -16,229 +16,204 @@
   <div class="container">
     <div class="product-wrapper">
       <div class="slider left">
-        <p class="mobile-product-text no-d">
-          {%- for block in section.blocks -%}
-            {%- case block.type -%}
-            {%- when 'description' -%}
-            {{ product.metafields.my_fields.mobile_description }}
-            {%- endcase -%}
-            {%- endfor -%}
-            <br>
-          
-          <a class="review-stars" href="#reviews">
-            <span class="stars">
-              <span class="star">{% render "icon-star" %}</span>
-              <span class="star">{% render "icon-star" %}</span>
-              <span class="star">{% render "icon-star" %}</span>
-              <span class="star">{% render "icon-star" %}</span>
-              <span class="star">{% render "icon-star" %}</span>
-            </span>
-            <span class="mobile-product-reviews">142 reviews</span>
+        {% comment %} 
+          <p class="mobile-product-text no-d">
             {%- for block in section.blocks -%}
-            {%- case block.type -%}
-            {%- when 'text' -%}
-            <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
-            <div class="no-d product-vendor {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">{{- block.settings.text -}}</div>
-            {%- endcase -%}
-            {%- endfor -%}
-          </a>
-        </p>
-        {%- for block in section.blocks -%}
-        {%- case block.type -%}
-        {%- when 'price' -%}
-        <p class="product-price no-d">
-          {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price product-single__price no-desktop-1 justify-content-center' -%}
-        </p>
-        {%- when '@app' -%}
-        {% render block %}
-        {%- endcase -%}
-        {%- endfor -%}
+              {%- case block.type -%}
+              {%- when 'description' -%}
+              {{ product.metafields.my_fields.mobile_description }}
+              {%- endcase -%}
+              {%- endfor -%}
+              <br>
+             <a class="review-stars" href="#reviews">
+                <span class="stars">
+                  <span class="star">{% render "icon-star" %}</span>
+                  <span class="star">{% render "icon-star" %}</span>
+                  <span class="star">{% render "icon-star" %}</span>
+                  <span class="star">{% render "icon-star" %}</span>
+                  <span class="star">{% render "icon-star" %}</span>
+                </span>
+                <span class="mobile-product-reviews">142 reviews</span>
+              </a> 
+              {%- for block in section.blocks -%}
+              {%- case block.type -%}
+              {%- when 'text' -%}
+              <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
+              <div class="no-d product-vendor {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">{{- block.settings.text -}}</div>
+              {%- endcase -%}
+              {%- endfor -%}
+          </p>
+          {%- for block in section.blocks -%}
+          {%- case block.type -%}
+          {%- when 'price' -%}
+          <p class="product-price no-d">
+            {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price product-single__price no-desktop-1 justify-content-center' -%}
+          </p>
+          {%- when '@app' -%}
+          {% render block %}
+          {%- endcase -%}
+          {%- endfor -%} 
+        {% endcomment %}
         {% render "product-template-slider" %}
 
       </div>
       <div class="product-single-wrapper right">
         <div class="product-single">
-          {%- for block in section.blocks -%}
-          {%- case block.type -%}
-          {%- when 'text' -%}
-          <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
-          <div class="product-vendor default {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">{{- block.settings.text -}}</div>
-          {%- endcase -%}
-          {%- endfor -%}
-          <h1 class="product-single-title no-m">
-          {%- for block in section.blocks -%}
-            {%- case block.type -%}
-            {%- when 'title' -%}
-            {{ product.title }}
-            {%- endcase -%}
-            {%- endfor -%}
-          </h1>
           <div class="center-it">
-            <div class="price-container no-m">
+            <div class="price-container ">
               {%- for block in section.blocks -%}
-              {%- case block.type -%}
-              {%- when 'price' -%}
-              <span class="product-price">
-                {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'product-price product-single__price' -%}
-              </span>
-              {%- when '@app' -%}
-              {% render block %}
-              {%- endcase -%}
-              {%- endfor -%}
-              <span class="stars">
-              <span class="star">{% render "icon-star" %}</span>
-              <span class="star">{% render "icon-star" %}</span>
-              <span class="star">{% render "icon-star" %}</span>
-              <span class="star">{% render "icon-star" %}</span>
-              <span class="star">{% render "icon-star" %}</span>
-              </span>
-
-              {%- for block in section.blocks -%}
-              {%- case block.type -%}
-              {%- when 'description' -%}
-                {%- if product.description != blank -%}
-                <div class="product-single-description" itemprop="description">
-                  <p>{{ product.description }}</p>
-                </div>
-                {%- endif -%}
-              {%- endcase -%}
+                {%- case block.type -%}
+                  {%- when 'text' -%}
+                    <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
+                    <div class="product-vendor default {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">{{- block.settings.text -}}</div>
+                  {%- when 'title' -%}
+                    <h1 class="product-single-title ">
+                      {{ product.title }}
+                    </h1>
+                  {%- when 'price' -%}
+                    <div class="product-price">
+                      {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'product-price product-single__price' -%}
+                    </div>
+                  {%- when '@app' -%}
+                    {% render block %}
+                  {%- when 'description' -%}
+                    {%- if product.description != blank -%}
+                      <div class="product-single-description" itemprop="description">
+                        <p>{{ product.description }}</p>
+                      </div>
+                    {%- endif -%}
+                {%- endcase -%}
               {%- endfor -%}
               {% capture "form_classes" %}
               product-single__form{% if product.has_only_default_variant %} AddToCartForm--product-template--no-variants product-single__form--no-variants{% endif %}
-            {%- endcapture %}
+              {%- endcapture %}
 
-            {% capture "form_id" %}product-form-{{ section.id }}{%- endcapture -%}
-
-            {% form 'product', product, class:form_classes, id:form_id, data-product-form: '' %}
-              <select name="id" id="ProductSelect--{{ section.id }}" class="product-single__variants no-js" hidden>
-                  {% for variant in product.variants %}
-                    {% if variant.available %}
-                      <option {% if variant == product.selected_or_first_available_variant %}
-                        selected="selected" {% endif %}
-                        data-sku="{{ variant.sku }}"
-                        value="{{ variant.id }}">
-                        {{ variant.title }} - {{ variant.price | money_with_currency }}
-                      </option>
-                    {% else %}
-                      <option disabled="disabled">
-                        {{ variant.title }} - {{ 'products.product.sold_out' | t }}
-                      </option>
-                    {% endif %}
-                  {% endfor %}
+              {% capture "form_id" %}product-form-{{ section.id }}{%- endcapture -%}
+              {% form 'product', product, class:form_classes, id:form_id, data-product-form: '' %}
+                <input type="hidden" name="sections" value="cart-total-price,cart-items-template">
+                <select name="id" id="ProductSelect--{{ section.id }}" class="product-single__variants no-js" hidden>
+                    {% for variant in product.variants %}
+                      {% if variant.available %}
+                        <option {% if variant == product.selected_or_first_available_variant %}
+                          selected="selected" {% endif %}
+                          data-sku="{{ variant.sku }}"
+                          value="{{ variant.id }}">
+                          {{ variant.title }} - {{ variant.price | money_with_currency }}
+                        </option>
+                      {% else %}
+                        <option disabled="disabled">
+                          {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                        </option>
+                      {% endif %}
+                    {% endfor %}
                 </select>
-
                 {%- for block in section.blocks -%}
-                {%- case block.type -%}
-                {%- when 'upload' -%}
-                <div class="line-item-property__field box has-advanced-upload">
-                  <div class="box__input">
-                    <input type="hidden" name="sections" value="cart-total-price,cart-items-template">
-                    <input id="image" required type="file" class="box__file required" accept="image/*"
-                            enctype="multipart/form-data"
-                          name="properties[Image we will cut out ✂️]"
-                          />
-                    <label for="image"><strong>UPLOAD</strong><span
-                                                                    class="box__dragndrop"></span></label>
-                    <label for="image">
-                      <span class="box__icon">
-                        <img src="{{ "upload_4.png" | asset_url }}" alt="upload icon" 
-                            width="auto"
-                            height="auto"
-                            loading="lazy">
-                      </span>
-                    </label>
-                  </div>
-                </div>
-                {%- endcase -%}
-                {%- endfor -%}
-
-                {%- for block in section.blocks -%}
-                {%- case block.type -%}
-                {%- when 'quantity_selector' -%}
-                <div class=" product-form__quantity text-left" {{ block.shopify_attributes }}>
-                  <label class="form__label" for="Quantity-{{ section.id }}">
-                    Quantity
-                  </label>
-                  <quantity-input class="quantity">
-                    <button class="quantity__button no-js-hidden" name="minus" type="button">
-                      <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}</span>
-                      {% render 'icon-minus' %}
-                    </button>
-                    <input class="quantity__input"
-                        type="number"
-                        name="quantity"
-                        id="Quantity-{{ section.id }}"
-                        min="1"
-                        value="1"
-                        form="product-form-{{ section.id }}"
-                      >
-                    <button class="quantity__button no-js-hidden" name="plus" type="button">
-                      <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: product.title | escape }}</span>
-                      {% render 'icon-plus' %}
-                    </button>
-                  </quantity-input>
-                </div>
-                {%- endcase -%}
-                {%- endfor -%}
-
-                <div class="product-single__add-to-cart">
-                  <button  name="add" id="AddToCart--product-template"
-                          class="button border-button AddToCart"
-                          data-id="{{ current_variant.id }}">
-                    Order Now
-                  </button>
-                  {%- for block in section.blocks -%}
                   {%- case block.type -%}
-                  {%- when 'buy_buttons' -%}
-                  {%- if block.settings.show_dynamic_checkout -%}
-                  {{ form | payment_button }}
-                  {%- endif -%}
+                    {%- when 'upload' -%}
+                      <div class="line-item-property__field box has-advanced-upload no-m">
+                        <div class="box__input">
+                          <input 
+                            id="image" 
+                            required 
+                            type="file" 
+                            class="box__file required" 
+                            accept="image/*"
+                            enctype="multipart/form-data"
+                            name="properties[Image we will cut out ✂️]"
+                          />
+                          <label for="image">
+                            <strong>UPLOAD</strong>
+                            <span class="box__dragndrop"></span>
+                          </label>
+                          <label for="image">
+                            <span class="box__icon">
+                              <img 
+                                src="{{ "upload_4.png" | asset_url }}" 
+                                alt="upload icon" 
+                                width="auto"
+                                height="auto"
+                                loading="lazy"
+                              />
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                    {%- when 'quantity_selector' -%}
+                      <div class=" product-form__quantity text-left" {{ block.shopify_attributes }}>
+                        <label class="form__label" for="Quantity-{{ section.id }}">
+                          Quantity
+                        </label>
+                        <quantity-input class="quantity">
+                          <button class="quantity__button no-js-hidden" name="minus" type="button">
+                            <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}</span>
+                            {% render 'icon-minus' %}
+                          </button>
+                          <input class="quantity__input"
+                              type="number"
+                              name="quantity"
+                              id="Quantity-{{ section.id }}"
+                              min="1"
+                              value="1"
+                              form="product-form-{{ section.id }}"
+                            >
+                          <button class="quantity__button no-js-hidden" name="plus" type="button">
+                            <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: product.title | escape }}</span>
+                            {% render 'icon-plus' %}
+                          </button>
+                        </quantity-input>
+                      </div>
+                    {%- when 'buy_buttons' -%}
+                      <div class="product-single__add-to-cart">
+                        <button  name="add" id="AddToCart--product-template"
+                                class="button border-button AddToCart"
+                                data-id="{{ current_variant.id }}">
+                          Order Now
+                        </button>
+                        {%- if block.settings.show_dynamic_checkout -%}
+                          {{ form | payment_button }}
+                        {%- endif -%}
+                      </div>
                   {%- endcase -%}
-                  {%- endfor -%}
-                </div>
-          
+                {%- endfor -%}
               {% endform %}
-              
             </div>
 
-
-                            <!-- ---------------------------------------------------- -->
-                            <share-button class="share-button " {{ block.shopify_attributes }}>
-                              <button class="share-button__button button button--secondary hidden">
-                                {% render 'icon-share' %}
-                                {{ 'general.share.share' | t }}
-                              </button>
-                              <details>
-                                <summary class="share-button__button button button--tertiary">
-                                  {% render 'icon-share' %}
-                                  {{ 'general.share.share' | t }}
-                                </summary>
-                                <div class="share-button__fallback">
-                                  <div class="field">
-                                    <input type="text"
-                                          class="field__input"
-                                          id="url"
-                                          value="{{ shop.url | append: product.url }}"
-                                          placeholder="{{ 'general.share.share_url' | t }}"
-                                          onclick="this.select();"
-                                          readonly
-                                    >
-                                    <label class="field__label" for="url">{{ 'general.share.share_url' | t }}</label>
-                                  </div>
-                                  <button class="button button--tertiary">
-                                    {% render 'icon-clipboard' %}
-                                    {{ 'general.share.copy_to_clipboard' | t }}
-                                  </button>
-                                  <span id="ShareMessage-{{ section.id }}" class="share-button__message hidden" role="status" aria-hidden="true">
-                                    {{ 'general.share.success_message' | t }}
-                                  </span>
-                                </div>
-                              </details>
-                            </share-button>
-                            
-                            <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
-                            <!-- ---------------------------------------------------- -->
-
+            <!-- ---------------------------------------------------- -->
+            <share-button class="share-button " {{ block.shopify_attributes }}>
+              <button class="share-button__button button button--secondary hidden">
+                {% render 'icon-share' %}
+                {{ 'general.share.share' | t }}
+              </button>
+              <details>
+                <summary class="share-button__button button button--tertiary">
+                  {% render 'icon-share' %}
+                  {{ 'general.share.share' | t }}
+                </summary>
+                <div class="share-button__fallback">
+                  <div class="field">
+                    <input type="text"
+                          class="field__input"
+                          id="url"
+                          value="{{ shop.url | append: product.url }}"
+                          placeholder="{{ 'general.share.share_url' | t }}"
+                          onclick="this.select();"
+                          readonly
+                    >
+                    <label class="field__label" for="url">{{ 'general.share.share_url' | t }}</label>
+                  </div>
+                  <button class="button button--tertiary">
+                    {% render 'icon-clipboard' %}
+                    {{ 'general.share.copy_to_clipboard' | t }}
+                  </button>
+                  <span id="ShareMessage-{{ section.id }}" class="share-button__message hidden" role="status" aria-hidden="true">
+                    {{ 'general.share.success_message' | t }}
+                  </span>
+                </div>
+              </details>
+            </share-button>
+            
+            <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
+            <!-- ---------------------------------------------------- -->
 
 <!-- ---------------------------------------------------- -->
             {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}

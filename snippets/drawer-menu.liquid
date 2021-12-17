@@ -1,153 +1,141 @@
 <div class="drawer__inner drawer-left__inner">
-  <div id="menu-btn-small" class="menu-btn new-drawer-menu no-d js-drawer-open-button-left" aria-expanded="false">
-    <span class="cross-line" ></span>
-    <span class="cross-line" ></span>
-    <span class="cross-line" ></span>
-  </div>
-  <ul class="mobile-nav">
-   
-
+  <ul class="mobile-nav ">
     {%- for block in section.blocks -%}
-    {%- case block.type -%}
-    {%- when 'mobile_menu' -%}
-    {%- for link in linklists[block.settings.mobile_menu].links -%}
-    <li class="mobile-nav__item">
-      {%- if link.links != blank -%}
-      <div class="mobile-nav__has-sublist">
-        <div class="mobile-nav__toggle">
-          <div class="mobile-shop">
-            {%- endif -%}
-            <a href="{{ link.url }}" class="{% if link.links != blank %}mobile-shp{% endif %} mobile-nav__link"
-               id="Label-{{ forloop.index }}"> {{ link.title }}</a>
-            {%- if link.links != blank -%}
-            <button type="button" class="mobile-shop-btn mobile-nav__toggle-btn icon-fallback-text"
-                    aria-controls="Linklist-0" aria-expanded="false" data-list-id="Linklist-{{ forloop.index }}">
-              <div class="plus-icon-wrap">
-                <div class="toggle open"></div>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
-      <ul class="mobile-nav__sublist content-list" id="Linklist-{{ forloop.index }}" role="navigation">
-        {%- for child_link in link.links -%} 
-        {%- assign product = child_link.object -%}
-
-        <li class="accordian mobile-nav__item">
-          <a href="{{product.url}}" class="mobile-nav__link">Custom {{ product.title }}
-            {%- if product.images.size > 0 -%}
-            {%- if product.images.size > 1 -%}
-            {%- assign product_image = product.images[1] -%}
-            {%- else -%}
-            {%- assign product_image = product.featured_image -%}
-            {%- endif -%}
-            <img srcset="{%- if product_image.width >= 60 -%}{{ product_image | img_url: '60x' }} 60w,{%- endif -%}"
-                 src="{{ product_image | img_url: '60x' }}" 
-                 alt="{{ product.title }}" 
-                 width="auto"
-                 height="auto"
-                 style="width: 60px; margin-top: -10px;"
-                 loading="lazy"
-                 />
-            {%- else -%}
-            {{ 'product-1' | placeholder_svg_tag }}
-            {%- endif -%}
-          </a>
-
-          {% if child_link.links != blank %}
-          <details-disclosure id="grandlink_mobile">
-            <details open>
-              <summary>
-                <button type="button" class="mobile-shop-btn-2 mobile-nav__toggle-btn icon-fallback-text"
-                    aria-controls="Linklist-0" aria-expanded="false" data-list-idd="GrandLinklist-{{ forloop.index }}">
-                  <div class="plus-icon-wrap">
-                    <div class="toggle toggle-grand open"></div>
-                  </div>
-                </button>
-              </summary>
-              <ul class="mobile-nav__sublist content-list" id="GrandLinklist-{{ forloop.index }}" role="navigation">
-                {%- for grand_child_link in child_link.links -%} 
-                {%- assign product = grand_child_link.object -%}
-                    <li class="mobile_granchild mobile-nav__item" >
-                      <a href="{{product.url}}" class="mobile-nav__link">Custom {{ product.title }}</span> 
-                        {%- if product.images.size > 0 -%}
-                        {%- if product.images.size > 1 -%}
-                        {%- assign product_image = product.images[1] -%}
-                        {%- else -%}
-                        {%- assign product_image = product.featured_image -%}
-                        {%- endif -%}
-                        <img srcset="{%- if product_image.width >= 60 -%}{{ product_image | img_url: '60x' }} 60w,{%- endif -%}"
-                            src="{{ product_image | img_url: '60x' }}" 
-                            alt="{{ product.title }}" 
-                            width="auto"
-                            height="auto"
-                            style="width: 60px; margin-top: -10px;"
-                            loading="lazy"
-                            />
-
-                        {%- else -%}
-                        {{ 'product-1' | placeholder_svg_tag }}
-                        {%- endif -%}
+      {%- case block.type -%}
+      {%- when 'mobile_menu' -%}
+          {%- for link in linklists[block.settings.mobile_menu].links -%}
+              {%- if link.links != blank -%}
+                  <li class="mobile-nav__item">
+                    <div class="toggle-mobile-nav mobile-nav__link flex">
+                      <a href="{{ link.url }}">
+                        {{ link.title }}
                       </a>
-                    </li>
-                    {%- endfor -%}
-              </ul>
-          </li>
-        </details>
-      </details-disclosure>
-      {% endif %}
-      {%- endfor -%}
-      </ul>
-      {%- endif -%}
-    </li>
-    {%- endfor -%}
-    {%- endcase -%}
-    {%- endfor -%}
-
-<!--     <li class="mobile-nav__item">
-      <a href="/pages/about-us" class="mobile-nav__link"> About </a>
-    </li>
+                      <button class="plus-icon-wrap">
+                          <div class="toggle"></div>
+                      </button>
+                    </div>
+                      <ul class="inner">
+                          {%- for child_link in link.links -%} 
+                              {%- assign product = child_link.object -%}
+                              {%- if child_link.links != blank -%}
+                                <li class="mobile-nav__item">
+                                  <div class="toggle-mobile-nav flex">
+                                    <a class="flex mobile-nav__link" href="{{ product.url }}">
+                                      {{ product.title }}
+                                    </a>
+                                    <a class="flex" href="{{ product.url }}" style="margin-left: 10%;">
+                                      {%- if product.images.size > 0 -%}
+                                      {%- if product.images.size > 1 -%}
+                                        {%- assign product_image = product.images[1] -%}
+                                      {%- else -%}
+                                        {%- assign product_image = product.featured_image -%}
+                                      {%- endif -%}
+                                        <img srcset="{%- if product_image.width >= 60 -%}{{ product_image | img_url: '60x' }} 60w,{%- endif -%}"
+                                            src="{{ product_image | img_url: '60x' }}" 
+                                            alt="{{ product.title }}" 
+                                            width="auto"
+                                            height="auto"
+                                            style="max-width: 60px;"
+                                            loading="lazy"
+                                            />
+                                      {%- else -%}
+                                        {{ 'product-1' | placeholder_svg_tag }}
+                                      {%- endif -%}
+                                    </a>
+                                    <button class="plus-icon-wrap">
+                                        <div class="toggle"></div>
+                                    </button>
+                                  </div>
+                                  <ul class="inner">
+                                    {%- for grand_child_link in child_link.links -%} 
+                                      {%- assign product = grand_child_link.object -%}
+                                      <li class="align-items-center mobile-nav__item">
+                                        <a class="flex mobile-nav__link" href="{{ product.url }}">
+                                          {{ product.title }}
+                                        </a>
+                                        <a class="flex" href="{{ product.url }}" style="margin-left: 10%;">
+                                          {%- if product.images.size > 0 -%}
+                                          {%- if product.images.size > 1 -%}
+                                            {%- assign product_image = product.images[1] -%}
+                                          {%- else -%}
+                                            {%- assign product_image = product.featured_image -%}
+                                          {%- endif -%}
+                                            <img srcset="{%- if product_image.width >= 60 -%}{{ product_image | img_url: '60x' }} 60w,{%- endif -%}"
+                                                src="{{ product_image | img_url: '60x' }}" 
+                                                alt="{{ product.title }}" 
+                                                width="auto"
+                                                height="auto"
+                                                style="max-width: 60px; height: auto;"
+                                                loading="lazy"
+                                                />
+                                          {%- else -%}
+                                            {{ 'product-1' | placeholder_svg_tag }}
+                                          {%- endif -%}
+                                        </a>
+                                      </li>
+                                    {%- endfor -%}
+                                  </ul>
+                                </li>
+                              {%- else -%}
+                                  <li class="mobile-nav__item">
+                                    <div class="align-items-center">
+                                      <a class="flex mobile-nav__link" href="{{ product.url }}">
+                                        {{ product.title }}
+                                      </a>
+                                      <a class="flex" href="{{ product.url }}" style="margin-left: 10%;">
+                                        {%- if product.images.size > 0 -%}
+                                        {%- if product.images.size > 1 -%}
+                                          {%- assign product_image = product.images[1] -%}
+                                        {%- else -%}
+                                          {%- assign product_image = product.featured_image -%}
+                                        {%- endif -%}
+                                          <img srcset="{%- if product_image.width >= 60 -%}{{ product_image | img_url: '60x' }} 60w,{%- endif -%}"
+                                              src="{{ product_image | img_url: '60x' }}" 
+                                              alt="{{ product.title }}" 
+                                              width="auto"
+                                              height="auto"
+                                              style="max-width: 60px; height: auto;"
+                                              loading="lazy"
+                                              />
+                                        {%- else -%}
+                                          {{ 'product-1' | placeholder_svg_tag }}
+                                        {%- endif -%}
+                                      </a>
+                                    </div>
+                                  </li>
+                              {%- endif -%}
+                          {%- endfor -%}
+                      </ul>
+                  </li>
+              {%- else -%}
+                  <li class="mobile-nav__item">
+                      <a class="mobile-nav__link" href="{{ link.url }}">{{ link.title }}</a>
+                  </li>
+              {%- endif -%}
+          {%- endfor -%}
+      {%- endcase -%}
+  {%- endfor -%}
 
     <li class="mobile-nav__item">
-      <a href="/pages/reviews" class="mobile-nav__link"> Reviews </a>
-    </li>
-
-    <li class="mobile-nav__item">
-      <a href="/pages/our-partner" class="mobile-nav__link">
-        Edgard &amp; Cooper
-      </a>
-    </li>
-
-    <li class="mobile-nav__item">
-      <a href="/pages/gift" class="mobile-nav__link"> Gift </a>
-    </li> -->
-
-    <li class="mobile-nav__item">
-      <div class="mobile-nav__has-sublist">
-        <div class="mobile-nav__toggle">
-          <div class="mobile-shop">
-            <a href="/" class="mobile-shp mobile-nav__link" id="Lang-0">
-              <img 
-                   class="lang-imgs"
-                   src="{{ "English-flag-new.png" | asset_img_url:"60x" }}"
-                   width="auto"
-                   height="auto"
-                   style="margin-right: 3px" alt="UK" loading="lazy"/>
-
-              EN</a>
-            <button type="button" class="mobile-shop-btn mobile-nav__toggle-btn icon-fallback-text"
-                    aria-controls="Langlist-0" aria-expanded="false" data-list-id="Langlist-0">
-              <div class="plus-icon-wrap">
-                <div class="toggle _1 open"></div>
-              </div>
-            </button>
-          </div>
-        </div>
+      <div class="toggle-mobile-nav flex">
+        <a href="#" class="flex mobile-shp mobile-nav__link" id="Lang-0">
+          <img 
+                class="lang-imgs"
+                src="{{ "English-flag-new.png" | asset_img_url:"60x" }}"
+                width="auto"
+                height="auto"
+                style="margin-right: 3px" alt="UK" 
+                loading="lazy"
+          />
+          EN
+        </a>
+        <button class="plus-icon-wrap">
+          <div class="toggle"></div>
+        </button>
       </div>
-      <ul class="mobile-nav__sublist" id="Langlist-0" role="navigation">
+      <ul class="inner" id="Langlist-0" role="navigation">
         <li class="mobile-nav__item">
-          <a href="https://nl.stickerpet.com/" data-wg-notranslate=""
-             class="weglot-link weglot-link-nl">
+          <a href="#" class="align-items-center mobile-nav__link">
             <img class="lang-imgs"
                  src="{{ "French-flag.png" | asset_img_url:"60x" }}"
                  style="transform: rotate(90deg)" 
@@ -158,27 +146,28 @@
         </li>
 
         <li class="mobile-nav__item">
-          <a href="https://fr.stickerpet.com/" data-wg-notranslate=""
-             class="weglot-link weglot-link-fr">
+          <a href="#" class="align-items-center mobile-nav__link">
             <img 
                  class="lang-imgs"
                  src="{{ "French-flag.png" | asset_img_url:"60x" }}" 
                  alt="france" 
                  width="auto"
                  height="auto"
-                 loading="lazy"/>FR</a>
+                 loading="lazy"
+            />FR
+          </a>
         </li>
       </ul>
     </li>
     <li class="mobile-nav__item customer-account">
       {% if customer %}
-        <a href="{{ routes.account_url }}">
+        <a href="{{ routes.account_url }}" class="mobile-nav__link">
           {{ customer.first_name }}
           {% render 'icon-account' %}
         </a>
       
       {% else %}
-        <a href="{{ routes.account_login_url }}">
+        <a href="{{ routes.account_login_url }}" class="mobile-nav__link">
           Login
           {% render 'icon-account' %}
         </a>
@@ -188,3 +177,32 @@
   </ul>
   <!-- //mobile-nav -->
 </div>
+
+<style>
+  #NavDrawer ol, #NavDrawer ul.inner {
+      padding-left: 10px;
+      overflow: hidden;
+      display: none;
+  }
+</style>
+
+<script>
+  $('.toggle-mobile-nav').click(function (e) {
+      // e.preventDefault();
+
+      var $this = $(this);
+
+      if ($this.next().hasClass('show-mobile-nav')) {
+          $this.next().removeClass('show-mobile-nav');
+          $this.removeClass("accordion-open");
+          $this.next().slideUp(350);
+      } else {
+          $this.parent().parent().find('li .inner').removeClass('show-mobile-nav');
+          $this.parent().parent().find('li .inner').slideUp(350);
+          $this.parent().parent().find('li .toggle-mobile-nav').removeClass("accordion-open");
+          $this.next().toggleClass('show-mobile-nav');
+          $this.toggleClass("accordion-open");
+          $this.next().slideToggle(350);
+      }
+  });
+</script>

@@ -5,7 +5,7 @@
 
 
 <link rel="stylesheet" href="{{ 'disclosure.css' | asset_url }}" media="print" onload="this.media='all'">
-<div id="NavDrawer" class="drawer drawer--left no-d">
+<div id="NavDrawer" class="drawer drawer--left no-d color-{{ section.settings.drawer_menu_color_scheme }}">
   {% include 'drawer-menu' %}
 </div>
 <div class="header-container">
@@ -28,11 +28,11 @@
   <header class="site-header color-{{ section.settings.header_color_scheme }}">
     <div class="container">
       <div class="flex {% if section.settings.menu_position == 'space-evenly' %} space-evenly {% elsif section.settings.menu_position == 'space-around' %} space-around {% else %} {% endif %}">
-        <div id="menu-btn" class="menu-btn no-d js-drawer-open-button-left" aria-expanded="false">
+        <button id="menu-btn" class="menu-btn no-d js-drawer-open-button-left" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
         <div class="logo-wrapper">
           <div class="logo">
             <a href="{{ routes.root_url }}" class="site-header-logo-image">
@@ -264,215 +264,256 @@
 </div>
 
 {% schema %}
-  {
-    "name": "t:sections.header.name",
-    "settings": [
-          {
-          "id": "brand_img",
-          "type": "image_picker",
-          "label": "t:sections.header.settings.logo.label"
-          },
-          {
-            "type": "select",
-            "id": "menu_position",
-            "options": [
-              {
-                "value": "space-between",
-                "label": "t:sections.header.settings.logo_position.options__1.label"
-              },
-              {
-                "value": "space-evenly",
-                "label": "t:sections.header.settings.logo_position.options__2.label"
-              },
-              {
-                "value": "space-around",
-                "label": "t:sections.header.settings.logo_position.options__3.label"
-              }
-            ],
-            "default": "space-between",
-            "label": "t:sections.header.settings.logo_position.label"
-          },
-          {
-             "type": "select",
-             "id": "announcement_color_scheme",
-             "info" : "t:sections.header.settings.announcement_color_scheme.info",
-          "options": [
-             {
-               "label": "t:sections.header.settings.announcement_color_scheme.options__1.label",
-               "value": "accent-1"
-             },
-             {
-               "label": "t:sections.header.settings.announcement_color_scheme.options__2.label",
-               "value": "accent-2"
-             },
-             {
-               "label": "t:sections.header.settings.announcement_color_scheme.options__3.label",
-               "value": "background-1"
-             },
-             {
-               "label": "t:sections.header.settings.announcement_color_scheme.options__4.label",
-               "value": "background-2"
-             },
-             {
-               "label": "t:sections.header.settings.announcement_color_scheme.options__5.label",
-               "value": "background-3"
-             },
-             {
-               "label": "t:sections.header.settings.announcement_color_scheme.options__6.label",
-               "value": "background-4"
-             },
-             {
-               "label": "t:sections.header.settings.announcement_color_scheme.options__7.label",
-               "value": "background-5"
-             },
-             {
-               "label": "t:sections.header.settings.announcement_color_scheme.options__8.label",
-               "value": "inverse"
-             }
-          ],
-            "label": "t:sections.header.settings.announcement_color_scheme.label",
-           "default": "background-3"
-         },
-         {
-          "type": "select",
-          "id": "header_color_scheme",
-          "info" : "t:sections.header.settings.menu_color_scheme.info",
-          "options": [
-             {
-               "label": "t:sections.header.settings.menu_color_scheme.options__1.label",
-               "value": "accent-1"
-             },
-             {
-               "label": "t:sections.header.settings.menu_color_scheme.options__2.label",
-               "value": "accent-2"
-             },
-             {
-               "label": "t:sections.header.settings.menu_color_scheme.options__3.label",
-               "value": "background-1"
-             },
-             {
-               "label": "t:sections.header.settings.menu_color_scheme.options__4.label",
-               "value": "background-2"
-             },
-             {
-               "label": "t:sections.header.settings.menu_color_scheme.options__5.label",
-               "value": "background-3"
-             },
-             {
-               "label": "t:sections.header.settings.menu_color_scheme.options__6.label",
-               "value": "background-4"
-             },
-             {
-               "label": "t:sections.header.settings.menu_color_scheme.options__7.label",
-               "value": "background-5"
-             },
-             {
-               "label": "t:sections.header.settings.menu_color_scheme.options__8.label",
-               "value": "inverse"
-             }
-          ],
-          "label": "t:sections.header.settings.menu_color_scheme.label",
-          "default": "background-1"
-       },
-          {
-             "type": "select",
-             "id": "dropdownmenu_color_scheme",
-             "info" : "t:sections.header.settings.dropdown_menu_color_scheme.info",
-              "options": [
-                {
-                  "label": "t:sections.image-with-text-list.settings.dropdown_menu_color_scheme.options__1.label",
-                  "value": "accent-1"
-                },
-                {
-                  "label": "t:sections.header.settings.dropdown_menu_color_scheme.options__2.label",
-                  "value": "accent-2"
-                },
-                {
-                  "label": "t:sections.header.settings.dropdown_menu_color_scheme.options__3.label",
-                  "value": "background-1"
-                },
-                {
-                  "label": "t:sections.header.settings.dropdown_menu_color_scheme.options__4.label",
-                  "value": "background-2"
-                },
-                {
-                  "label": "t:sections.header.settings.dropdown_menu_color_scheme.options__5.label",
-                  "value": "background-3"
-                },
-                {
-                  "label": "t:sections.header.settings.dropdown_menu_color_scheme.options__6.label",
-                  "value": "background-4"
-                },
-                {
-                  "label": "t:sections.header.settings.dropdown_menu_color_scheme.options__7.label",
-                  "value": "background-5"
-                },
-                {
-                  "label": "t:sections.header.settings.dropdown_menu_color_scheme.options__8.label",
-                  "value": "inverse"
-                }
-              ],
-              "label": "t:sections.header.settings.dropdown_menu_color_scheme.label",
-              "default": "background-3"
-              },
-              {
-                "id": "show_multiple_language",
-                "type": "checkbox",
-                "label": "t:sections.header.settings.multiple_language.label",
-                "default": false
-              },
-              {
-                "id": "show_currency",
-                "type": "checkbox",
-                "label": "t:sections.header.settings.currency.label",
-                "default": false
-              },
-              {
-                "id": "show_search_icon",
-                "type": "checkbox",
-                "label": "t:sections.header.settings.search.label",
-                "default": true
-              }
-    ],
-    "blocks": [
+{
+  "name": "t:sections.header.name",
+  "settings": [
+    {
+      "id": "brand_img",
+      "type": "image_picker",
+      "label": "t:sections.header.settings.logo.label"
+    },
+    {
+      "type": "select",
+      "id": "menu_position",
+      "options": [
         {
-        "type": "Menu",
-        "name": "t:sections.header.blocks.header_menu.name",
-        "limit":1,
-        "settings": [
-            {
-            "id": "header_menu",
-            "type": "link_list",
-            "label": "t:sections.header.blocks.header_menu.settings.menu.label"
-            }
-        ]
+          "value": "space-between",
+          "label": "t:sections.header.settings.logo_position.options__1.label"
         },
         {
-        "type": "mobile_menu",
-        "name": "t:sections.header.blocks.mobile_menu.name",
-        "limit":1,
-        "settings": [
-            {
-            "id": "mobile_menu",
-            "type": "link_list",
-            "label": "t:sections.header.blocks.mobile_menu.settings.mobile_menu_label.label"
-            }
-        ]
+          "value": "space-evenly",
+          "label": "t:sections.header.settings.logo_position.options__2.label"
         },
         {
-        "type": "announcement",
-        "name": "t:sections.header.blocks.announcement_text.name",
-        "settings": [
-            {
-            "id": "announcement_text",
-            "type": "text",
-            "label": "t:sections.header.blocks.announcement_text.settings.announcement.label",
-            "default": "🌴 Some text 🌴"
-            }
-          ]
+          "value": "space-around",
+          "label": "t:sections.header.settings.logo_position.options__3.label"
         }
-    ]
-  }
+      ],
+      "default": "space-between",
+      "label": "t:sections.header.settings.logo_position.label"
+    },
+    {
+      "type": "select",
+      "id": "announcement_color_scheme",
+      "info": "t:sections.header.settings.announcement_color_scheme.info",
+      "options": [
+        {
+          "label": "t:sections.header.settings.announcement_color_scheme.options__1.label",
+          "value": "accent-1"
+        },
+        {
+          "label": "t:sections.header.settings.announcement_color_scheme.options__2.label",
+          "value": "accent-2"
+        },
+        {
+          "label": "t:sections.header.settings.announcement_color_scheme.options__3.label",
+          "value": "background-1"
+        },
+        {
+          "label": "t:sections.header.settings.announcement_color_scheme.options__4.label",
+          "value": "background-2"
+        },
+        {
+          "label": "t:sections.header.settings.announcement_color_scheme.options__5.label",
+          "value": "background-3"
+        },
+        {
+          "label": "t:sections.header.settings.announcement_color_scheme.options__6.label",
+          "value": "background-4"
+        },
+        {
+          "label": "t:sections.header.settings.announcement_color_scheme.options__7.label",
+          "value": "background-5"
+        },
+        {
+          "label": "t:sections.header.settings.announcement_color_scheme.options__8.label",
+          "value": "inverse"
+        }
+      ],
+      "label": "t:sections.header.settings.announcement_color_scheme.label",
+      "default": "background-3"
+    },
+    {
+      "type": "select",
+      "id": "header_color_scheme",
+      "info": "t:sections.header.settings.menu_color_scheme.info",
+      "options": [
+        {
+          "label": "t:sections.header.settings.menu_color_scheme.options__1.label",
+          "value": "accent-1"
+        },
+        {
+          "label": "t:sections.header.settings.menu_color_scheme.options__2.label",
+          "value": "accent-2"
+        },
+        {
+          "label": "t:sections.header.settings.menu_color_scheme.options__3.label",
+          "value": "background-1"
+        },
+        {
+          "label": "t:sections.header.settings.menu_color_scheme.options__4.label",
+          "value": "background-2"
+        },
+        {
+          "label": "t:sections.header.settings.menu_color_scheme.options__5.label",
+          "value": "background-3"
+        },
+        {
+          "label": "t:sections.header.settings.menu_color_scheme.options__6.label",
+          "value": "background-4"
+        },
+        {
+          "label": "t:sections.header.settings.menu_color_scheme.options__7.label",
+          "value": "background-5"
+        },
+        {
+          "label": "t:sections.header.settings.menu_color_scheme.options__8.label",
+          "value": "inverse"
+        }
+      ],
+      "label": "t:sections.header.settings.menu_color_scheme.label",
+      "default": "background-1"
+    },
+    {
+      "type": "select",
+      "id": "dropdownmenu_color_scheme",
+      "info": "t:sections.header.settings.dropdown_menu_color_scheme.info",
+      "options": [
+        {
+          "label": "t:sections.image-with-text-list.settings.dropdown_menu_color_scheme.options__1.label",
+          "value": "accent-1"
+        },
+        {
+          "label": "t:sections.header.settings.dropdown_menu_color_scheme.options__2.label",
+          "value": "accent-2"
+        },
+        {
+          "label": "t:sections.header.settings.dropdown_menu_color_scheme.options__3.label",
+          "value": "background-1"
+        },
+        {
+          "label": "t:sections.header.settings.dropdown_menu_color_scheme.options__4.label",
+          "value": "background-2"
+        },
+        {
+          "label": "t:sections.header.settings.dropdown_menu_color_scheme.options__5.label",
+          "value": "background-3"
+        },
+        {
+          "label": "t:sections.header.settings.dropdown_menu_color_scheme.options__6.label",
+          "value": "background-4"
+        },
+        {
+          "label": "t:sections.header.settings.dropdown_menu_color_scheme.options__7.label",
+          "value": "background-5"
+        },
+        {
+          "label": "t:sections.header.settings.dropdown_menu_color_scheme.options__8.label",
+          "value": "inverse"
+        }
+      ],
+      "label": "t:sections.header.settings.dropdown_menu_color_scheme.label",
+      "default": "background-3"
+    },
+    {
+      "type": "select",
+      "id": "drawer_menu_color_scheme",
+      "info": "t:sections.header.settings.drawer_menu_color_scheme.info",
+      "options": [
+        {
+          "label": "t:sections.header.settings.drawer_menu_color_scheme.options__1.label",
+          "value": "accent-1"
+        },
+        {
+          "label": "t:sections.header.settings.drawer_menu_color_scheme.options__2.label",
+          "value": "accent-2"
+        },
+        {
+          "label": "t:sections.header.settings.drawer_menu_color_scheme.options__3.label",
+          "value": "background-1"
+        },
+        {
+          "label": "t:sections.header.settings.drawer_menu_color_scheme.options__4.label",
+          "value": "background-2"
+        },
+        {
+          "label": "t:sections.header.settings.drawer_menu_color_scheme.options__5.label",
+          "value": "background-3"
+        },
+        {
+          "label": "t:sections.header.settings.drawer_menu_color_scheme.options__6.label",
+          "value": "background-4"
+        },
+        {
+          "label": "t:sections.header.settings.drawer_menu_color_scheme.options__7.label",
+          "value": "background-5"
+        },
+        {
+          "label": "t:sections.header.settings.drawer_menu_color_scheme.options__8.label",
+          "value": "inverse"
+        }
+      ],
+      "label": "t:sections.header.settings.drawer_menu_color_scheme.label",
+      "default": "background-3"
+    },
+    {
+      "id": "show_multiple_language",
+      "type": "checkbox",
+      "label": "t:sections.header.settings.multiple_language.label",
+      "default": false
+    },
+    {
+      "id": "show_currency",
+      "type": "checkbox",
+      "label": "t:sections.header.settings.currency.label",
+      "default": false
+    },
+    {
+      "id": "show_search_icon",
+      "type": "checkbox",
+      "label": "t:sections.header.settings.search.label",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "Menu",
+      "name": "t:sections.header.blocks.header_menu.name",
+      "limit": 1,
+      "settings": [
+        {
+          "id": "header_menu",
+          "type": "link_list",
+          "label": "t:sections.header.blocks.header_menu.settings.menu.label"
+        }
+      ]
+    },
+    {
+      "type": "mobile_menu",
+      "name": "t:sections.header.blocks.mobile_menu.name",
+      "limit": 1,
+      "settings": [
+        {
+          "id": "mobile_menu",
+          "type": "link_list",
+          "label": "t:sections.header.blocks.mobile_menu.settings.mobile_menu_label.label"
+        }
+      ]
+    },
+    {
+      "type": "announcement",
+      "name": "t:sections.header.blocks.announcement_text.name",
+      "settings": [
+        {
+          "id": "announcement_text",
+          "type": "text",
+          "label": "t:sections.header.blocks.announcement_text.settings.announcement.label",
+          "default": "🌴 Some text 🌴"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
 
 {% stylesheet %}

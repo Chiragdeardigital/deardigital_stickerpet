@@ -42,48 +42,70 @@ $(document).ready(function () {
 });
 
 /*=================== MOBILE MENU FUNCTION ===================*/
-// function toggleMobileMenu(){
-//   let aria_expanded = $('.menu-btn').attr('aria-expanded');
-//   console.log(aria_expanded);
-//   $('.menu-btn').toggleClass('active');
-//   $("#NavDrawer").toggleClass('js-drawer-open');
-//   $("body").toggleClass('js-drawer-open js-drawer-open-left');
-//   $("html").toggleClass('js-drawer-open js-drawer-open-left');
+function toggleMobileMenu() {
+  $("#NavDrawer").toggleClass('js-drawer-open');
+  $("body").toggleClass('js-drawer-open js-drawer-open-left');
+  $("html").toggleClass('js-drawer-open js-drawer-open-left');
+}
 
-// }
+function openMobileMenu() {
+  $("#NavDrawer").addClass('js-drawer-open');
+  $("body").addClass('js-drawer-open js-drawer-open-left');
+  $("html").addClass('js-drawer-open js-drawer-open-left');
+}
 
+function closeMobileMenu() {
+  $("#NavDrawer").removeClass('js-drawer-open');
+  $("body").removeClass('js-drawer-open js-drawer-open-left');
+  $("html").removeClass('js-drawer-open js-drawer-open-left');
+}
 
-$('.menu-btn').click(function () {
-  var aria_expanded = $('#menu-btn').attr('aria-expanded');
-  if (aria_expanded === "true") {
-    console.log(aria_expanded);
-    $(this).attr("aria-expanded", "false");
-    $(this).removeClass('active');
-    $("#NavDrawer").removeClass('js-drawer-open');
-    $("body").removeClass('js-drawer-open js-drawer-open-left');
-    $("html").removeClass('js-drawer-open js-drawer-open-left');
+$(document).mouseup(function (e) {
+  let menu = $('#NavDrawer');
+  let menu_btn = $('#menu-btn');
+  if ((e.target.id === "menu-btn") || menu_btn.has(e.target).length > 0 ) {
+    toggleMobileMenu();
   }
-  else {
-    console.log(aria_expanded);
-    $(this).attr("aria-expanded", "true");
-    $(this).addClass('active');
-    $("#NavDrawer").addClass('js-drawer-open');
-    $("body").addClass('js-drawer-open js-drawer-open-left');
-    $("html").addClass('js-drawer-open js-drawer-open-left');
+
+  else if ((!menu.is(e.target) // The target of the click isn't the container.
+    && menu.has(e.target).length === 0) || e.target.id === "icon-x" || e.target.id === "closeCart") // Nor a child element of the container
+  {
+    closeMobileMenu();
   }
+
 });
 
+// $('.menu-btn').click(function () {
+//   var aria_expanded = $('#menu-btn').attr('aria-expanded');
+//   if (aria_expanded === "true") {
+//     console.log(aria_expanded);
+//     $(this).attr("aria-expanded", "false");
+//     $(this).removeClass('active');
+//     $("#NavDrawer").removeClass('js-drawer-open');
+//     $("body").removeClass('js-drawer-open js-drawer-open-left');
+//     $("html").removeClass('js-drawer-open js-drawer-open-left');
+//   }
+//   else {
+//     console.log(aria_expanded);
+//     $(this).attr("aria-expanded", "true");
+//     $(this).addClass('active');
+//     $("#NavDrawer").addClass('js-drawer-open');
+//     $("body").addClass('js-drawer-open js-drawer-open-left');
+//     $("html").addClass('js-drawer-open js-drawer-open-left');
+//   }
+// });
 
-$('.menu-btn.new-drawer-menu').click(function () {
-  var aria_expanded = $('#menu-btn-small').attr('aria-expanded');
-    $(this).attr("aria-expanded", "false");
-    $(this).removeClass('active');
-    $("#NavDrawer").removeClass('js-drawer-open');
-    $("body").removeClass('js-drawer-open js-drawer-open-left');
-    $("html").removeClass('js-drawer-open js-drawer-open-left');
-    $("#menu-btn").attr("aria-expanded", "false");
-    $("#menu-btn").removeClass('active');
-});
+
+// $('.menu-btn.new-drawer-menu').click(function () {
+//   var aria_expanded = $('#menu-btn-small').attr('aria-expanded');
+//     $(this).attr("aria-expanded", "false");
+//     $(this).removeClass('active');
+//     $("#NavDrawer").removeClass('js-drawer-open');
+//     $("body").removeClass('js-drawer-open js-drawer-open-left');
+//     $("html").removeClass('js-drawer-open js-drawer-open-left');
+//     $("#menu-btn").attr("aria-expanded", "false");
+//     $("#menu-btn").removeClass('active');
+// });
 
 
 // let target = document.querySelector('#NavDrawer');
@@ -114,14 +136,14 @@ function toggleCart() {
 
 function openCart() {
   $("#CartDrawer").addClass('js-drawer-open');
-  $("body").addClass('js-drawer-open js-drawer-open-right');
-  $("html").addClass('js-drawer-open js-drawer-open-right');
+  $("body").addClass('js-drawer-open-right');
+  $("html").addClass('js-drawer-open-right');
 }
 
 function closeCart() {
   $("#CartDrawer").removeClass('js-drawer-open');
-  $("body").removeClass('js-drawer-open js-drawer-open-right');
-  $("html").removeClass('js-drawer-open js-drawer-open-right');
+  $("body").removeClass('js-drawer-open-right');
+  $("html").removeClass('js-drawer-open-right');
 }
 
 
@@ -159,48 +181,48 @@ $(document).mouseup(function (e) {
 
 // --------------------------- MOBILE SUBLIST MENU---------------------------------------
 
-var coll = document.getElementsByClassName("mobile-shop-btn");
-var i;
+// var coll = document.getElementsByClassName("mobile-shop-btn");
+// var i;
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function () {
-    var btn = $(this);
-    btn.find('.toggle').toggleClass('open');
+// for (i = 0; i < coll.length; i++) {
+//   coll[i].addEventListener("click", function () {
+//     var btn = $(this);
+//     btn.find('.toggle').toggleClass('open');
 
-    this.classList.toggle("active");
-    var x = $(this).data('list-id');
-    var ele = document.getElementById(x);
-    //     console.log(ele);
-    if (ele.style.maxHeight) {
-      ele.style.maxHeight = null;
-    } else {
-      ele.style.maxHeight = "50vh";
-    }
-  });
-}
+//     this.classList.toggle("active");
+//     var x = $(this).data('list-id');
+//     var ele = document.getElementById(x);
+//     //     console.log(ele);
+//     if (ele.style.maxHeight) {
+//       ele.style.maxHeight = null;
+//     } else {
+//       ele.style.maxHeight = "50vh";
+//     }
+//   });
+// }
 
 
 
-var colll = document.getElementsByClassName("mobile-shop-btn-2");
-var s;
+// var colll = document.getElementsByClassName("mobile-shop-btn-2");
+// var s;
 
-for (s = 0; s < colll.length; s++) {
-  colll[s].addEventListener("click", function () {
-    var btn = $(this);
-    btn.find('.toggle-grand').toggleClass('open');
+// for (s = 0; s < colll.length; s++) {
+//   colll[s].addEventListener("click", function () {
+//     var btn = $(this);
+//     btn.find('.toggle-grand').toggleClass('open');
 
-    this.classList.toggle("activee");
-    var x = $(this).data('list-idd');
-    // console.log(x)
-    var ele = document.getElementById(x);
-    // console.log(ele);
-    if (ele.style.maxHeight) {
-      ele.style.maxHeight = null;
-    } else {
-      ele.style.maxHeight = "50vh";
-    }
-  });
-}
+//     this.classList.toggle("activee");
+//     var x = $(this).data('list-idd');
+//     // console.log(x)
+//     var ele = document.getElementById(x);
+//     // console.log(ele);
+//     if (ele.style.maxHeight) {
+//       ele.style.maxHeight = null;
+//     } else {
+//       ele.style.maxHeight = "50vh";
+//     }
+//   });
+// }
 
 
 
