@@ -239,7 +239,13 @@ ANNOUNCEMENT STYLING
 /* -----------------------------------------------------
 HEADER STYLING
 ----------------------------------------------------- */
-
+.d-flex{
+  display: flex;
+}
+.align-items-center{
+  display: flex;
+  align-items: center;
+}
 
 .flex {
   display: flex;
@@ -1321,9 +1327,9 @@ footer li:last-child {
   text-rendering: optimizeLegibility;
 }
 
-.mobile-nav {
+/* .mobile-nav {
   margin: -15px -15px 0 -15px;
-}
+} */
 
 .menu-btn.new-drawer-menu span:nth-child(1) {
   transform: rotate(45deg) translateY(-3.5px);
@@ -1363,7 +1369,7 @@ footer li:last-child {
 
 .mobile-nav__item {
   position: relative;
-  display: block;
+/*   display: block; */
 }
 
 .mobile-nav li {
@@ -1397,10 +1403,10 @@ footer li:last-child {
   gap: 10px;
 }
 
-.mobile-nav__item a,
+.mobile-nav_item .mobile-nav_link,
 .mobile-nav__toggle button {
-  color: rgb(var(--color-base-text));
-  padding: 15px;
+  /* color: rgb(var(--color-base-text)); */
+  padding: 15px 0;
   text-decoration: none;
   background-color: inherit;
 }
@@ -1413,9 +1419,9 @@ footer li:last-child {
   content: "";
   position: absolute;
   bottom: 0;
-  left: 15px;
-  right: 15px;
-  border-bottom: 1px solid #062322;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid currenctColor;
 }
 
 .mobile-nav__has-sublist {
@@ -1538,6 +1544,7 @@ border-bottom: 0;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  background-color : transparent;
 }
 
 .plus-icon-wrap .toggle {
@@ -1546,17 +1553,26 @@ border-bottom: 0;
   background: currentColor;
   position: relative;
   transition: 0.25s all cubic-bezier(0.17, 0.67, 0.09, 0.97);
-}
-
-.plus-icon-wrap .toggle.open::after {
-  transform: rotate(90deg);
-  opacity: 1;
-}
-
-.plus-icon-wrap .toggle.open {
   transform: rotate(90deg);
 }
 
+/* .plus-icon-wrap .toggle.open::after {
+  transform: rotate(90deg);
+  opacity: 1; */
+}
+
+/* .plus-icon-wrap .toggle.open {
+  transform: rotate(90deg);
+}
+ */
+
+.accordion-open .plus-icon-wrap .toggle::after {
+  transform: rotate(0deg);
+  opacity: 0;
+}
+.accordion-open .plus-icon-wrap .toggle{
+  transform: rotate(0deg);
+}
 .plus-icon-wrap .toggle::after {
   content: "";
   width: 100%;
@@ -1565,7 +1581,8 @@ border-bottom: 0;
   height: 3px;
   position: absolute;
   left: 0;
-  opacity: 0;
+  opacity: 1;
+  transform: rotate(90deg);
   background: currentColor;
 }
 
