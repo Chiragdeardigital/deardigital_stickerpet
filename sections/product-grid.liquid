@@ -1,46 +1,30 @@
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-product-grid.css' | asset_url | stylesheet_tag }}
 {{ 'product-grid.css' | asset_url | stylesheet_tag }}
 
+<link rel="preload" href="{{ 'component-badge.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="{{ 'component-rte.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<noscript>{{ 'component-badge.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+
 <div class="wrapper marg-bot-xl">
-    <h2 class="h3 headings text-center no-mobile marg-bot" style="font-size: 35px !important;">{{section.settings.product_grid_heading}}<span class="grid_heading_subtext"> {{section.settings.product_grid_subtext}}</span></h2>
-    <h2 class="h3 headings text-center no-desktop marg-bot marg-top-xxl" style="font-size: 30px !important;">{{section.settings.product_grid_heading}}<span style="font-size: 16px;"> {{section.settings.product_grid_subtext}}</span></h2>
+<h2 class="h3 headings text-center marg-bot" style="margin-top:30px;">{{section.settings.product_grid_heading}}</h2>
     <div class="row">
       {% for product in collections[section.settings.collection_selected_grid].products %}
-      {% if product.price > 0 %}
-      <div class="col-md-4 flex-center">
-        <div class="classic-products products">
-          <div class="about-us middle-text image-section">
-            {% if product.first_available_variant.featured_image != blank %}
-            <a href="{{product.url}}"><img src="{{ product.first_available_variant.featured_image | img_url: 'master' }}" alt="Classic Product Image" loading = "lazy" /></a>
-            {%- elsif product.first_available_variant.featured_image == blank and product.featured_image != blank -%}
-            <a href="{{product.url}}"><img src="{{ product.featured_image | img_url: 'master' }}" alt="Classic Product Image" loading = "lazy" /></a>
-            {%- else -%}
-            {{ 'product-1' | placeholder_svg_tag }}
-            {% endif %}
-          </div>
-          <div class="product-detail justify-text">
-              
-            <div class="row space-around">
-              <p class="col-9 product-title">
-                <a href="{{product.url}}"> 1x {{ product.title | escape  }}</a>
-              </p>
-              <p class="col-3 product-price">
-                  {% render 'price', product: product , price_class: '' %}
-              </p>
-            </div>
-  
-            <div class="row">
-              <p class="col-9 product-description">
-                {{ product.description | escape  }}
-                
-              </p>
-              <p class="col-3 product-size">
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      {% endif %}
-      {% endfor %}
+                <li class="col-md-4 flex-center">
+                  {% render 'product-card',
+                    product_card_product: product,
+                    media_size: section.settings.image_ratio,
+                    show_secondary_image: section.settings.show_secondary_image,
+                    add_image_padding: section.settings.add_image_padding,
+                    show_vendor: section.settings.show_vendor
+                  %}
+                </li>
+        {%- endfor -%}
     </div>
   </div>
 
@@ -56,15 +40,60 @@
             "label": "t:sections.product-grid.settings.heading.label"
         },
         {
-          "type": "html",
-          "id": "product_grid_subtext",
-          "default": "product grid subtext",
-          "label": "t:sections.product-grid.settings.sub_text.label"
-        },
-        {
           "type": "collection",
           "id": "collection_selected_grid",
           "label": "t:sections.product-grid.settings.collection.label"
+        },
+        {
+          "type": "range",
+          "id": "products_per_page",
+          "min": 8,
+          "max": 24,
+          "step": 4,
+          "default": 16,
+          "label": "t:sections.main-collection-product-grid.settings.products_per_page.label"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.main-collection-product-grid.settings.header__3.content"
+        },
+        {
+          "type": "select",
+          "id": "image_ratio",
+          "options": [
+            {
+              "value": "adapt",
+              "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__1.label"
+            },
+            {
+              "value": "portrait",
+              "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__2.label"
+            },
+            {
+              "value": "square",
+              "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__3.label"
+            }
+          ],
+          "default": "adapt",
+          "label": "t:sections.main-collection-product-grid.settings.image_ratio.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_secondary_image",
+          "default": false,
+          "label": "t:sections.main-collection-product-grid.settings.show_secondary_image.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "add_image_padding",
+          "default": false,
+          "label": "t:sections.main-collection-product-grid.settings.add_image_padding.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_vendor",
+          "default": false,
+          "label": "t:sections.main-collection-product-grid.settings.show_vendor.label"
         }
     ],
     "blocks": [
