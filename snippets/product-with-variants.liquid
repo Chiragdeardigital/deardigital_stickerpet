@@ -51,16 +51,7 @@
           <br>
           <span class="modal-show"> Size chart </span>
           <br>
-          <a class="review-stars" href="#reviews">
-            <span class="stars">
-              <span class="star">{% render "icon-star" %}</span>
-              <span class="star">{% render "icon-star" %}</span>
-              <span class="star">{% render "icon-star" %}</span>
-              <span class="star">{% render "icon-star" %}</span>
-              <span class="star">{% render "icon-star" %}</span>
-            </span>
-            <span class="mobile-product-reviews">8 reviews</span>
-          </a>
+
             {%- for block in section.blocks -%}
             {%- case block.type -%}
             {%- when 'text' -%}
@@ -69,7 +60,7 @@
             {%- endcase -%}
             {%- endfor -%}
         </p>
-        <div class="no-js-hidden price-{{ section.id }}" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
+        <div class="no-js-hidden no-d price-{{ section.id }}" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
           {%- for block in section.blocks -%}
           {%- case block.type -%}
           {%- when 'price' -%}
@@ -108,33 +99,37 @@
       <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
       {% endcomment %}
           <div class="center-it" style="max-width: 380px;">           
-            <div class="no-mobile">
-              <div class="no-js-hidden price-{{ section.id }}" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
-                {%- for block in section.blocks -%}
-                {%- case block.type -%}
-                {%- when 'price' -%}
-                {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large product-single__price' -%}
-                {%- when '@app' -%}
-                {% render block %}
-                {%- endcase -%}
-                {%- endfor -%}
-              </div>
-            
-            </div>
             {%- for block in section.blocks -%}
             {%- case block.type -%}
-            {%- when 'description' -%}
-              <div class="product-single__description rte no-mobile" itemprop="description">
-                {{ product.metafields.my_fields.description }}
-                <br>
-                <br>
-                <p>
-                  {{ product.metafields.my_fields.extra_information }}
-                </p>
-                <br>
+            <!-- <div class="no-mobile"> -->
+              {%- when 'price' -%}
+                <div class="no-js-hidden no-mobile price-{{ section.id }}" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
+                {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large product-single__price' -%}
+                </div>
+
+                {%- when '@app' -%}
+                {% render block %}
+
+              {%- when 'description' -%}
+                <div class="product-single__description rte no-mobile" itemprop="description">
+                  {{ product.metafields.my_fields.description }}
+                  <br>
+                  <br>
+                  <p>
+                    {{ product.metafields.my_fields.extra_information }}
+                  </p>
+                  <br>
+                </div>
+              <!-- </div> -->
+              {%- when 'price' -%}
+              <div {{ block.shopify_attributes }}>
+                {%- form 'product', product, id: 'product-form-installment', class: 'installment caption-large' -%}
+                  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                  {{ form | payment_terms }}
+                {%- endform -%}
               </div>
-            {%- endcase -%}
-            {%- endfor -%}
+              {%- endcase -%}
+              {%- endfor -%}
 
             <div itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating" itemscope>
               <meta itemprop="reviewCount" content="35" />
@@ -147,9 +142,6 @@
 
             {% capture "form_id" %}product-form-{{ section.id }}{%- endcapture -%}
 
-            {% form 'product', product, class:form_classes, id:form_id, data-product-form: '' %}
-            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-            <input type="hidden" name="sections" value="cart-total-price,cart-items-template">
             {% unless product.has_only_default_variant %}
             <variant-radios class="no-js-hidden" data-section="{{ section.id }}" data-url="{{ product.url }}" {{ block.shopify_attributes }}>
               {%- for option in product.options_with_values -%}
@@ -229,8 +221,7 @@
                               {% if option.selected_value == value %}checked{% endif %}
                         >
                         <label for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
-                        class="badge"
-                        >
+                        class="badge">
                           {{ value }}
                         </label>
                       {%- endfor -%}
@@ -250,7 +241,7 @@
                     <option {% if variant == product.selected_or_first_available_variant %}
                       selected="selected" {% endif %}
                       data-sku="{{ variant.sku }}"
-            data-avaliable="{% if variant.available %}yes{% else %}no{% endif %}"
+                      data-avaliable="{% if variant.available %}yes{% else %}no{% endif %}"
                       value="{{ variant.id }}"
                       variant-name="{{ variant.title }}">
                       {{ variant.title }} - {{ variant.price | money_with_currency }}
@@ -263,20 +254,11 @@
               {%- when 'upload' -%}
                   <div class="line-item-property__field box">
                   <div class="box__input">              
-                    <input type="hidden" name="properties[Image we will cut out ✂️]" value="No">
-                    <input id="image" required  type="file" class="box__file required" data-multiple-caption="Error {count} files selected" accept="image/*" name="properties[Image we will cut out ✂️]" value="Yes" enctype="multipart/form-data" />
+                    <!-- <input type="hidden" name="properties[Image we will cut out ✂️]" value="No" > -->
+                    <input id="image" required  type="file" class="box__file required" data-multiple-caption="Error {count} files selected" accept="image/*" name="properties[Image we will cut out ✂️]" value="Yes" enctype="multipart/form-data" form="product-form-{{ section.id }}"/>
                     <label for="image"><strong>UPLOAD</strong><span class="box__dragndrop"></span></label>
                     <button type="submit" class="box__button">Upload</button>
                     <label for="image"><span class="box__icon svg-inline--fa"></span></label>
-                  </div>
-                  <div class="box__uploading">
-                    Uploading&hellip;
-                  </div>
-                  <div class="box__success">
-                    Done!
-                  </div>
-                  <div class="box__error">
-                    Error! <span></span>.
                   </div>
                   </div>
             {%- endcase -%}
@@ -311,27 +293,30 @@
               {%- endcase -%}
             {%- endfor -%}
 
+            {% form 'product', product, class:form_classes, id:form_id, data-product-form: '' %}
+              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+              <input type="hidden" name="sections" value="cart-total-price,cart-items-template" form="product-form-{{ section.id }}">
               <div class="product-single__add-to-cart{% if section.settings.add_to_cart_button_size == 'large' %} product-single__add-to-cart--full-width{% endif %}">
-                <button 
-                name="add" 
-                id="AddToCart--{{ section.id }}" 
-                class="AddToCart this-is-cart-btn btn button border-button btn--add-to-cart"
-                {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
-                >
-                {%- if product.selected_or_first_available_variant.available -%}
-                Order Now
-              {%- else -%}
-                sold out
-              {%- endif -%}
-                  
-                </button>
                 {%- for block in section.blocks -%}
                 {%- case block.type -%}
-                {%- when 'buy_buttons' -%}
-                {%- if block.settings.show_dynamic_checkout -%}
-                {{ form | payment_button }}
-                {%- endif -%}
-                {%- endcase -%}
+                  {%- when 'buy_buttons' -%}
+                    <button 
+                      name="add" 
+                      id="AddToCart--{{ section.id }}"
+                      type="submit" 
+                      class="AddToCart this-is-cart-btn btn button border-button btn--add-to-cart"
+                      data-section-id="{{ form_id }}"
+                      {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}>
+                      {%- if product.selected_or_first_available_variant.available -%}
+                        {{ 'products.product.add_to_cart' | t }}
+                      {%- else -%}
+                        {{ 'products.product.sold_out' | t }}
+                      {%- endif -%}
+                    </button>
+                    {%- if block.settings.show_dynamic_checkout -%}
+                      {{ form | payment_button }}
+                    {%- endif -%}
+                  {%- endcase -%}
                 {%- endfor -%}
               </div>            
             {% endform %}

@@ -14,7 +14,9 @@ $(".AddToCart").click(function (e) {
 });
 
 function addToCartVariant() {
-  let addToCartForm = document.querySelector('form[action="/cart/add"]');
+  let section_id = $(".AddToCart").data("section-id");
+  console.log(section_id);
+  let addToCartForm = document.getElementById(section_id);
   let formData = new FormData(addToCartForm);
   let renderedHtml;
   let renderedTotalPrice;

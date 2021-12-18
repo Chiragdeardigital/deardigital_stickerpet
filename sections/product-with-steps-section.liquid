@@ -43,35 +43,20 @@
       {% endcomment %}
       <div class="grid__item large--seven-twelfths text-center">
         <div class="product-title text-center no-desktop">
-          {%- for block in section.blocks -%}
-          {%- case block.type -%}
-          {%- when 'description' -%}
-              <div class="product-description product-single__description text-center">{{ product.description }}</div>
-          {%- endcase -%}
-          {%- endfor -%}
-          <p class=" no-d"> </p>
+
           <p class="product-single__description examples-text no-desktop">
             {%- for block in section.blocks -%}
             {%- case block.type -%}
             {%- when 'description' -%}
-            {{ product.description }}
+              {{ product.description }}
             {%- endcase -%}
             {%- endfor -%}
-            <br>
-            <br>
-            See some examples 
-            <a href="/pages/cutouts" target="_blank">right here</a>. 👈</p>
-          
-          <a class="no-desktop" href="#reviews">
-            <span class="fa fa-star star font-20"></span><span class="fa fa-star star font-20"></span><span class="fa fa-star star font-20"></span><span class="fa fa-star star font-20"></span><span class="fa fa-star star font-20"></span>
-            <span style="display: block;font-size: 14px;font-weight: 100;font-family: Lato,sans-serif;letter-spacing: .5px;margin-bottom: 16px;">135 reviews{% for product in collections.reviews.products %}{% if product.id == 6748620488903 %}{{ product.metafields.stamped.reviews_count }}135 reviews{% endif %}{% endfor %}</span>
-          </a>
 
           {%- for block in section.blocks -%}
           {%- case block.type -%}
           {%- when 'text' -%}
-          <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
-          <p class="no-d product-vendor  {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">{{- block.settings.text -}}</p>
+            <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
+            <p class="no-d product-vendor  {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">{{- block.settings.text -}}</p>
           {%- endcase -%}
           {%- endfor -%}
           
@@ -80,7 +65,13 @@
           {%- when 'price' -%}
             <div class="no-js-hidden price-{{ section.id }}" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
               {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large product-single__price justify-content-center euro no-desktop' -%}
-              <span class="smaller-font">incl. VAT</span>
+              
+            </div>
+            <div {{ block.shopify_attributes }}>
+              {%- form 'product', product, id: 'product-form-installment', class: 'installment caption-large' -%}
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                {{ form | payment_terms }}
+              {%- endform -%}
             </div> 
             {%- when '@app' -%}
             {% render block %}
@@ -113,29 +104,34 @@
           
           <div class="center-it" style="max-width: 420px;">
             
+            {%- for block in section.blocks -%}
+            {%- case block.type -%}
+            {%- when 'price' -%}
             <div class="no-mobile">
-              {%- for block in section.blocks -%}
-          {%- case block.type -%}
-          {%- when 'price' -%}
               <div class="no-js-hidden price-{{ section.id }}" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
                 {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large product-single__price' -%}
               </div>
+              <div {{ block.shopify_attributes }}>
+                {%- form 'product', product, id: 'product-form-installment', class: 'installment caption-large' -%}
+                  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                  {{ form | payment_terms }}
+                {%- endform -%}
+              </div>
+            </div>
+
               {%- when '@app' -%}
               {% render block %}
           {%- endcase -%}
           {%- endfor -%}
-            </div>
 
             {%- for block in section.blocks -%}
             {%- case block.type -%}
             {%- when 'description' -%}
-            <div class="product-description product-single__description rte no-mobile" itemprop="description">
+            <div class="product-description product-single__description rte no-mobile examples-text" itemprop="description">
               {{ product.description }}
             </div>
             {%- endcase -%}
             {%- endfor -%}
-            
-            <p class="product-single__description examples-text no-mobile">See some examples <a href="/pages/cutouts" target="_blank">right here</a>. 👈</p>
 
             <div class="steps-box no-mobile">
               <p>steps</p>
@@ -164,16 +160,7 @@
               <meta itemprop="ratingValue" content="4.9" />
             </div>
 
-            {% capture "form_classes" %}
-              product-single__form{% if product.has_only_default_variant %} product-single__form--no-variants{% endif %}
-            {%- endcapture %}
 
-            {% capture "form_id" %}product-form-{{ section.id }}{%- endcapture -%}
-
-            {% form 'product', product, class:form_classes, id:form_id, data-product-form: '' %}
-            <input type="hidden" name="items[0][id]" value="{{ product.selected_or_first_available_variant.id }}">
-            <div id="upsellProductId"></div>
-            <input type="hidden" name="sections" value="cart-total-price,cart-items-template">
               {% unless product.has_only_default_variant %}
                 <variant-radios class="no-js-hidden variant-radios" data-section="{{ section.id }}" data-url="{{ product.url }}" {{ block.shopify_attributes }}>
                   {%- for option in product.options_with_values -%}
@@ -336,24 +323,20 @@
                                   <div class="line-item-property__field pet-imgbox has-advanced-upload">
                                   <div class="box__input">              
                                     <!-- <input type="hidden" name="properties[Image we will design]" value="No"> -->
-                                    <input id="pet1" required type="file" class="box__file required" data-multiple-caption="Error {count} files selected" accept="image/*" name="items[0][properties[Image we will design 🎨]]" value="Yes" enctype="multipart/form-data" />
+                                    <input id="pet1" required type="file" class="box__file required" data-multiple-caption="Error {count} files selected" accept="image/*" name="items[0][properties[Image we will design 🎨]]" value="Yes" enctype="multipart/form-data" 
+                                    form="product-form-{{ section.id }}"
+                                    />
                 <!--                     <label for="pet1"><strong>UPLOAD</strong><span class="box__dragndrop"></span></label> -->
                                     <button type="submit" class="box__button">Upload</button>
                                     <label for="pet1"><span class="box__icon svg-inline--fa"></span></label>
                                   </div>
-                                  <div class="box__uploading">
-                                    Uploading&hellip;
-                                  </div>
-                                  <div class="box__success">
-                                    Done!
-                                  </div>
-                                  <div class="box__error">
-                                    Error! <span></span>.
-                                  </div>
+
                                   </div>
                                   <p class="line-item-property__field flex-box flex-column">
                                     <label for="Petname1">Pet name</label>
-                                    <input type="text" class="" id="Petname1" name="items[0][properties[_Petname]]">
+                                    <input type="text" class="" id="Petname1" name="items[0][properties[_Petname]]"
+                                    form="product-form-{{ section.id }}"
+                                    >
                                   </p>
                                 </div>
                               
@@ -361,24 +344,20 @@
                                   <div class="line-item-property__field pet-imgbox has-advanced-upload">
                                   <div class="box__input">              
                 <!--                     <input type="hidden" name="properties[Image we will design ]" value="No"> -->
-                                    <input id="pet2" type="file" class="box__file" data-multiple-caption="Error {count} files selected" accept="image/*" name="items[0][properties[_Second Image we will design 🎨]]" value="Yes" enctype="multipart/form-data" />
+                                    <input id="pet2" type="file" class="box__file" data-multiple-caption="Error {count} files selected" accept="image/*" name="items[0][properties[_Second Image we will design 🎨]]" value="Yes" enctype="multipart/form-data" 
+                                    form="product-form-{{ section.id }}"
+                                    />
                     <!--                 <label for="image"><strong>UPLOAD</strong><span class="box__dragndrop"></span></label> -->
                                     <button type="submit" class="box__button">Upload</button>
                                     <label for="pet2"><span class="box__icon svg-inline--fa"></span></label>
                                   </div>
-                                  <div class="box__uploading">
-                                    Uploading&hellip;
-                                  </div>
-                                  <div class="box__success">
-                                    Done!
-                                  </div>
-                                  <div class="box__error">
-                                    Error! <span></span>.
-                                  </div>
+
                                   </div>
                                 <p class="line-item-property__field flex-box flex-column">
                                   <label for="Petname2">Pet name</label>
-                                  <input type="text" class="" id="Petname2" name="items[0][properties[_Petname2]]">
+                                  <input type="text" class="" id="Petname2" name="items[0][properties[_Petname2]]"
+                                  form="product-form-{{ section.id }}"
+                                  >
                                 </p>
                               </div>
                           </div>
@@ -406,6 +385,16 @@
                         {%- endif -%}
                     {%- endcase -%}
                   {%- endfor -%}
+
+                {% capture "form_classes" %}
+                  product-single__form{% if product.has_only_default_variant %} product-single__form--no-variants{% endif %}
+                {%- endcapture %}
+                {% capture "form_id" %}product-form-{{ section.id }}{%- endcapture -%}
+                
+                {% form 'product', product, class:form_classes, id:form_id, data-product-form: '' %}
+                <input type="hidden" name="items[0][id]" value="{{ product.selected_or_first_available_variant.id }}" form="product-form-{{ section.id }}">
+                <div id="upsellProductId"></div>
+                <input type="hidden" name="sections" value="cart-total-price,cart-items-template" form="product-form-{{ section.id }}">
                   <div class="flex-box justify-center align-center step-buttons">
                     <button type="button" class="back-link no-mobile" id="prevBtn" onclick="nextPrev(-1)">
                       BACK
@@ -413,12 +402,18 @@
                     <button type="button" id="nextBtn" onclick="nextPrev(1)" class="button border-button no-mobile">
                       Next
                     </button>
-          
-                    <button type="submit" name="add" id="AddToCart--product-custom-template-2" disabled="true" class="AddToCart button border-button no-desktop">
-                      <span class="btn__text">Add to Cart</span>
+
+                    <button type="submit" 
+                      name="add" 
+                      id="AddToCart--product-custom-template-2" 
+                      disabled="true" 
+                      class="AddToCart button border-button no-desktop"
+                      data-section-id="{{ form_id }}"
+                      >
+                      {{ 'products.product.add_to_cart' | t }}
                     </button>
-                    
                   </div>
+                  {% endform %}
                 </variant-radios>
                 <select id="ProductSelect--product-custom-template" class="product-single__variants no-js">
                   {% for variant in product.variants %}                  
@@ -444,7 +439,7 @@
               {% endif %}
     
             {%- endcomment -%}
-            {% endform %}
+            
             <br>
                         <!-- ---------------------------------------------------- -->
                         <share-button class="share-button " {{ block.shopify_attributes }}>

@@ -1,9 +1,9 @@
 $(document).ready(function () {
   $(".color-option .color-div input").each(function () {
-    console.log(this.checked);
+    // console.log(this.checked);
     if (this.checked) {
       soldOut(document.querySelector("label[for='" + this.getAttribute("id") + "']"));
-      console.log(document.querySelector("label[for='" + this.getAttribute("id") + "']"));
+      // console.log(document.querySelector("label[for='" + this.getAttribute("id") + "']"));
     }
   });
 
@@ -13,13 +13,13 @@ $(document).ready(function () {
 
   function soldOut(ele) {
     var colorSelected = ele.getAttribute("data-option-id");
-    console.log(ele);
+    // console.log(ele);
     $(ele).addClass("selected-color");
     var inputColor = colorSelected.substring(0, colorSelected.lastIndexOf('-')).replaceAll(" ", "");
-    console.log("Input Color: " + inputColor);
+    // console.log("Input Color: " + inputColor);
 
     var color = inputColor.substring(inputColor.lastIndexOf('-') + 1);
-    console.log("Color: " + color);
+    // console.log("Color: " + color);
     $(".size-circle").removeClass("selected-size");
     $(".size-circle").removeClass("not-available");
     $("#ProductSelect--product-custom-template option").each(function () {
@@ -272,7 +272,7 @@ if (vw > 768 && vw <= 1024) {
       $("#dropdownMenuHover svg").delay("slow").css("transform", "rotate(0deg)");
       $(".header-desktop__backdrop").delay("slow").css("display", "none");
       $(this).removeClass("open");
-      console.log("Dropdown collapsed");
+      // console.log("Dropdown collapsed");
     } else {
       $(".dropdown-menu").css("top", "77%");
       $("#dropdownMenuHover svg").css("transform", "rotate(180deg)");
@@ -522,7 +522,7 @@ if (
       restart = form.querySelectorAll('.box__restart'),
       droppedFiles = false,
       showFiles = function (files) {
-        console.log(label);
+        // console.log(label);
         label.css({ "visibility": "hidden" });
         // label.style.visibility = "hidden"; //files.length > 1 ? ( input.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', files.length ) : files[ 0 ].name;
       }

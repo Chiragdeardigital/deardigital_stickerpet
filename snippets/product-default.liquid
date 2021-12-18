@@ -71,8 +71,14 @@
                       {{ product.title }}
                     </h1>
                   {%- when 'price' -%}
-                    <div class="product-price">
+                    <div class="">
                       {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'product-price product-single__price' -%}
+                    </div>
+                    <div {{ block.shopify_attributes }}>
+                      {%- form 'product', product, id: 'product-form-installment', class: 'installment caption-large' -%}
+                        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                        {{ form | payment_terms }}
+                      {%- endform -%}
                     </div>
                   {%- when '@app' -%}
                     {% render block %}
@@ -84,14 +90,8 @@
                     {%- endif -%}
                 {%- endcase -%}
               {%- endfor -%}
-              {% capture "form_classes" %}
-              product-single__form{% if product.has_only_default_variant %} AddToCartForm--product-template--no-variants product-single__form--no-variants{% endif %}
-              {%- endcapture %}
 
-              {% capture "form_id" %}product-form-{{ section.id }}{%- endcapture -%}
-              {% form 'product', product, class:form_classes, id:form_id, data-product-form: '' %}
-                <input type="hidden" name="sections" value="cart-total-price,cart-items-template">
-                <select name="id" id="ProductSelect--{{ section.id }}" class="product-single__variants no-js" hidden>
+                <select name="id" id="ProductSelect--{{ section.id }}" class="product-single__variants no-js" hidden form="product-form-{{ section.id }}">
                     {% for variant in product.variants %}
                       {% if variant.available %}
                         <option {% if variant == product.selected_or_first_available_variant %}
@@ -119,6 +119,7 @@
                             class="box__file required" 
                             accept="image/*"
                             enctype="multipart/form-data"
+                            form="product-form-{{ section.id }}"
                             name="properties[Image we will cut out ✂️]"
                           />
                           <label for="image">
@@ -163,9 +164,17 @@
                         </quantity-input>
                       </div>
                     {%- when 'buy_buttons' -%}
+                    {% capture "form_classes" %}
+                    product-single__form{% if product.has_only_default_variant %} AddToCartForm--product-template--no-variants product-single__form--no-variants{% endif %}
+                    {%- endcapture %}
+      
+                    {% capture "form_id" %}product-form-{{ section.id }}{%- endcapture -%}
+                    {% form 'product', product, class:form_classes, id:form_id, data-product-form: '' %}
+                      <input type="hidden" name="sections" value="cart-total-price,cart-items-template" form="product-form-{{ section.id }}">
                       <div class="product-single__add-to-cart">
                         <button  name="add" id="AddToCart--product-template"
                                 class="button border-button AddToCart"
+                                data-section-id="{{ form_id }}"
                                 data-id="{{ current_variant.id }}">
                           Order Now
                         </button>
@@ -173,9 +182,9 @@
                           {{ form | payment_button }}
                         {%- endif -%}
                       </div>
+                      {% endform %}
                   {%- endcase -%}
                 {%- endfor -%}
-              {% endform %}
             </div>
 
             <!-- ---------------------------------------------------- -->
