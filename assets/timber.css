@@ -3449,7 +3449,7 @@ label.error {
   padding: 5px 25px;
   margin: 0;
 }
-
+/* 
 .js-qty__adjust, .ajaxcart__qty-adjust {
   cursor: pointer;
   position: absolute;
@@ -3499,7 +3499,7 @@ label.error {
 .js-qty__adjust--minus, .ajaxcart__qty--minus {
   left: 0;
   border-right: 1px solid #062322;
-}
+} */
 
 /*================ Quantity Selectors in Ajax Cart ================*/
 .ajaxcart__qty {
@@ -3515,7 +3515,7 @@ label.error {
   transition: none;
 }
 
-.ajaxcart__qty-num[type="text"] {
+/* .ajaxcart__qty-num[type="text"] {
   border-color: #062322;
   color: #062322;
 }
@@ -3541,7 +3541,7 @@ label.error {
 
 .ajaxcart__qty--minus {
   border-color: #062322;
-}
+} */
 
 /*================ Module-specific styles ================*/
 /*================ Module | Footer ================*/
