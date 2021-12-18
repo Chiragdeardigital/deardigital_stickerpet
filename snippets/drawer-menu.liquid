@@ -23,7 +23,7 @@
                                     <a class="flex mobile-nav__link" href="{{ product.url }}">
                                       {{ product.title }}
                                     </a>
-                                    <a class="flex" href="{{ product.url }}" style="margin-left: 10%;">
+                                    <a class="flex mobile-nav_image" href="{{ product.url }}">
                                       {%- if product.images.size > 0 -%}
                                       {%- if product.images.size > 1 -%}
                                         {%- assign product_image = product.images[1] -%}
@@ -35,7 +35,6 @@
                                             alt="{{ product.title }}" 
                                             width="auto"
                                             height="auto"
-                                            style="max-width: 60px;"
                                             loading="lazy"
                                             />
                                       {%- else -%}
@@ -53,7 +52,7 @@
                                         <a class="flex mobile-nav__link" href="{{ product.url }}">
                                           {{ product.title }}
                                         </a>
-                                        <a class="flex" href="{{ product.url }}" style="margin-left: 10%;">
+                                        <a class="flex mobile-nav_image" href="{{ product.url }}">
                                           {%- if product.images.size > 0 -%}
                                           {%- if product.images.size > 1 -%}
                                             {%- assign product_image = product.images[1] -%}
@@ -65,7 +64,6 @@
                                                 alt="{{ product.title }}" 
                                                 width="auto"
                                                 height="auto"
-                                                style="max-width: 60px; height: auto;"
                                                 loading="lazy"
                                                 />
                                           {%- else -%}
@@ -82,7 +80,7 @@
                                       <a class="flex mobile-nav__link" href="{{ product.url }}">
                                         {{ product.title }}
                                       </a>
-                                      <a class="flex" href="{{ product.url }}" style="margin-left: 10%;">
+                                      <a class="flex mobile-nav_image" href="{{ product.url }}">
                                         {%- if product.images.size > 0 -%}
                                         {%- if product.images.size > 1 -%}
                                           {%- assign product_image = product.images[1] -%}
@@ -94,7 +92,6 @@
                                               alt="{{ product.title }}" 
                                               width="auto"
                                               height="auto"
-                                              style="max-width: 60px; height: auto;"
                                               loading="lazy"
                                               />
                                         {%- else -%}
