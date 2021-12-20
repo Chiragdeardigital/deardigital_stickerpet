@@ -159,6 +159,15 @@
               <meta itemprop="reviewCount" content="35" />
               <meta itemprop="ratingValue" content="4.9" />
             </div>
+            {% capture "form_classes" %}
+            product-single__form{% if product.has_only_default_variant %} product-single__form--no-variants{% endif %}
+          {%- endcapture %}
+          {% capture "form_id" %}product-form-{{ section.id }}{%- endcapture -%}
+          
+          {% form 'product', product, class:form_classes, id:form_id, data-product-form: '' %}
+          <input type="hidden" name="items[0][id]" value="{{ product.selected_or_first_available_variant.id }}" form="product-form-{{ section.id }}">
+          <div id="upsellProductId"></div>
+          <input type="hidden" name="sections" value="cart-total-price,cart-items-template" form="product-form-{{ section.id }}">
 
 
               {% unless product.has_only_default_variant %}
@@ -386,15 +395,7 @@
                     {%- endcase -%}
                   {%- endfor -%}
 
-                {% capture "form_classes" %}
-                  product-single__form{% if product.has_only_default_variant %} product-single__form--no-variants{% endif %}
-                {%- endcapture %}
-                {% capture "form_id" %}product-form-{{ section.id }}{%- endcapture -%}
-                
-                {% form 'product', product, class:form_classes, id:form_id, data-product-form: '' %}
-                <input type="hidden" name="items[0][id]" value="{{ product.selected_or_first_available_variant.id }}" form="product-form-{{ section.id }}">
-                <div id="upsellProductId"></div>
-                <input type="hidden" name="sections" value="cart-total-price,cart-items-template" form="product-form-{{ section.id }}">
+
                   <div class="flex-box justify-center align-center step-buttons">
                     <button type="button" class="back-link no-mobile" id="prevBtn" onclick="nextPrev(-1)">
                       BACK
@@ -413,7 +414,7 @@
                       {{ 'products.product.add_to_cart' | t }}
                     </button>
                   </div>
-                  {% endform %}
+                
                 </variant-radios>
                 <select id="ProductSelect--product-custom-template" class="product-single__variants no-js">
                   {% for variant in product.variants %}                  
@@ -421,7 +422,7 @@
                          {% endif %}
                         data-sku="{{ variant.sku }}"
                         data-variant-price="{{ variant.price | money | replace:",","."   }}"
-              data-avaliable="{% if variant.available %}yes{% else %}no{% endif %}"
+                        data-avaliable="{% if variant.available %}yes{% else %}no{% endif %}"
                         value="{{ variant.id }}"
                         variant-name="{{ variant.title }}"
                         >
@@ -430,6 +431,7 @@
                   {% endfor %}
                 </select>
               {% endunless %}
+              {% endform %}
 {%- comment -%}
               {% if section.settings.quantity_enabled %}
               <div class="product-single__quantity">
